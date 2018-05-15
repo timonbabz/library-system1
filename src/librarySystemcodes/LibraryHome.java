@@ -292,6 +292,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         maxStd = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        jLabel98 = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
         labelTime = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
@@ -302,7 +305,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableBookStock = new javax.swing.JTable();
         txtSearchText = new javax.swing.JTextField();
         searchStock = new javax.swing.JButton();
-        comboFilterStock = new javax.swing.JComboBox<>();
+        comboFilterStock = new javax.swing.JComboBox<String>();
         btnExportStock = new javax.swing.JButton();
         btnRefreshStockDetails = new javax.swing.JButton();
         panelIssueStudent = new javax.swing.JPanel();
@@ -334,7 +337,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         btnIssueToStudents = new javax.swing.JButton();
         jPanel35 = new javax.swing.JPanel();
-        comboSearchIssue = new javax.swing.JComboBox<>();
+        comboSearchIssue = new javax.swing.JComboBox<String>();
         txtSearchIssueStd = new javax.swing.JTextField();
         btnSearchIssueStd = new javax.swing.JButton();
         btnIssueRefresh = new javax.swing.JButton();
@@ -368,7 +371,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jPanel37 = new javax.swing.JPanel();
-        comboSearchInStaffIssue = new javax.swing.JComboBox<>();
+        comboSearchInStaffIssue = new javax.swing.JComboBox<String>();
         btnSearchStaffBk = new javax.swing.JButton();
         btnAddBookStaff = new javax.swing.JButton();
         txtSearchStaffBook = new javax.swing.JTextField();
@@ -412,7 +415,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtListBooks = new javax.swing.JTextField();
         btnSearchList = new javax.swing.JButton();
         btnExcelList = new javax.swing.JButton();
-        comboBoxList = new javax.swing.JComboBox<>();
+        comboBoxList = new javax.swing.JComboBox<String>();
         panelBorrowers = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
@@ -420,7 +423,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableBorrowers = new javax.swing.JTable();
         txtSearchBorrowers = new javax.swing.JTextField();
         btnSearchBorrowers = new javax.swing.JButton();
-        comboFilter = new javax.swing.JComboBox<>();
+        comboFilter = new javax.swing.JComboBox<String>();
         btnPrintBorrowers = new javax.swing.JButton();
         jLabel62 = new javax.swing.JLabel();
         btnExcelBorrowers = new javax.swing.JButton();
@@ -464,10 +467,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnIssueShort = new javax.swing.JButton();
         btnSearchStdStaff = new javax.swing.JButton();
         txtShortBkId = new javax.swing.JTextField();
-        comboStaffStudent = new javax.swing.JComboBox<>();
+        comboStaffStudent = new javax.swing.JComboBox<String>();
         jLabel59 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
-        comboSearchShort = new javax.swing.JComboBox<>();
+        comboSearchShort = new javax.swing.JComboBox<String>();
         btnRefreshShortBks = new javax.swing.JButton();
         txtSearchShort = new javax.swing.JTextField();
         btnSearchShortLoanBks = new javax.swing.JButton();
@@ -514,7 +517,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableBookLost = new javax.swing.JTable();
         txtSearchLost = new javax.swing.JTextField();
         searchLost = new javax.swing.JButton();
-        comboFilterLost = new javax.swing.JComboBox<>();
+        comboFilterLost = new javax.swing.JComboBox<String>();
         txtBookIDlost = new javax.swing.JTextField();
         btnAddBkLost = new javax.swing.JButton();
         jLabel65 = new javax.swing.JLabel();
@@ -542,7 +545,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtStdIdSearch = new javax.swing.JTextField();
         btnSearchStdID = new javax.swing.JButton();
         jLabel60 = new javax.swing.JLabel();
-        comboFilterStudents = new javax.swing.JComboBox<>();
+        comboFilterStudents = new javax.swing.JComboBox<String>();
         panelTeachers = new javax.swing.JPanel();
         labelStaffList = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
@@ -552,7 +555,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtStaffIdList = new javax.swing.JTextField();
         btnSearchStaffId = new javax.swing.JButton();
         jLabel92 = new javax.swing.JLabel();
-        comboFiletStaff = new javax.swing.JComboBox<>();
+        comboFiletStaff = new javax.swing.JComboBox<String>();
         panelMags = new javax.swing.JPanel();
         labelMagz = new javax.swing.JLabel();
         panelMagsIn = new javax.swing.JPanel();
@@ -561,7 +564,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel25 = new javax.swing.JPanel();
         txtMagzNameID = new javax.swing.JTextField();
         labelId = new javax.swing.JLabel();
-        comboMagz = new javax.swing.JComboBox<>();
+        comboMagz = new javax.swing.JComboBox<String>();
         jLabel80 = new javax.swing.JLabel();
         txtMagzName1 = new javax.swing.JTextField();
         labelId1 = new javax.swing.JLabel();
@@ -603,7 +606,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtSearchMagzBorrowed = new javax.swing.JTextField();
         btnSearchBoroMagz = new javax.swing.JButton();
         btnMagzToExcel = new javax.swing.JButton();
-        comboMagzFilter = new javax.swing.JComboBox<>();
+        comboMagzFilter = new javax.swing.JComboBox<String>();
         panelSchedules = new javax.swing.JPanel();
         labelMagzBorrowed1 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
@@ -632,7 +635,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jScrollPane19 = new javax.swing.JScrollPane();
         txtNotesInfo = new javax.swing.JTextArea();
         jLabel85 = new javax.swing.JLabel();
-        comboNotes = new javax.swing.JComboBox<>();
+        comboNotes = new javax.swing.JComboBox<String>();
         ChooserNotes = new com.toedter.calendar.JDateChooser();
         btnCreateNotes = new javax.swing.JButton();
         btnCancelNotes = new javax.swing.JButton();
@@ -1119,7 +1122,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 1.0.1 created by T.O.O Softwares. 2018.");
+        jLabel79.setText("System version 1.0.2 created by Optimum Computer Systems © 2018 ");
 
         jLabel93.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel93.setText("Maximum books allowable:");
@@ -1136,6 +1139,15 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel96.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel96.setText("Maximum days allowable:");
+
+        jLabel97.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel97.setText("number");
+
+        jLabel98.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jLabel98.setText("number");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1161,15 +1173,25 @@ public final class LibraryHome extends javax.swing.JFrame {
                                 .addComponent(labelPermission, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel79, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel95)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(maxStaff))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel94)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(maxStd))
-                            .addComponent(jLabel93, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1))))
+                                .addComponent(jLabel93)
+                                .addGap(95, 95, 95)
+                                .addComponent(jLabel96))
+                            .addComponent(jSeparator1)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel95)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(maxStaff))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(jLabel94)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(maxStd)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel98)
+                                    .addComponent(jLabel97))
+                                .addGap(90, 90, 90)))))
                 .addGap(16, 16, 16))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1185,15 +1207,19 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel93)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel93)
+                            .addComponent(jLabel96))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel95)
-                            .addComponent(maxStaff))
+                            .addComponent(maxStaff)
+                            .addComponent(jLabel97))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel94)
-                            .addComponent(maxStd))
+                            .addComponent(maxStd)
+                            .addComponent(jLabel98))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelPermission)
@@ -1297,7 +1323,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilterStock.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilterStock.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboFilterStock.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboFilterStock.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterStockItemStateChanged(evt);
@@ -1658,7 +1684,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchIssue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchIssueItemStateChanged(evt);
@@ -1978,7 +2004,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchInStaffIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchInStaffIssue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchInStaffIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchInStaffIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchInStaffIssueItemStateChanged(evt);
@@ -2289,7 +2315,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(txtBookIsbnRet, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtBookTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel16Layout.createSequentialGroup()
@@ -2526,7 +2552,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboBoxList.setBackground(new java.awt.Color(255, 255, 255));
-    comboBoxList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by borrowed", "YES", "NO", "LOST" }));
+    comboBoxList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by borrowed", "YES", "NO", "LOST" }));
     comboBoxList.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboBoxListItemStateChanged(evt);
@@ -2613,7 +2639,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilter.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by :", "STAFF", "STUDENT" }));
+    comboFilter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "STAFF", "STUDENT" }));
     comboFilter.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterItemStateChanged(evt);
@@ -2955,7 +2981,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     txtShortBkId.setEditable(false);
 
     comboStaffStudent.setBackground(new java.awt.Color(129, 186, 243));
-    comboStaffStudent.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "STUDENT", "STAFF" }));
+    comboStaffStudent.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "STUDENT", "STAFF" }));
     comboStaffStudent.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboStaffStudentItemStateChanged(evt);
@@ -3094,7 +3120,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchShort.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchShort.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchShort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchShort.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchShortItemStateChanged(evt);
@@ -3631,7 +3657,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilterLost.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilterLost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboFilterLost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboFilterLost.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterLostItemStateChanged(evt);
@@ -3928,7 +3954,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel60.setText("Enter student ID :");
 
     comboFilterStudents.setBackground(new java.awt.Color(255, 255, 255));
-    comboFilterStudents.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by returned :", "YES", "NO" }));
+    comboFilterStudents.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by returned :", "YES", "NO" }));
     comboFilterStudents.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterStudentsItemStateChanged(evt);
@@ -4043,7 +4069,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel92.setText("Enter staff ID :");
 
     comboFiletStaff.setBackground(new java.awt.Color(255, 255, 255));
-    comboFiletStaff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by returned :", "YES", "NO" }));
+    comboFiletStaff.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by returned :", "YES", "NO" }));
     comboFiletStaff.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFiletStaffItemStateChanged(evt);
@@ -4124,7 +4150,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     labelId.setText("Adm No/ID :");
 
     comboMagz.setBackground(new java.awt.Color(129, 186, 243));
-    comboMagz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "STUDENT", "STAFF" }));
+    comboMagz.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select", "STUDENT", "STAFF" }));
     comboMagz.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboMagzItemStateChanged(evt);
@@ -4579,7 +4605,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboMagzFilter.setBackground(new java.awt.Color(51, 102, 255));
-    comboMagzFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filter by :", "STUDENT", "STAFF" }));
+    comboMagzFilter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "STUDENT", "STAFF" }));
     comboMagzFilter.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboMagzFilterItemStateChanged(evt);
@@ -4819,7 +4845,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel85.setText("Note information :");
 
     comboNotes.setBackground(new java.awt.Color(129, 186, 243));
-    comboNotes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select importance", "Not important", "Mild importance", "important", "Very important", "Urgent" }));
+    comboNotes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select importance", "Not important", "Mild importance", "important", "Very important", "Urgent" }));
 
     ChooserNotes.setBackground(new java.awt.Color(129, 186, 243));
 
@@ -10631,6 +10657,9 @@ public void filterStaffTableID(){
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
