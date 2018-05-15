@@ -253,7 +253,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         );
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("System Version 1.0.1  © 2018 Created by T.O.O");
+        jLabel5.setText("System Version 1.0.1  © 2018");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

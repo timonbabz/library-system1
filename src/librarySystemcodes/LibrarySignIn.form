@@ -354,7 +354,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="System Version 1.0.1  &#xa9; 2018 Created by T.O.O"/>
+            <Property name="text" type="java.lang.String" value="System Version 1.0.1  &#xa9; 2018"/>
           </Properties>
         </Component>
       </SubComponents>
