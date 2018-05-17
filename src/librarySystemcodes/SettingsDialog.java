@@ -53,8 +53,8 @@ public class SettingsDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        textStudentDays = new javax.swing.JTextField();
+        textStaffDays = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -159,6 +159,18 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         jLabel6.setText("Maximum number of days allowed for staff :");
 
+        textStudentDays.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textStudentDaysKeyTyped(evt);
+            }
+        });
+
+        textStaffDays.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textStaffDaysKeyTyped(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButton1.setText("Cancel");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -189,8 +201,8 @@ public class SettingsDialog extends javax.swing.JDialog {
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textStaffDays)
+                            .addComponent(textStudentDays, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,11 +211,11 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textStudentDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textStaffDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -268,6 +280,11 @@ public class SettingsDialog extends javax.swing.JDialog {
         jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelSetLayout = new javax.swing.GroupLayout(panelSet);
         panelSet.setLayout(panelSetLayout);
@@ -378,6 +395,26 @@ public class SettingsDialog extends javax.swing.JDialog {
             getToolkit().beep();
             evt.consume();}
     }//GEN-LAST:event_spinStaffKeyTyped
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void textStudentDaysKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textStudentDaysKeyTyped
+        textStudentDays.setForeground(Color.black);
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();}
+    }//GEN-LAST:event_textStudentDaysKeyTyped
+
+    private void textStaffDaysKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textStaffDaysKeyTyped
+        textStaffDays.setForeground(Color.black);
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();}
+    }//GEN-LAST:event_textStaffDaysKeyTyped
 
     /**
      * @param args the command line arguments
@@ -574,11 +611,11 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel panelSet;
     private javax.swing.JTextField spinStaff;
     private javax.swing.JTextField spinStudents;
+    private javax.swing.JTextField textStaffDays;
+    private javax.swing.JTextField textStudentDays;
     private javax.swing.JTextField txtSetName;
     // End of variables declaration//GEN-END:variables
 }

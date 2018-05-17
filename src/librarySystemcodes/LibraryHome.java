@@ -1684,7 +1684,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchIssueItemStateChanged(evt);
@@ -2004,7 +2004,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchInStaffIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchInStaffIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchInStaffIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchInStaffIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchInStaffIssueItemStateChanged(evt);
@@ -3120,7 +3120,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchShort.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchShort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboSearchShort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchShort.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchShortItemStateChanged(evt);
@@ -3657,7 +3657,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilterLost.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilterLost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboFilterLost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboFilterLost.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterLostItemStateChanged(evt);
@@ -6294,7 +6294,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemLostActionPerformed
 
     private void btnLostConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLostConfActionPerformed
-        int response = JOptionPane.showConfirmDialog(null, "Report this book as lost?",
+        if(txtBookIDlost.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please select a book that is to be marked as lost");
+        }
+        else{int response = JOptionPane.showConfirmDialog(null, "Report this book as lost?",
                 "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         switch (response) {
             case JOptionPane.NO_OPTION:
@@ -6302,12 +6306,16 @@ public final class LibraryHome extends javax.swing.JFrame {
             case JOptionPane.CLOSED_OPTION:
                 break;
             case JOptionPane.YES_OPTION:
-                if(txtStaffLost.getText().equals("STUDENT"))
-                    {lostByStudents();
-                    refreshBooksLost();}
-                else if(txtStaffLost.getText().equals("STAFF")){
-                    lostByStaff();
-                    refreshBooksLost();}
+        switch (txtStaffLost.getText()) {
+            case "STUDENT":
+                lostByStudents();
+                refreshBooksLost();
+                break;
+            case "STAFF":
+                lostByStaff();
+                refreshBooksLost();
+                break;}
+            }
         }
     }//GEN-LAST:event_btnLostConfActionPerformed
 
@@ -9968,7 +9976,7 @@ public void displayLostTable() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "All books have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No books in the table to be marked as lost", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {

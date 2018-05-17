@@ -69,7 +69,7 @@ public class AddBookDialog extends javax.swing.JDialog {
         txtIsbnAdd = new javax.swing.JTextField();
         comboBoxLoanType = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        labelLoan = new javax.swing.JLabel();
         txtCategoryAdd = new javax.swing.JComboBox<String>();
         txtPublisherAdd = new javax.swing.JTextField();
         txtEditionAdd = new javax.swing.JTextField();
@@ -77,12 +77,12 @@ public class AddBookDialog extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         txtAuthorAdd = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        labelCat = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         panelViewDetailsButton = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnViewDetails = new javax.swing.JButton();
         panelButtonAdd = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
         btnAddBook = new javax.swing.JButton();
@@ -242,30 +242,72 @@ public class AddBookDialog extends javax.swing.JDialog {
         panelAddBook.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 255), 2, true), "Book details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         txtTitleAdd.setToolTipText("title of the book");
+        txtTitleAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitleAddKeyTyped(evt);
+            }
+        });
+
+        txtBookID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBookIDKeyTyped(evt);
+            }
+        });
+
+        txtIsbnAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIsbnAddKeyTyped(evt);
+            }
+        });
 
         comboBoxLoanType.setBackground(new java.awt.Color(129, 186, 243));
         comboBoxLoanType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select loan type", "Long", "Short" }));
+        comboBoxLoanType.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboBoxLoanTypeItemStateChanged(evt);
+            }
+        });
 
         jLabel4.setText("Title :");
 
-        jLabel7.setText("For loan type :");
+        labelLoan.setText("For loan type :");
 
         txtCategoryAdd.setBackground(new java.awt.Color(129, 186, 243));
         txtCategoryAdd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select book category", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+        txtCategoryAdd.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                txtCategoryAddItemStateChanged(evt);
+            }
+        });
 
         txtPublisherAdd.setToolTipText("name of publisher");
+        txtPublisherAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPublisherAddKeyTyped(evt);
+            }
+        });
 
         txtEditionAdd.setToolTipText("eg 1st Edition or Revised Edition");
+        txtEditionAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEditionAddKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Edition :");
 
         jLabel2.setText("Book ISBN :");
 
         txtAuthorAdd.setToolTipText("name of the author");
+        txtAuthorAdd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAuthorAddKeyTyped(evt);
+            }
+        });
 
         jLabel5.setText("Publisher :");
 
-        jLabel8.setText("Category :");
+        labelCat.setText("Category :");
 
         jLabel10.setText("Book ID :");
 
@@ -295,14 +337,24 @@ public class AddBookDialog extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton1.setText("VIew details");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnViewDetails.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnViewDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viewdetails_16.png"))); // NOI18N
+        btnViewDetails.setText("VIew details");
+        btnViewDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnViewDetails.setContentAreaFilled(false);
+        btnViewDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewDetails.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viewdetailswhite_16.png"))); // NOI18N
+        btnViewDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnViewDetailsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnViewDetailsMouseExited(evt);
+            }
+        });
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnViewDetailsActionPerformed(evt);
             }
         });
 
@@ -312,7 +364,7 @@ public class AddBookDialog extends javax.swing.JDialog {
             panelViewDetailsButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelViewDetailsButtonLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -322,7 +374,7 @@ public class AddBookDialog extends javax.swing.JDialog {
             .addGroup(panelViewDetailsButtonLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(panelViewDetailsButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -348,9 +400,9 @@ public class AddBookDialog extends javax.swing.JDialog {
                         .addComponent(txtAuthorAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelAddBookLayout.createSequentialGroup()
                         .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
+                            .addComponent(labelCat)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(labelLoan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboBoxLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,11 +453,11 @@ public class AddBookDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCategoryAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(labelCat))
                 .addGap(18, 18, 18)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(labelLoan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelViewDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -569,7 +621,10 @@ public class AddBookDialog extends javax.swing.JDialog {
         btnExit.setForeground(Color.black);
     }//GEN-LAST:event_btnExitMouseExited
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+
+        if (RegisterData() == true )
+        {
         String edition = txtEditionAdd.getText().trim();
         String category = (String) txtCategoryAdd.getSelectedItem();
         String loanType = (String) comboBoxLoanType.getSelectedItem();
@@ -587,7 +642,54 @@ public class AddBookDialog extends javax.swing.JDialog {
         lblTitle.setText(title);
         lblAuthor.setText(authorname);
         lblISBN.setText(isbnnumber);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnViewDetailsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewDetailsMouseEntered
+        btnViewDetails.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnViewDetailsMouseEntered
+
+    private void btnViewDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewDetailsMouseExited
+        btnViewDetails.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnViewDetailsMouseExited
+
+    private void txtBookIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookIDKeyTyped
+        txtBookID.setBackground(Color.white);
+    }//GEN-LAST:event_txtBookIDKeyTyped
+
+    private void txtIsbnAddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIsbnAddKeyTyped
+        txtIsbnAdd.setBackground(Color.white);
+    }//GEN-LAST:event_txtIsbnAddKeyTyped
+
+    private void txtAuthorAddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAuthorAddKeyTyped
+        txtAuthorAdd.setBackground(Color.white);
+    }//GEN-LAST:event_txtAuthorAddKeyTyped
+
+    private void txtTitleAddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitleAddKeyTyped
+        txtTitleAdd.setBackground(Color.white);
+    }//GEN-LAST:event_txtTitleAddKeyTyped
+
+    private void txtPublisherAddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPublisherAddKeyTyped
+        txtPublisherAdd.setBackground(Color.white);
+    }//GEN-LAST:event_txtPublisherAddKeyTyped
+
+    private void txtEditionAddKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEditionAddKeyTyped
+        txtEditionAdd.setBackground(Color.white);
+    }//GEN-LAST:event_txtEditionAddKeyTyped
+
+    private void txtCategoryAddItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_txtCategoryAddItemStateChanged
+        String itemSelect = "select book category";
+        if(!txtCategoryAdd.getSelectedItem().equals(itemSelect)){
+        labelCat.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtCategoryAddItemStateChanged
+
+    private void comboBoxLoanTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboBoxLoanTypeItemStateChanged
+        String itemSelectLoan = "Select loan type";
+        if(!comboBoxLoanType.getSelectedItem().equals(itemSelectLoan)){
+        labelLoan.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_comboBoxLoanTypeItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -669,6 +771,7 @@ private Boolean RegisterData() {
 
         //EmailValidator b=new EmailValidator ();
         Boolean status = true;
+        String bookNumber = txtBookID.getText();
         String bookisbn = txtIsbnAdd.getText().toUpperCase().trim();
         String author = txtAuthorAdd.getText().toUpperCase().trim();
         String title = txtTitleAdd.getText().trim();
@@ -678,11 +781,21 @@ private Boolean RegisterData() {
         String strcomboLoanType = (String) comboBoxLoanType.getSelectedItem();
 
 
+        if (bookNumber.equals("")) //first Name
+        {
+            JOptionPane.showMessageDialog(null,
+                    "Please enter book ID");
+            txtBookID.requestFocusInWindow();
+            txtBookID.setBackground(Color.CYAN);
+            return false;
+        }
+        
         if (bookisbn.equals("")) //first Name
         {
             JOptionPane.showMessageDialog(null,
                     "Please enter book ISBN number");
             txtIsbnAdd.requestFocusInWindow();
+            txtIsbnAdd.setBackground(Color.CYAN);
             return false;
         }
         
@@ -691,6 +804,7 @@ private Boolean RegisterData() {
             JOptionPane.showMessageDialog(null,
                     "Please enter book author");
             txtAuthorAdd.requestFocusInWindow();
+            txtAuthorAdd.setBackground(Color.CYAN);
             return false;
         }
         
@@ -699,6 +813,7 @@ private Boolean RegisterData() {
             JOptionPane.showMessageDialog(null,
                     "Please enter book title");
             txtTitleAdd.requestFocusInWindow();
+            txtTitleAdd.setBackground(Color.CYAN);
             return false;
         }
         
@@ -707,6 +822,7 @@ private Boolean RegisterData() {
             JOptionPane.showMessageDialog(null,
                     "Please enter the publisher name");
             txtPublisherAdd.requestFocusInWindow();
+            txtPublisherAdd.setBackground(Color.CYAN);
             return false;
         }
         
@@ -715,6 +831,7 @@ private Boolean RegisterData() {
             JOptionPane.showMessageDialog(null,
                     "Please enter book Edition number");
             txtEditionAdd.requestFocusInWindow();
+            txtEditionAdd.setBackground(Color.CYAN);
             return false;
         }
         
@@ -722,14 +839,15 @@ private Boolean RegisterData() {
         {
             JOptionPane.showMessageDialog(null,
                     "Please select book category");
+            labelCat.setForeground(Color.red);
             return false;
         }
 
-        if (strcomboLoanType.contains("Select loan type")) // id number
+        if (strcomboLoanType.contains("Select loan type"))
         {
             JOptionPane.showMessageDialog(null,
                     "Please select loan type");
-            //comboStatus.requestFocusInWindow(); 
+            labelLoan.setForeground(Color.red);
             return false;
         }
                     return true;
@@ -739,6 +857,7 @@ public void addBookmethod() {
 
         if (RegisterData() == true && checkIsbnExists() == false) {
             
+        String bookNumber = txtBookID.getText();
         String bookisbn = txtIsbnAdd.getText();
         String author = txtAuthorAdd.getText().toUpperCase().trim();
         String title = txtTitleAdd.getText().toUpperCase().trim();
@@ -800,8 +919,8 @@ public void addBookmethod() {
     private javax.swing.JButton btnAddBook;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnViewDetails;
     private javax.swing.JComboBox<String> comboBoxLoanType;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -816,10 +935,10 @@ public void addBookmethod() {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel labelBookId;
+    private javax.swing.JLabel labelCat;
+    private javax.swing.JLabel labelLoan;
     private javax.swing.JLabel labelLoanType;
     private javax.swing.JLabel lblAuthor;
     private javax.swing.JLabel lblCategory;

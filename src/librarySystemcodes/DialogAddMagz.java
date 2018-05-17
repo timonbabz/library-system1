@@ -29,6 +29,9 @@ public class DialogAddMagz extends javax.swing.JDialog {
     public DialogAddMagz(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        Date date = new Date();
+        chooserMagDate.setMaxSelectableDate(date);
     }
 
     /**
