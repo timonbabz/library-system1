@@ -26,25 +26,25 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="panelEditBookTitle" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="mainPanelEditBook" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="panelEditBookTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" max="32767" attributes="0"/>
+              <Component id="mainPanelEditBook" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelEditBookTitle">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -83,7 +83,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="mainPanelEditBook">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f3" green="ba" red="81" type="rgb"/>
@@ -390,18 +390,19 @@
               <Color blue="f3" green="ba" red="81" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="11">
+              <StringArray count="12">
                 <StringItem index="0" value="select book category"/>
                 <StringItem index="1" value="Arts &amp; Recreation"/>
                 <StringItem index="2" value="Computers, IT &amp; General Works"/>
                 <StringItem index="3" value="History &amp; Geography"/>
                 <StringItem index="4" value="Literature"/>
                 <StringItem index="5" value="Languages"/>
-                <StringItem index="6" value="Philosophy &amp; Psychology"/>
-                <StringItem index="7" value="Religion"/>
-                <StringItem index="8" value="Science"/>
-                <StringItem index="9" value="Social Sciences"/>
-                <StringItem index="10" value="Technology &amp; Applied Science"/>
+                <StringItem index="6" value="Mathematics"/>
+                <StringItem index="7" value="Philosophy &amp; Psychology"/>
+                <StringItem index="8" value="Religion"/>
+                <StringItem index="9" value="Science"/>
+                <StringItem index="10" value="Social Sciences"/>
+                <StringItem index="11" value="Technology &amp; Applied Science"/>
               </StringArray>
             </Property>
           </Properties>
