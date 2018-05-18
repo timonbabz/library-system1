@@ -2163,7 +2163,8 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSearchIssueStd">
                       <Properties>
-                        <Property name="toolTipText" type="java.lang.String" value="search book title here"/>
+                        <Property name="text" type="java.lang.String" value="Enter the book title"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Enter the book title"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSearchIssueStd">
@@ -2758,8 +2759,12 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSearchStaffBook">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Enter the book title"/>
                         <Property name="toolTipText" type="java.lang.String" value="enter book title to search"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchStaffBookKeyTyped"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -4641,7 +4646,8 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSearchShort">
                       <Properties>
-                        <Property name="toolTipText" type="java.lang.String" value="type book ID"/>
+                        <Property name="text" type="java.lang.String" value="Enter the book title"/>
+                        <Property name="toolTipText" type="java.lang.String" value="enter the book title"/>
                       </Properties>
                       <Events>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchShortKeyTyped"/>
@@ -4652,6 +4658,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/Search_16.png"/>
                         </Property>
+                        <Property name="toolTipText" type="java.lang.String" value="Search"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Hand Cursor"/>

@@ -159,7 +159,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         initComponents();
         permissionCheck();
         TimeDisplay();
-        DisplayBooksList();
         displayBooksIssueStudents();
         displayBooksIssueStaff();
         numberOfBooksBorrowed();
@@ -170,7 +169,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         DisplayUsers();
         displayBooksBorrowed();
         displayBooksShortLoan();
-        DisplayBooksStock();
         
         String imagepath = "/images/iconforlib_32.png";
         InputStream imgstream = LibraryHome.class.getResourceAsStream(imagepath);
@@ -1691,7 +1689,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    txtSearchIssueStd.setToolTipText("search book title here");
+    txtSearchIssueStd.setText("Enter the book title");
+    txtSearchIssueStd.setToolTipText("Enter the book title");
 
     btnSearchIssueStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
     btnSearchIssueStd.setToolTipText("Search book title");
@@ -2035,7 +2034,13 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtSearchStaffBook.setText("Enter the book title");
     txtSearchStaffBook.setToolTipText("enter book title to search");
+    txtSearchStaffBook.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtSearchStaffBookKeyTyped(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
     jPanel37.setLayout(jPanel37Layout);
@@ -3149,7 +3154,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    txtSearchShort.setToolTipText("type book ID");
+    txtSearchShort.setText("Enter the book title");
+    txtSearchShort.setToolTipText("enter the book title");
     txtSearchShort.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyTyped(java.awt.event.KeyEvent evt) {
             txtSearchShortKeyTyped(evt);
@@ -3157,6 +3163,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     btnSearchShortLoanBks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
+    btnSearchShortLoanBks.setToolTipText("Search");
     btnSearchShortLoanBks.setContentAreaFilled(false);
     btnSearchShortLoanBks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnSearchShortLoanBks.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
@@ -5857,7 +5864,16 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchUserActionPerformed
 
     private void btnSearchIssueStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchIssueStdActionPerformed
+        
+        String titleEntered = txtSearchIssueStd.getText();
+        String searchTitle = "Enter the book title";
+        if(titleEntered.equals(searchTitle)){
+        JOptionPane.showMessageDialog(null, "Please enter the book title to search");
+        txtSearchIssueStd.requestFocus();
+        txtSearchIssueStd.setBackground(Color.CYAN);}
+        else{
         refreshOnIdIssueStd();
+        txtSearchIssueStd.setBackground(Color.WHITE);}
     }//GEN-LAST:event_btnSearchIssueStdActionPerformed
 
     private void btnSearchStaffBkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStaffBkActionPerformed
@@ -5867,13 +5883,23 @@ public final class LibraryHome extends javax.swing.JFrame {
         String text = txtSearchStaffBook.getText().toUpperCase();
         if (text.length() == 0) {
           sorter.setRowFilter(null);
-        } else {
+        } 
+        else if(text.equals("Enter the book title")){
+        JOptionPane.showMessageDialog(null, "Enter the book title to search");
+        txtSearchStaffBook.requestFocus();
+        txtSearchStaffBook.setBackground(Color.CYAN);}
+        else {
           refreshOnTitleIssueStaff();
         }
     }//GEN-LAST:event_btnSearchStaffBkActionPerformed
 
     private void btnSearchShortLoanBksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchShortLoanBksActionPerformed
-        refreshsearchShort();
+        if(txtSearchShort.getText().equals("Enter the book title")){
+        JOptionPane.showMessageDialog(null, "Enter the book title to search");
+        txtSearchShort.requestFocus();
+        txtSearchShort.setBackground(Color.CYAN);}
+        else{
+        refreshsearchShort();}
     }//GEN-LAST:event_btnSearchShortLoanBksActionPerformed
 
     private void btnSearchListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListActionPerformed
@@ -6352,11 +6378,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxListItemStateChanged
 
     private void txtSearchShortKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchShortKeyTyped
-        char c = evt.getKeyChar();
-        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
-            getToolkit().beep();
-            evt.consume();
-        }
+        txtSearchShort.setBackground(Color.WHITE);
     }//GEN-LAST:event_txtSearchShortKeyTyped
 
     private void txtStaffNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStaffNoKeyTyped
@@ -6900,6 +6922,10 @@ public final class LibraryHome extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtBookIDlostKeyTyped
+
+    private void txtSearchStaffBookKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchStaffBookKeyTyped
+        txtSearchStaffBook.setBackground(Color.WHITE);
+    }//GEN-LAST:event_txtSearchStaffBookKeyTyped
 
     /**
      * @param args the command line arguments
@@ -7986,7 +8012,7 @@ public void displayMagz() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  issue_number,mag_name,publisher,mag_date FROM magazine WHERE returned='"+ boorrowedCondtion +"'");
+            PreparedStatement st = con.prepareStatement("SELECT issue_number,mag_name,publisher,mag_date FROM magazine WHERE returned='"+ boorrowedCondtion +"'");
             ResultSet studentRs = st.executeQuery();
             //magIssueNo = "", magName = "", magPublisher = "", magDate = "";
             int i = 0;
@@ -8155,7 +8181,7 @@ public void searchBooksLongLoanStd() {
        
         String longBkTitle = txtSearchIssueStd.getText().toUpperCase().trim();
         if(longBkTitle.equals("")){
-        JOptionPane.showMessageDialog(null, "Enter the book ID to search");}
+        JOptionPane.showMessageDialog(null, "Enter the book title to search");}
         else
         {
             try {
@@ -10315,7 +10341,7 @@ public void staffTable(){
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "All books have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No staff records yet", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {

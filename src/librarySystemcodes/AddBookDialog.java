@@ -319,6 +319,7 @@ public class AddBookDialog extends javax.swing.JDialog {
         btnCancel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
         btnCancel.setText("Cancel");
+        btnCancel.setToolTipText("Clear fields above");
         btnCancel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnCancel.setContentAreaFilled(false);
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
