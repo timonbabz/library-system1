@@ -56,7 +56,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         textStudentDays = new javax.swing.JTextField();
         textStaffDays = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSetDays = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         txtSetName = new javax.swing.JTextField();
@@ -74,7 +74,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Maximum books allowed per borrower", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         btnCancelSet.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        btnCancelSet.setText("Cancel");
+        btnCancelSet.setText("Clear");
         btnCancelSet.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnCancelSet.setContentAreaFilled(false);
         btnCancelSet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -172,16 +172,26 @@ public class SettingsDialog extends javax.swing.JDialog {
         });
 
         jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton1.setText("Cancel");
+        jButton1.setText("Clear");
         jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton2.setText("Set");
-        jButton2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSetDays.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnSetDays.setText("Set");
+        btnSetDays.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnSetDays.setContentAreaFilled(false);
+        btnSetDays.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSetDays.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetDaysActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,7 +201,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSetDays, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -218,7 +228,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addComponent(textStaffDays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSetDays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -227,7 +237,7 @@ public class SettingsDialog extends javax.swing.JDialog {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Set school name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         btnCancel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        btnCancel.setText("Cancel");
+        btnCancel.setText("Clear");
         btnCancel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         btnCancel.setContentAreaFilled(false);
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -372,12 +382,19 @@ public class SettingsDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSetNumbersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetNumbersActionPerformed
-        bookCountStaff();
-        bookCountStudent();
+        if(spinStudents.getText().isEmpty())
+        {JOptionPane.showMessageDialog(null, "Please enter the maximum for students first");
+        spinStudents.requestFocus();}
+        else if (spinStaff.getText().isEmpty())
+        {JOptionPane.showMessageDialog(null, "Please enter the maximum for staff first");
+        spinStaff.requestFocus();}
+        else{bookCountStaff();
+        bookCountStudent();}
     }//GEN-LAST:event_btnSetNumbersActionPerformed
 
     private void btnCancelSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelSetActionPerformed
-        dispose();
+        spinStudents.setText("");
+        spinStaff.setText("");
     }//GEN-LAST:event_btnCancelSetActionPerformed
 
     private void spinStudentsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spinStudentsKeyTyped
@@ -415,6 +432,21 @@ public class SettingsDialog extends javax.swing.JDialog {
             getToolkit().beep();
             evt.consume();}
     }//GEN-LAST:event_textStaffDaysKeyTyped
+
+    private void btnSetDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetDaysActionPerformed
+        if(textStudentDays.getText().isEmpty())
+        {JOptionPane.showMessageDialog(null, "Please enter the number of days for students first");
+        textStudentDays.requestFocus();}
+        else if(textStaffDays.getText().isEmpty())
+        {JOptionPane.showMessageDialog(null, "Please enter the number of days for staff first");
+        textStaffDays.requestFocus();}
+        else{}
+    }//GEN-LAST:event_btnSetDaysActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        textStudentDays.setText("");
+        textStaffDays.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -498,7 +530,7 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
     }
     
-        public void bookCountStaff(){
+    public void bookCountStaff(){
         
             String bookCount = spinStaff.getText();
             int noCount = Integer.parseInt(bookCount);
@@ -598,9 +630,9 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancelSet;
     private javax.swing.JButton btnSet;
+    private javax.swing.JButton btnSetDays;
     private javax.swing.JButton btnSetNumbers;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
