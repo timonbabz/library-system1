@@ -357,7 +357,7 @@ public class DialogRecieveMag extends javax.swing.JDialog {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT mag_name,publisher,mag_date,issued_to_id,issued_to_name,issued_by,staff_std FROM magazine WHERE (issue_number='"+ txtMagId.getText() +"' AND returned='"+ condition_borrowed +"')");
             ResultSet magRs = st.executeQuery();
             boolean emptyRs = true;
@@ -413,7 +413,7 @@ public class DialogRecieveMag extends javax.swing.JDialog {
         String reciever = LibrarySignIn.usernameLabel;
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                

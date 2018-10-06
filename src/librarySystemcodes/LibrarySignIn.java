@@ -44,6 +44,8 @@ public final class LibrarySignIn extends javax.swing.JFrame {
     public static String userId;
     public static String labelStdMax;
     public static String labelStaffMax;
+    public static String labeldaystaff;
+    public static String labeldaystd;
     Statement statement;
     
     public LibrarySignIn() throws IOException {
@@ -85,6 +87,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         lblForgotPass = new javax.swing.JLabel();
         capsLockText = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -105,7 +108,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("LIBRARY MANAGEMENT SYSTEM");
+        jLabel3.setText("TOO LIBRARY MANAGEMENT SYSTEM");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -253,7 +256,10 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         );
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("System Version 1.0.1  © 2018");
+        jLabel5.setText("System Version 2.0.3 © 2018");
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("TOO Studios © 2018");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -268,7 +274,11 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -286,7 +296,9 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addGap(32, 32, 32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addGap(10, 10, 10))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -333,6 +345,8 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         else if(y.equals(""))
         {JOptionPane.showMessageDialog(null, "Please enter password");
         txtPassword.requestFocusInWindow();}
+        else if(x.equals("support")){
+        signinmethodAdmin();}
         else{signinmethod();
             SessionLogs();}
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -414,7 +428,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
 public void showNameOnLabel() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement sti = con.prepareStatement("SELECT school_name FROM school_name_db");
             ResultSet rsName = sti.executeQuery();
             if (rsName.next()) {
@@ -433,17 +447,62 @@ public void signinmethod() {
         
         String x = txtUsername.getText();
         String y = new String(txtPassword.getPassword());
-        if(x.equals("superAdmin") && y.equals("Bluesphere30Libsystem"))
+        if(x.equals("systemAdmin") && y.equals("30library30"))
         {
                 LibraryHome.main(null);
                 dispose();}
         else{
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
                 PreparedStatement st = con.prepareStatement("select user_fname,user_lname,id_no,department,password,username,permission from  users_db where  username=? and password=?");
                 st.setString(1, x);
                 st.setString(2, md5(txtPassword.getPassword()));
+                ResultSet rs = st.executeQuery();
+
+                int i = 0;
+                if (rs.next()) {
+                    String a = rs.getString("user_fname");
+                    String b = rs.getString("user_lname");
+                    String c = rs.getString("id_no");
+                    String d = rs.getString("permission");
+                    String dept = rs.getString("department");
+                    String username = rs.getString("username");
+                    
+                    userId = c;
+                    usernameLabel = a + " " + b;
+                    userfname = a;
+                      userLname = b;
+                    permissionLabel = d;
+                    deptLabel = dept;
+                    unameLabel = username;
+                    
+                    showMaxOnLabelStd();
+                    showMaxOnLabelStaff();
+                    showMaxDayStaff();
+                    showMaxDayStd();
+
+                    LibraryHome.main(null);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please check your login details again or contact the system admin");
+                }
+            } catch (ClassNotFoundException | SQLException | HeadlessException e) {
+           }
+        }
+    }
+
+public void signinmethodAdmin() {
+        
+        String x = txtUsername.getText();
+        String y = new String(txtPassword.getPassword());
+        
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+                PreparedStatement st = con.prepareStatement("SELECT user_fname,user_lname,id_no,department,password,username,permission FROM  support_db WHERE  username=? and password=?");
+                st.setString(1, x);
+                st.setString(2, y);
                 ResultSet rs = st.executeQuery();
 
                 int i = 0;
@@ -463,9 +522,10 @@ public void signinmethod() {
                     deptLabel = dept;
                     unameLabel = username;
                     
-                    
                     showMaxOnLabelStd();
                     showMaxOnLabelStaff();
+                    showMaxDayStaff();
+                    showMaxDayStd();
 
                     LibraryHome.main(null);
                     dispose();
@@ -474,7 +534,7 @@ public void signinmethod() {
                 }
             } catch (ClassNotFoundException | SQLException | HeadlessException e) {
            }
-        }
+        
     }
 
 private String md5(char [] c){
@@ -497,7 +557,7 @@ public final void SessionLogs() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             statement = con.createStatement();
 
             // SQL Insert
@@ -526,7 +586,7 @@ public final void SessionLogs() {
     {
 
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
 
         PreparedStatement st = connection.prepareStatement("SELECT* FROM users_db WHERE username='" + enteredUser + "'");
         ResultSet r1=st.executeQuery();
@@ -549,7 +609,7 @@ public final void SessionLogs() {
  public void showMaxOnLabelStd() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSdbL = false", "root", "libsystem@dmin");
             PreparedStatement stino = con.prepareStatement("SELECT number_set FROM maxstudent");
             ResultSet rsName = stino.executeQuery();
             if (rsName.next()) {
@@ -567,12 +627,50 @@ public final void SessionLogs() {
  public void showMaxOnLabelStaff() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement stino2 = con.prepareStatement("SELECT number_set FROM maxstaff");
             ResultSet rsName = stino2.executeQuery();
             if (rsName.next()) {
                 String maxno = rsName.getString("number_set");
                 labelStaffMax = maxno;
+                
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+ 
+  public void showMaxDayStaff() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conMaxStaff;
+            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement stino2 = conMaxStaff.prepareStatement("SELECT days_set FROM daysstaff");
+            ResultSet rsName = stino2.executeQuery();
+            if (rsName.next()) {
+                String maxno = rsName.getString("days_set");
+                labeldaystaff = (maxno);
+                
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+ 
+ public void showMaxDayStd() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conMaxStaff;
+            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement stino2 = conMaxStaff.prepareStatement("SELECT days_set FROM daystudents");
+            ResultSet rsName = stino2.executeQuery();
+            if (rsName.next()) {
+                String maxno = rsName.getString("days_set");
+                labeldaystd = (maxno);
                 
             }
             
@@ -587,6 +685,7 @@ public final void SessionLogs() {
     private javax.swing.JLabel capsLockText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

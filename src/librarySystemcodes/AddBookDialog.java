@@ -83,11 +83,13 @@ public class AddBookDialog extends javax.swing.JDialog {
         panelViewDetailsButton = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
+        txtShelfNo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         panelButtonAdd = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
         btnAddBook = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Add books");
 
         panelAddBookTitle.setBackground(new java.awt.Color(51, 102, 255));
@@ -235,7 +237,7 @@ public class AddBookDialog extends javax.swing.JDialog {
                 .addGroup(panelDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(labelLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelAddBook.setBackground(new java.awt.Color(129, 186, 243));
@@ -248,6 +250,7 @@ public class AddBookDialog extends javax.swing.JDialog {
             }
         });
 
+        txtBookID.setToolTipText("or book number");
         txtBookID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBookIDKeyTyped(evt);
@@ -377,16 +380,41 @@ public class AddBookDialog extends javax.swing.JDialog {
                 .addGroup(panelViewDetailsButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
+
+        txtShelfNo.setToolTipText("shelf number/ID");
+        txtShelfNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtShelfNoKeyTyped(evt);
+            }
+        });
+
+        jLabel7.setText("Shelf number:");
 
         javax.swing.GroupLayout panelAddBookLayout = new javax.swing.GroupLayout(panelAddBook);
         panelAddBook.setLayout(panelAddBookLayout);
         panelAddBookLayout.setHorizontalGroup(
             panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddBookLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelViewDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelAddBookLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelAddBookLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEditionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAddBookLayout.createSequentialGroup()
+                        .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelCat)
+                            .addComponent(labelLoan))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCategoryAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelAddBookLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -401,33 +429,21 @@ public class AddBookDialog extends javax.swing.JDialog {
                         .addComponent(txtAuthorAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelAddBookLayout.createSequentialGroup()
                         .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelCat)
-                            .addComponent(jLabel6)
-                            .addComponent(labelLoan))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtCategoryAdd, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtEditionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelAddBookLayout.createSequentialGroup()
-                        .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtIsbnAdd)
-                            .addComponent(txtBookID, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(7, 18, Short.MAX_VALUE))
-            .addGroup(panelAddBookLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelViewDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                            .addComponent(txtBookID, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelAddBookLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtShelfNo, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(7, 43, Short.MAX_VALUE))
         );
         panelAddBookLayout.setVerticalGroup(
             panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddBookLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtBookID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -453,14 +469,18 @@ public class AddBookDialog extends javax.swing.JDialog {
                     .addComponent(txtEditionAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCategoryAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCat))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7)
+                    .addComponent(txtShelfNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCat)
+                    .addComponent(txtCategoryAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLoan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelViewDetailsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(panelViewDetailsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -514,20 +534,20 @@ public class AddBookDialog extends javax.swing.JDialog {
         panelButtonAddLayout.setHorizontalGroup(
             panelButtonAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonAddLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(btnAddBook, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+                .addGap(54, 54, 54))
         );
         panelButtonAddLayout.setVerticalGroup(
             panelButtonAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelButtonAddLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(panelButtonAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddBook, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddBook, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainPanelAddBookLayout = new javax.swing.GroupLayout(mainPanelAddBook);
@@ -537,7 +557,7 @@ public class AddBookDialog extends javax.swing.JDialog {
             .addGroup(mainPanelAddBookLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelAddBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -550,9 +570,9 @@ public class AddBookDialog extends javax.swing.JDialog {
                 .addGroup(mainPanelAddBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelAddBook, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(mainPanelAddBookLayout.createSequentialGroup()
-                        .addComponent(panelDetails, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -584,7 +604,22 @@ public class AddBookDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAddBookActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        dispose();
+        
+        if(!txtBookID.getText().isEmpty())
+        {
+        int response = JOptionPane.showConfirmDialog(null, "You have unsaved changes," + System.lineSeparator()
+                + "do you wish to discard them?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+        dispose();}
+        }
+        else{dispose();}
+        
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -692,6 +727,10 @@ public class AddBookDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_comboBoxLoanTypeItemStateChanged
 
+    private void txtShelfNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShelfNoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtShelfNoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -731,27 +770,26 @@ public class AddBookDialog extends javax.swing.JDialog {
 private boolean checkIsbnExists(){
      
     boolean bookExists = false;
-    String bookIsbnName = txtIsbnAdd.getText().trim();
+    String bookNumber = txtBookID.getText().trim();
     try
     {
 
         Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
         Connection conn;
         conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
 
-        PreparedStatement st = conn.prepareStatement("select * from books_db order by book_isbn desc");
+        PreparedStatement st = conn.prepareStatement("select * from books_db order by bklib_id desc");
         ResultSet r1=st.executeQuery();
         String booksCounter;
          if(r1.next()) 
          {
-           booksCounter =  r1.getString("book_isbn");
-           if(booksCounter.equals(bookIsbnName)) //this part does not happen even if it should
+           booksCounter =  r1.getString("bklib_id");
+           if(booksCounter.equals(bookNumber))
            {
               getToolkit().beep();
               JOptionPane.showMessageDialog(null, "This book already exists");
               txtIsbnAdd.requestFocus();
-              System.out.println("book already exists");
               bookExists = false;
            }
          }
@@ -863,6 +901,7 @@ public void addBookmethod() {
         String author = txtAuthorAdd.getText().toUpperCase().trim();
         String title = txtTitleAdd.getText().toUpperCase().trim();
         String publisher = txtPublisherAdd.getText().toUpperCase().trim();
+        String shelfNo = txtShelfNo.getText().trim();
         String edition = txtEditionAdd.getText().toUpperCase().trim();
         String category = (String) txtCategoryAdd.getSelectedItem();
         String strcomboLoanType = (String) comboBoxLoanType.getSelectedItem();
@@ -870,18 +909,20 @@ public void addBookmethod() {
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert
-                    String sql = "INSERT INTO books_db " + "(book_isbn, author, title, publisher_name, edition, subject_category, loan_type)"
-                            + "VALUES ('" + bookisbn + "','"
+                    String sql = "INSERT INTO books_db " + "(bklib_id, book_isbn, author, title, publisher_name, edition, subject_category, loan_type,shelf)"
+                            + "VALUES ('" + bookNumber + "','"
+                            + bookisbn + "','"
                             + author + "','"
                             + title + "','"
                             + publisher + "','"
                             + edition + "','"
                             + category + "','"
-                            + strcomboLoanType + "') ";
+                            + strcomboLoanType + "','"
+                            + shelfNo + "') ";
                     
                     statement.execute(sql);
 
@@ -901,7 +942,7 @@ public void addBookmethod() {
                 } catch (ClassNotFoundException | SQLException | HeadlessException es) {
                     // TODO Auto-generated catch block
                     JOptionPane.showMessageDialog(null, "Unable to add");
-                    JOptionPane.showMessageDialog(null, es.getMessage());
+                    //JOptionPane.showMessageDialog(null, es.getMessage());
                 }
 
                 try {
@@ -936,6 +977,7 @@ public void addBookmethod() {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel labelBookId;
     private javax.swing.JLabel labelCat;
@@ -959,6 +1001,7 @@ public void addBookmethod() {
     private javax.swing.JTextField txtEditionAdd;
     private javax.swing.JTextField txtIsbnAdd;
     private javax.swing.JTextField txtPublisherAdd;
+    private javax.swing.JTextField txtShelfNo;
     private javax.swing.JTextField txtTitleAdd;
     // End of variables declaration//GEN-END:variables
 }

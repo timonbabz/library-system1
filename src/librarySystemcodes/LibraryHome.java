@@ -83,10 +83,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     DefaultTableModel notesModel = new DefaultTableModel();
     //----------------declaration of table list for list item--------------------
     String select = null;
-    public static String bookID1, bookISBNList1, authorNameList1, titleNameList1, publisherList1,editionList1,categoryList1,loanList1,borrowedList1;
+    public static String bookID1, bookISBNList1, authorNameList1, titleNameList1, publisherList1,shelflist1,editionList1,categoryList1,loanList1,borrowedList1;
     
-    public static String bookID,bookISBNList, authorNameList, titleNameList,publisherList,editionList,categoryList,loanList,borrowedList,conditionList;
-    String[] listColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "Loan Type", "Borrowed","Condition"};
+    public static String bookID,bookISBNList, authorNameList, titleNameList,publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList;
+    String[] listColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher","Shelf","Edition", "Category", "Loan Type", "Borrowed","Condition"};
     DefaultTableModel listModel = new DefaultTableModel();
     //----------------declaration of table list for list item--------------------
     public static String stockbookID1, stockbookISBNList1, stockauthorNameList1, stocktitleNameList1, stockpublisherList1,stockeditionList1,stockcategoryList1,stockloanList1;
@@ -95,28 +95,28 @@ public final class LibraryHome extends javax.swing.JFrame {
     String[] stockColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "Loan Type" };
     DefaultTableModel stockModel = new DefaultTableModel();
     //----------------declaration of issue books to students table---------------
-    public static String bookID2, bookISBNList2, authorNameList2, titleNameList2, publisherList2,editionList2,categoryList2,loanList2,borrowedList2;
+    public static String bookID2, bookISBNList2, authorNameList2, titleNameList2, publisherList2,editionList2,categoryList2,loanList2,borrowedList2,systemIdList2;
     
-    public static String issuebookID,issuebookISBNList, issueauthorNameList, issuetitleNameList,issuepublisherList,issueeditionList,issuecategoryList,issueloanList,issueborrowedList;
-    String[] issueColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category"};
+    public static String issuebookID,issuebookISBNList, issueauthorNameList, issuetitleNameList,issuepublisherList,issueeditionList,issuecategoryList,issueloanList,issueborrowedList,issuesystemIdList;
+    String[] issueColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "System ID"};
     DefaultTableModel issueModel = new DefaultTableModel();
     //----------------declaration of issue books to students table---------------
-    public static String bookID4, bookISBNList4, authorNameList4, titleNameList4, publisherList4,editionList4,categoryList4,loanList4,borrowedList4;
+    public static String bookID4, bookISBNList4, authorNameList4, titleNameList4, publisherList4,editionList4,categoryList4,loanList4,borrowedList4,systemIdBk4;
     
-    public static String shortbookID,shortbookISBNList, shortauthorNameList, shorttitleNameList,shortpublisherList,shorteditionList,shortcategoryList,shortloanList,shortborrowedList;
-    String[] shortColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category"};
+    public static String shortbookID,shortbookISBNList, shortauthorNameList, shorttitleNameList,shortpublisherList,shorteditionList,shortcategoryList,shortloanList,shortborrowedList,shortSystemId;
+    String[] shortColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "System ID"};
     DefaultTableModel shortModel = new DefaultTableModel();
     //----------------declaration of issue books to staff table---------------
-    public static String bookID3, bookISBNList3, authorNameList3, titleNameList3, publisherList3,editionList3,categoryList3,loanList3,borrowedList3;
+    public static String bookID3, bookISBNList3, authorNameList3, titleNameList3, publisherList3,editionList3,categoryList3,loanList3,borrowedList3,systemId3;
     
-    public static String issueSbookID,issueSbookISBNList, issueSauthorNameList, issueStitleNameList,issueSpublisherList,issueSeditionList,issueScategoryList,issueSloanList,issueSborrowedList;
-    String[] issueSColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category"};
+    public static String issueSbookID,issueSbookISBNList, issueSauthorNameList, issueStitleNameList,issueSpublisherList,issueSeditionList,issueScategoryList,issueSloanList,issueSborrowedList,issueSsytemID;
+    String[] issueSColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "System ID"};
     DefaultTableModel issueSModel = new DefaultTableModel();
         //----------------declaration of issue books lost table---------------
-    public static String lostbookID3, lostbookISBNList3, lostauthorNameList3, losttitleNameList3, lostpublisherList3,losteditionList3,lostcategoryList3,lostloanList3,lostborrowedList3;
+    public static String lostbookID3, lostbookISBNList3, lostauthorNameList3, losttitleNameList3, lostpublisherList3,losteditionList3,lostcategoryList3,lostloanList3,lostborrowedList3,lostsystemIdList3;
     
-    public static String lostbookID,lostbookISBNList, lostauthorNameList, losttitleNameList,lostpublisherList,losteditionList,lostcategoryList,lostloanList,lostborrowedList;
-    String[] lostColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category"};
+    public static String lostbookID,lostbookISBNList, lostauthorNameList, losttitleNameList,lostpublisherList,losteditionList,lostcategoryList,lostloanList,lostborrowedList,lostsystemIdList;
+    String[] lostColumnNames = {"Book ID","ISBN" ,"Author","Title", "Publisher", "Edition", "Category", "System ID"};
     DefaultTableModel lostModel = new DefaultTableModel();
     //----------------declaration for table magazine--------------------------------
     public static String magIssueNo1, magName1, magPublisher1,magDate1;
@@ -178,14 +178,33 @@ public final class LibraryHome extends javax.swing.JFrame {
         lblUserId.setText(LibrarySignIn.usernameLabel);
         lblID.setText(LibrarySignIn.userId);
         labelPermission.setText(LibrarySignIn.permissionLabel);
-        maxStaff.setText(LibrarySignIn.labelStdMax);
-        maxStd.setText(LibrarySignIn.labelStaffMax);
+        maxStaff.setText(LibrarySignIn.labelStaffMax);
+        maxStd.setText(LibrarySignIn.labelStdMax);
+        maxNumberStaff.setText(LibrarySignIn.labeldaystaff);
+        maxNumberStd.setText(LibrarySignIn.labeldaystd);
+        
+        
+        String dayscountStd = maxNumberStd.getText();
+        int countDayStd = Integer.parseInt(dayscountStd);
+        
+        String dayscountStaff = maxNumberStaff.getText();
+        int countDaysStaff = Integer.parseInt(dayscountStaff);
         
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, 7);
         Date futuredate = cal.getTime();
+        
+        Calendar StaffCal = Calendar.getInstance();
+        StaffCal.setTime(date);
+        StaffCal.add(Calendar.DATE, countDaysStaff);
+        Date futuredateStaff = StaffCal.getTime();
+        
+        Calendar StdCal = Calendar.getInstance();
+        StdCal.setTime(date);
+        StdCal.add(Calendar.DATE, countDayStd);
+        Date futuredateStd = StdCal.getTime();
         
         chooserschDate.setMinSelectableDate(date);
         ChooserNotes.setMinSelectableDate(date);
@@ -214,7 +233,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         dateChooserStaffField.setEditable(false);
         
         dateStaffDue.setMinSelectableDate(date);
-        dateStaffDue.setMaxSelectableDate(futuredate);
+        dateStaffDue.setMaxSelectableDate(futuredateStaff);
         JTextFieldDateEditor dateChooserStaffDuefield = (JTextFieldDateEditor)dateStaffDue.getDateEditor();
         dateChooserStaffDuefield.setEditable(false);
         
@@ -225,7 +244,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         dateReturnedfield.setEditable(false);
         
         dateChooserDue.setMinSelectableDate(date);
-        dateChooserDue.setMaxSelectableDate(futuredate);
+        dateChooserDue.setMaxSelectableDate(futuredateStd);
         JTextFieldDateEditor dateChooserDuefield = (JTextFieldDateEditor)dateChooserDue.getDateEditor();
         dateChooserDuefield.setEditable(false);
         
@@ -244,7 +263,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel28 = new javax.swing.JPanel();
         holderPanel = new javax.swing.JPanel();
         panelHome = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -290,12 +308,12 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel96 = new javax.swing.JLabel();
         jPanel40 = new javax.swing.JPanel();
         maxStaff = new javax.swing.JLabel();
-        jLabel97 = new javax.swing.JLabel();
+        maxNumberStaff = new javax.swing.JLabel();
         jLabel95 = new javax.swing.JLabel();
         jPanel41 = new javax.swing.JPanel();
         maxStd = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
-        jLabel98 = new javax.swing.JLabel();
+        maxNumberStd = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
         labelTime = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
@@ -337,6 +355,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         btnIssueToStudents = new javax.swing.JButton();
+        systemBookId = new javax.swing.JTextField();
+        jLabel97 = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         comboSearchIssue = new javax.swing.JComboBox<String>();
         txtSearchIssueStd = new javax.swing.JTextField();
@@ -371,6 +391,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
+        systemIDStaff = new javax.swing.JTextField();
+        jLabel99 = new javax.swing.JLabel();
         jPanel37 = new javax.swing.JPanel();
         comboSearchInStaffIssue = new javax.swing.JComboBox<String>();
         btnSearchStaffBk = new javax.swing.JButton();
@@ -395,15 +417,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         btnSearchBookDetails = new javax.swing.JButton();
         textFieldBookId = new javax.swing.JTextField();
+        textFieldSysId = new javax.swing.JTextField();
+        jLabel101 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         txtDateDue = new javax.swing.JTextField();
         dateReturnedChooser = new com.toedter.calendar.JDateChooser();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        txtAreaCondition = new javax.swing.JTextArea();
         txtStaffStudent = new javax.swing.JTextField();
         txtBookIsbnRet = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        txtAreaCondition = new javax.swing.JComboBox();
+        jLabel102 = new javax.swing.JLabel();
         btnIndicator = new javax.swing.JButton();
         panelList = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -417,6 +440,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnSearchList = new javax.swing.JButton();
         btnExcelList = new javax.swing.JButton();
         comboBoxList = new javax.swing.JComboBox<String>();
+        btnImport = new javax.swing.JButton();
         panelBorrowers = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
@@ -457,7 +481,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         txtStaffNo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnAddShortLoan = new javax.swing.JButton();
         jLabel57 = new javax.swing.JLabel();
         txtShortFname = new javax.swing.JTextField();
         btnCancelShort = new javax.swing.JButton();
@@ -470,6 +494,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtShortBkId = new javax.swing.JTextField();
         comboStaffStudent = new javax.swing.JComboBox<String>();
         jLabel59 = new javax.swing.JLabel();
+        systemIDtxt = new javax.swing.JTextField();
+        jLabel98 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         comboSearchShort = new javax.swing.JComboBox<String>();
         btnRefreshShortBks = new javax.swing.JButton();
@@ -504,8 +530,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
+        btnAddUser = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
+        colorCodeButton = new javax.swing.JButton();
         btnusersInfo = new javax.swing.JButton();
         btnUsersSessions = new javax.swing.JButton();
         btnAddNewUsers = new javax.swing.JButton();
@@ -537,6 +564,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         txtIsbnLost = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
+        sysBookIdentity = new javax.swing.JTextField();
+        jLabel100 = new javax.swing.JLabel();
         panelStudents = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
@@ -646,6 +675,38 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel88 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
         btnInfoDialog = new javax.swing.JButton();
+        panelDamaged = new javax.swing.JPanel();
+        labelMagzBorrowed2 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tableDamagedBooks = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel103 = new javax.swing.JLabel();
+        panelMaintenance = new javax.swing.JPanel();
+        labelMagzBorrowed3 = new javax.swing.JLabel();
+        jPanel42 = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        tableMaintenance = new javax.swing.JTable();
+        jPanel43 = new javax.swing.JPanel();
+        jLabel105 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel106 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel107 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel108 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel109 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         mainMenuNav = new javax.swing.JMenu();
         itemHome = new javax.swing.JMenuItem();
@@ -659,8 +720,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         menuItemMagz = new javax.swing.JMenuItem();
         menuItemProfile = new javax.swing.JMenuItem();
         itemLogout = new javax.swing.JMenuItem();
-        menuItemEdit = new javax.swing.JMenu();
-        itemList = new javax.swing.JMenuItem();
         menuItemView = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -668,23 +727,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         itemBooksIssued = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        menuItemEdit = new javax.swing.JMenu();
+        itemList = new javax.swing.JMenuItem();
+        itemMaintain = new javax.swing.JMenuItem();
+        itemDamaged = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenu();
         itemsSystems = new javax.swing.JMenuItem();
         itemManageUsers = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuItemGuide = new javax.swing.JMenuItem();
         menuItemAbout = new javax.swing.JMenuItem();
-
-        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Library Management System");
@@ -744,7 +796,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(labelBookNo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -801,7 +853,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelTabTwo)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
                 .addGap(5, 5, 5))
         );
         jPanel7Layout.setVerticalGroup(
@@ -853,7 +905,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(lblNoOfBorrowers)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -910,7 +962,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(btnProfMore, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel31Layout.setVerticalGroup(
@@ -964,7 +1016,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jLabel64)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                         .addComponent(btnIssueCut))
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jLabel63)
@@ -1115,7 +1167,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(calenderHome, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                .addComponent(calenderHome, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1123,7 +1175,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 1.0.2 created by Optimum Computer Systems © 2018 ");
+        jLabel79.setText("System version 2.0.3 created by TOO studios © 2018 ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1142,8 +1194,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         maxStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         maxStaff.setText("number");
 
-        jLabel97.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel97.setText("number");
+        maxNumberStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        maxNumberStaff.setText("number");
 
         jLabel95.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel95.setText("STAFF :");
@@ -1158,7 +1210,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(maxStaff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel97)
+                .addComponent(maxNumberStaff)
                 .addGap(71, 71, 71))
         );
         jPanel40Layout.setVerticalGroup(
@@ -1168,7 +1220,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel95)
                     .addComponent(maxStaff)
-                    .addComponent(jLabel97))
+                    .addComponent(maxNumberStaff))
                 .addContainerGap())
         );
 
@@ -1181,8 +1233,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel94.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel94.setText("STUDENTS :");
 
-        jLabel98.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel98.setText("number");
+        maxNumberStd.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        maxNumberStd.setText("number");
 
         javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
         jPanel41.setLayout(jPanel41Layout);
@@ -1194,7 +1246,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(maxStd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel98)
+                .addComponent(maxNumberStd)
                 .addGap(71, 71, 71))
         );
         jPanel41Layout.setVerticalGroup(
@@ -1204,7 +1256,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel94)
                     .addComponent(maxStd)
-                    .addComponent(jLabel98))
+                    .addComponent(maxNumberStd))
                 .addContainerGap())
         );
 
@@ -1437,7 +1489,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnExportStock, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnRefreshStockDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                     .addComponent(comboFilterStock, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1463,7 +1515,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnRefreshStockDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(btnExportStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -1544,12 +1596,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     txtBookIssueTitle1.setEditable(false);
-
-    txtStdntLname.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            txtStdntLnameActionPerformed(evt);
-        }
-    });
 
     btnCancelIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnCancelIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
@@ -1640,6 +1686,15 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    systemBookId.setEditable(false);
+    systemBookId.setBackground(new java.awt.Color(51, 51, 51));
+    systemBookId.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    systemBookId.setForeground(new java.awt.Color(255, 255, 255));
+    systemBookId.setToolTipText("Book system ID");
+
+    jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel97.setText("System ID :");
+
     javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
     jPanel34.setLayout(jPanel34Layout);
     jPanel34Layout.setHorizontalGroup(
@@ -1671,7 +1726,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel28))
+                        .addComponent(jLabel28)
+                        .addComponent(jLabel97))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtBookIsbnIssue)
@@ -1684,13 +1740,14 @@ public final class LibraryHome extends javax.swing.JFrame {
                             .addComponent(txtBookIdIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnAddIssueStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE)))))
-            .addContainerGap())
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(systemBookId, javax.swing.GroupLayout.Alignment.TRAILING))))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel34Layout.setVerticalGroup(
         jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
-            .addGap(29, 29, 29)
+            .addContainerGap()
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
@@ -1713,7 +1770,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGap(18, 18, 18)
                     .addComponent(jLabel24))
                 .addGroup(jPanel34Layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(18, 18, 18)
                     .addComponent(DateBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1732,7 +1789,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel28)
                 .addComponent(txtBookIsbnIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+            .addGap(18, 18, 18)
+            .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel97)
+                .addComponent(systemBookId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnIssueToStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnCancelIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1815,7 +1876,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE))
                 .addComponent(jPanel35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
@@ -1968,45 +2029,57 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel46.setText("Book title :");
 
+    systemIDStaff.setEditable(false);
+    systemIDStaff.setBackground(new java.awt.Color(51, 51, 51));
+    systemIDStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    systemIDStaff.setForeground(new java.awt.Color(255, 255, 255));
+
+    jLabel99.setText("System ID :");
+
     javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
     jPanel36.setLayout(jPanel36Layout);
     jPanel36Layout.setHorizontalGroup(
         jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
             .addContainerGap(20, Short.MAX_VALUE)
-            .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(txtStaffBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(staffDateBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel36Layout.createSequentialGroup()
-                        .addComponent(txtStaffBookIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStaffBookId))
-                    .addComponent(jLabel43)
-                    .addComponent(txtStaffDept)
-                    .addComponent(txtStaffName2)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel39)
-                    .addComponent(txtStaffName1)
-                    .addComponent(txtStaffPhone)
-                    .addGroup(jPanel36Layout.createSequentialGroup()
-                        .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSearchStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel48)
-                    .addGroup(jPanel36Layout.createSequentialGroup()
-                        .addComponent(btnIsssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addComponent(btnCancelIssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel36Layout.createSequentialGroup()
-                        .addComponent(jLabel44)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dateStaffDue, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jLabel46))
+            .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel36Layout.createSequentialGroup()
+                    .addComponent(btnIsssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btnCancelIssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel36Layout.createSequentialGroup()
+                    .addComponent(jLabel99)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(systemIDStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStaffBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffDateBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel36Layout.createSequentialGroup()
+                            .addComponent(txtStaffBookIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtStaffBookId, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
+                        .addComponent(jLabel43)
+                        .addComponent(txtStaffDept)
+                        .addComponent(txtStaffName2)
+                        .addComponent(jLabel41)
+                        .addComponent(jLabel40)
+                        .addComponent(jLabel39)
+                        .addComponent(txtStaffName1)
+                        .addComponent(txtStaffPhone)
+                        .addGroup(jPanel36Layout.createSequentialGroup()
+                            .addComponent(txtStaffID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnSearchStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel47)
+                        .addComponent(jLabel32)
+                        .addComponent(jLabel48)
+                        .addGroup(jPanel36Layout.createSequentialGroup()
+                            .addComponent(jLabel44)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(dateStaffDue, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel46)))
             .addGap(16, 16, 16))
     );
     jPanel36Layout.setVerticalGroup(
@@ -2053,11 +2126,15 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jLabel46)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtStaffBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnIsssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnCancelIssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(systemIDStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel99))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(btnCancelIssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnIsssueStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap())
     );
 
     jPanel37.setBackground(new java.awt.Color(129, 186, 243));
@@ -2114,7 +2191,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(txtSearchStaffBook, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchStaffBk, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
             .addComponent(comboSearchInStaffIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
@@ -2141,7 +2218,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
                 .addComponent(jPanel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
@@ -2153,7 +2230,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createSequentialGroup()
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(8, 8, 8)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE))
                 .addGroup(jPanel12Layout.createSequentialGroup()
                     .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(1, 1, 1)))
@@ -2290,10 +2367,17 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     textFieldBookId.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyTyped(java.awt.event.KeyEvent evt) {
-            textFieldBookIdKeyTyped(evt);
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            textFieldBookIdKeyPressed(evt);
         }
     });
+
+    textFieldSysId.setEditable(false);
+    textFieldSysId.setBackground(new java.awt.Color(102, 102, 102));
+    textFieldSysId.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    textFieldSysId.setForeground(new java.awt.Color(255, 255, 255));
+
+    jLabel101.setText("ID");
 
     javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
     jPanel15.setLayout(jPanel15Layout);
@@ -2301,10 +2385,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel15Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(textFieldBookId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(btnSearchBookDetails)
-            .addGap(43, 43, 43))
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel15Layout.createSequentialGroup()
+                    .addComponent(textFieldBookId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnSearchBookDetails))
+                .addGroup(jPanel15Layout.createSequentialGroup()
+                    .addComponent(textFieldSysId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel101)))
+            .addContainerGap(14, Short.MAX_VALUE))
     );
     jPanel15Layout.setVerticalGroup(
         jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2313,7 +2403,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(textFieldBookId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnSearchBookDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(18, 18, 18)
+            .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(textFieldSysId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel101))
+            .addContainerGap(9, Short.MAX_VALUE))
     );
 
     jLabel50.setText("Recieved from :");
@@ -2321,28 +2415,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     txtDateDue.setEditable(false);
 
     dateReturnedChooser.setBackground(new java.awt.Color(129, 186, 243));
-
-    jPanel1.setBackground(new java.awt.Color(129, 186, 243));
-    jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Condition", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP));
-
-    txtAreaCondition.setColumns(20);
-    txtAreaCondition.setRows(5);
-    jScrollPane7.setViewportView(txtAreaCondition);
-
-    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-    jPanel1.setLayout(jPanel1Layout);
-    jPanel1Layout.setHorizontalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-    );
-    jPanel1Layout.setVerticalGroup(
-        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-    );
 
     txtStaffStudent.setEditable(false);
     txtStaffStudent.setBackground(new java.awt.Color(204, 204, 255));
@@ -2353,13 +2425,17 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel19.setText("Book ISBN :");
 
+    txtAreaCondition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Update book condition", "New", "Fine", "Very Good", "Fair/Acceptable", "Poor (Needs repair)" }));
+
+    jLabel102.setText("Book condition :");
+
     javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
     jPanel16.setLayout(jPanel16Layout);
     jPanel16Layout.setHorizontalGroup(
         jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel16Layout.createSequentialGroup()
-            .addContainerGap(129, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+            .addContainerGap(176, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addGroup(jPanel16Layout.createSequentialGroup()
                     .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel31)
@@ -2368,7 +2444,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addComponent(jLabel51)
                         .addComponent(jLabel52)
                         .addComponent(jLabel53)
-                        .addComponent(jLabel19))
+                        .addComponent(jLabel19)
+                        .addComponent(jLabel102))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel16Layout.createSequentialGroup()
@@ -2377,24 +2454,24 @@ public final class LibraryHome extends javax.swing.JFrame {
                                 .addComponent(dateReturnedChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtAdmNo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtReceievedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtDateDue, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtDateDue, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAreaCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(txtBookIsbnRet, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtBookTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel16Layout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap(130, Short.MAX_VALUE))
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(106, 106, 106)))
+            .addContainerGap(118, Short.MAX_VALUE))
     );
     jPanel16Layout.setVerticalGroup(
         jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel16Layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtBookIsbnRet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel19))
@@ -2423,9 +2500,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtPenalties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel53))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(75, Short.MAX_VALUE))
+            .addGap(18, 18, 18)
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtAreaCondition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel102))
+            .addContainerGap(142, Short.MAX_VALUE))
     );
 
     btnIndicator.setBackground(new java.awt.Color(129, 186, 243));
@@ -2437,28 +2516,26 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(71, 71, 71)
             .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGap(68, 68, 68)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(51, 51, 51))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())))
+                    .addContainerGap())
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(48, 48, 48))))
     );
     jPanel13Layout.setVerticalGroup(
         jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel13Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createSequentialGroup()
                     .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(21, 21, 21))
-                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addContainerGap())
+                    .addGap(200, 200, 200)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(7, 7, 7))
     );
 
     javax.swing.GroupLayout panelRecieveLayout = new javax.swing.GroupLayout(panelRecieve);
@@ -2468,7 +2545,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelRecieveLayout.createSequentialGroup()
             .addGap(10, 10, 10)
             .addComponent(jLabel5)
-            .addContainerGap(887, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addComponent(jPanel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     panelRecieveLayout.setVerticalGroup(
@@ -2517,7 +2594,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel18Layout.setVerticalGroup(
         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
     );
 
     btnAddBookList.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -2598,7 +2675,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnExcelList.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnExcelList.setForeground(new java.awt.Color(255, 255, 255));
     btnExcelList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
-    btnExcelList.setText("Export to excel");
+    btnExcelList.setText("Export ");
     btnExcelList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
     btnExcelList.setContentAreaFilled(false);
     btnExcelList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2625,6 +2702,19 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnImport.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnImport.setForeground(new java.awt.Color(204, 255, 255));
+    btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
+    btnImport.setText("Import");
+    btnImport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnImport.setContentAreaFilled(false);
+    btnImport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnImport.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnImportActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelListLayout = new javax.swing.GroupLayout(panelList);
     panelList.setLayout(panelListLayout);
     panelListLayout.setHorizontalGroup(
@@ -2638,8 +2728,10 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnSearchList, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(comboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-            .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+            .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2664,7 +2756,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnEditBookDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAddBookList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnAddBookList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(btnImport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -2757,7 +2850,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel17.setLayout(jPanel17Layout);
     jPanel17Layout.setHorizontalGroup(
         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(comboFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2790,7 +2883,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnExcelBorrowers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addComponent(btnSearchBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(3, 3, 3)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout panelBorrowersLayout = new javax.swing.GroupLayout(panelBorrowers);
@@ -2800,7 +2893,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelBorrowersLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel7)
-            .addContainerGap(913, Short.MAX_VALUE))
+            .addContainerGap(950, Short.MAX_VALUE))
         .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     panelBorrowersLayout.setVerticalGroup(
@@ -2840,11 +2933,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel19.setLayout(jPanel19Layout);
     jPanel19Layout.setHorizontalGroup(
         jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
     );
     jPanel19Layout.setVerticalGroup(
         jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
     );
 
     btnPrintIssued.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -2987,15 +3080,15 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackArrow_16.png"))); // NOI18N
-    jButton1.setToolTipText("add book");
-    jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-    jButton1.setContentAreaFilled(false);
-    jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackArrowwhite_16.png"))); // NOI18N
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
+    btnAddShortLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackArrow_16.png"))); // NOI18N
+    btnAddShortLoan.setToolTipText("add book");
+    btnAddShortLoan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnAddShortLoan.setContentAreaFilled(false);
+    btnAddShortLoan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnAddShortLoan.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/BackArrowwhite_16.png"))); // NOI18N
+    btnAddShortLoan.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton1ActionPerformed(evt);
+            btnAddShortLoanActionPerformed(evt);
         }
     });
 
@@ -3056,6 +3149,18 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel59.setText("HRS");
 
+    systemIDtxt.setEditable(false);
+    systemIDtxt.setBackground(new java.awt.Color(51, 51, 51));
+    systemIDtxt.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    systemIDtxt.setForeground(new java.awt.Color(255, 255, 255));
+    systemIDtxt.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            systemIDtxtActionPerformed(evt);
+        }
+    });
+
+    jLabel98.setText("System ID :");
+
     javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
     jPanel33.setLayout(jPanel33Layout);
     jPanel33Layout.setHorizontalGroup(
@@ -3063,70 +3168,74 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel33Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                    .addComponent(jLabel11)
-                    .addGap(204, 204, 204)
-                    .addComponent(btnSearchStdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel33Layout.createSequentialGroup()
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel54)
-                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(204, 204, 204)
+                        .addComponent(btnSearchStdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel33Layout.createSequentialGroup()
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel54)
+                                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtStaffNo)
+                                .addComponent(txtShortClass, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                                .addComponent(jLabel57)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtShortBkIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                                .addComponent(jLabel38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtShortBkId, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAddShortLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtShortDept, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel33Layout.createSequentialGroup()
+                                    .addComponent(jLabel58)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtShortBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel33Layout.createSequentialGroup()
+                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel33Layout.createSequentialGroup()
+                                            .addComponent(btnIssueShort, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(44, 44, 44)
+                                            .addComponent(btnCancelShort, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel33Layout.createSequentialGroup()
+                                            .addComponent(SpinfieldTimeLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel59)))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel36)
+                                .addComponent(jLabel35))
+                            .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtStaffNo)
-                            .addComponent(txtShortClass, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                            .addComponent(jLabel57)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtShortBkIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                            .addComponent(jLabel38)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtShortBkId, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                            .addComponent(jLabel72)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtShortDept, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel33Layout.createSequentialGroup()
-                                .addComponent(jLabel58)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtShortBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel33Layout.createSequentialGroup()
-                                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel33Layout.createSequentialGroup()
-                                        .addComponent(btnIssueShort, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(btnCancelShort, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel33Layout.createSequentialGroup()
-                                        .addComponent(SpinfieldTimeLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel59)))))))
+                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtStaffstdId, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtShortLname)
+                                .addComponent(txtShortFname, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                    .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel35))
-                        .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel98)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtStaffstdId, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtShortLname)
-                            .addComponent(txtShortFname, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(comboStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(systemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap())
     );
     jPanel33Layout.setVerticalGroup(
         jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(comboStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel56))
@@ -3158,7 +3267,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jLabel72))
             .addGap(15, 15, 15)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddShortLoan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
                     .addComponent(txtShortBkId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3170,12 +3279,16 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel58)
                 .addComponent(txtShortBkTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabel98)
+                .addComponent(systemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(16, 16, 16)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpinfieldTimeLoan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(28, 28, 28)
+            .addGap(18, 18, 18)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnIssueShort, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnCancelShort, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3271,7 +3384,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createSequentialGroup()
                     .addComponent(jPanel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap())))
@@ -3287,7 +3400,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel20Layout.createSequentialGroup()
                     .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(10, 10, 10)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane11))))
     );
 
     javax.swing.GroupLayout panelShortLoanBooksLayout = new javax.swing.GroupLayout(panelShortLoanBooks);
@@ -3375,7 +3488,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelUsersView.setLayout(panelUsersViewLayout);
     panelUsersViewLayout.setHorizontalGroup(
         panelUsersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 852, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsersViewLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRefreshUserTable)
@@ -3394,7 +3507,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(btnSearchUser)
                 .addComponent(btnRefreshUserTable))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelUsersView, "card2");
@@ -3413,6 +3526,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             "Title 1", "Title 2", "Title 3", "Title 4"
         }
     ));
+    tableSessionLogs.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            tableSessionLogsMouseClicked(evt);
+        }
+    });
     jScrollPane2.setViewportView(tableSessionLogs);
 
     btnPrintSession.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -3440,7 +3558,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelSessionLogs.setLayout(panelSessionLogsLayout);
     panelSessionLogsLayout.setHorizontalGroup(
         panelSessionLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSessionLogsLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrintSession, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3449,7 +3567,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelSessionLogsLayout.setVerticalGroup(
         panelSessionLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelSessionLogsLayout.createSequentialGroup()
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnPrintSession, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -3463,6 +3581,12 @@ public final class LibraryHome extends javax.swing.JFrame {
     txtIdNo.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyTyped(java.awt.event.KeyEvent evt) {
             txtIdNoKeyTyped(evt);
+        }
+    });
+
+    txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtPassKeyTyped(evt);
         }
     });
 
@@ -3480,16 +3604,16 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel18.setText("Retype password :");
 
-    jButton12.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
-    jButton12.setText("Add");
-    jButton12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-    jButton12.setContentAreaFilled(false);
-    jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
-    jButton12.addActionListener(new java.awt.event.ActionListener() {
+    btnAddUser.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
+    btnAddUser.setText("Add");
+    btnAddUser.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnAddUser.setContentAreaFilled(false);
+    btnAddUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnAddUser.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
+    btnAddUser.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton12ActionPerformed(evt);
+            btnAddUserActionPerformed(evt);
         }
     });
 
@@ -3501,12 +3625,14 @@ public final class LibraryHome extends javax.swing.JFrame {
     jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     jButton13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
 
+    colorCodeButton.setBackground(new java.awt.Color(204, 204, 204));
+
     javax.swing.GroupLayout panelAddUsersLayout = new javax.swing.GroupLayout(panelAddUsers);
     panelAddUsers.setLayout(panelAddUsersLayout);
     panelAddUsersLayout.setHorizontalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(229, Short.MAX_VALUE)
+            .addContainerGap(247, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addComponent(jLabel10)
                 .addComponent(jLabel13)
@@ -3518,7 +3644,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addGroup(panelAddUsersLayout.createSequentialGroup()
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
@@ -3528,12 +3654,14 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(txtIdNo)
                 .addComponent(txtPass)
                 .addComponent(txtConfPass))
-            .addContainerGap(248, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(246, Short.MAX_VALUE))
     );
     panelAddUsersLayout.setVerticalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(119, Short.MAX_VALUE)
+            .addContainerGap(120, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel10))
@@ -3556,16 +3684,17 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel17))
+                .addComponent(jLabel17)
+                .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtConfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel18))
             .addGap(68, 68, 68)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(99, Short.MAX_VALUE))
+            .addContainerGap(100, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelAddUsers, "card2");
@@ -3843,6 +3972,12 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    sysBookIdentity.setBackground(new java.awt.Color(51, 51, 51));
+    sysBookIdentity.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    sysBookIdentity.setForeground(new java.awt.Color(255, 255, 255));
+
+    jLabel100.setText("System ID :");
+
     javax.swing.GroupLayout panelLostBooksLayout = new javax.swing.GroupLayout(panelLostBooks);
     panelLostBooks.setLayout(panelLostBooksLayout);
     panelLostBooksLayout.setHorizontalGroup(
@@ -3856,26 +3991,31 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(panelLostBooksLayout.createSequentialGroup()
                     .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLostBooksLayout.createSequentialGroup()
-                            .addComponent(txtBookIDlost)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnAddBkLost, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(txtBookTitleLost)
                         .addComponent(txtIsbnLost)
+                        .addGroup(panelLostBooksLayout.createSequentialGroup()
+                            .addComponent(btnLostConf, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panelLostBooksLayout.createSequentialGroup()
                             .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel70)
                                 .addComponent(jLabel71))
                             .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(panelLostBooksLayout.createSequentialGroup()
-                            .addComponent(btnLostConf, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLostBooksLayout.createSequentialGroup()
+                            .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelLostBooksLayout.createSequentialGroup()
+                                    .addComponent(jLabel100)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(sysBookIdentity))
+                                .addComponent(txtBookIDlost))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnAddBkLost, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
             .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelLostBooksLayout.createSequentialGroup()
                     .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
                     .addComponent(txtSearchLost, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(searchLost, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3892,7 +4032,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGap(8, 8, 8)
                     .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtSearchLost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sysBookIdentity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel100)))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLostBooksLayout.createSequentialGroup()
                     .addGap(10, 10, 10)
                     .addComponent(searchLost, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3931,7 +4073,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelReportLostLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(859, Short.MAX_VALUE))
+            .addContainerGap(896, Short.MAX_VALUE))
         .addComponent(panelLostBooks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     panelReportLostLayout.setVerticalGroup(
@@ -3984,7 +4126,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel23.setLayout(jPanel23Layout);
     jPanel23Layout.setHorizontalGroup(
         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3993,7 +4135,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel23Layout.setVerticalGroup(
         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel23Layout.createSequentialGroup()
-            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -4036,7 +4178,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelStudentsLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel75)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 445, Short.MAX_VALUE)
             .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel60)
@@ -4102,7 +4244,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel24.setLayout(jPanel24Layout);
     jPanel24Layout.setHorizontalGroup(
         jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+        .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4111,7 +4253,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel24Layout.setVerticalGroup(
         jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel24Layout.createSequentialGroup()
-            .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+            .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -4451,7 +4593,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnMagzIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnMagzCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(63, Short.MAX_VALUE))
+            .addContainerGap(65, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout panelMagsInLayout = new javax.swing.GroupLayout(panelMagsIn);
@@ -4462,7 +4604,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
             .addContainerGap())
     );
     panelMagsInLayout.setVerticalGroup(
@@ -4622,7 +4764,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel26Layout.setVerticalGroup(
         jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
     );
 
     btnRefreshMagzBoro.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -4691,7 +4833,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(txtSearchMagzBorrowed, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchBoroMagz, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
             .addComponent(comboMagzFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnRefreshMagzBoro, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4801,7 +4943,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(panelSchedulesCreateLayout.createSequentialGroup()
                     .addGroup(panelSchedulesCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelSchedulesCreateLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                             .addComponent(btnCreateSch, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(chooserschDate, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4955,7 +5097,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addComponent(jLabel85, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(panelNotesCreateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
                         .addComponent(txtNotesTitle)
                         .addGroup(panelNotesCreateLayout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
@@ -5111,6 +5253,302 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     holderPanel.add(panelSchedules, "card2");
 
+    panelDamaged.setBackground(new java.awt.Color(51, 102, 255));
+
+    labelMagzBorrowed2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    labelMagzBorrowed2.setForeground(new java.awt.Color(255, 255, 255));
+    labelMagzBorrowed2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    labelMagzBorrowed2.setText("Damaged Books Report");
+
+    jPanel28.setBackground(new java.awt.Color(129, 186, 243));
+
+    tableDamagedBooks.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    jScrollPane7.setViewportView(tableDamagedBooks);
+
+    jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+    jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+    jButton1.setText("Export to Excel");
+    jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    jButton1.setContentAreaFilled(false);
+    jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+    jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
+    jButton6.setText("Refresh");
+    jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    jButton6.setContentAreaFilled(false);
+    jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+    jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
+    jButton5.setContentAreaFilled(false);
+    jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    jButton5.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton5ActionPerformed(evt);
+        }
+    });
+
+    jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
+    jButton3.setText("Mark selected as repaired");
+    jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    jButton3.setContentAreaFilled(false);
+    jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+    jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
+    jButton4.setText("Mark all as repaired");
+    jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    jButton4.setContentAreaFilled(false);
+    jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+    jPanel1.setLayout(jPanel1Layout);
+    jPanel1Layout.setHorizontalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
+    );
+    jPanel1Layout.setVerticalGroup(
+        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jButton5)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap())
+    );
+
+    javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+    jPanel28.setLayout(jPanel28Layout);
+    jPanel28Layout.setHorizontalGroup(
+        jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel28Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane7)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+    );
+    jPanel28Layout.setVerticalGroup(
+        jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addContainerGap())
+    );
+
+    jLabel103.setFont(new java.awt.Font("sansserif", 3, 12)); // NOI18N
+    jLabel103.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info_16.png"))); // NOI18N
+    jLabel103.setText("info");
+
+    javax.swing.GroupLayout panelDamagedLayout = new javax.swing.GroupLayout(panelDamaged);
+    panelDamaged.setLayout(panelDamagedLayout);
+    panelDamagedLayout.setHorizontalGroup(
+        panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelDamagedLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed2)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(16, 16, 16))
+        .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    panelDamagedLayout.setVerticalGroup(
+        panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelDamagedLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(labelMagzBorrowed2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel103, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    holderPanel.add(panelDamaged, "card2");
+
+    panelMaintenance.setBackground(new java.awt.Color(51, 102, 255));
+
+    labelMagzBorrowed3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    labelMagzBorrowed3.setForeground(new java.awt.Color(255, 255, 255));
+    labelMagzBorrowed3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    labelMagzBorrowed3.setText("Maintenance Page");
+
+    jPanel42.setBackground(new java.awt.Color(129, 186, 243));
+
+    tableMaintenance.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    tableMaintenance.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+    jScrollPane20.setViewportView(tableMaintenance);
+
+    jPanel43.setBackground(new java.awt.Color(129, 186, 243));
+    jPanel43.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Issue to", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+
+    jLabel105.setText("Company name :");
+
+    jLabel106.setText("Company Contacts (Phone) :");
+
+    jLabel107.setText("Representative's names :");
+
+    jLabel108.setText("Representative's phone :");
+
+    jLabel109.setText("Date issued :");
+
+    jDateChooser1.setBackground(new java.awt.Color(129, 186, 243));
+
+    jButton9.setText("Issue selected for maintenance");
+
+    jButton10.setText("Cancel selection");
+
+    javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+    jPanel43.setLayout(jPanel43Layout);
+    jPanel43Layout.setHorizontalGroup(
+        jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel43Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel43Layout.createSequentialGroup()
+                    .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton9)
+                            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel105)
+                                .addComponent(jLabel106)
+                                .addComponent(jLabel107)
+                                .addComponent(jLabel108)
+                                .addComponent(jLabel109)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap())
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
+                    .addComponent(jButton10)
+                    .addGap(64, 64, 64))))
+    );
+    jPanel43Layout.setVerticalGroup(
+        jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel43Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel105)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel106)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel107)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel108)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel109)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(34, 34, 34)
+            .addComponent(jButton9)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jButton10)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
+    jPanel42.setLayout(jPanel42Layout);
+    jPanel42Layout.setHorizontalGroup(
+        jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel42Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
+            .addContainerGap())
+    );
+    jPanel42Layout.setVerticalGroup(
+        jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel42Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+    );
+
+    jButton8.setText("Receive books back");
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton8ActionPerformed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout panelMaintenanceLayout = new javax.swing.GroupLayout(panelMaintenance);
+    panelMaintenance.setLayout(panelMaintenanceLayout);
+    panelMaintenanceLayout.setHorizontalGroup(
+        panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelMaintenanceLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed3)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
+        .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    panelMaintenanceLayout.setVerticalGroup(
+        panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelMaintenanceLayout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(labelMagzBorrowed3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton8))
+            .addGap(7, 7, 7)
+            .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    holderPanel.add(panelMaintenance, "card2");
+
     mainMenuBar.setBackground(new java.awt.Color(0, 204, 204));
 
     mainMenuNav.setBackground(new java.awt.Color(51, 153, 255));
@@ -5226,20 +5664,6 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     mainMenuBar.add(mainMenuNav);
 
-    menuItemEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Edit_File_16.png"))); // NOI18N
-    menuItemEdit.setText("Edit");
-
-    itemList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/List_16.png"))); // NOI18N
-    itemList.setText("Lists");
-    itemList.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            itemListActionPerformed(evt);
-        }
-    });
-    menuItemEdit.add(itemList);
-
-    mainMenuBar.add(menuItemEdit);
-
     menuItemView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/View_File_16.png"))); // NOI18N
     menuItemView.setText("View");
 
@@ -5294,6 +5718,39 @@ public final class LibraryHome extends javax.swing.JFrame {
     menuItemView.add(jMenuItem4);
 
     mainMenuBar.add(menuItemView);
+
+    menuItemEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Edit_File_16.png"))); // NOI18N
+    menuItemEdit.setText("Book management");
+
+    itemList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/List_16.png"))); // NOI18N
+    itemList.setText("Add/Manage");
+    itemList.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemListActionPerformed(evt);
+        }
+    });
+    menuItemEdit.add(itemList);
+
+    itemMaintain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/issue_16.png"))); // NOI18N
+    itemMaintain.setText("Maintenance");
+    itemMaintain.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemMaintainActionPerformed(evt);
+        }
+    });
+    menuItemEdit.add(itemMaintain);
+
+    itemDamaged.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+    itemDamaged.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Books_16.png"))); // NOI18N
+    itemDamaged.setText("Damaged books");
+    itemDamaged.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemDamagedActionPerformed(evt);
+        }
+    });
+    menuItemEdit.add(itemDamaged);
+
+    mainMenuBar.add(menuItemEdit);
 
     menuSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Settings_16.png"))); // NOI18N
     menuSettings.setText("Settings");
@@ -5465,10 +5922,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         profileDialog.setVisible(true);
     }//GEN-LAST:event_menuItemProfileActionPerformed
 
-    private void txtStdntLnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStdntLnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStdntLnameActionPerformed
-
     private void labelTabOneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTabOneMouseEntered
         labelTabOne.setForeground(Color.red);
     }//GEN-LAST:event_labelTabOneMouseEntered
@@ -5566,10 +6019,11 @@ public final class LibraryHome extends javax.swing.JFrame {
         authorNameList1 = (String) tableListBooks.getModel().getValueAt(row, 2);
         titleNameList1 = (String) tableListBooks.getModel().getValueAt(row, 3);
         publisherList1 = (String) tableListBooks.getModel().getValueAt(row, 4);
-        editionList1 = (String) tableListBooks.getModel().getValueAt(row, 5);
-        categoryList1 = (String) tableListBooks.getModel().getValueAt(row, 6);
-        loanList1 = (String) tableListBooks.getModel().getValueAt(row, 7);
-        borrowedList1 = (String) tableListBooks.getModel().getValueAt(row, 8);
+        shelflist1 = (String) tableListBooks.getModel().getValueAt(row, 5);
+        editionList1 = (String) tableListBooks.getModel().getValueAt(row, 6);
+        categoryList1 = (String) tableListBooks.getModel().getValueAt(row, 7);
+        loanList1 = (String) tableListBooks.getModel().getValueAt(row, 8);
+        borrowedList1 = (String) tableListBooks.getModel().getValueAt(row, 9);
     }//GEN-LAST:event_tableListBooksMouseClicked
 
     private void btnIssueToStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIssueToStudentsActionPerformed
@@ -5580,7 +6034,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIssueToStudentsActionPerformed
 
     private void tableIssueToStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableIssueToStudentsMouseClicked
+        boolean a = tableSessionLogs.isEditing();
         int row = tableIssueToStudents.getSelectedRow();
+        if(a == false){
         bookID2 = (String) tableIssueToStudents.getModel().getValueAt(row, 0);
         bookISBNList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 1);
         authorNameList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 2);
@@ -5588,6 +6044,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         publisherList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 4);
         editionList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 5);
         categoryList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 6);
+        systemIdList2 = (String) tableIssueToStudents.getModel().getValueAt(row, 7);
+        JOptionPane.showMessageDialog(null, "Editing not allowed from table");
+        }
+        
     }//GEN-LAST:event_tableIssueToStudentsMouseClicked
 
     private void btnAddIssueStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddIssueStudentActionPerformed
@@ -5596,6 +6056,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Select a book from the list to issue");
         } else {
                 txtBookIdIssue.setText(bookID2);
+                systemBookId.setText(systemIdList2);
                 txtBookIssueTitle1.setText(titleNameList2);
                 txtBookIsbnIssue.setText(bookISBNList2);
         }
@@ -5684,20 +6145,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelHolderManageUsers.revalidate();
     }//GEN-LAST:event_btnAddNewUsersActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         addUserMethod();
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void textFieldBookIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFieldBookIdKeyTyped
-        textFieldBookId.setBackground(Color.white);
-        btnIndicator.setBackground(Color.ORANGE);
-        char c = evt.getKeyChar();
-        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
-            getToolkit().beep();
-            evt.consume();
-            btnIndicator.setBackground(Color.red);
-        }
-    }//GEN-LAST:event_textFieldBookIdKeyTyped
+    }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void btnSearchBookDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookDetailsActionPerformed
         if(textFieldBookId.getText().equals("")){
@@ -5717,18 +6167,18 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtAdmNo.setText("");
         txtStaffStudent.setText("");
         txtPenalties.setText("");
-        txtAreaCondition.setText("");
+        txtAreaCondition.setSelectedIndex(0);
     }//GEN-LAST:event_btnCancelRecieveActionPerformed
 
     private void btnRecieveBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecieveBooksActionPerformed
         String studentORstaff = txtStaffStudent.getText();
         String penns = txtPenalties.getText();
-        String condy = txtAreaCondition.getText();
+        String condy = (String) txtAreaCondition.getSelectedItem();
         if (penns.isEmpty())
-        {JOptionPane.showMessageDialog(null, "Update penalties, if none indicate NONE");}
+        {JOptionPane.showMessageDialog(null, "Update penalties, if none, indicate NONE");}
         
-        else if (condy.isEmpty())
-        {JOptionPane.showMessageDialog(null, "Indicate book condition when returned");}
+        else if (condy.equals("Update book condition"))
+        {JOptionPane.showMessageDialog(null, "Please update book condition when returned");}
         
         else if(studentORstaff.equals("STUDENT")){
         recieveFromStudents();
@@ -5742,7 +6192,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecieveBooksActionPerformed
 
     private void btnIsssueStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIsssueStaffActionPerformed
-        
         limitBorrowersStaff();
         displayBooksBorrowed();
         refreshAfterIssue();
@@ -5758,6 +6207,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         publisherList3 = (String) tableBooksForStaff.getModel().getValueAt(row, 4);
         editionList3 = (String) tableBooksForStaff.getModel().getValueAt(row, 5);
         categoryList3 = (String) tableBooksForStaff.getModel().getValueAt(row, 6);
+        systemId3 = (String) tableBooksForStaff.getModel().getValueAt(row, 7);
     }//GEN-LAST:event_tableBooksForStaffMouseClicked
 
     private void btnCancelIssueStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelIssueStaffActionPerformed
@@ -5779,6 +6229,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 txtStaffBookId.setText(bookID3);
                 txtStaffBkTitle.setText(titleNameList3);
                 txtStaffBookIsbn.setText(bookISBNList3);
+                systemIDStaff.setText(systemId3);
         }
     }//GEN-LAST:event_btnAddBookStaffActionPerformed
 
@@ -5801,6 +6252,8 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPermissionsActionPerformed
 
     private void tableUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableUsersMouseClicked
+        boolean a = tableUsers.isEditing();
+        if(a == false){
         int row = tableUsers.getSelectedRow();
         userEdit = (String) tableUsers.getModel().getValueAt(row, 0);
         userNameedit = (String) tableUsers.getModel().getValueAt(row, 1);
@@ -5809,6 +6262,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         permissionEdit = (String) tableUsers.getModel().getValueAt(row, 4);
         deptEdit = (String) tableUsers.getModel().getValueAt(row, 5);
         resetEdit = (String) tableUsers.getModel().getValueAt(row, 6);
+       JOptionPane.showMessageDialog(null, "Editing not allowed");}
     }//GEN-LAST:event_tableUsersMouseClicked
 
     private void tableShortLoanBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableShortLoanBookMouseClicked
@@ -5820,18 +6274,20 @@ public final class LibraryHome extends javax.swing.JFrame {
         publisherList4 = (String) tableShortLoanBook.getModel().getValueAt(row, 4);
         editionList4 = (String) tableShortLoanBook.getModel().getValueAt(row, 5);
         categoryList4 = (String) tableShortLoanBook.getModel().getValueAt(row, 6);
+        systemIdBk4 = (String) tableShortLoanBook.getModel().getValueAt(row, 7);
     }//GEN-LAST:event_tableShortLoanBookMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddShortLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddShortLoanActionPerformed
         select = bookID4;
         if (select == null) {
             JOptionPane.showMessageDialog(null, "Select a book from the table to issue");
         } else {
                 txtShortBkId.setText(bookID4);
+                systemIDtxt.setText(systemIdBk4);
                 txtShortBkIsbn.setText(titleNameList4);
                 txtShortBkTitle.setText(bookISBNList4);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAddShortLoanActionPerformed
 
     private void btnRefreshShortBksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshShortBksActionPerformed
         while (shortModel.getRowCount() != 0) {
@@ -6108,7 +6564,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableShortLoanBook.setRowSorter(sorter);
     
         String text = (String) comboSearchShort.getSelectedItem();
-        if (text.equalsIgnoreCase("select category to display")) {
+        if (text.equalsIgnoreCase("Select category to display")) {
           sorter.setRowFilter(null);
         } else {
           refreshShortTable();
@@ -6120,7 +6576,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableIssueToStudents.setRowSorter(sorter);
     
         String text = (String) comboSearchIssue.getSelectedItem();
-        if (text.equals("select category to display")) {
+        if (text.equals("Select category to display")) {
           sorter.setRowFilter(null);
         } else {
           refreshOnItemIssueStd();
@@ -6612,6 +7068,13 @@ public final class LibraryHome extends javax.swing.JFrame {
             }else{
             issueMagzToStudents();
             refreshMagz();
+        txtMagzNameID.setText("");
+        txtMagzName1.setText("");
+        txtMagzName2.setText("");
+        txtMagzClass.setText("");
+        txtMagzDept.setText("");
+        txtMagzPhone.setText("");
+        comboMagz.setSelectedIndex(0);
             }
         }
         else if(comboMagz.getSelectedIndex() == 2){
@@ -6624,6 +7087,13 @@ public final class LibraryHome extends javax.swing.JFrame {
             }else{
             issueMagzToStaff();
             refreshMagz();
+        txtMagzNameID.setText("");
+        txtMagzName1.setText("");
+        txtMagzName2.setText("");
+        txtMagzClass.setText("");
+        txtMagzDept.setText("");
+        txtMagzPhone.setText("");
+        comboMagz.setSelectedIndex(0);
             }
         }
     }//GEN-LAST:event_btnMagzIssueActionPerformed
@@ -6988,6 +7458,81 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtSearchStaffBook.setBackground(Color.WHITE);
     }//GEN-LAST:event_txtSearchStaffBookKeyTyped
 
+    private void systemIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_systemIDtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_systemIDtxtActionPerformed
+
+    private void textFieldBookIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textFieldBookIdKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(textFieldBookId.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter book ID");
+            textFieldBookId.setBackground(Color.CYAN);
+            textFieldBookId.requestFocus();
+            btnIndicator.setBackground(Color.red);}
+            else{retrieveBookDetails();}
+        }
+    }//GEN-LAST:event_textFieldBookIdKeyPressed
+
+    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
+        try {
+            BookExcelImport.main(null);
+        } catch (SQLException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnImportActionPerformed
+
+    private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
+        if(txtPass.getPassword().length < 3){
+        colorCodeButton.setBackground(Color.red);}
+        else if(txtPass.getPassword().length < 4){
+        colorCodeButton.setBackground(Color.orange);}
+        else if(txtPass.getPassword().length == 6){
+        colorCodeButton.setBackground(Color.green);}
+    }//GEN-LAST:event_txtPassKeyTyped
+
+    private void tableSessionLogsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableSessionLogsMouseClicked
+        boolean a = tableSessionLogs.isEditing();
+        if(a == false){
+        JOptionPane.showMessageDialog(null, "Editing not allowed");}
+    }//GEN-LAST:event_tableSessionLogsMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void itemDamagedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDamagedActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelDamaged);
+        holderPanel.repaint();
+        holderPanel.revalidate();
+    }//GEN-LAST:event_itemDamagedActionPerformed
+
+    private void itemMaintainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMaintainActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelMaintenance);
+        holderPanel.repaint();
+        holderPanel.revalidate();
+        refreshMaintenanceTable();
+    }//GEN-LAST:event_itemMaintainActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -7199,6 +7744,11 @@ public void refreshStaffOnId(){
         staffModel.removeRow(0);}
     filterStaffTableID();}
 
+public void refreshMaintenanceTable(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    DisplayListMaintain();}
+
 public void permissionCheck(){
 
     if( null != LibrarySignIn.permissionLabel)switch (LibrarySignIn.permissionLabel) {
@@ -7217,11 +7767,13 @@ public void permissionCheck(){
                 menuItemLost.setEnabled(false);
                 btnMagzShortcut.setEnabled(false);
                 btnSchedulesShortCut.setEnabled(false);
+                btnImport.setEnabled(false);
                 break;
             case "User":
                 itemList.setEnabled(false);
                 itemsSystems.setEnabled(false);
                 itemManageUsers.setEnabled(false);
+                btnImport.setEnabled(false);
                 break;
             case "Administrator":
                 btnPassReset.setEnabled(false);
@@ -7244,6 +7796,7 @@ public void permissionCheck(){
                 labelTabThree.setVisible(false);
                 menuItemLost.setEnabled(false);
                 menuItemProfile.setEnabled(false);
+                btnImport.setEnabled(false);
                 JOptionPane.showMessageDialog(null, "You are a blocked user, please see the admin");
                 break;
             default:
@@ -7279,7 +7832,7 @@ public void addNotes(){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert
@@ -7331,7 +7884,7 @@ public void displayNotes() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  note_id,title,information,importance,creator_name,date_due,acknowledge FROM notes");
             ResultSet staffRs = st.executeQuery();
             
@@ -7372,7 +7925,7 @@ public void displaySchedules() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  sch_id,title,info,date FROM schedules WHERE creator_id='"+ lblID.getText() +"'");
             ResultSet staffRs = st.executeQuery();
             
@@ -7410,7 +7963,7 @@ public void addSchedule(){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert
@@ -7458,16 +8011,17 @@ public void DisplayBooksList() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("select  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type,borrowed,book_condition from books_db");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                bookID = rsIssue.getString("book_id");
+                bookID = rsIssue.getString("bklib_id");
                 bookISBNList = rsIssue.getString("book_isbn");
                 authorNameList = rsIssue.getString("author");
                 titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
                 publisherList = rsIssue.getString("publisher_name");
                 editionList = rsIssue.getString("edition");
                 categoryList = rsIssue.getString("subject_category");
@@ -7475,7 +8029,53 @@ public void DisplayBooksList() {
                 borrowedList = rsIssue.getString("borrowed");
                 conditionList = rsIssue.getString("book_condition");
 
-                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,editionList,categoryList,loanList,borrowedList,conditionList});
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void DisplayListMaintain() {
+
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableMaintenance.setModel(listModel);
+
+        tableMaintenance.setFillsViewportHeight(true);
+        String borrowedNo = "NO";
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE borrowed = '"+ borrowedNo +"'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
+                publisherList = rsIssue.getString("publisher_name");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
                 i++;
 
             }
@@ -7504,24 +8104,25 @@ public void displayBooksListFilter() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE borrowed='"+ itemSelect +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE borrowed='"+ itemSelect +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                bookID = rsIssue.getString("book_id");
+                bookID = rsIssue.getString("bklib_id");
                 bookISBNList = rsIssue.getString("book_isbn");
                 authorNameList = rsIssue.getString("author");
                 titleNameList = rsIssue.getString("title");
                 publisherList = rsIssue.getString("publisher_name");
+                shelflist = rsIssue.getString("shelf");
                 editionList = rsIssue.getString("edition");
                 categoryList = rsIssue.getString("subject_category");
                 loanList = rsIssue.getString("loan_type");
                 borrowedList = rsIssue.getString("borrowed");
                 conditionList = rsIssue.getString("book_condition");
 
-                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,editionList,categoryList,loanList,borrowedList,conditionList});
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
                 i++;
 
             }
@@ -7550,24 +8151,25 @@ public void displayBooksListFilterTitle() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE title='"+ itemSelect +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE title='"+ itemSelect +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                bookID = rsIssue.getString("book_id");
+                bookID = rsIssue.getString("bklib_id");
                 bookISBNList = rsIssue.getString("book_isbn");
                 authorNameList = rsIssue.getString("author");
                 titleNameList = rsIssue.getString("title");
                 publisherList = rsIssue.getString("publisher_name");
+                shelflist = rsIssue.getString("shelf");
                 editionList = rsIssue.getString("edition");
                 categoryList = rsIssue.getString("subject_category");
                 loanList = rsIssue.getString("loan_type");
                 borrowedList = rsIssue.getString("borrowed");
                 conditionList = rsIssue.getString("book_condition");
 
-                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,editionList,categoryList,loanList,borrowedList,conditionList});
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
                 i++;
 
             }
@@ -7596,13 +8198,13 @@ public void DisplayBooksStock() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                stockbookID = rsIssue.getString("book_id");
+                stockbookID = rsIssue.getString("bklib_id");
                 stockbookISBNList = rsIssue.getString("book_isbn");
                 stockauthorNameList = rsIssue.getString("author");
                 stocktitleNameList = rsIssue.getString("title");
@@ -7642,13 +8244,13 @@ public void filterBooksStockCat() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND subject_category='"+ itemCat +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND subject_category='"+ itemCat +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                stockbookID = rsIssue.getString("book_id");
+                stockbookID = rsIssue.getString("bklib_id");
                 stockbookISBNList = rsIssue.getString("book_isbn");
                 stockauthorNameList = rsIssue.getString("author");
                 stocktitleNameList = rsIssue.getString("title");
@@ -7688,13 +8290,13 @@ public void filterBooksStocktitle() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND title='"+ itemCat +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND title='"+ itemCat +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                stockbookID = rsIssue.getString("book_id");
+                stockbookID = rsIssue.getString("bklib_id");
                 stockbookISBNList = rsIssue.getString("book_isbn");
                 stockauthorNameList = rsIssue.getString("author");
                 stocktitleNameList = rsIssue.getString("title");
@@ -7730,8 +8332,8 @@ public void displayBorrowersList() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("select  borrower_entry_no,borrower_id,borrower_name1,borrower_name2,book_title,book_isbn,student_staff from borrowers_db");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  borrower_entry_no,borrower_id,borrower_name1,borrower_name2,book_title,book_isbn,student_staff FROM borrowers_db");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -7764,7 +8366,7 @@ public void numberOfBooks(){
     String boorrowedCondtion = "NO";
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
         PreparedStatement os = con.prepareStatement("select count(book_id) as bookcount_no from books_db where borrowed='"+ boorrowedCondtion +"'");
         ResultSet rsCs = os.executeQuery();
         
@@ -7784,7 +8386,7 @@ public void numberOfBooksBorrowed(){
     String boorrowedCondtionyes = "YES";
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
         PreparedStatement os = con.prepareStatement("select count(book_id) as bookcount_no from books_db where borrowed='"+ boorrowedCondtionyes +"'");
         ResultSet rsCs = os.executeQuery();
         
@@ -7803,8 +8405,8 @@ public void numberOfBorrowers(){
     
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
-        PreparedStatement os = con.prepareStatement("select count(borrower_entry_no) as borrowercount_no from borrowers_db");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(borrower_entry_no) AS borrowercount_no FROM borrowers_db");
         ResultSet rsCs = os.executeQuery();
         
         int i = 0;
@@ -7826,7 +8428,7 @@ public void limitBorrowersStudents(){
     
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
         PreparedStatement os = con.prepareStatement("SELECT COUNT(borrower_id) AS borrowertimes_no FROM borrowers_db WHERE borrower_id='"+ limitNo +"' AND student_staff=\"STUDENT\"");
         ResultSet rsCs = os.executeQuery();
         
@@ -7837,7 +8439,7 @@ public void limitBorrowersStudents(){
                 int boroLimit = Integer.parseInt(limitCount);
                 if(boroLimit < noLimit)
                 {
-                    issueToStudents();
+                    checkBookDetails();
                 } else {
                     JOptionPane.showMessageDialog(null, "Limit of books borrowed reached");
                        }
@@ -7855,10 +8457,10 @@ public void limitBorrowersStaff(){
     
     try{
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
-        PreparedStatement os = con.prepareStatement("SELECT COUNT(borrower_id) AS borrowertimes_no FROM borrowers_db WHERE borrower_id='"+ limitNo +"' AND student_staff=\"STUDENT\"");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(borrower_id) AS borrowertimes_no FROM borrowers_db WHERE borrower_id='"+ limitNo +"' AND student_staff=\"STAFF\"");
         ResultSet rsCs = os.executeQuery();
-        
+        //
         int i = 0;
             if(rsCs.next())
             {    
@@ -7866,7 +8468,7 @@ public void limitBorrowersStaff(){
                 int boroLimit = Integer.parseInt(limitCount);
                 if(boroLimit < noLimit)
                 {
-                    issueToStaff();
+                    checkBookDetailsStaff();
                 } else {
                     JOptionPane.showMessageDialog(null, "Limit of books borrowed reached");
                        }
@@ -7892,21 +8494,22 @@ public void displayBooksShortLoan() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("select  book_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db where (loan_type='"+ loanType +"' and borrowed='"+ boorrowedCondtion +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' and borrowed='"+ boorrowedCondtion +"')");
             ResultSet loanRs = st.executeQuery();
             
             int i = 0;
             while (loanRs.next()) {
-                shortbookID = loanRs.getString("book_id");
+                shortbookID = loanRs.getString("bklib_id");
                 shortbookISBNList = loanRs.getString("book_isbn");
                 shortauthorNameList = loanRs.getString("author");
                 shorttitleNameList = loanRs.getString("title");
                 shortpublisherList = loanRs.getString("publisher_name");
                 shorteditionList = loanRs.getString("edition");
                 shortcategoryList = loanRs.getString("subject_category");
+                shortSystemId = loanRs.getString("book_id");
 
-                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList});
+                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList,shortSystemId});
                 i++;
 
             }
@@ -7937,21 +8540,22 @@ public void searchBooksShortLoanItem() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelected +"' )");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelected +"' )");
             ResultSet loanRs = st.executeQuery();
             
             int i = 0;
             while (loanRs.next()) {
-                shortbookID = loanRs.getString("book_id");
+                shortbookID = loanRs.getString("bklib_id");
                 shortbookISBNList = loanRs.getString("book_isbn");
                 shortauthorNameList = loanRs.getString("author");
                 shorttitleNameList = loanRs.getString("title");
                 shortpublisherList = loanRs.getString("publisher_name");
                 shorteditionList = loanRs.getString("edition");
                 shortcategoryList = loanRs.getString("subject_category");
+                shortSystemId = loanRs.getString("book_id");
 
-                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList});
+                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList,shortSystemId});
                 i++;
 
             }
@@ -7984,21 +8588,22 @@ public void searchBooksShortLoan() {
             try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT book_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE loan_type=\"SHORT\" AND borrowed=\"NO\" AND title='"+ shortBkID +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE loan_type=\"SHORT\" AND borrowed=\"NO\" AND title='"+ shortBkID +"'");
             ResultSet loanRs = st.executeQuery();
             
             int i = 0;
             while (loanRs.next()) {
-                shortbookID = loanRs.getString("book_id");
+                shortbookID = loanRs.getString("bklib_id");
                 shortbookISBNList = loanRs.getString("book_isbn");
                 shortauthorNameList = loanRs.getString("author");
                 shorttitleNameList = loanRs.getString("title");
                 shortpublisherList = loanRs.getString("publisher_name");
                 shorteditionList = loanRs.getString("edition");
                 shortcategoryList = loanRs.getString("subject_category");
+                shortSystemId = loanRs.getString("book_id");
 
-                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList});
+                shortModel.addRow(new Object[]{shortbookID, shortbookISBNList, shortauthorNameList, shorttitleNameList, shortpublisherList,shorteditionList,shortcategoryList,shortSystemId});
                 i++;
 
             }
@@ -8029,21 +8634,22 @@ public void displayBooksIssueStudents() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("select  book_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db where (loan_type='"+ loanType +"' and borrowed='"+ boorrowedCondtion +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"')");
             ResultSet studentRs = st.executeQuery();
             
             int i = 0;
             while (studentRs.next()) {
-                issuebookID = studentRs.getString("book_id");
+                issuebookID = studentRs.getString("bklib_id");
                 issuebookISBNList = studentRs.getString("book_isbn");
                 issueauthorNameList = studentRs.getString("author");
                 issuetitleNameList = studentRs.getString("title");
                 issuepublisherList = studentRs.getString("publisher_name");
                 issueeditionList = studentRs.getString("edition");
                 issuecategoryList = studentRs.getString("subject_category");
+                issuesystemIdList = studentRs.getString("book_id");
 
-                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList});
+                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList,issuesystemIdList});
                 i++;
 
             }
@@ -8072,7 +8678,7 @@ public void displayMagz() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT issue_number,mag_name,publisher,mag_date FROM magazine WHERE returned='"+ boorrowedCondtion +"'");
             ResultSet studentRs = st.executeQuery();
             //magIssueNo = "", magName = "", magPublisher = "", magDate = "";
@@ -8111,7 +8717,7 @@ public void displayMagzdetails() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  issue_number,mag_name,publisher,mag_date,issued_to_id,issued_to_name,issued_by,recieved_by,staff_std FROM magazine WHERE returned='"+ boorrowedCondtion +"'");
             ResultSet studentRs = st.executeQuery();
             
@@ -8157,7 +8763,7 @@ public void displayMagzSearch() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  issue_number,mag_name,publisher,mag_date FROM magazine WHERE returned='"+ boorrowedCondtion +"' AND mag_date='"+ searchDate +"'");
             ResultSet studentRs = st.executeQuery();
             
@@ -8199,21 +8805,22 @@ public void searchBooksIssueStudentsItem() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelected +"' )");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelected +"' )");
             ResultSet studentRs = st.executeQuery();
             
             int i = 0;
             while (studentRs.next()) {
-                issuebookID = studentRs.getString("book_id");
+                issuebookID = studentRs.getString("bklib_id");
                 issuebookISBNList = studentRs.getString("book_isbn");
                 issueauthorNameList = studentRs.getString("author");
                 issuetitleNameList = studentRs.getString("title");
                 issuepublisherList = studentRs.getString("publisher_name");
                 issueeditionList = studentRs.getString("edition");
                 issuecategoryList = studentRs.getString("subject_category");
+                issuesystemIdList = studentRs.getString("book_id");
 
-                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList});
+                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList,issuesystemIdList});
                 i++;
 
             }
@@ -8245,27 +8852,29 @@ public void searchBooksLongLoanStd() {
             try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT book_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE loan_type=\"LONG\" AND borrowed=\"NO\" AND title='"+ longBkTitle +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE loan_type=\"LONG\" AND borrowed=\"NO\" AND title='"+ longBkTitle +"'");
             ResultSet loanRs = st.executeQuery();
             
             int i = 0;
             while (loanRs.next()) {
-                issuebookID = loanRs.getString("book_id");
+                issuebookID = loanRs.getString("bklib_id");
                 issuebookISBNList = loanRs.getString("book_isbn");
                 issueauthorNameList = loanRs.getString("author");
                 issuetitleNameList = loanRs.getString("title");
                 issuepublisherList = loanRs.getString("publisher_name");
                 issueeditionList = loanRs.getString("edition");
                 issuecategoryList = loanRs.getString("subject_category");
+                issuesystemIdList = loanRs.getString("book_id");
 
-                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList});
+                issueModel.addRow(new Object[]{issuebookID, issuebookISBNList, issueauthorNameList, issuetitleNameList, issuepublisherList,issueeditionList,issuecategoryList,issuesystemIdList});
                 i++;
 
             }
 
             if (i < 1) {
                 JOptionPane.showMessageDialog(null, "This book is either issued, lost or not in the library database", "Error", JOptionPane.ERROR_MESSAGE);
+                txtSearchIssueStd.requestFocus();
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -8291,21 +8900,22 @@ public void searchBooksIssueStaffCategory() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelect +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelect +"')");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
             while (staffRs.next()) {
-                issueSbookID = staffRs.getString("book_id");
+                issueSbookID = staffRs.getString("bklib_id");
                 issueSbookISBNList = staffRs.getString("book_isbn");
                 issueSauthorNameList = staffRs.getString("author");
                 issueStitleNameList = staffRs.getString("title");
                 issueSpublisherList = staffRs.getString("publisher_name");
                 issueSeditionList = staffRs.getString("edition");
                 issueScategoryList = staffRs.getString("subject_category");
+                issueSsytemID = staffRs.getString("book_id");
 
-                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList});
+                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList,issueSsytemID});
                 i++;
 
             }
@@ -8336,21 +8946,22 @@ public void searchBooksIssueStaffTitle() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND title='"+ itemSelect +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"' AND title='"+ itemSelect +"')");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
             while (staffRs.next()) {
-                issueSbookID = staffRs.getString("book_id");
+                issueSbookID = staffRs.getString("bklib_id");
                 issueSbookISBNList = staffRs.getString("book_isbn");
                 issueSauthorNameList = staffRs.getString("author");
                 issueStitleNameList = staffRs.getString("title");
                 issueSpublisherList = staffRs.getString("publisher_name");
                 issueSeditionList = staffRs.getString("edition");
                 issueScategoryList = staffRs.getString("subject_category");
+                issueSsytemID = staffRs.getString("book_id");
 
-                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList});
+                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList,issueSsytemID});
                 i++;
 
             }
@@ -8380,21 +8991,22 @@ public void displayBooksIssueStaff() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("select  book_id,book_isbn,author,title,publisher_name,edition,subject_category from books_db where (loan_type='"+ loanType +"' and borrowed='"+ boorrowedCondtion +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE (loan_type='"+ loanType +"' AND borrowed='"+ boorrowedCondtion +"')");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
             while (staffRs.next()) {
-                issueSbookID = staffRs.getString("book_id");
+                issueSbookID = staffRs.getString("bklib_id");
                 issueSbookISBNList = staffRs.getString("book_isbn");
                 issueSauthorNameList = staffRs.getString("author");
                 issueStitleNameList = staffRs.getString("title");
                 issueSpublisherList = staffRs.getString("publisher_name");
                 issueSeditionList = staffRs.getString("edition");
                 issueScategoryList = staffRs.getString("subject_category");
+                issueSsytemID = staffRs.getString("book_id");
 
-                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList});
+                issueSModel.addRow(new Object[]{issueSbookID, issueSbookISBNList, issueSauthorNameList, issueStitleNameList, issueSpublisherList,issueSeditionList,issueScategoryList,issueSsytemID});
                 i++;
 
             }
@@ -8421,14 +9033,14 @@ public void displayBooksBorrowed(){
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT book_id, book_isbn, author, title, publisher_name, "
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT bklib_id, book_isbn, author, title, publisher_name, "
                     + "edition, name1_of_borrower,name2_of_borrower, borrowed_by_id FROM books_db WHERE borrowed=\"YES\"");
             ResultSet rsIssue = st.executeQuery();
             
             int i = 0;
             while (rsIssue.next()) {
-                boroBookId = rsIssue.getString("book_id");
+                boroBookId = rsIssue.getString("bklib_id");
                 boroBookIsbn = rsIssue.getString("book_isbn");
                 boroAuthorNameList = rsIssue.getString("author");
                 boroBookTitle = rsIssue.getString("title");
@@ -8461,6 +9073,7 @@ public void issueToStudents() {
         Date dateBorrowed = DateBorrowed.getDate();
         Date dateDue = dateChooserDue.getDate();
         String bookdIssue = txtBookIdIssue.getText();
+        String systemBkId = systemBookId.getText();
         String titleIssue = txtBookIssueTitle1.getText();
         String bookIsbnIssue = txtBookIsbnIssue.getText();
         String student = "STUDENT";
@@ -8488,14 +9101,14 @@ public void issueToStudents() {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "',borrowed_by_id='" + stdntID + "'"
                         + ",name1_of_borrower='" + stdntFname + "',name2_of_borrower='" + stdntLname + "'"
-                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on=NULL ,date_borrowed='" + dateBorrowed + "'WHERE book_id=" + bookdIssue;
+                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on=NULL ,date_borrowed='" + dateBorrowed + "'WHERE book_id=" + systemBkId;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -8506,13 +9119,14 @@ public void issueToStudents() {
 
                 //---------SQL Insert into student db------------
                 String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, "
-                        + "date_borrowed, date_due,book_id,book_isbn,book_title,issued_by_id,issued_by_name)"
+                        + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
                             + stdntLname + "','"
                             + StdntClass + "','"
                             + dateBorrowed + "','"
                             + dateDue + "','"
+                            + systemBkId + "','"
                             + bookdIssue + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
@@ -8522,8 +9136,9 @@ public void issueToStudents() {
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "INSERT INTO borrowers_db " + "(book_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
-                            + "VALUES ('" + bookdIssue + "','"
+                String sql3 = "INSERT INTO borrowers_db " + "(book_id,bklib_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
+                            + "VALUES ('" + systemBkId + "','"
+                            + bookdIssue + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
                             + stdntID + "','"
@@ -8544,6 +9159,7 @@ public void issueToStudents() {
                 txtBookIssueTitle1.setText("");
                 txtBookIdIssue.setText("");
                 txtBookIsbnIssue.setText("");
+                systemBookId.setText("");
 
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -8559,6 +9175,7 @@ public void issueShortToStudents() {
         String StdntClass = txtShortClass.getText();
         Date dateBorrowed = DateBorrowed.getDate();
         Date dateDue = DateBorrowed.getDate();
+        String bookSysID = systemIDtxt.getText();
         String bookdIssue = txtShortBkId.getText();
         String titleIssue = txtShortBkTitle.getText();
         String bookIsbnIssue = txtShortBkIsbn.getText();
@@ -8570,14 +9187,14 @@ public void issueShortToStudents() {
         String librarianID = lblID.getText();
 
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "',borrowed_by_id='" + stdntID + "'"
                         + ",name1_of_borrower='" + stdntFname + "',name2_of_borrower='" + stdntLname + "'"
-                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on=NULL ,date_borrowed='" + dateBorrowed + "'WHERE book_id=" + bookdIssue;
+                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on = NULL ,date_borrowed='" + dateBorrowed + "'WHERE book_id=" + bookSysID;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -8588,7 +9205,7 @@ public void issueShortToStudents() {
 
                 //---------SQL Insert into student db------------
                 String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, "
-                        + "date_borrowed, date_due,book_id,book_isbn,book_title,issued_by_id,issued_by_name)"
+                        + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
                             + stdntLname + "','"
@@ -8596,6 +9213,7 @@ public void issueShortToStudents() {
                             + dateBorrowed + "','"
                             + dateDue + "','"
                             + bookdIssue + "','"
+                            + bookSysID + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
                             + librarianID + "','"
@@ -8604,8 +9222,9 @@ public void issueShortToStudents() {
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "INSERT INTO borrowers_db " + "(book_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
-                            + "VALUES ('" + bookdIssue + "','"
+                String sql3 = "INSERT INTO borrowers_db " + "(book_id,bklib_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
+                            + "VALUES ('" + bookSysID + "','"
+                            + bookdIssue + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
                             + stdntID + "','"
@@ -8656,7 +9275,7 @@ public void issueMagzToStudents() {
         String librarianID = lblID.getText();
 
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
@@ -8702,6 +9321,7 @@ public void issueToStaff() {
         Date dateBorrowedStaff = staffDateBorrowed.getDate();
         Date dateDueStaff = dateStaffDue.getDate();
         String bookdIssueStaff = txtStaffBookId.getText();
+        String systemIdbook = systemIDStaff.getText();
         String titleIssueStaff = txtStaffBkTitle.getText();
         String bookIsbnIssueStaff = txtStaffBookIsbn.getText();
         String staff = "STAFF";
@@ -8732,14 +9352,14 @@ public void issueToStaff() {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatusStaff + "',borrowed_by_id='" + staffID + "'"
                         + ",name1_of_borrower='" + staffFname + "',name2_of_borrower='" + staffLname + "'"
-                        + ",staff_std='" + staff + "',date_due='" + dateDueStaff + "',received_on= NULL ,date_borrowed='" + dateBorrowedStaff + "'WHERE book_id=" + bookdIssueStaff;
+                        + ",staff_std='" + staff + "',date_due='" + dateDueStaff + "',received_on = NULL ,date_borrowed='" + dateBorrowedStaff + "'WHERE book_id=" + systemIdbook;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -8750,13 +9370,14 @@ public void issueToStaff() {
 
                 //---------SQL Insert into student db------------
                 String sql2 = "INSERT INTO staff_db " + "(id_number, staff_fname, staff_lname, dept, "
-                        + "date_borrowed, date_due,book_id,book_isbn,book_title,phone_no,issued_by,issued_by_id)"
+                        + "date_borrowed,date_due,book_id,bklib_id,book_isbn,book_title,phone_no,issued_by,issued_by_id)"
                             + "VALUES ('" + staffID + "','"
                             + staffFname + "','"
                             + staffLname + "','"
                             + StaffDept + "','"
                             + dateBorrowedStaff + "','"
                             + dateDueStaff + "','"
+                            + systemIdbook + "','"
                             + bookdIssueStaff + "','"
                             + bookIsbnIssueStaff + "','"
                             + titleIssueStaff + "','"
@@ -8767,8 +9388,9 @@ public void issueToStaff() {
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "INSERT INTO borrowers_db " + "(book_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
-                            + "VALUES ('" + bookdIssueStaff + "','"
+                String sql3 = "INSERT INTO borrowers_db " + "(book_id,bklib_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
+                            + "VALUES ('" + systemIdbook + "','"
+                            + bookdIssueStaff + "','"
                             + bookIsbnIssueStaff + "','"
                             + titleIssueStaff + "','"
                             + staffID + "','"
@@ -8780,7 +9402,7 @@ public void issueToStaff() {
 
                 //-----clear text fields after above------------
                 
-                JOptionPane.showMessageDialog(null, "Book successfully isued to "+ staffFname +" "+ staffLname);
+                JOptionPane.showMessageDialog(null, "Book successfully issued to "+ staffFname +" "+ staffLname);
                 
                 txtStaffID.setText("");
                 txtStaffName1.setText("");
@@ -8817,7 +9439,7 @@ public void issueMagzToStaff(){
         String librarianID = lblID.getText();
 
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
@@ -8864,6 +9486,7 @@ public void issueShortToStaff() {
         String deptShortStaff = txtShortDept.getText().toUpperCase().trim();
         Date dateDue = DateBorrowed.getDate();
         String bookdIssue = txtShortBkId.getText();
+        String systemIdshort = systemIDtxt.getText();
         String titleIssue = txtShortBkTitle.getText();
         String bookIsbnIssue = txtShortBkIsbn.getText();
         int timelapse = SpinfieldTimeLoan.getValue();
@@ -8874,14 +9497,14 @@ public void issueShortToStaff() {
         String librarianID = lblID.getText();
 
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "',borrowed_by_id='" + stdntID + "'"
                         + ",name1_of_borrower='" + stdntFname + "',name2_of_borrower='" + stdntLname + "'"
-                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on=NULL ,date_borrowed='" + dateBorrowed + "'WHERE book_id=" + bookdIssue;
+                        + ",staff_std='" + student + "',date_due='" + dateDue + "',received_on=NULL ,date_borrowed='" + dateBorrowed + "'WHERE bklib_id=" + bookdIssue;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -8892,13 +9515,14 @@ public void issueShortToStaff() {
 
                 //---------SQL Insert into student db------------
                 String sql2 = "INSERT INTO staff_db " + "(id_number, staff_fname, staff_lname, dept, "
-                        + "date_borrowed, date_due,book_id,book_isbn,book_title,phone_no,issued_by,issued_by_id)"
+                        + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,phone_no,issued_by,issued_by_id)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
                             + stdntLname + "','"
                             + deptShortStaff + "','"
                             + dateBorrowed + "','"
                             + dateDue + "','"
+                            + systemIdshort + "','"
                             + bookdIssue + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
@@ -8911,8 +9535,9 @@ public void issueShortToStaff() {
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "INSERT INTO borrowers_db " + "(book_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
-                            + "VALUES ('" + bookdIssue + "','"
+                String sql3 = "INSERT INTO borrowers_db " + "(book_id,bklib_id,book_isbn,book_title,borrower_id, borrower_name1, borrower_name2,student_staff)"
+                            + "VALUES ('" + systemIdshort + "','"
+                            + bookdIssue + "','"
                             + bookIsbnIssue + "','"
                             + titleIssue + "','"
                             + stdntID + "','"
@@ -8950,13 +9575,16 @@ public void retrieveBookDetails() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT book_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (book_id='"+ textFieldBookId.getText() +"' AND borrowed='"+ condition_borrowed +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (bklib_id='"+ textFieldBookId.getText() +"' AND borrowed='"+ condition_borrowed +"')");
             ResultSet rs = st.executeQuery();
             boolean emptyRs = true;
             if (rs.next()) {
                 emptyRs = false;
-                String bookretid = rs.getString("book_id");
+                String bookretSysid = rs.getString("book_id");
+                textFieldSysId.setText(bookretSysid);
+                
+                String bookretid = rs.getString("bklib_id");
                 textFieldBookId.setText(bookretid);
                 
                 String bookreIsbn = rs.getString("book_isbn");
@@ -8995,9 +9623,10 @@ public void retrieveBookDetails() {
 public void recieveFromStudents() {                                        
         
         String bookdRecieve = textFieldBookId.getText();
+        String systemIdRec = textFieldSysId.getText();
         Date dateRecieOn = dateReturnedChooser.getDate();
         String penalties = txtPenalties.getText();
-        String bookCon = txtAreaCondition.getText();
+        String bookCon = (String) txtAreaCondition.getSelectedItem();
         String dateDue = txtDateDue.getText();
         String returnString = "YES";
         String borrowedStatusR = "NO";
@@ -9007,13 +9636,13 @@ public void recieveFromStudents() {
         String librarianID = lblID.getText();
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatusR + "',borrowed_by_id=NULL ,name1_of_borrower='" + setNull + "',name2_of_borrower='" + setNull + "'"
-                        + ",staff_std='" + setNull + "',date_due=NULL ,received_on='" + dateRecieOn + "',penalties='" + penalties + "',book_condition='" + bookCon + "',date_borrowed='" + setNull + "' WHERE book_id=" + bookdRecieve;
+                        + ",staff_std='" + setNull + "',date_due=NULL ,received_on='" + dateRecieOn + "',penalties='" + penalties + "',book_condition='" + bookCon + "',date_borrowed='" + setNull + "' WHERE book_id=" + systemIdRec;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -9023,12 +9652,12 @@ public void recieveFromStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------                                                                                            
-                String sql2 = "UPDATE student_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "' WHERE (book_id='" + bookdRecieve +"' AND date_due='"+ dateDue +"')";
+                String sql2 = "UPDATE student_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "' WHERE (book_id='" + systemIdRec +"' AND date_due='"+ dateDue +"')";
                     
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + bookdRecieve;
+                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + systemIdRec;
                     
                 statement.execute(sql3);
 
@@ -9043,7 +9672,7 @@ public void recieveFromStudents() {
                 txtAdmNo.setText("");
                 txtStaffStudent.setText("");
                 txtPenalties.setText("");
-                txtAreaCondition.setText("");
+                txtAreaCondition.setSelectedIndex(0);
                 btnIndicator.setBackground(Color.green);
 
             } catch (SQLException | HeadlessException e) {
@@ -9057,8 +9686,9 @@ public void recieveFromStaff() {
         
         String bookdRecieve = textFieldBookId.getText();
         Date dateRecieOn = dateReturnedChooser.getDate();
+        String systemIdRec = textFieldSysId.getText();
         String penalties = txtPenalties.getText();
-        String bookCon = txtAreaCondition.getText();
+        String bookCon = (String) txtAreaCondition.getSelectedItem();
         String returnString = "YES";
         String borrowedStatusR = "NO";
         String dateDue = txtDateDue.getText();
@@ -9067,13 +9697,13 @@ public void recieveFromStaff() {
         String librarianID = lblID.getText();
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
                 String sql = "UPDATE books_db SET borrowed='" + borrowedStatusR + "',borrowed_by_id=NULL ,name1_of_borrower=NULL,name2_of_borrower=NULL"
-                        + ",staff_std=NULL,date_due=NULL ,received_on='" + dateRecieOn + "',penalties='" + penalties + "',book_condition='" + bookCon + "',date_borrowed=NULL WHERE book_id=" + bookdRecieve;
+                        + ",staff_std=NULL,date_due=NULL ,received_on='" + dateRecieOn + "',penalties='" + penalties + "',book_condition='" + bookCon + "',date_borrowed=NULL WHERE book_id=" + systemIdRec;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -9083,12 +9713,12 @@ public void recieveFromStaff() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "UPDATE staff_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE (book_id='" + bookdRecieve +"' AND date_due='"+ dateDue +"')";
+                String sql2 = "UPDATE staff_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE (book_id='" + systemIdRec +"' AND date_due='"+ dateDue +"')";
                     
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + bookdRecieve;
+                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + systemIdRec;
                     
                 statement.execute(sql3);
 
@@ -9103,7 +9733,7 @@ public void recieveFromStaff() {
                 txtAdmNo.setText("");
                 txtStaffStudent.setText("");
                 txtPenalties.setText("");
-                txtAreaCondition.setText("");
+                txtAreaCondition.setSelectedIndex(0);
                 btnIndicator.setBackground(Color.green);
 
             } catch (SQLException | HeadlessException e) {
@@ -9118,8 +9748,8 @@ public void retrieveStudentDetails() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_db WHERE adm_no='"+ txtStdntAmNo.getText()+"' LIMIT 1");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_db WHERE adm_no='"+ txtStdntAmNo.getText()+"' ORDER BY entry_no DESC LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -9154,7 +9784,7 @@ public void retrieveStudentDetailsShort() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_db WHERE adm_no='"+ txtStaffstdId.getText()+"' LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
@@ -9197,7 +9827,7 @@ public void retrieveStudentDetailsMagz() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_db WHERE adm_no='"+ txtMagzNameID.getText()+"' LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
@@ -9236,7 +9866,7 @@ public void retrieveStaffDetails() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT staff_fname, staff_lname, dept, phone_no FROM staff_db WHERE id_number='"+ txtStaffID.getText()+"' LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
@@ -9276,7 +9906,7 @@ public void retrieveStaffDetailsMagz() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT staff_fname, staff_lname, dept, phone_no FROM staff_db WHERE id_number='"+ txtMagzNameID.getText()+"' LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
@@ -9318,7 +9948,7 @@ public void retrieveStaffDetailsShort() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT staff_fname, staff_lname, dept, phone_no FROM staff_db WHERE id_number='"+ txtStaffstdId.getText()+"' LIMIT 1");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
@@ -9366,11 +9996,11 @@ public boolean CheckUsernameExists(){
     try
     {
         Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
         Connection conn;
         conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
 
-        PreparedStatement st = conn.prepareStatement("select * from users_db order by username desc");
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM users_db ORDER BY username DESC");
         ResultSet r1=st.executeQuery();
         String usernameCounter;
          if(r1.next()) 
@@ -9445,6 +10075,7 @@ public Boolean checkInfoInput(){
             
             else if(!password.equals(confPassword)){
             JOptionPane.showMessageDialog(null, "Your password doesn't match");
+            txtConfPass.requestFocus();
             return false;}
             
         return true;
@@ -9462,7 +10093,7 @@ public void addUserMethod(){
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             state = con.prepareStatement("INSERT INTO users_db (user_fname,user_lname,id_no,department,password,username) VALUES (?,?,?,?,?,?)");
 
             state.setString(1, userFname);
@@ -9516,7 +10147,7 @@ public void SessionEnd() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             statement = con.createStatement();
             String sgl=" select  max(time_in) as try from session_logs";
             
@@ -9554,7 +10185,7 @@ public final void DisplaySessions() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("select  session_id,user_id,username,time_in,time_out from  session_logs");
             rs = st.executeQuery();
 
@@ -9588,7 +10219,7 @@ public final void DisplayUsers() {
         try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement stateTable = con.prepareStatement("select id_no,user_fname,user_lname,username,permission,department,reset from  users_db");
             ResultSet userTrs = stateTable.executeQuery();
             
@@ -9628,7 +10259,7 @@ public void searchUser() {
             try {
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conUser = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                Connection conUser = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                 PreparedStatement st = conUser.prepareStatement("SELECT id_no,user_fname,user_lname,username,permission,department,reset FROM  users_db WHERE id_no=" + x);
                 //st.setString(1, tb);
                 ResultSet userTrs = st.executeQuery();
@@ -10034,21 +10665,22 @@ public void displayLostTable() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  book_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE borrowed='"+ boorrowedCondtion +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE borrowed='"+ boorrowedCondtion +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
             while (staffRs.next()) {
-                lostbookID = staffRs.getString("book_id");
+                lostbookID = staffRs.getString("bklib_id");
                 lostbookISBNList = staffRs.getString("book_isbn");
                 lostauthorNameList = staffRs.getString("author");
                 losttitleNameList = staffRs.getString("title");
                 lostpublisherList = staffRs.getString("publisher_name");
                 losteditionList = staffRs.getString("edition");
                 lostcategoryList = staffRs.getString("subject_category");
+                lostsystemIdList = staffRs.getString("book_id");
 
-                lostModel.addRow(new Object[]{lostbookID, lostbookISBNList, lostauthorNameList, losttitleNameList, lostpublisherList,losteditionList,lostcategoryList});
+                lostModel.addRow(new Object[]{lostbookID, lostbookISBNList, lostauthorNameList, losttitleNameList, lostpublisherList,losteditionList,lostcategoryList,lostsystemIdList});
                 i++;
 
             }
@@ -10070,13 +10702,16 @@ public void retrieveBookDetailsLost() {
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT book_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (book_id='"+ lostbookID3 +"' and borrowed='"+ condition_borrowed +"')");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (bklib_id='"+ lostbookID3 +"' and borrowed='"+ condition_borrowed +"')");
             ResultSet rsLost = st.executeQuery();
             boolean emptyRs = true;
             if (rsLost.next()) {
                 emptyRs = false;
-                String bookretid = rsLost.getString("book_id");
+                String bookretSysid = rsLost.getString("book_id");
+                sysBookIdentity.setText(bookretSysid);
+                
+                String bookretid = rsLost.getString("bklib_id");
                 txtBookIDlost.setText(bookretid);
                 
                 String bookreIsbn = rsLost.getString("book_isbn");
@@ -10116,6 +10751,7 @@ public void retrieveBookDetailsLost() {
 public void lostByStudents() {                                        
         
         String bookdRecieve = txtBookIDlost.getText();
+        String sysBookID = sysBookIdentity.getText();
         String returnString = "NO";
         String borrowedStatusR = "LOST";
         
@@ -10123,12 +10759,12 @@ public void lostByStudents() {
         String librarianID = lblID.getText();
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
-                String sql = "UPDATE books_db SET borrowed='" + borrowedStatusR + "'WHERE book_id=" + bookdRecieve;
+                String sql = "UPDATE books_db SET borrowed='" + borrowedStatusR + "'WHERE book_id=" + sysBookID;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -10138,12 +10774,12 @@ public void lostByStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "UPDATE student_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE book_id=" + bookdRecieve;
+                String sql2 = "UPDATE student_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE book_id=" + sysBookID;
                     
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + bookdRecieve;
+                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + sysBookID;
                     
                 statement.execute(sql3);
 
@@ -10168,6 +10804,7 @@ public void lostByStudents() {
 public void lostByStaff() {                                        
         
         String bookdRecieve = txtBookIDlost.getText();
+        String sysBookID = sysBookIdentity.getText();
         
         String returnString = "NO";
         String borrowedStatus = "LOST";
@@ -10176,12 +10813,12 @@ public void lostByStaff() {
         String librarianID = lblID.getText();
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
-                String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "' WHERE book_id=" + bookdRecieve;
+                String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "' WHERE book_id=" + sysBookID;
                 
                 PreparedStatement pst;
                 pst = null;
@@ -10191,12 +10828,12 @@ public void lostByStaff() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "UPDATE staff_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE book_id=" + bookdRecieve;
+                String sql2 = "UPDATE staff_db SET returned='" + returnString + "',received_by_id='" + librarianID + "',received_by='" + librarianName + "'WHERE book_id=" + sysBookID;
                     
                 statement.execute(sql2);
                 
                 //-----------insert into borrowers db-----------
-                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + bookdRecieve;
+                String sql3 = "DELETE FROM borrowers_db WHERE book_id=" + sysBookID;
                     
                 statement.execute(sql3);
 
@@ -10229,8 +10866,8 @@ public void studentTable() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,book_id,book_title,returned,issued_by_name,received_by FROM student_db");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10240,7 +10877,7 @@ public void studentTable() {
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
                 stdForm = staffRs.getString("form");
-                stdBookId = staffRs.getString("book_id");
+                stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
                 stdReturned = staffRs.getString("returned");
@@ -10276,8 +10913,8 @@ public void filterStudentTable() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,book_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10287,7 +10924,7 @@ public void filterStudentTable() {
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
                 stdForm = staffRs.getString("form");
-                stdBookId = staffRs.getString("book_id");
+                stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
                 stdReturned = staffRs.getString("returned");
@@ -10323,8 +10960,8 @@ public void filterStudentTableID() {
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,book_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10334,7 +10971,7 @@ public void filterStudentTableID() {
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
                 stdForm = staffRs.getString("form");
-                stdBookId = staffRs.getString("book_id");
+                stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
                 stdReturned = staffRs.getString("returned");
@@ -10368,8 +11005,8 @@ public void staffTable(){
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,book_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,bklib_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10380,7 +11017,7 @@ public void staffTable(){
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
                 staffDepartment = staffRs.getString("dept");
-                staffBookid = staffRs.getString("book_id");
+                staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
                 staffBorrrowedDate = staffRs.getString("date_borrowed");
@@ -10416,8 +11053,8 @@ public void filterStaffTable(){
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,book_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db WHERE returned='"+ slectedItem +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,bklib_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db WHERE returned='"+ slectedItem +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10428,7 +11065,7 @@ public void filterStaffTable(){
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
                 staffDepartment = staffRs.getString("dept");
-                staffBookid = staffRs.getString("book_id");
+                staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
                 staffBorrrowedDate = staffRs.getString("date_borrowed");
@@ -10464,8 +11101,8 @@ public void filterStaffTableID(){
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,book_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db WHERE id_number='"+ slectedItem +"'");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  id_number,staff_fname,staff_lname,phone_no,dept,bklib_id,bklib_id,book_title,date_borrowed,returned,issued_by,received_by FROM staff_db WHERE id_number='"+ slectedItem +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -10476,7 +11113,7 @@ public void filterStaffTableID(){
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
                 staffDepartment = staffRs.getString("dept");
-                staffBookid = staffRs.getString("book_id");
+                staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
                 staffBorrrowedDate = staffRs.getString("date_borrowed");
@@ -10502,7 +11139,7 @@ public void filterStaffTableID(){
  public void showMaxOnLabelStd() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conMaxStd = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            Connection conMaxStd = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement stino = conMaxStd.prepareStatement("SELECT number_set FROM maxstudent");
             ResultSet rsName = stino.executeQuery();
             if (rsName.next()) {
@@ -10521,7 +11158,7 @@ public void filterStaffTableID(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conMaxStaff;
-            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
             PreparedStatement stino2 = conMaxStaff.prepareStatement("SELECT number_set FROM maxstaff");
             ResultSet rsName = stino2.executeQuery();
             if (rsName.next()) {
@@ -10535,6 +11172,94 @@ public void filterStaffTableID(){
             JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+ 
+ public void showMaxDayStaff() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conMaxStaff;
+            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement stino2 = conMaxStaff.prepareStatement("SELECT days_set FROM daysstaff");
+            ResultSet rsName = stino2.executeQuery();
+            if (rsName.next()) {
+                String maxno = rsName.getString("days_set");
+                maxNumberStaff.setText(maxno);
+                
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+ 
+ public void showMaxDayStd() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conMaxStaff;
+            conMaxStaff = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement stino2 = conMaxStaff.prepareStatement("SELECT days_set FROM daystudents");
+            ResultSet rsName = stino2.executeQuery();
+            if (rsName.next()) {
+                String maxno = rsName.getString("days_set");
+                maxNumberStd.setText(maxno);
+                
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+ 
+ public void checkBookDetails() {
+    
+            String condition_borrowed = "YES";
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (bklib_id='"+ txtBookIdIssue.getText() +"' AND borrowed='"+ condition_borrowed +"')");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This book has been issued ");
+            }
+            if (emptyRs) {
+                issueToStudents();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+ 
+ public void checkBookDetailsStaff() {
+    
+            String condition_borrowed = "YES";
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT book_id,bklib_id,book_isbn,title,borrowed_by_id,name1_of_borrower,name2_of_borrower,staff_std,date_due FROM books_db WHERE (bklib_id='"+ txtStaffBookId.getText() +"' AND borrowed='"+ condition_borrowed +"')");
+            ResultSet rse = st.executeQuery();
+            boolean emptyRs = true;
+            if (rse.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This book has been issued ");
+            }
+            if (emptyRs) {
+                issueToStaff();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
@@ -10547,6 +11272,8 @@ public void filterStaffTableID(){
     private javax.swing.JButton btnAddMag;
     private javax.swing.JButton btnAddMagToIssue;
     private javax.swing.JButton btnAddNewUsers;
+    private javax.swing.JButton btnAddShortLoan;
+    private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancelIssue;
     private javax.swing.JButton btnCancelIssueStaff;
@@ -10560,6 +11287,7 @@ public void filterStaffTableID(){
     private javax.swing.JButton btnExcelBorrowers;
     private javax.swing.JButton btnExcelList;
     private javax.swing.JButton btnExportStock;
+    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnIndicator;
     private javax.swing.JButton btnInfoDialog;
     private javax.swing.JButton btnIsssueStaff;
@@ -10614,6 +11342,7 @@ public void filterStaffTableID(){
     private com.toedter.calendar.JDateChooser chooserMagzBoro;
     private com.toedter.calendar.JDateChooser chooserMagzDue;
     private com.toedter.calendar.JDateChooser chooserschDate;
+    private javax.swing.JButton colorCodeButton;
     private javax.swing.JComboBox<String> comboBoxList;
     private javax.swing.JComboBox<String> comboFiletStaff;
     private javax.swing.JComboBox<String> comboFilter;
@@ -10632,10 +11361,12 @@ public void filterStaffTableID(){
     private com.toedter.calendar.JDateChooser dateStaffDue;
     private javax.swing.JPanel holderPanel;
     private javax.swing.JMenuItem itemBooksIssued;
+    private javax.swing.JMenuItem itemDamaged;
     private javax.swing.JMenuItem itemHome;
     private javax.swing.JMenu itemIssue;
     private javax.swing.JMenuItem itemList;
     private javax.swing.JMenuItem itemLogout;
+    private javax.swing.JMenuItem itemMaintain;
     private javax.swing.JMenuItem itemManageUsers;
     private javax.swing.JMenuItem itemRecieve;
     private javax.swing.JMenuItem itemShortLoan;
@@ -10644,12 +11375,28 @@ public void filterStaffTableID(){
     private javax.swing.JMenuItem itemStudent;
     private javax.swing.JMenuItem itemsSystems;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -10746,6 +11493,7 @@ public void filterStaffTableID(){
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -10787,6 +11535,8 @@ public void filterStaffTableID(){
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -10804,6 +11554,7 @@ public void filterStaffTableID(){
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -10812,6 +11563,11 @@ public void filterStaffTableID(){
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel labelBookNo;
     private javax.swing.JLabel labelBooksBorrowed;
     private javax.swing.JLabel labelId;
@@ -10828,6 +11584,8 @@ public void filterStaffTableID(){
     private javax.swing.JLabel labelMagz;
     private javax.swing.JLabel labelMagzBorrowed;
     private javax.swing.JLabel labelMagzBorrowed1;
+    private javax.swing.JLabel labelMagzBorrowed2;
+    private javax.swing.JLabel labelMagzBorrowed3;
     private javax.swing.JLabel labelPermission;
     private javax.swing.JLabel labelSearchInMagzPanel;
     private javax.swing.JLabel labelStaffList;
@@ -10841,6 +11599,8 @@ public void filterStaffTableID(){
     private javax.swing.JLabel lblUserId;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenu mainMenuNav;
+    private javax.swing.JLabel maxNumberStaff;
+    private javax.swing.JLabel maxNumberStd;
     private javax.swing.JLabel maxStaff;
     private javax.swing.JLabel maxStd;
     private javax.swing.JMenu menuHelp;
@@ -10855,6 +11615,7 @@ public void filterStaffTableID(){
     private javax.swing.JPanel panelAddUsers;
     private javax.swing.JPanel panelBooksIssued;
     private javax.swing.JPanel panelBorrowers;
+    private javax.swing.JPanel panelDamaged;
     private javax.swing.JPanel panelHolderManageUsers;
     private javax.swing.JPanel panelHome;
     private javax.swing.JPanel panelIssueStaff;
@@ -10864,6 +11625,7 @@ public void filterStaffTableID(){
     private javax.swing.JPanel panelMags;
     private javax.swing.JPanel panelMagsIn;
     private javax.swing.JPanel panelMagzBorrowers;
+    private javax.swing.JPanel panelMaintenance;
     private javax.swing.JPanel panelManageUsers;
     private javax.swing.JPanel panelNotesCreate;
     private javax.swing.JPanel panelRecieve;
@@ -10879,15 +11641,21 @@ public void filterStaffTableID(){
     private javax.swing.JButton searchLost;
     private javax.swing.JButton searchStock;
     private com.toedter.calendar.JDateChooser staffDateBorrowed;
+    private javax.swing.JTextField sysBookIdentity;
+    private javax.swing.JTextField systemBookId;
+    private javax.swing.JTextField systemIDStaff;
+    private javax.swing.JTextField systemIDtxt;
     private javax.swing.JTable tableBookLost;
     private javax.swing.JTable tableBookStock;
     private javax.swing.JTable tableBooksForStaff;
     private javax.swing.JTable tableBooksIssued;
     private javax.swing.JTable tableBorrowers;
+    private javax.swing.JTable tableDamagedBooks;
     private javax.swing.JTable tableIssueToStudents;
     private javax.swing.JTable tableListBooks;
     private javax.swing.JTable tableMags;
     private javax.swing.JTable tableMagzBoro;
+    private javax.swing.JTable tableMaintenance;
     private javax.swing.JTable tableNotes;
     private javax.swing.JTable tableSchedules;
     private javax.swing.JTable tableSessionLogs;
@@ -10896,8 +11664,9 @@ public void filterStaffTableID(){
     private javax.swing.JTable tableStudents;
     private javax.swing.JTable tableUsers;
     private javax.swing.JTextField textFieldBookId;
+    private javax.swing.JTextField textFieldSysId;
     private javax.swing.JTextField txtAdmNo;
-    private javax.swing.JTextArea txtAreaCondition;
+    private javax.swing.JComboBox txtAreaCondition;
     private javax.swing.JTextField txtBookIDlost;
     private javax.swing.JTextField txtBookIdIssue;
     private javax.swing.JTextField txtBookIsbnIssue;

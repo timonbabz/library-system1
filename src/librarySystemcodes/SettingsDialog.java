@@ -55,13 +55,14 @@ public class SettingsDialog extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         textStudentDays = new javax.swing.JTextField();
         textStaffDays = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbtnClearDays = new javax.swing.JButton();
         btnSetDays = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         txtSetName = new javax.swing.JTextField();
         btnSet = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbtnExitSettings = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -171,14 +172,14 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton1.setText("Clear");
-        jButton1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnClearDays.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jbtnClearDays.setText("Clear");
+        jbtnClearDays.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jbtnClearDays.setContentAreaFilled(false);
+        jbtnClearDays.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnClearDays.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnClearDaysActionPerformed(evt);
             }
         });
 
@@ -203,7 +204,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnSetDays, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbtnClearDays, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -229,7 +230,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSetDays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtnClearDays, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -276,32 +277,38 @@ public class SettingsDialog extends javax.swing.JDialog {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(txtSetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSet, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jButton3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton3.setText("Exit");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbtnExitSettings.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jbtnExitSettings.setText("Exit");
+        jbtnExitSettings.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        jbtnExitSettings.setContentAreaFilled(false);
+        jbtnExitSettings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbtnExitSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbtnExitSettingsActionPerformed(evt);
             }
         });
+
+        jButton2.setBackground(new java.awt.Color(129, 186, 243));
+        jButton2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton2.setText("Reset all fields");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jButton2.setContentAreaFilled(false);
 
         javax.swing.GroupLayout panelSetLayout = new javax.swing.GroupLayout(panelSet);
         panelSet.setLayout(panelSetLayout);
         panelSetLayout.setHorizontalGroup(
             panelSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSetLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addGroup(panelSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -309,7 +316,9 @@ public class SettingsDialog extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSetLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnExitSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panelSetLayout.setVerticalGroup(
@@ -317,13 +326,15 @@ public class SettingsDialog extends javax.swing.JDialog {
             .addGroup(panelSetLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGroup(panelSetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnExitSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 102, 255));
@@ -363,10 +374,10 @@ public class SettingsDialog extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelSet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelSet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -413,9 +424,9 @@ public class SettingsDialog extends javax.swing.JDialog {
             evt.consume();}
     }//GEN-LAST:event_spinStaffKeyTyped
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbtnExitSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnExitSettingsActionPerformed
        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbtnExitSettingsActionPerformed
 
     private void textStudentDaysKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textStudentDaysKeyTyped
         textStudentDays.setForeground(Color.black);
@@ -440,13 +451,14 @@ public class SettingsDialog extends javax.swing.JDialog {
         else if(textStaffDays.getText().isEmpty())
         {JOptionPane.showMessageDialog(null, "Please enter the number of days for staff first");
         textStaffDays.requestFocus();}
-        else{}
+        else{daysCountStudent();
+            daysCountStaff();}
     }//GEN-LAST:event_btnSetDaysActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtnClearDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnClearDaysActionPerformed
         textStudentDays.setText("");
         textStaffDays.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtnClearDaysActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,7 +509,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 
-                con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
                 statement = con.createStatement();
 
                 // SQL Insert
@@ -535,8 +547,8 @@ public class SettingsDialog extends javax.swing.JDialog {
             String bookCount = spinStaff.getText();
             int noCount = Integer.parseInt(bookCount);
             
-            if(noCount > 15){
-            JOptionPane.showMessageDialog(null, "Maximum cannot be greater than 15 for staff");
+            if(noCount > 100){
+            JOptionPane.showMessageDialog(null, "Maximum cannot be greater than 100 for staff");
             spinStaff.setForeground(Color.red);}
             else if(noCount <= 1){
             JOptionPane.showMessageDialog(null, "Minimum cannot be set to 1 or less for staff");
@@ -545,7 +557,7 @@ public class SettingsDialog extends javax.swing.JDialog {
                             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 
-                con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
                 statement = con.createStatement();
 
                 // SQL Insert
@@ -587,14 +599,14 @@ public class SettingsDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Minimum cannot be set to 1 or less for students");
             spinStudents.setForeground(Color.red);
             }
-            else if(noCount > 10){
-            JOptionPane.showMessageDialog(null, "Maximum cannot be more than 10 for students");
+            else if(noCount > 100){
+            JOptionPane.showMessageDialog(null, "Maximum cannot be more than 100 for students");
             spinStudents.setForeground(Color.red);}
             else{
                 try {
                 Class.forName("com.mysql.jdbc.Driver");
                 
-                con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem?useSSL = false", "root", "libsystem@dmin");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
                 statement = con.createStatement();
 
                 // SQL Insert
@@ -625,6 +637,102 @@ public class SettingsDialog extends javax.swing.JDialog {
         //end of else statement
             }
     }
+    
+    public void daysCountStudent(){
+        
+            String bookdays = textStudentDays.getText();
+            int noCount = Integer.parseInt(bookdays);
+            
+            if(noCount <= 1){
+            JOptionPane.showMessageDialog(null, "Minimum days cannot be set to 1 or less for students");
+            textStudentDays.setForeground(Color.red);
+            }
+            else if(noCount > 90){
+            JOptionPane.showMessageDialog(null, "Maximum days cannot be more than 90 for students");
+            textStudentDays.setForeground(Color.red);}
+            else{
+                try {
+                Class.forName("com.mysql.jdbc.Driver");
+                
+                con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+                statement = con.createStatement();
+
+                // SQL Insert
+                String sql = "UPDATE daystudents SET days_set ='" + bookdays + "' WHERE day_id = 1";
+                
+                statement.execute(sql);
+      
+                JOptionPane.showMessageDialog(null, "Maximum allowable days for students set successfuly as "+bookdays);
+
+                // Reset Text Fields
+                textStudentDays.setText("1");
+
+                //status  = true;
+            } catch (ClassNotFoundException | SQLException | HeadlessException es) {
+                JOptionPane.showMessageDialog(null, "Unable to set");
+                JOptionPane.showMessageDialog(null, es.getMessage());
+            }
+            
+            try {
+                if (statement != null) {
+                    statement.close();
+                    con.close();
+                }
+            } catch (SQLException es) {
+                JOptionPane.showMessageDialog(null, es.getMessage());
+            }
+            
+        //end of else statement
+            }
+    }
+    
+    public void daysCountStaff(){
+        
+            String bookCount = textStaffDays.getText();
+            int noCount = Integer.parseInt(bookCount);
+            
+            if(noCount <= 1){
+            JOptionPane.showMessageDialog(null, "Minimum cannot be set to 1 or less for staff");
+            textStaffDays.setForeground(Color.red);
+            }
+            else if(noCount > 100){
+            JOptionPane.showMessageDialog(null, "Maximum cannot be more than 100 for staff");
+            textStaffDays.setForeground(Color.red);}
+            else{
+                try {
+                Class.forName("com.mysql.jdbc.Driver");
+                
+                con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+                statement = con.createStatement();
+
+                // SQL Insert
+                String sql = "UPDATE daysstaff SET days_set ='" + bookCount + "' WHERE day_id = 1";
+                
+                statement.execute(sql);
+      
+                JOptionPane.showMessageDialog(null, "Maximum allowable for staff set successfuly as "+bookCount);
+
+                // Reset Text Fields
+                textStaffDays.setText("1");
+
+                //status  = true;
+            } catch (ClassNotFoundException | SQLException | HeadlessException es) {
+                JOptionPane.showMessageDialog(null, "Unable to set");
+                JOptionPane.showMessageDialog(null, es.getMessage());
+            }
+            
+            try {
+                if (statement != null) {
+                    statement.close();
+                    con.close();
+                }
+            } catch (SQLException es) {
+                JOptionPane.showMessageDialog(null, es.getMessage());
+            }
+            
+        //end of else statement
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
@@ -632,8 +740,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnSet;
     private javax.swing.JButton btnSetDays;
     private javax.swing.JButton btnSetNumbers;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -643,6 +750,8 @@ public class SettingsDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton jbtnClearDays;
+    private javax.swing.JButton jbtnExitSettings;
     private javax.swing.JPanel panelSet;
     private javax.swing.JTextField spinStaff;
     private javax.swing.JTextField spinStudents;

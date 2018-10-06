@@ -39,10 +39,6 @@ public class AboutLib extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         btnNet = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
 
@@ -58,18 +54,6 @@ public class AboutLib extends javax.swing.JDialog {
         jTextArea1.setRows(5);
         jTextArea1.setText("This is a system developed to help manage book transactions in the library\nits features include\n1.adding books to the database\n2.issuing books\n3.recieving books issued\n4.adding magazines and journals to the database\n5.issuing magazines and journals\n6.creating schedules (personal)\n7.creating notes that are visible to other users\n8.managing users\n    a) password reset\n    b) blocking\n    c) adding users");
         jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel2.setText("About the company");
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
-
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("some of the systems developed include:\nsupply chain system,\nschool management system,\nhotel management system,\nand android applications (smart phone applications)\namong others");
-        jScrollPane2.setViewportView(jTextArea2);
 
         btnNet.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnNet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Website_16.png"))); // NOI18N
@@ -111,17 +95,13 @@ public class AboutLib extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(btnNet, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnNet, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -135,14 +115,8 @@ public class AboutLib extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNet, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,7 +136,7 @@ public class AboutLib extends javax.swing.JDialog {
 
     private void btnNetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetActionPerformed
         try {
-            openWebPage("http://www.optimumsystems.co.ke/about-us/");
+            openWebPage("http://www.technologygreater.wordpress.com");
         } catch (IOException ex) {
             Logger.getLogger(AboutLib.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -232,12 +206,8 @@ public class AboutLib extends javax.swing.JDialog {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnNet;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

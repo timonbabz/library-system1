@@ -91,7 +91,7 @@ public class DialogAddMagz extends javax.swing.JDialog {
 
         labelPublisher.setText("Publisher :");
 
-        jLabel5.setText("MAgazine Date :");
+        jLabel5.setText("Magazine Date :");
 
         btnAddMag.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnAddMag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
@@ -262,7 +262,7 @@ public class DialogAddMagz extends javax.swing.JDialog {
                     try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert

@@ -300,7 +300,7 @@ public class DialogEditMag extends javax.swing.JDialog {
     public void updateMagDetails() { 
         
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                

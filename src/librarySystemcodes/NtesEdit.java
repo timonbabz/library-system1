@@ -353,7 +353,7 @@ public void deleteNotes(){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert
@@ -391,7 +391,7 @@ public void updateNotes(){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
 
-                    con = DriverManager.getConnection("jdbc:mysql://localhost/libsystem", "root", "libsystem@dmin");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
                     statement = con.createStatement();
 
                     // SQL Insert

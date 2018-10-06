@@ -324,17 +324,17 @@ public class DialogReportFound extends javax.swing.JDialog {
     {
        String borrowedStatus = "YES";
                 try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                 String value8 = txtBookId.getText();
 
-                String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "' WHERE book_id='" + value8 + "'";
+                String sql = "UPDATE books_db SET borrowed='" + borrowedStatus + "' WHERE bklib_id='" + value8 + "'";
                 PreparedStatement pst;
                 pst = null;
                 pst = conn.prepareStatement(sql);
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Book reported as found and can now be edited."+System.lineSeparator()+"NOTE:It MUST be recieved to be issued again");
+                JOptionPane.showMessageDialog(null, "Book reported as found and can now be edited."+System.lineSeparator()+"NOTE:It MUST be received to be issued again");
 
                 txtBookId.setText("");
                 txtBookIsbn.setText("");

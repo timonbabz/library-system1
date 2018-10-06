@@ -376,7 +376,7 @@ public void resetPass(){
         String resetText = "NO";
         
         try {
-            String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
             Connection conn;
             conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
             

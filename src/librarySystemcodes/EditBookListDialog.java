@@ -439,7 +439,7 @@ public class EditBookListDialog extends javax.swing.JDialog {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
 
@@ -448,7 +448,7 @@ public class EditBookListDialog extends javax.swing.JDialog {
                 int value8 = Integer.parseInt(value10);
 
                 String sql = "UPDATE books_db SET book_isbn='" + value1 + "',author='" + value2 + "',title='" + value3 + "',publisher_name='" + value4 + "',edition='" + value5 + "',subject_category='" + value6 + "'"
-                        + ",loan_type='" + value7 + "' WHERE book_id='" + value8 + "'";
+                        + ",loan_type='" + value7 + "' WHERE bklib_id='" + value8 + "'";
                 PreparedStatement pst;
                 pst = null;
                 pst = conn.prepareStatement(sql);
@@ -504,7 +504,7 @@ public class EditBookListDialog extends javax.swing.JDialog {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libsystem?useSSL = false";
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
 
@@ -513,7 +513,7 @@ public class EditBookListDialog extends javax.swing.JDialog {
                 int value8 = Integer.parseInt(value10);
 
                 String sql = "UPDATE books_db SET book_isbn='" + value1 + "',author='" + value2 + "',title='" + value3 + "',publisher_name='" + value4 + "',edition='" + value5 + "',subject_category='" + value6 + "'"
-                        + ",loan_type='" + value7 + "',borrowed='" + valueCon + "' WHERE book_id='" + value8 + "'";
+                        + ",loan_type='" + value7 + "',borrowed='" + valueCon + "' WHERE bklib_id='" + value8 + "'";
                 PreparedStatement pst;
                 pst = null;
                 pst = conn.prepareStatement(sql);
