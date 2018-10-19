@@ -707,6 +707,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        comboMaintenance = new javax.swing.JComboBox();
+        conditionCheck = new javax.swing.JComboBox();
         mainMenuBar = new javax.swing.JMenuBar();
         mainMenuNav = new javax.swing.JMenu();
         itemHome = new javax.swing.JMenuItem();
@@ -2703,12 +2705,20 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     btnImport.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnImport.setForeground(new java.awt.Color(204, 255, 255));
+    btnImport.setForeground(new java.awt.Color(255, 255, 255));
     btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
     btnImport.setText("Import");
     btnImport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
     btnImport.setContentAreaFilled(false);
     btnImport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnImport.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnImportMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnImportMouseExited(evt);
+        }
+    });
     btnImport.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnImportActionPerformed(evt);
@@ -5390,7 +5400,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(labelMagzBorrowed2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel103, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
+                .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -5524,6 +5534,20 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    comboMaintenance.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
+    comboMaintenance.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            comboMaintenanceItemStateChanged(evt);
+        }
+    });
+
+    conditionCheck.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select by condition", "New", "Fine", "Very Good", "Fair/Acceptable", "Poor (Needs repair)" }));
+    conditionCheck.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            conditionCheckItemStateChanged(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelMaintenanceLayout = new javax.swing.GroupLayout(panelMaintenance);
     panelMaintenance.setLayout(panelMaintenanceLayout);
     panelMaintenanceLayout.setHorizontalGroup(
@@ -5532,6 +5556,10 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(labelMagzBorrowed3)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(conditionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(comboMaintenance, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
         .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -5542,7 +5570,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(labelMagzBorrowed3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton8))
+                .addComponent(jButton8)
+                .addComponent(comboMaintenance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(conditionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(7, 7, 7)
             .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -7516,6 +7546,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.add(panelDamaged);
         holderPanel.repaint();
         holderPanel.revalidate();
+        refreshDamageTable();
     }//GEN-LAST:event_itemDamagedActionPerformed
 
     private void itemMaintainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMaintainActionPerformed
@@ -7532,6 +7563,38 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void comboMaintenanceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboMaintenanceItemStateChanged
+        TableRowSorter<TableModel> sorter = new TableRowSorter<>(listModel); 
+        tableMaintenance.setRowSorter(sorter);
+    
+        String text = (String) comboMaintenance.getSelectedItem();
+        if (text.equals("select category to display")) {
+          sorter.setRowFilter(null);
+        } else {
+          refreshOnItemTableMaintenance();
+        }
+    }//GEN-LAST:event_comboMaintenanceItemStateChanged
+
+    private void conditionCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_conditionCheckItemStateChanged
+         TableRowSorter<TableModel> sorter = new TableRowSorter<>(listModel); 
+        tableMaintenance.setRowSorter(sorter);
+    
+        String text = (String) conditionCheck.getSelectedItem();
+        if (text.equals("select by condition")) {
+          sorter.setRowFilter(null);
+        } else {
+          //refreshOnItemTableMaintenance();
+        }
+    }//GEN-LAST:event_conditionCheckItemStateChanged
+
+    private void btnImportMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportMouseEntered
+        btnImport.setForeground(Color.ORANGE);
+    }//GEN-LAST:event_btnImportMouseEntered
+
+    private void btnImportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportMouseExited
+       btnImport.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnImportMouseExited
 
     /**
      * @param args the command line arguments
@@ -7655,6 +7718,12 @@ while(issueModel.getRowCount() != 0){
     searchBooksIssueStudentsItem();
 }
 
+public void refreshOnItemTableMaintenance(){
+while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    searchBooksRepairCategory();
+}
+
 public void refreshOnIdIssueStd(){
 while(issueModel.getRowCount() != 0){
         issueModel.removeRow(0);}
@@ -7748,6 +7817,11 @@ public void refreshMaintenanceTable(){
     while(listModel.getRowCount() != 0){
         listModel.removeRow(0);}
     DisplayListMaintain();}
+
+public void refreshDamageTable(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    DisplayDamaged();}
 
 public void permissionCheck(){
 
@@ -8059,6 +8133,52 @@ public void DisplayListMaintain() {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE borrowed = '"+ borrowedNo +"'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
+                publisherList = rsIssue.getString("publisher_name");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void DisplayDamaged() {
+
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableDamagedBooks.setModel(listModel);
+
+        tableDamagedBooks.setFillsViewportHeight(true);
+        String ConditionBk = "Poor (Needs repair)";
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE book_condition = '"+ ConditionBk +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
@@ -8926,6 +9046,54 @@ public void searchBooksIssueStaffCategory() {
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void searchBooksRepairCategory() {
+    
+        String boorrowedCondtion = "NO";
+        String itemSelect = (String) comboMaintenance.getSelectedItem();
+
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableMaintenance.setModel(listModel);
+
+        tableMaintenance.setFillsViewportHeight(true);
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE  borrowed='"+ boorrowedCondtion +"' AND subject_category='"+ itemSelect +"'");
+            ResultSet staffRs = st.executeQuery();
+            
+            int i = 0;
+            while (staffRs.next()) {
+                bookID = staffRs.getString("bklib_id");
+                bookISBNList = staffRs.getString("book_isbn");
+                authorNameList = staffRs.getString("author");
+                titleNameList = staffRs.getString("title");
+                shelflist = staffRs.getString("shelf");
+                publisherList = staffRs.getString("publisher_name");
+                editionList = staffRs.getString("edition");
+                categoryList = staffRs.getString("subject_category");
+                loanList = staffRs.getString("loan_type");
+                borrowedList = staffRs.getString("borrowed");
+                conditionList = staffRs.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            
             JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -11351,11 +11519,13 @@ public void filterStaffTableID(){
     private javax.swing.JComboBox<String> comboFilterStudents;
     private javax.swing.JComboBox<String> comboMagz;
     private javax.swing.JComboBox<String> comboMagzFilter;
+    private javax.swing.JComboBox comboMaintenance;
     private javax.swing.JComboBox<String> comboNotes;
     private javax.swing.JComboBox<String> comboSearchInStaffIssue;
     private javax.swing.JComboBox<String> comboSearchIssue;
     private javax.swing.JComboBox<String> comboSearchShort;
     private javax.swing.JComboBox<String> comboStaffStudent;
+    private javax.swing.JComboBox conditionCheck;
     private com.toedter.calendar.JDateChooser dateChooserDue;
     private com.toedter.calendar.JDateChooser dateReturnedChooser;
     private com.toedter.calendar.JDateChooser dateStaffDue;
