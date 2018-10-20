@@ -132,6 +132,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     public static String entryNo,borrowerId, bName1, bName2,bTitle,bIsbn,staffStudent;
     String[] borrowersColumnNames = {"Entry Number","Borrower ID" ,"First Name","Last Name","Book Title","ISBN","Student/Staff"};
     DefaultTableModel borrowerModel = new DefaultTableModel();
+    //----------------declaration for table for student list----------------------------
+    public static String admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus;
+    String[] stdListColumnNames = {"Adm Number","Student Name1","Student Name2" ,"Form","Student status"};
+    DefaultTableModel stdListModel = new DefaultTableModel();
     //----------------declaration for table for session logs---------------------
     public static String sessId,logger , timeIn, timeOut,username1;
     String[] sessionColumnNames = {"Session ID","System user ID" ,"Username","Time signed in", "Time signed out"};
@@ -709,6 +713,34 @@ public final class LibraryHome extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         comboMaintenance = new javax.swing.JComboBox();
         conditionCheck = new javax.swing.JComboBox();
+        panelStudentList = new javax.swing.JPanel();
+        labelMagzBorrowed4 = new javax.swing.JLabel();
+        jPanel44 = new javax.swing.JPanel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        tableStudentList = new javax.swing.JTable();
+        jButton12 = new javax.swing.JButton();
+        jPanel47 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jTextField14 = new javax.swing.JTextField();
+        jButton18 = new javax.swing.JButton();
+        jLabel104 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton22 = new javax.swing.JButton();
+        panelStaffList = new javax.swing.JPanel();
+        labelMagzBorrowed5 = new javax.swing.JLabel();
+        jPanel46 = new javax.swing.JPanel();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        tableStaffRecords = new javax.swing.JTable();
+        jButton21 = new javax.swing.JButton();
+        jPanel45 = new javax.swing.JPanel();
+        jButton16 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel110 = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         mainMenuNav = new javax.swing.JMenu();
         itemHome = new javax.swing.JMenuItem();
@@ -734,8 +766,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         itemMaintain = new javax.swing.JMenuItem();
         itemDamaged = new javax.swing.JMenuItem();
         menuSettings = new javax.swing.JMenu();
-        itemsSystems = new javax.swing.JMenuItem();
+        itemStudentList = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         itemManageUsers = new javax.swing.JMenuItem();
+        itemsSystems = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuItemGuide = new javax.swing.JMenuItem();
         menuItemAbout = new javax.swing.JMenuItem();
@@ -1169,7 +1203,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(calenderHome, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                .addComponent(calenderHome, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1517,7 +1551,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnRefreshStockDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(btnExportStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -2232,7 +2266,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createSequentialGroup()
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(8, 8, 8)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE))
                 .addGroup(jPanel12Layout.createSequentialGroup()
                     .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(1, 1, 1)))
@@ -2506,7 +2540,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtAreaCondition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel102))
-            .addContainerGap(142, Short.MAX_VALUE))
+            .addContainerGap(160, Short.MAX_VALUE))
     );
 
     btnIndicator.setBackground(new java.awt.Color(129, 186, 243));
@@ -2596,7 +2630,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel18Layout.setVerticalGroup(
         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
     );
 
     btnAddBookList.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -2893,7 +2927,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnExcelBorrowers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addComponent(btnSearchBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(3, 3, 3)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE))
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout panelBorrowersLayout = new javax.swing.GroupLayout(panelBorrowers);
@@ -2947,7 +2981,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel19Layout.setVerticalGroup(
         jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+        .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
     );
 
     btnPrintIssued.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -3517,7 +3551,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(btnSearchUser)
                 .addComponent(btnRefreshUserTable))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelUsersView, "card2");
@@ -3577,7 +3611,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelSessionLogsLayout.setVerticalGroup(
         panelSessionLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelSessionLogsLayout.createSequentialGroup()
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnPrintSession, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -3671,7 +3705,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelAddUsersLayout.setVerticalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(120, Short.MAX_VALUE)
+            .addContainerGap(131, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel10))
@@ -3704,7 +3738,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(100, Short.MAX_VALUE))
+            .addContainerGap(111, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelAddUsers, "card2");
@@ -4145,7 +4179,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel23Layout.setVerticalGroup(
         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel23Layout.createSequentialGroup()
-            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -4263,7 +4297,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel24Layout.setVerticalGroup(
         jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel24Layout.createSequentialGroup()
-            .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+            .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -4603,7 +4637,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnMagzIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnMagzCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(65, Short.MAX_VALUE))
+            .addContainerGap(87, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout panelMagsInLayout = new javax.swing.GroupLayout(panelMagsIn);
@@ -4774,7 +4808,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel26Layout.setVerticalGroup(
         jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
     );
 
     btnRefreshMagzBoro.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -5372,7 +5406,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -5522,7 +5556,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel42Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
                 .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
@@ -5578,6 +5612,265 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
 
     holderPanel.add(panelMaintenance, "card2");
+
+    panelStudentList.setBackground(new java.awt.Color(51, 102, 255));
+
+    labelMagzBorrowed4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    labelMagzBorrowed4.setForeground(new java.awt.Color(255, 255, 255));
+    labelMagzBorrowed4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    labelMagzBorrowed4.setText("Student List");
+
+    jPanel44.setBackground(new java.awt.Color(129, 186, 243));
+
+    tableStudentList.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    jScrollPane21.setViewportView(tableStudentList);
+
+    jButton12.setText("Export to Excel");
+
+    jPanel47.setBackground(new java.awt.Color(255, 255, 255));
+
+    jButton11.setText("Refresh");
+    jButton11.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton11ActionPerformed(evt);
+        }
+    });
+
+    jButton14.setText("Edit Details");
+    jButton14.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton14ActionPerformed(evt);
+        }
+    });
+
+    jButton18.setText("Excel Student List Import");
+    jButton18.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton18ActionPerformed(evt);
+        }
+    });
+
+    jLabel104.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel104.setText("Enter Student ID");
+
+    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Form", "1", "2", "3", "4", "Display all" }));
+
+    javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
+    jPanel47.setLayout(jPanel47Layout);
+    jPanel47Layout.setHorizontalGroup(
+        jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel47Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jButton18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton14)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton11)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel104)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton19)
+            .addContainerGap())
+    );
+    jPanel47Layout.setVerticalGroup(
+        jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel47Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel104)
+                    .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel47Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton14)
+                        .addComponent(jButton18)
+                        .addComponent(jButton11))))
+            .addContainerGap())
+    );
+
+    jButton22.setText("Delete all selected records");
+
+    javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
+    jPanel44.setLayout(jPanel44Layout);
+    jPanel44Layout.setHorizontalGroup(
+        jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel44Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane21)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel44Layout.createSequentialGroup()
+                    .addComponent(jButton12)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton22))
+                .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+    );
+    jPanel44Layout.setVerticalGroup(
+        jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel44Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+            .addGap(2, 2, 2)
+            .addGroup(jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButton12)
+                .addComponent(jButton22))
+            .addContainerGap())
+    );
+
+    javax.swing.GroupLayout panelStudentListLayout = new javax.swing.GroupLayout(panelStudentList);
+    panelStudentList.setLayout(panelStudentListLayout);
+    panelStudentListLayout.setHorizontalGroup(
+        panelStudentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelStudentListLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed4)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    panelStudentListLayout.setVerticalGroup(
+        panelStudentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelStudentListLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(7, 7, 7)
+            .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    holderPanel.add(panelStudentList, "card2");
+
+    panelStaffList.setBackground(new java.awt.Color(51, 102, 255));
+
+    labelMagzBorrowed5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    labelMagzBorrowed5.setForeground(new java.awt.Color(255, 255, 255));
+    labelMagzBorrowed5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    labelMagzBorrowed5.setText("Staff List");
+
+    jPanel46.setBackground(new java.awt.Color(129, 186, 243));
+
+    tableStaffRecords.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null},
+            {null, null, null, null}
+        },
+        new String [] {
+            "Title 1", "Title 2", "Title 3", "Title 4"
+        }
+    ));
+    jScrollPane22.setViewportView(tableStaffRecords);
+
+    jButton21.setText("Export to Excel");
+
+    jPanel45.setBackground(new java.awt.Color(255, 255, 255));
+
+    jButton16.setText("Edit details");
+
+    jLabel110.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel110.setText("Enter Staff ID");
+
+    jButton20.setText("Refresh");
+
+    jButton15.setText("Excel Record Import");
+
+    javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
+    jPanel45.setLayout(jPanel45Layout);
+    jPanel45Layout.setHorizontalGroup(
+        jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel45Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jButton15)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton16)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton20)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 428, Short.MAX_VALUE)
+            .addComponent(jLabel110)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton17)
+            .addContainerGap())
+    );
+    jPanel45Layout.setVerticalGroup(
+        jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel45Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButton15)
+                .addComponent(jButton16)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton20)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel110))
+            .addContainerGap())
+    );
+
+    javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
+    jPanel46.setLayout(jPanel46Layout);
+    jPanel46Layout.setHorizontalGroup(
+        jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel46Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane22)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel46Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jButton21))
+                .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+    );
+    jPanel46Layout.setVerticalGroup(
+        jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel46Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jPanel45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jButton21)
+            .addContainerGap())
+    );
+
+    javax.swing.GroupLayout panelStaffListLayout = new javax.swing.GroupLayout(panelStaffList);
+    panelStaffList.setLayout(panelStaffListLayout);
+    panelStaffListLayout.setHorizontalGroup(
+        panelStaffListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelStaffListLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed5)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addComponent(jPanel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+    );
+    panelStaffListLayout.setVerticalGroup(
+        panelStaffListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelStaffListLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(labelMagzBorrowed5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(7, 7, 7)
+            .addComponent(jPanel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+
+    holderPanel.add(panelStaffList, "card2");
 
     mainMenuBar.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -5785,15 +6078,23 @@ public final class LibraryHome extends javax.swing.JFrame {
     menuSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Settings_16.png"))); // NOI18N
     menuSettings.setText("Settings");
 
-    itemsSystems.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
-    itemsSystems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/system_16.png"))); // NOI18N
-    itemsSystems.setText("System");
-    itemsSystems.addActionListener(new java.awt.event.ActionListener() {
+    itemStudentList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Students_16.png"))); // NOI18N
+    itemStudentList.setText("Student List Mgt");
+    itemStudentList.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            itemsSystemsActionPerformed(evt);
+            itemStudentListActionPerformed(evt);
         }
     });
-    menuSettings.add(itemsSystems);
+    menuSettings.add(itemStudentList);
+
+    jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Teacher_Hiring_16.png"))); // NOI18N
+    jMenuItem6.setText("Staff List Mgt");
+    jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jMenuItem6ActionPerformed(evt);
+        }
+    });
+    menuSettings.add(jMenuItem6);
 
     itemManageUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
     itemManageUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usersmanage_16.png"))); // NOI18N
@@ -5804,6 +6105,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
     menuSettings.add(itemManageUsers);
+
+    itemsSystems.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
+    itemsSystems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/system_16.png"))); // NOI18N
+    itemsSystems.setText("System");
+    itemsSystems.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemsSystemsActionPerformed(evt);
+        }
+    });
+    menuSettings.add(itemsSystems);
 
     mainMenuBar.add(menuSettings);
 
@@ -7506,15 +7817,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
         try {
             BookExcelImport.main(null);
-        } catch (SQLException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
             Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnImportActionPerformed
@@ -7569,6 +7872,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableMaintenance.setRowSorter(sorter);
     
         String text = (String) comboMaintenance.getSelectedItem();
+        
         if (text.equals("select category to display")) {
           sorter.setRowFilter(null);
         } else {
@@ -7595,6 +7899,45 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void btnImportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportMouseExited
        btnImport.setForeground(Color.WHITE);
     }//GEN-LAST:event_btnImportMouseExited
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        try {
+            StudentExcelImport.main(null);
+        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void itemStudentListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStudentListActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelStudentList);
+        holderPanel.repaint();
+        
+        holderPanel.revalidate();
+        refreshstdListModeltitle();
+    }//GEN-LAST:event_itemStudentListActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        refreshstdListModeltitle();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        select = bookID1;
+        if (select == null) 
+        {
+            JOptionPane.showMessageDialog(null, "Select a student from the list to edit details");
+        } else {
+            EditBookListDialog editList = new EditBookListDialog(this, true);
+            editList.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -7752,6 +8095,12 @@ public void refreshStockModeltitle(){
 while(stockModel.getRowCount() != 0){
         stockModel.removeRow(0);}
     filterBooksStocktitle();
+}
+
+public void refreshstdListModeltitle(){
+while(stdListModel.getRowCount() != 0){
+        stdListModel.removeRow(0);}
+    fillStudnetList();
 }
 
 public void refreshListOnBorod(){
@@ -11428,6 +11777,44 @@ public void filterStaffTableID(){
         }
         
     }
+ 
+ public void fillStudnetList() {
+     
+        stdListModel.setColumnIdentifiers(stdListColumnNames);
+
+        tableStudentList.setModel(stdListModel);
+
+        tableStudentList.setFillsViewportHeight(true);
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, status FROM student_list");
+            ResultSet listRs = st.executeQuery();
+
+            int i = 0;
+            while (listRs.next()) {
+                admissionNo = listRs.getString("adm_no");
+                stdFnameList = listRs.getString("std_fname");
+                stdLnameList = listRs.getString("std_lname");
+                stdFormList = listRs.getString("form");
+                stdStatus = listRs.getString("status");
+
+                stdListModel.addRow(new Object[]{admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus});
+                i++;
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Student Record(s) Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
@@ -11543,11 +11930,23 @@ public void filterStaffTableID(){
     private javax.swing.JMenuItem itemStaff;
     private javax.swing.JMenuItem itemStock;
     private javax.swing.JMenuItem itemStudent;
+    private javax.swing.JMenuItem itemStudentList;
     private javax.swing.JMenuItem itemsSystems;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -11555,6 +11954,7 @@ public void filterStaffTableID(){
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -11562,12 +11962,14 @@ public void filterStaffTableID(){
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -11669,6 +12071,7 @@ public void filterStaffTableID(){
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -11707,6 +12110,10 @@ public void filterStaffTableID(){
     private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -11725,6 +12132,8 @@ public void filterStaffTableID(){
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -11734,10 +12143,12 @@ public void filterStaffTableID(){
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel labelBookNo;
     private javax.swing.JLabel labelBooksBorrowed;
     private javax.swing.JLabel labelId;
@@ -11756,6 +12167,8 @@ public void filterStaffTableID(){
     private javax.swing.JLabel labelMagzBorrowed1;
     private javax.swing.JLabel labelMagzBorrowed2;
     private javax.swing.JLabel labelMagzBorrowed3;
+    private javax.swing.JLabel labelMagzBorrowed4;
+    private javax.swing.JLabel labelMagzBorrowed5;
     private javax.swing.JLabel labelPermission;
     private javax.swing.JLabel labelSearchInMagzPanel;
     private javax.swing.JLabel labelStaffList;
@@ -11804,6 +12217,8 @@ public void filterStaffTableID(){
     private javax.swing.JPanel panelSchedulesCreate;
     private javax.swing.JPanel panelSessionLogs;
     private javax.swing.JPanel panelShortLoanBooks;
+    private javax.swing.JPanel panelStaffList;
+    private javax.swing.JPanel panelStudentList;
     private javax.swing.JPanel panelStudents;
     private javax.swing.JPanel panelTeachers;
     private javax.swing.JPanel panelUsersView;
@@ -11831,6 +12246,8 @@ public void filterStaffTableID(){
     private javax.swing.JTable tableSessionLogs;
     private javax.swing.JTable tableShortLoanBook;
     private javax.swing.JTable tableStaff;
+    private javax.swing.JTable tableStaffRecords;
+    private javax.swing.JTable tableStudentList;
     private javax.swing.JTable tableStudents;
     private javax.swing.JTable tableUsers;
     private javax.swing.JTextField textFieldBookId;
