@@ -58,6 +58,8 @@ public class DialogAddMagz extends javax.swing.JDialog {
         chooserMagDate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         panelMagHEader.setBackground(new java.awt.Color(51, 102, 255));
 

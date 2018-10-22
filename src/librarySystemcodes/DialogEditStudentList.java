@@ -69,7 +69,8 @@ public class DialogEditStudentList extends javax.swing.JDialog {
         btnCancelUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("UPDATE STUDENT DETAILS");
+        setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         panelListUpdate.setBackground(new java.awt.Color(129, 186, 243));
 

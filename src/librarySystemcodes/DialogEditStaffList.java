@@ -72,7 +72,8 @@ public class DialogEditStaffList extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Staff Details");
+        setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         panelStaffEdit.setBackground(new java.awt.Color(129, 186, 243));
 

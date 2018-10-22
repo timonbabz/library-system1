@@ -60,12 +60,14 @@ public class DialogEditUser extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        comboPermission = new javax.swing.JComboBox<>();
+        comboPermission = new javax.swing.JComboBox<String>();
         btnUpdateUser = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         txtPermission = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("EDIT USER PERMISSIONS");
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -123,7 +125,7 @@ public class DialogEditUser extends javax.swing.JDialog {
         jLabel9.setText("Change Permission :");
 
         comboPermission.setBackground(new java.awt.Color(129, 186, 243));
-        comboPermission.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General user", "User", "Administrator", "Super user", "Block user" }));
+        comboPermission.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "General user", "User", "Administrator", "Super user", "Block user" }));
         comboPermission.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboPermissionItemStateChanged(evt);

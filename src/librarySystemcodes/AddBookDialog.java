@@ -90,7 +90,8 @@ public class AddBookDialog extends javax.swing.JDialog {
         btnAddBook = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Add books");
+        setTitle("Library Managaement System");
+        setAlwaysOnTop(true);
 
         panelAddBookTitle.setBackground(new java.awt.Color(51, 102, 255));
 

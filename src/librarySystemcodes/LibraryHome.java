@@ -694,12 +694,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tableDamagedBooks = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnDamageToExcel = new javax.swing.JButton();
+        btnRefreshDamage = new javax.swing.JButton();
+        txtSearchtitle = new javax.swing.JTextField();
+        btnSearchDam = new javax.swing.JButton();
         jLabel103 = new javax.swing.JLabel();
         panelMaintenance = new javax.swing.JPanel();
         labelMagzBorrowed3 = new javax.swing.JLabel();
@@ -719,9 +717,13 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtDateComp = new com.toedter.calendar.JDateChooser();
         btnMaintIssue = new javax.swing.JButton();
         btnCancelComp = new javax.swing.JButton();
+        jPanel48 = new javax.swing.JPanel();
+        btnSearchMainID = new javax.swing.JButton();
+        txtMainId = new javax.swing.JTextField();
+        jPanel49 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        txtMainTableSearch = new javax.swing.JTextField();
+        btnSearchTitleMain = new javax.swing.JButton();
         jPanel44 = new javax.swing.JPanel();
         comboMaintenance = new javax.swing.JComboBox();
         conditionCheck = new javax.swing.JComboBox();
@@ -732,7 +734,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelStdDetailsCarrier = new javax.swing.JPanel();
         jScrollPane21 = new javax.swing.JScrollPane();
         tableStudentList = new javax.swing.JTable();
-        jButton12 = new javax.swing.JButton();
+        btnExportStudentToExcel = new javax.swing.JButton();
         jPanel47 = new javax.swing.JPanel();
         btnRefreshStdDetails = new javax.swing.JButton();
         btnEditStdDetails = new javax.swing.JButton();
@@ -5372,38 +5374,29 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
     jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
-    jButton1.setText("Export to Excel");
-    jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
-    jButton1.setContentAreaFilled(false);
-    jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-    jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
-    jButton6.setText("Refresh");
-    jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
-    jButton6.setContentAreaFilled(false);
-    jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-    jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
-    jButton5.setContentAreaFilled(false);
-    jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton5.addActionListener(new java.awt.event.ActionListener() {
+    btnDamageToExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnDamageToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+    btnDamageToExcel.setText("Export to Excel");
+    btnDamageToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    btnDamageToExcel.setContentAreaFilled(false);
+    btnDamageToExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnDamageToExcel.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton5ActionPerformed(evt);
+            btnDamageToExcelActionPerformed(evt);
         }
     });
 
-    jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
-    jButton3.setText("Mark selected as repaired");
-    jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
-    jButton3.setContentAreaFilled(false);
-    jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-    jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
-    jButton4.setText("Mark all as repaired");
-    jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
-    jButton4.setContentAreaFilled(false);
-    jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshDamage.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRefreshDamage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
+    btnRefreshDamage.setText("Refresh");
+    btnRefreshDamage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    btnRefreshDamage.setContentAreaFilled(false);
+    btnRefreshDamage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshDamage.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRefreshDamageActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
     jPanel1.setLayout(jPanel1Layout);
@@ -5411,17 +5404,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnDamageToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnRefreshDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
     jPanel1Layout.setVerticalGroup(
@@ -5429,13 +5414,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jButton5)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(btnDamageToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRefreshDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap())
     );
 
@@ -5446,7 +5426,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel28Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane7)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1025, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
@@ -5460,11 +5440,25 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap())
     );
 
-    jLabel103.setFont(new java.awt.Font("sansserif", 3, 12)); // NOI18N
+    txtSearchtitle.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            txtSearchtitleKeyPressed(evt);
+        }
+    });
+
+    btnSearchDam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
+    btnSearchDam.setContentAreaFilled(false);
+    btnSearchDam.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchDam.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
+    btnSearchDam.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSearchDamActionPerformed(evt);
+        }
+    });
+
+    jLabel103.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     jLabel103.setForeground(new java.awt.Color(255, 255, 255));
-    jLabel103.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Info_16.png"))); // NOI18N
-    jLabel103.setText("info");
+    jLabel103.setText("Enter book ID :");
 
     javax.swing.GroupLayout panelDamagedLayout = new javax.swing.GroupLayout(panelDamaged);
     panelDamaged.setLayout(panelDamagedLayout);
@@ -5474,18 +5468,26 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(labelMagzBorrowed2)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(16, 16, 16))
+            .addComponent(jLabel103)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtSearchtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnSearchDam, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
         .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     panelDamagedLayout.setVerticalGroup(
         panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelDamagedLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addComponent(labelMagzBorrowed2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSearchDam)
+                    .addGroup(panelDamagedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSearchtitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel103))))
+            .addGap(7, 7, 7)
             .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -5529,21 +5531,22 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     txtDateComp.setBackground(new java.awt.Color(129, 186, 243));
 
+    btnMaintIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnMaintIssue.setText("Issue displayed books for maintenance");
+    btnMaintIssue.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnMaintIssue.setContentAreaFilled(false);
+    btnMaintIssue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnMaintIssue.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnMaintIssueActionPerformed(evt);
         }
     });
 
+    btnCancelComp.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnCancelComp.setText("Cancel selection");
-
-    jButton8.setText("Receive books back");
-    jButton8.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton8ActionPerformed(evt);
-        }
-    });
+    btnCancelComp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnCancelComp.setContentAreaFilled(false);
+    btnCancelComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
     javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
     jPanel43.setLayout(jPanel43Layout);
@@ -5552,29 +5555,24 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel43Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel43Layout.createSequentialGroup()
-                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCompname, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCompCon, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRepName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRepPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnMaintIssue)
-                                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel105)
-                                    .addComponent(jLabel106)
-                                    .addComponent(jLabel107)
-                                    .addComponent(jLabel108)
-                                    .addComponent(jLabel109)
-                                    .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
-                        .addComponent(btnCancelComp)
-                        .addGap(64, 64, 64)))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(51, 51, 51))))
+                .addComponent(btnMaintIssue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel43Layout.createSequentialGroup()
+                    .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCompname, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCompCon, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRepName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRepPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel105)
+                        .addComponent(jLabel106)
+                        .addComponent(jLabel107)
+                        .addComponent(jLabel108)
+                        .addComponent(jLabel109)
+                        .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel43Layout.createSequentialGroup()
+                            .addGap(70, 70, 70)
+                            .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
     );
     jPanel43Layout.setVerticalGroup(
         jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5599,13 +5597,94 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jLabel109)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(34, 34, 34)
-            .addComponent(btnMaintIssue)
+            .addGap(18, 18, 18)
+            .addComponent(btnMaintIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(btnCancelComp)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-            .addComponent(jButton8)
-            .addGap(90, 90, 90))
+            .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(19, Short.MAX_VALUE))
+    );
+
+    jPanel48.setBackground(new java.awt.Color(129, 186, 243));
+    jPanel48.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Search by book ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+
+    btnSearchMainID.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnSearchMainID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
+    btnSearchMainID.setText("Search");
+    btnSearchMainID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
+    btnSearchMainID.setContentAreaFilled(false);
+    btnSearchMainID.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchMainID.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
+    btnSearchMainID.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnSearchMainIDMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnSearchMainIDMouseExited(evt);
+        }
+    });
+    btnSearchMainID.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSearchMainIDActionPerformed(evt);
+        }
+    });
+
+    txtMainId.setBackground(new java.awt.Color(153, 153, 153));
+    txtMainId.setForeground(new java.awt.Color(255, 255, 255));
+    txtMainId.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            txtMainIdKeyPressed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
+    jPanel48.setLayout(jPanel48Layout);
+    jPanel48Layout.setHorizontalGroup(
+        jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel48Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(txtMainId, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnSearchMainID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    jPanel48Layout.setVerticalGroup(
+        jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel48Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel48Layout.createSequentialGroup()
+                    .addComponent(txtMainId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnSearchMainID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+    );
+
+    jButton8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jButton8.setText("Receive books back");
+    jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    jButton8.setContentAreaFilled(false);
+    jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    jButton8.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton8ActionPerformed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout jPanel49Layout = new javax.swing.GroupLayout(jPanel49);
+    jPanel49.setLayout(jPanel49Layout);
+    jPanel49Layout.setHorizontalGroup(
+        jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel49Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
+    );
+    jPanel49Layout.setVerticalGroup(
+        jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel49Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
     );
 
     javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
@@ -5613,8 +5692,15 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel42Layout.setHorizontalGroup(
         jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel42Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel42Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel42Layout.createSequentialGroup()
+                    .addGap(61, 61, 61)
+                    .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
             .addContainerGap())
@@ -5624,24 +5710,37 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel42Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane20)
-                .addComponent(jPanel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                .addGroup(jPanel42Layout.createSequentialGroup()
+                    .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(65, 65, 65)
+                    .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
     );
 
-    jTextField2.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jTextField2ActionPerformed(evt);
+    txtMainTableSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            txtMainTableSearchKeyPressed(evt);
         }
     });
 
-    jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
-    jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-    jButton9.setContentAreaFilled(false);
+    btnSearchTitleMain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
+    btnSearchTitleMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    btnSearchTitleMain.setContentAreaFilled(false);
+    btnSearchTitleMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchTitleMain.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSearchTitleMainActionPerformed(evt);
+        }
+    });
 
     jPanel44.setBackground(new java.awt.Color(51, 102, 255));
     jPanel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
+    comboMaintenance.setBackground(new java.awt.Color(255, 255, 255));
     comboMaintenance.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboMaintenance.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5649,6 +5748,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    conditionCheck.setBackground(new java.awt.Color(255, 255, 255));
     conditionCheck.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select by condition", "New", "Fine", "Very Good", "Fair/Acceptable", "Poor (Needs repair)" }));
     conditionCheck.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -5705,9 +5805,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel115)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtMainTableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnSearchTitleMain, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
         .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
@@ -5718,9 +5818,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(labelMagzBorrowed3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSearchTitleMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMainTableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel115)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5755,16 +5855,16 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
     jScrollPane21.setViewportView(tableStudentList);
 
-    jButton12.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
-    jButton12.setText("Export to Excel");
-    jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-    jButton12.setContentAreaFilled(false);
-    jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
-    jButton12.addActionListener(new java.awt.event.ActionListener() {
+    btnExportStudentToExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnExportStudentToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+    btnExportStudentToExcel.setText("Export to Excel");
+    btnExportStudentToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnExportStudentToExcel.setContentAreaFilled(false);
+    btnExportStudentToExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnExportStudentToExcel.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
+    btnExportStudentToExcel.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton12ActionPerformed(evt);
+            btnExportStudentToExcelActionPerformed(evt);
         }
     });
 
@@ -5899,7 +5999,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelStdDetailsCarrierLayout.createSequentialGroup()
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExportStudentToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel112)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -5916,7 +6016,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExportStudentToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCountstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel112)))
@@ -8113,9 +8213,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Editing not allowed");}
     }//GEN-LAST:event_tableSessionLogsMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnSearchDamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDamActionPerformed
+        if(txtSearchtitle.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter book ID to search");}
+            else{refreshDamageTable2();}
+    }//GEN-LAST:event_btnSearchDamActionPerformed
 
     private void itemDamagedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDamagedActionPerformed
         holderPanel.removeAll();
@@ -8140,7 +8242,8 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_itemMaintainActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        ReceiveMainDialog editList = new ReceiveMainDialog(this, true);
+        editList.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void comboMaintenanceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboMaintenanceItemStateChanged
@@ -8332,21 +8435,25 @@ public final class LibraryHome extends javax.swing.JFrame {
         numberOfStudentsId();}
     }//GEN-LAST:event_txtStdIdKeyPressed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        writeStudentListExcel();
-    }//GEN-LAST:event_jButton12ActionPerformed
+    private void btnExportStudentToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportStudentToExcelActionPerformed
+        int rows=tableStudentList.getRowCount();
+     if(rows == 0){
+     JOptionPane.showMessageDialog(null, "Table has no data to be exported");
+     }else{
+        writeStudentListExcel();}
+    }//GEN-LAST:event_btnExportStudentToExcelActionPerformed
 
     private void btnExportListExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportListExcelActionPerformed
-        writeStaffListExcel();
+        int rows=tableStaffRecords.getRowCount();
+     if(rows == 0){
+     JOptionPane.showMessageDialog(null, "Table has no data to be exported");
+     }else{
+        writeStaffListExcel();}
     }//GEN-LAST:event_btnExportListExcelActionPerformed
 
     private void btnMaintIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaintIssueActionPerformed
         maintenanceTable();
     }//GEN-LAST:event_btnMaintIssueActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void btnSearchMainTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMainTableActionPerformed
         String condition = (String) conditionCheck.getSelectedItem();
@@ -8357,6 +8464,63 @@ public final class LibraryHome extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Select book category from drop down list");}
         else{refreshMaintenanceTableFilter();}
     }//GEN-LAST:event_btnSearchMainTableActionPerformed
+
+    private void btnSearchTitleMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchTitleMainActionPerformed
+        if(txtMainTableSearch.equals("")){
+        JOptionPane.showMessageDialog(null, "Enter book title to search");}
+        else{refreshMaintenanceTableFilter1();}
+    }//GEN-LAST:event_btnSearchTitleMainActionPerformed
+
+    private void txtMainTableSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMainTableSearchKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtMainTableSearch.equals("")){
+            JOptionPane.showMessageDialog(null, "Enter book title to search");}
+            else{refreshMaintenanceTableFilter1();}
+        }
+    }//GEN-LAST:event_txtMainTableSearchKeyPressed
+
+    private void btnSearchMainIDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMainIDMouseExited
+        btnSearchMainID.setForeground(Color.white);
+    }//GEN-LAST:event_btnSearchMainIDMouseExited
+
+    private void btnSearchMainIDMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMainIDMouseEntered
+        btnSearchMainID.setForeground(Color.red);
+    }//GEN-LAST:event_btnSearchMainIDMouseEntered
+
+    private void btnSearchMainIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMainIDActionPerformed
+        if(txtMainId.getText().equals("")){
+        JOptionPane.showMessageDialog(null, "Please enter book ID to search");}
+        else{
+            refreshMaintenanceTableFilter2();}
+    }//GEN-LAST:event_btnSearchMainIDActionPerformed
+
+    private void txtMainIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMainIdKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtMainId.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter book ID to search");}
+            else{refreshMaintenanceTableFilter2();}
+        }
+    }//GEN-LAST:event_txtMainIdKeyPressed
+
+    private void btnRefreshDamageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshDamageActionPerformed
+        refreshDamageTable();
+    }//GEN-LAST:event_btnRefreshDamageActionPerformed
+
+    private void txtSearchtitleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchtitleKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtSearchtitle.equals("")){
+            JOptionPane.showMessageDialog(null, "Please enter book ID to search");}
+            else{refreshDamageTable2();}
+        }
+    }//GEN-LAST:event_txtSearchtitleKeyPressed
+
+    private void btnDamageToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDamageToExcelActionPerformed
+     int rows=tableDamagedBooks.getRowCount();
+     if(rows == 0){
+     JOptionPane.showMessageDialog(null, "Table has no data to be exported");
+     }else{
+        writeDamagedListExcel();}
+    }//GEN-LAST:event_btnDamageToExcelActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -8614,10 +8778,25 @@ public void refreshMaintenanceTableFilter(){
         listModel.removeRow(0);}
     DisplayListMainFilter2();}
 
+public void refreshMaintenanceTableFilter1(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    DisplayListMainFilter3();}
+
+public void refreshMaintenanceTableFilter2(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    DisplayListMainFilter4();}
+
 public void refreshDamageTable(){
     while(listModel.getRowCount() != 0){
         listModel.removeRow(0);}
     DisplayDamaged();}
+
+public void refreshDamageTable2(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    DisplayDamaged2();}
 
 public void permissionCheck(){
 
@@ -9009,6 +9188,100 @@ public void DisplayListMainFilter2() {
 
 }
 
+public void DisplayListMainFilter3() {
+
+        String bkTitle = txtMainTableSearch.getText();
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableMaintenance.setModel(listModel);
+
+        tableMaintenance.setFillsViewportHeight(true);
+        String borrowedNo = "NO";
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE title='"+ bkTitle +"' AND  borrowed = '"+ borrowedNo +"'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
+                publisherList = rsIssue.getString("publisher_name");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void DisplayListMainFilter4() {
+
+        String bkTitle = txtMainId.getText();
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableMaintenance.setModel(listModel);
+
+        tableMaintenance.setFillsViewportHeight(true);
+        String borrowedNo = "NO";
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE bklib_id='"+ bkTitle +"' AND  borrowed = '"+ borrowedNo +"'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
+                publisherList = rsIssue.getString("publisher_name");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
 public void DisplayDamaged() {
 
         listModel.setColumnIdentifiers(listColumnNames);
@@ -9023,6 +9296,54 @@ public void DisplayDamaged() {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE book_condition = '"+ ConditionBk +"'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                shelflist = rsIssue.getString("shelf");
+                publisherList = rsIssue.getString("publisher_name");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void DisplayDamaged2() {
+
+        String titleBook = txtSearchtitle.getText();
+        
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableDamagedBooks.setModel(listModel);
+
+        tableDamagedBooks.setFillsViewportHeight(true);
+        String ConditionBk = "Poor (Needs repair)";
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE title='"+ titleBook +"' AND book_condition = '"+ ConditionBk +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
@@ -12312,7 +12633,6 @@ public void filterStaffTableID(){
             // System.out.println(rt);
             JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
 }
  
  public void fillterStudnetList() {
@@ -12683,6 +13003,69 @@ private void writeStaffListExcel()
 
 }
 
+private String getCellValuetableDamTable(int x, int y)
+{
+    return listModel.getValueAt(x, y).toString();
+}
+
+private void writeDamagedListExcel()
+{
+        JFileChooser fileChooser = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("Files", ".xlsx");
+        fileChooser.addChoosableFileFilter(filter);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.setDialogTitle("Select file location"); 
+        fileChooser.setSelectedFile(new File(fileDictName));
+        int userSelection = fileChooser.showSaveDialog(fileChooser);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            fileDictName = fileChooser.getSelectedFile()+".xlsx";
+        }
+
+    File file = new File(fileDictName);
+    if(file.exists() == false){
+    
+        XSSFWorkbook xWb = new XSSFWorkbook();
+        XSSFSheet xSt = xWb.createSheet();
+        TreeMap<String, Object[]> data = new TreeMap<>();
+        data.put("-1", new Object[]{listModel.getColumnName(0),listModel.getColumnName(1),
+            listModel.getColumnName(2),listModel.getColumnName(3),listModel.getColumnName(4),
+            listModel.getColumnName(5),listModel.getColumnName(6),listModel.getColumnName(7),
+            listModel.getColumnName(8),listModel.getColumnName(9),listModel.getColumnName(10)});
+        for (int i = 0; i < listModel.getRowCount(); i++) 
+        {
+                data.put(Integer.toString(i), new Object[]{getCellValuetableDamTable(i, 0),getCellValuetableDamTable(i, 1),
+                getCellValuetableDamTable(i, 2),getCellValuetableDamTable(i, 3),
+                getCellValuetableDamTable(i, 4),getCellValuetableDamTable(i, 5),
+                getCellValuetableDamTable(i, 6),getCellValuetableDamTable(i, 7),
+                getCellValuetableDamTable(i, 8),getCellValuetableDamTable(i, 9),getCellValuetableDamTable(i, 10)});
+        }
+        Set<String> ids = data.keySet();
+        XSSFRow row;
+        int rowId = 0;
+        for(String key: ids)
+        {
+            row = xSt.createRow(rowId++);
+            Object[] values = data.get(key);
+            int cellId = 0;
+            for(Object o: values)
+            {
+                Cell cell = row.createCell(cellId++);
+                cell.setCellValue(o.toString());
+            }
+        }
+
+        try (
+            FileOutputStream fos = new FileOutputStream(file)) 
+            {
+            xWb.write(fos);
+            JOptionPane.showMessageDialog(null, "Excel sheet saved");
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+}
+
 public void maintenanceTable(){
 
     try{
@@ -12757,6 +13140,7 @@ public void maintenanceTable(){
     private javax.swing.JButton btnCancelShort;
     private javax.swing.JButton btnCreateNotes;
     private javax.swing.JButton btnCreateSch;
+    private javax.swing.JButton btnDamageToExcel;
     private javax.swing.JButton btnEditBookDetails;
     private javax.swing.JButton btnEditStaffDetails;
     private javax.swing.JButton btnEditStdDetails;
@@ -12766,6 +13150,7 @@ public void maintenanceTable(){
     private javax.swing.JButton btnExcelStaffImport;
     private javax.swing.JButton btnExportListExcel;
     private javax.swing.JButton btnExportStock;
+    private javax.swing.JButton btnExportStudentToExcel;
     private javax.swing.JButton btnFilterStaffId;
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnIndicator;
@@ -12792,6 +13177,7 @@ public void maintenanceTable(){
     private javax.swing.JButton btnRecieveMagz;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRefreshBoro;
+    private javax.swing.JButton btnRefreshDamage;
     private javax.swing.JButton btnRefreshMagz;
     private javax.swing.JButton btnRefreshMagzBoro;
     private javax.swing.JButton btnRefreshShortBks;
@@ -12804,11 +13190,13 @@ public void maintenanceTable(){
     private javax.swing.JButton btnSearchBoroMagz;
     private javax.swing.JButton btnSearchBorrowers;
     private javax.swing.JButton btnSearchByIdstd;
+    private javax.swing.JButton btnSearchDam;
     private javax.swing.JButton btnSearchForMagIssue;
     private javax.swing.JButton btnSearchIssueStd;
     private javax.swing.JButton btnSearchIssued;
     private javax.swing.JButton btnSearchList;
     private javax.swing.JButton btnSearchMagz;
+    private javax.swing.JButton btnSearchMainID;
     private javax.swing.JButton btnSearchMainTable;
     private javax.swing.JButton btnSearchShortLoanBks;
     private javax.swing.JButton btnSearchStaff;
@@ -12817,6 +13205,7 @@ public void maintenanceTable(){
     private javax.swing.JButton btnSearchStd;
     private javax.swing.JButton btnSearchStdID;
     private javax.swing.JButton btnSearchStdStaff;
+    private javax.swing.JButton btnSearchTitleMain;
     private javax.swing.JButton btnSearchUser;
     private javax.swing.JButton btnUsersSessions;
     private javax.swing.JButton btnViewSch;
@@ -12863,17 +13252,10 @@ public void maintenanceTable(){
     private javax.swing.JMenuItem itemStudent;
     private javax.swing.JMenuItem itemStudentList;
     private javax.swing.JMenuItem itemsSystems;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -13037,6 +13419,8 @@ public void maintenanceTable(){
     private javax.swing.JPanel jPanel45;
     private javax.swing.JPanel jPanel46;
     private javax.swing.JPanel jPanel47;
+    private javax.swing.JPanel jPanel48;
+    private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -13065,8 +13449,6 @@ public void maintenanceTable(){
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel labelBookNo;
     private javax.swing.JLabel labelBooksBorrowed;
     private javax.swing.JLabel labelId;
@@ -13206,6 +13588,8 @@ public void maintenanceTable(){
     private javax.swing.JTextField txtMagzNameID;
     private javax.swing.JTextField txtMagzPhone;
     private javax.swing.JTextField txtMagzTitle;
+    private javax.swing.JTextField txtMainId;
+    private javax.swing.JTextField txtMainTableSearch;
     private javax.swing.JTextArea txtNotesInfo;
     private javax.swing.JTextField txtNotesTitle;
     private javax.swing.JPasswordField txtPass;
@@ -13224,6 +13608,7 @@ public void maintenanceTable(){
     private javax.swing.JTextField txtSearchStaffBook;
     private javax.swing.JTextField txtSearchText;
     private javax.swing.JTextField txtSearchUser;
+    private javax.swing.JTextField txtSearchtitle;
     private javax.swing.JTextField txtShortBkId;
     private javax.swing.JTextField txtShortBkIsbn;
     private javax.swing.JTextField txtShortBkTitle;

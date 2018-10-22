@@ -73,7 +73,8 @@ public class EditBookListDialog extends javax.swing.JDialog {
         comboCondition = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit book details");
+        setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         panelEditBookTitle.setBackground(new java.awt.Color(51, 102, 255));
 

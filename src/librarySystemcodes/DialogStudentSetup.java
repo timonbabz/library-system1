@@ -40,7 +40,8 @@ public class DialogStudentSetup extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Structure Dialog Help");
+        setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(129, 186, 243));
 

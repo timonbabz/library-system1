@@ -78,13 +78,14 @@ public class NtesEdit extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         btnDiscard = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        comboAckno = new javax.swing.JComboBox<>();
+        comboAckno = new javax.swing.JComboBox<String>();
         btnOk = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         labelAck = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
@@ -173,7 +174,7 @@ public class NtesEdit extends javax.swing.JDialog {
         });
 
         comboAckno.setBackground(new java.awt.Color(129, 186, 243));
-        comboAckno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        comboAckno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
 
         btnOk.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnOk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
