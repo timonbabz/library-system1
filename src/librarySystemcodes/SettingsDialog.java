@@ -248,6 +248,13 @@ public class SettingsDialog extends javax.swing.JDialog {
             }
         });
 
+        txtSetName.setBackground(new java.awt.Color(204, 204, 204));
+        txtSetName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSetNameMouseClicked(evt);
+            }
+        });
+
         btnSet.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnSet.setText("Set");
         btnSet.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -459,6 +466,14 @@ public class SettingsDialog extends javax.swing.JDialog {
         textStudentDays.setText("");
         textStaffDays.setText("");
     }//GEN-LAST:event_jbtnClearDaysActionPerformed
+
+    private void txtSetNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSetNameMouseClicked
+        if(!LibrarySignIn.usernameLabel.equalsIgnoreCase("Support Team")){
+            txtSetName.setEditable(false);
+            JOptionPane.showMessageDialog(null, "Operation not allowed for current user, contact support team");
+        }else{
+        txtSetName.setEditable(true);}
+    }//GEN-LAST:event_txtSetNameMouseClicked
 
     /**
      * @param args the command line arguments

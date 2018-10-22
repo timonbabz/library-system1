@@ -5616,7 +5616,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane20)
+            .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
             .addContainerGap())
     );
     jPanel42Layout.setVerticalGroup(
@@ -5656,7 +5656,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    btnSearchMainTable.setText("Search");
+    btnSearchMainTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
+    btnSearchMainTable.setContentAreaFilled(false);
+    btnSearchMainTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchMainTable.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
     btnSearchMainTable.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnSearchMainTableActionPerformed(evt);
@@ -5673,7 +5676,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(comboMaintenance, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(btnSearchMainTable)
+            .addComponent(btnSearchMainTable, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
     jPanel44Layout.setVerticalGroup(
@@ -5698,8 +5701,8 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(labelMagzBorrowed3)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jPanel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(169, 169, 169)
+            .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel115)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)

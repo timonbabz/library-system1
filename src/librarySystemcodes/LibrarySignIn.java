@@ -46,11 +46,13 @@ public final class LibrarySignIn extends javax.swing.JFrame {
     public static String labelStaffMax;
     public static String labeldaystaff;
     public static String labeldaystd;
+    public static String labelSchoolName;
     Statement statement;
     
     public LibrarySignIn() throws IOException {
         initComponents();
         showNameOnLabel();
+        showSchoolName();
         
         String imagepath = "/images/iconforlib_32.png";
         InputStream imgstream = LibrarySignIn.class.getResourceAsStream(imagepath);
@@ -680,6 +682,23 @@ public final void SessionLogs() {
         }
     }
 
+ public void showSchoolName() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSdbL = false", "root", "libsystem@dmin");
+            PreparedStatement stino = con.prepareStatement("SELECT school_name FROM school_name_db");
+            ResultSet rsName = stino.executeQuery();
+            if (rsName.next()) {
+                String schName = rsName.getString("school_name");
+                labelSchoolName = schName;
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel capsLockText;

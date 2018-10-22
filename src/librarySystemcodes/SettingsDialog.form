@@ -440,6 +440,14 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSetName">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSetNameMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSet">
               <Properties>

@@ -31,7 +31,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class BookExcelImport extends JFrame {
+public class StudentExcelImport extends JFrame {
 
  public static JTable table;
  static JScrollPane scroll;
@@ -44,13 +44,13 @@ public class BookExcelImport extends JFrame {
    Vector();
  static JButton jbClick;
  static JButton jbexport;
- static JButton jbInfo;
+ static JButton jbInfostd;
  static JFileChooser jChooser;
  static int tableWidth = 0; // set the tableWidth
  static int tableHeight = 0; // set the tableHeight
 
- public BookExcelImport() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
-  super("Import Excel To Table");
+ public StudentExcelImport() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
+ super("Import Excel To Table");
   String imagepath = "/images/iconforlib_32.png";
   InputStream imgstream = LibrarySignIn.class.getResourceAsStream(imagepath);
   BufferedImage myImg = ImageIO.read(imgstream);
@@ -80,16 +80,16 @@ public class BookExcelImport extends JFrame {
   jbexport.setFont(new java.awt.Font("sansserif", 1, 12));
   jbexport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_16.png")));
   
-  jbInfo = new JButton("Excel structure help");
-  jbInfo.setContentAreaFilled(false);
-  jbInfo.setForeground(Color.white);
-  jbInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-  jbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-  jbInfo.setPreferredSize(new Dimension(145, 30));
-  jbInfo.setFont(new java.awt.Font("sansserif", 1, 12));
-  jbInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_16.png")));
+  jbInfostd = new JButton("Excel structure help");
+  jbInfostd.setContentAreaFilled(false);
+  jbInfostd.setForeground(Color.white);
+  jbInfostd.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+  jbInfostd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+  jbInfostd.setPreferredSize(new Dimension(145, 30));
+  jbInfostd.setFont(new java.awt.Font("sansserif", 1, 12));
+  jbInfostd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_16.png")));
   
-  buttonPanel.add(jbInfo, BorderLayout.CENTER);
+  buttonPanel.add(jbInfostd, BorderLayout.CENTER);
   buttonPanel.add(jbClick, BorderLayout.CENTER);
   buttonPanel.add(jbexport, BorderLayout.CENTER);
   // Show Button Click Event
@@ -132,13 +132,14 @@ public class BookExcelImport extends JFrame {
    }
      });
   
-    jbInfo.addActionListener(new ActionListener()
+    jbInfostd.addActionListener(new ActionListener()
      {
          @Override
    public void actionPerformed(ActionEvent arg0)
    {
-       DialogExcelSetup bookDialogEx = new DialogExcelSetup(null, true);
-       bookDialogEx.setVisible(true);
+       DialogStudentSetup StdDialogEx = new DialogStudentSetup(null, true);
+       
+       StdDialogEx.setVisible(true);
    }
      });
   
@@ -187,39 +188,29 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
 conn.setAutoCommit(false);
 
-String queryco = "INSERT INTO books_db(bklib_id, book_isbn, author, title, publisher_name, edition, subject_category, loan_type, shelf) VALUES (?,?,?,?,?,?,?,?,?)";
+String queryco = "INSERT INTO student_list(adm_no, std_fname, std_lname, form) VALUES (?,?,?,?)";
 PreparedStatement pst = conn.prepareStatement(queryco);
 for(int row = 0; row<rows; row++)
 {
-    String bookId = (String)table.getValueAt(row, 0);
-    String isbnNumber = (String)table.getValueAt(row, 1);
-    String authorName = (String)table.getValueAt(row, 2);
-    String bookTitle = (String)table.getValueAt(row, 3);
-    String publisherName = (String)table.getValueAt(row, 4);
-    String bookEdition = (String)table.getValueAt(row, 5);
-    String BookCat = (String)table.getValueAt(row, 6);
-    String BookLoan = (String)table.getValueAt(row, 7);
-    String bookShelf = (String)table.getValueAt(row, 8);
+    String admNo = (String)table.getValueAt(row, 0);
+    String stdFname = (String)table.getValueAt(row, 1);
+    String stdLname = (String)table.getValueAt(row, 2);
     
+    String form = (String)table.getValueAt(row, 3);
     
-    pst.setString(1, bookId);
-    pst.setString(2, isbnNumber);
-    pst.setString(3, authorName);
-    pst.setString(4, bookTitle);
-    pst.setString(5, publisherName);
-    pst.setString(6, bookEdition);
-    pst.setString(7, BookCat);
-    pst.setString(8, BookLoan);
-    pst.setString(9, bookShelf);
+    pst.setString(1, admNo);
+    pst.setString(2, stdFname);
+    pst.setString(3, stdLname);
+    pst.setString(4, form);
 
     pst.addBatch();
 }
 pst.executeBatch();
 conn.commit();
-JOptionPane.showMessageDialog(null, "Data successfully saved to the database");
+JOptionPane.showMessageDialog(null, "Student List successfully saved to the database");
 table.setModel(new DefaultTableModel());
 }
-catch(Exception e){
+catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException e){
     JOptionPane.showMessageDialog(this,e.getMessage());
 }}
  }
@@ -268,8 +259,8 @@ catch(Exception e){
 
  public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
 
-    BookExcelImport frame = new BookExcelImport();
-    frame.setTitle("ADD BOOKS FROM EXCEL SHEET");
+    StudentExcelImport frame = new StudentExcelImport();
+    frame.setTitle("ADD STUDENTS FROM EXCEL SHEET");
     frame.setSize(1000, 500);
     frame.setBackground(Color.BLUE);
     frame.setLocationRelativeTo(null); // Center the frame
