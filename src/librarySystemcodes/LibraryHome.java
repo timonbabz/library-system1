@@ -171,14 +171,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         initComponents();
         permissionCheck();
         TimeDisplay();
-        displayBooksIssueStudents();
-        displayBooksIssueStaff();
         numberOfBooksBorrowed();
         numberOfBorrowers();
         numberOfBooks();
-        displayBorrowersList();
-        displayBooksBorrowed();
-        displayBooksShortLoan();
+        loadCombos();
         
         String imagepath = "/images/iconforlib_32.png";
         InputStream imgstream = LibraryHome.class.getResourceAsStream(imagepath);
@@ -717,6 +713,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtDateComp = new com.toedter.calendar.JDateChooser();
         btnMaintIssue = new javax.swing.JButton();
         btnCancelComp = new javax.swing.JButton();
+        comboCompany = new javax.swing.JComboBox();
+        jLabel116 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
         btnSearchMainID = new javax.swing.JButton();
         txtMainId = new javax.swing.JTextField();
@@ -790,6 +788,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         itemManageUsers = new javax.swing.JMenuItem();
         itemsSystems = new javax.swing.JMenuItem();
+        menuOther = new javax.swing.JMenu();
+        itemCategory = new javax.swing.JMenuItem();
+        itemcomp = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuItemGuide = new javax.swing.JMenuItem();
         menuItemAbout = new javax.swing.JMenuItem();
@@ -1499,7 +1500,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilterStock.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilterStock.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboFilterStock.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterStockItemStateChanged(evt);
@@ -1875,7 +1875,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchIssueItemStateChanged(evt);
@@ -2219,7 +2218,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchInStaffIssue.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchInStaffIssue.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchInStaffIssue.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchInStaffIssueItemStateChanged(evt);
@@ -3385,7 +3383,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboSearchShort.setBackground(new java.awt.Color(129, 186, 243));
-    comboSearchShort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboSearchShort.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboSearchShortItemStateChanged(evt);
@@ -3940,7 +3937,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     comboFilterLost.setBackground(new java.awt.Color(129, 186, 243));
-    comboFilterLost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by :", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboFilterLost.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboFilterLostItemStateChanged(evt);
@@ -5521,11 +5517,19 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel105.setText("Company name :");
 
+    txtCompname.setEditable(false);
+
     jLabel106.setText("Company Contacts (Phone) :");
+
+    txtCompCon.setEditable(false);
 
     jLabel107.setText("Representative's names :");
 
+    txtRepName.setEditable(false);
+
     jLabel108.setText("Representative's phone :");
+
+    txtRepPhone.setEditable(false);
 
     jLabel109.setText("Date issued :");
 
@@ -5548,6 +5552,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnCancelComp.setContentAreaFilled(false);
     btnCancelComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+    comboCompany.setBackground(new java.awt.Color(255, 255, 255));
+
+    jLabel116.setText("Select company name :");
+
     javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
     jPanel43.setLayout(jPanel43Layout);
     jPanel43Layout.setHorizontalGroup(
@@ -5558,26 +5566,33 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(btnMaintIssue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel43Layout.createSequentialGroup()
                     .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCompname, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCompCon, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRepName, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRepPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel105)
-                        .addComponent(jLabel106)
-                        .addComponent(jLabel107)
-                        .addComponent(jLabel108)
-                        .addComponent(jLabel109)
-                        .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel43Layout.createSequentialGroup()
-                            .addGap(70, 70, 70)
-                            .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCompname, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(txtCompCon, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(txtRepName, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(txtRepPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                            .addComponent(jLabel105)
+                            .addComponent(jLabel106)
+                            .addComponent(jLabel107)
+                            .addComponent(jLabel108)
+                            .addComponent(jLabel109)
+                            .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel43Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel116))
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
     );
     jPanel43Layout.setVerticalGroup(
         jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel43Layout.createSequentialGroup()
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
             .addContainerGap()
+            .addComponent(jLabel116)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(comboCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel105)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtCompname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5601,7 +5616,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnMaintIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(19, Short.MAX_VALUE))
+            .addGap(15, 15, 15))
     );
 
     jPanel48.setBackground(new java.awt.Color(129, 186, 243));
@@ -5645,7 +5660,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(txtMainId, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchMainID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap(10, Short.MAX_VALUE))
     );
     jPanel48Layout.setVerticalGroup(
         jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5715,7 +5730,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(jPanel48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jPanel43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(65, 65, 65)
+                    .addGap(18, 18, 18)
                     .addComponent(jPanel49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
@@ -5741,7 +5756,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     comboMaintenance.setBackground(new java.awt.Color(255, 255, 255));
-    comboMaintenance.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category to display", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
     comboMaintenance.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             comboMaintenanceItemStateChanged(evt);
@@ -5802,7 +5816,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(labelMagzBorrowed3)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
             .addComponent(jLabel115)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtMainTableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6487,6 +6501,27 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
     menuSettings.add(itemsSystems);
 
+    menuOther.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
+    menuOther.setText("Other Settings");
+
+    itemCategory.setText("Book categories");
+    itemCategory.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemCategoryActionPerformed(evt);
+        }
+    });
+    menuOther.add(itemCategory);
+
+    itemcomp.setText("Company names");
+    itemcomp.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemcompActionPerformed(evt);
+        }
+    });
+    menuOther.add(itemcomp);
+
+    menuSettings.add(menuOther);
+
     mainMenuBar.add(menuSettings);
 
     menuHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_16.png"))); // NOI18N
@@ -6566,6 +6601,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.add(panelIssueStudent);
         holderPanel.repaint();
         holderPanel.revalidate();
+        refreshStdList();
         showMaxOnLabelStd();
         showMaxOnLabelStaff();
     }//GEN-LAST:event_itemStudentActionPerformed
@@ -6578,6 +6614,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.add(panelIssueStaff);
         holderPanel.repaint();
         holderPanel.revalidate();
+        refreshAfterIssueStaff();
         showMaxOnLabelStd();
         showMaxOnLabelStaff();
     }//GEN-LAST:event_itemStaffActionPerformed
@@ -6800,6 +6837,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.add(panelShortLoanBooks);
         holderPanel.repaint();
         holderPanel.revalidate();
+        refreshShort();
     }//GEN-LAST:event_itemShortLoanActionPerformed
 
     private void itemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemLogoutActionPerformed
@@ -7551,6 +7589,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.repaint();
         holderPanel.revalidate();
         refreshBooksLost();
+        loadcomboLost();
     }//GEN-LAST:event_menuItemLostActionPerformed
 
     private void btnLostConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLostConfActionPerformed
@@ -8452,7 +8491,12 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExportListExcelActionPerformed
 
     private void btnMaintIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaintIssueActionPerformed
+     int rows=tableMaintenance.getRowCount();
+     if(rows == 0){
+     JOptionPane.showMessageDialog(null, "Table has no data");
+     }else{
         maintenanceTable();
+        refreshMaintenanceTable();}
     }//GEN-LAST:event_btnMaintIssueActionPerformed
 
     private void btnSearchMainTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMainTableActionPerformed
@@ -8521,6 +8565,16 @@ public final class LibraryHome extends javax.swing.JFrame {
      }else{
         writeDamagedListExcel();}
     }//GEN-LAST:event_btnDamageToExcelActionPerformed
+
+    private void itemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCategoryActionPerformed
+        DialogOther settingsDialog = new DialogOther(this, true);
+        settingsDialog.setVisible(true);
+    }//GEN-LAST:event_itemCategoryActionPerformed
+
+    private void itemcompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemcompActionPerformed
+        DialogSetComp settingsDialog = new DialogSetComp(this, true);
+        settingsDialog.setVisible(true);
+    }//GEN-LAST:event_itemcompActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -8571,6 +8625,13 @@ public void refreshAfterIssueStaff(){
 
 public void refreshAfterIssueShort(){
     while (shortModel.getRowCount() != 0) {
+         shortModel.removeRow(0);
+          }
+        displayBooksShortLoan();
+}
+
+public void refreshShort(){
+while (shortModel.getRowCount() != 0) {
          shortModel.removeRow(0);
           }
         displayBooksShortLoan();
@@ -8665,6 +8726,12 @@ public void refreshOnIdIssueStd(){
 while(issueModel.getRowCount() != 0){
         issueModel.removeRow(0);}
     searchBooksLongLoanStd();
+}
+public void refreshStdList(){
+ while (issueModel.getRowCount() != 0) {
+         issueModel.removeRow(0);
+          }
+        displayBooksIssueStudents();
 }
 
 public void refreshOnItemIssueStaff(){
@@ -8920,7 +8987,6 @@ public void addNotes(){
                 }
         //end of if statement that validate the form
 }
-
 
 public void displayNotes() {
     
@@ -13105,16 +13171,152 @@ public void maintenanceTable(){
             pst.setString(11, rep);
             pst.setString(12, repPhone);
             
-
             pst.addBatch();
         }
         pst.executeBatch();
         con.commit();
+        JOptionPane.showMessageDialog(null, "Books issued for maintenance");
         }
         catch(ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(this,e.getMessage());
        }
 
+}
+
+   public void loadcomboStock() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){   
+                comboFilterStock.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+   
+public void loadcomboStudents() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboSearchIssue.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadcomboStaff() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboSearchInStaffIssue.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadcomboShort() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboSearchShort.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadcomboLost() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboFilterLost.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadcomboMain() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboMaintenance.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadcombocompany() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT compName FROM company_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboCompany.addItem(rs.getString("compName"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+
+public void loadCombos(){
+    loadcomboMain();
+    loadcomboLost();
+    loadcomboShort();
+    loadcomboStaff();
+    loadcomboStudents();
+    loadcomboStock();
+    loadcombocompany();
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -13218,6 +13420,7 @@ public void maintenanceTable(){
     private com.toedter.calendar.JDateChooser chooserschDate;
     private javax.swing.JButton colorCodeButton;
     private javax.swing.JComboBox<String> comboBoxList;
+    private javax.swing.JComboBox comboCompany;
     private javax.swing.JComboBox<String> comboFiletStaff;
     private javax.swing.JComboBox<String> comboFilter;
     private javax.swing.JComboBox comboFilterForm;
@@ -13238,6 +13441,7 @@ public void maintenanceTable(){
     private com.toedter.calendar.JDateChooser dateStaffDue;
     private javax.swing.JPanel holderPanel;
     private javax.swing.JMenuItem itemBooksIssued;
+    private javax.swing.JMenuItem itemCategory;
     private javax.swing.JMenuItem itemDamaged;
     private javax.swing.JMenuItem itemHome;
     private javax.swing.JMenu itemIssue;
@@ -13251,6 +13455,7 @@ public void maintenanceTable(){
     private javax.swing.JMenuItem itemStock;
     private javax.swing.JMenuItem itemStudent;
     private javax.swing.JMenuItem itemStudentList;
+    private javax.swing.JMenuItem itemcomp;
     private javax.swing.JMenuItem itemsSystems;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
@@ -13275,6 +13480,7 @@ public void maintenanceTable(){
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -13495,6 +13701,7 @@ public void maintenanceTable(){
     private javax.swing.JMenuItem menuItemMagz;
     private javax.swing.JMenuItem menuItemProfile;
     private javax.swing.JMenu menuItemView;
+    private javax.swing.JMenu menuOther;
     private javax.swing.JMenu menuSettings;
     private javax.swing.JPanel panelAddUsers;
     private javax.swing.JPanel panelBooksIssued;

@@ -10,6 +10,7 @@ import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-public class EditBookListDialog extends javax.swing.JDialog {
+public final class EditBookListDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form EditBookListDialog
@@ -29,6 +30,7 @@ public class EditBookListDialog extends javax.swing.JDialog {
     public EditBookListDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadcombo();
         
     bookId.setText(LibraryHome.bookID1);
     editIsbn.setText(LibraryHome.bookISBNList1);
@@ -188,7 +190,6 @@ public class EditBookListDialog extends javax.swing.JDialog {
         jLabel9.setText("Book ID :");
 
         editCategory.setBackground(new java.awt.Color(129, 186, 243));
-        editCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select book category", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
 
         jLabel10.setText("Force borrowed condition :");
 
@@ -536,6 +537,24 @@ public class EditBookListDialog extends javax.swing.JDialog {
         }
     }
     }
+    
+   public void loadcombo() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                editCategory.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookId;

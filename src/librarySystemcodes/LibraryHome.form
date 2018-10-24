@@ -357,6 +357,32 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemsSystemsActionPerformed"/>
               </Events>
             </MenuItem>
+            <Menu class="javax.swing.JMenu" name="menuOther">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/images/Addblack_16.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Other Settings"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="itemCategory">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Book categories"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCategoryActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="itemcomp">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Company names"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemcompActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuHelp">
@@ -1691,20 +1717,7 @@
                       <Color blue="f3" green="ba" red="81" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="12">
-                        <StringItem index="0" value="Filter by :"/>
-                        <StringItem index="1" value="Arts &amp; Recreation"/>
-                        <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                        <StringItem index="3" value="History &amp; Geography"/>
-                        <StringItem index="4" value="Literature"/>
-                        <StringItem index="5" value="Languages"/>
-                        <StringItem index="6" value="Mathematics"/>
-                        <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                        <StringItem index="8" value="Religion"/>
-                        <StringItem index="9" value="Science"/>
-                        <StringItem index="10" value="Social Sciences"/>
-                        <StringItem index="11" value="Technology &amp; Applied Science"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -2323,20 +2336,7 @@
                           <Color blue="f3" green="ba" red="81" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="select category to display"/>
-                            <StringItem index="1" value="Arts &amp; Recreation"/>
-                            <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                            <StringItem index="3" value="History &amp; Geography"/>
-                            <StringItem index="4" value="Literature"/>
-                            <StringItem index="5" value="Languages"/>
-                            <StringItem index="6" value="Mathematics"/>
-                            <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                            <StringItem index="8" value="Religion"/>
-                            <StringItem index="9" value="Science"/>
-                            <StringItem index="10" value="Social Sciences"/>
-                            <StringItem index="11" value="Technology &amp; Applied Science"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2916,20 +2916,7 @@
                           <Color blue="f3" green="ba" red="81" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="select category to display"/>
-                            <StringItem index="1" value="Arts &amp; Recreation"/>
-                            <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                            <StringItem index="3" value="History &amp; Geography"/>
-                            <StringItem index="4" value="Literature"/>
-                            <StringItem index="5" value="Languages"/>
-                            <StringItem index="6" value="Mathematics"/>
-                            <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                            <StringItem index="8" value="Religion"/>
-                            <StringItem index="9" value="Science"/>
-                            <StringItem index="10" value="Social Sciences"/>
-                            <StringItem index="11" value="Technology &amp; Applied Science"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -4886,20 +4873,7 @@
                           <Color blue="f3" green="ba" red="81" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="12">
-                            <StringItem index="0" value="select category to display"/>
-                            <StringItem index="1" value="Arts &amp; Recreation"/>
-                            <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                            <StringItem index="3" value="History &amp; Geography"/>
-                            <StringItem index="4" value="Literature"/>
-                            <StringItem index="5" value="Languages"/>
-                            <StringItem index="6" value="Mathematics"/>
-                            <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                            <StringItem index="8" value="Religion"/>
-                            <StringItem index="9" value="Science"/>
-                            <StringItem index="10" value="Social Sciences"/>
-                            <StringItem index="11" value="Technology &amp; Applied Science"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -5845,20 +5819,7 @@
                       <Color blue="f3" green="ba" red="81" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="12">
-                        <StringItem index="0" value="Filter by :"/>
-                        <StringItem index="1" value="Arts &amp; Recreation"/>
-                        <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                        <StringItem index="3" value="History &amp; Geography"/>
-                        <StringItem index="4" value="Literature"/>
-                        <StringItem index="5" value="Languages"/>
-                        <StringItem index="6" value="Mathematics"/>
-                        <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                        <StringItem index="8" value="Religion"/>
-                        <StringItem index="9" value="Science"/>
-                        <StringItem index="10" value="Social Sciences"/>
-                        <StringItem index="11" value="Technology &amp; Applied Science"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -8470,7 +8431,7 @@
                       <Component id="labelMagzBorrowed3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel44" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="193" max="32767" attributes="0"/>
                       <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtMainTableSearch" min="-2" pref="221" max="-2" attributes="0"/>
@@ -8555,7 +8516,7 @@
                                   <Component id="jPanel48" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jPanel43" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jPanel49" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -8617,20 +8578,24 @@
                                   <Component id="btnMaintIssue" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtCompname" min="-2" pref="245" max="-2" attributes="0"/>
-                                          <Component id="txtCompCon" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
-                                          <Component id="txtRepName" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
-                                          <Component id="txtRepPhone" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
-                                          <Component id="jLabel105" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel107" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel108" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel109" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtDateComp" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                              <Component id="btnCancelComp" min="-2" pref="105" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtCompname" pref="245" max="32767" attributes="0"/>
+                                              <Component id="txtCompCon" alignment="0" pref="245" max="32767" attributes="0"/>
+                                              <Component id="txtRepName" alignment="0" pref="245" max="32767" attributes="0"/>
+                                              <Component id="txtRepPhone" alignment="0" pref="245" max="32767" attributes="0"/>
+                                              <Component id="jLabel105" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel106" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel107" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel108" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel109" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtDateComp" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <Component id="btnCancelComp" min="-2" pref="105" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="comboCompany" alignment="0" max="32767" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel116" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -8641,7 +8606,11 @@
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel116" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="comboCompany" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -8666,7 +8635,7 @@
                               <Component id="btnMaintIssue" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnCancelComp" min="-2" pref="31" max="-2" attributes="0"/>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -8678,6 +8647,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCompname">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel106">
                       <Properties>
@@ -8685,6 +8657,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCompCon">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel107">
                       <Properties>
@@ -8692,6 +8667,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtRepName">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel108">
                       <Properties>
@@ -8699,6 +8677,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtRepPhone">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel109">
                       <Properties>
@@ -8753,6 +8734,21 @@
                         </Property>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JComboBox" name="comboCompany">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel116">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Select company name :"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel48">
@@ -8781,7 +8777,7 @@
                               <Component id="txtMainId" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSearchMainID" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="10" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -8972,20 +8968,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="12">
-                        <StringItem index="0" value="select category to display"/>
-                        <StringItem index="1" value="Arts &amp; Recreation"/>
-                        <StringItem index="2" value="Computers, IT &amp; General Works"/>
-                        <StringItem index="3" value="History &amp; Geography"/>
-                        <StringItem index="4" value="Literature"/>
-                        <StringItem index="5" value="Languages"/>
-                        <StringItem index="6" value="Mathematics"/>
-                        <StringItem index="7" value="Philosophy &amp; Psychology"/>
-                        <StringItem index="8" value="Religion"/>
-                        <StringItem index="9" value="Science"/>
-                        <StringItem index="10" value="Social Sciences"/>
-                        <StringItem index="11" value="Technology &amp; Applied Science"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                   <Events>

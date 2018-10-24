@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-public class AddBookDialog extends javax.swing.JDialog {
+public final class AddBookDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form AddBookDialog
@@ -32,6 +32,7 @@ public class AddBookDialog extends javax.swing.JDialog {
     public AddBookDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadcombo();
     }
 
     /**
@@ -277,7 +278,6 @@ public class AddBookDialog extends javax.swing.JDialog {
         labelLoan.setText("For loan type :");
 
         txtCategoryAdd.setBackground(new java.awt.Color(129, 186, 243));
-        txtCategoryAdd.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select book category", "Arts & Recreation", "Computers, IT & General Works", "History & Geography", "Literature", "Languages", "Mathematics", "Philosophy & Psychology", "Religion", "Science", "Social Sciences", "Technology & Applied Science" }));
         txtCategoryAdd.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 txtCategoryAddItemStateChanged(evt);
@@ -956,6 +956,24 @@ public void addBookmethod() {
                     JOptionPane.showMessageDialog(null, es.getMessage());
                 }
         }//end of if statement that validate the form
+}
+
+  public void loadcombo() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                txtCategoryAdd.addItem(rs.getString("cat_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            System.out.println("Error"+e);
+        }    
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
