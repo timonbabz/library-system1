@@ -5553,6 +5553,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnCancelComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
     comboCompany.setBackground(new java.awt.Color(255, 255, 255));
+    comboCompany.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            comboCompanyItemStateChanged(evt);
+        }
+    });
 
     jLabel116.setText("Select company name :");
 
@@ -8574,6 +8579,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         DialogSetComp settingsDialog = new DialogSetComp(this, true);
         settingsDialog.setVisible(true);
     }//GEN-LAST:event_itemcompActionPerformed
+
+    private void comboCompanyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCompanyItemStateChanged
+        retrievecatDetails();
+    }//GEN-LAST:event_comboCompanyItemStateChanged
 /**
      * @param args the command line arguments
      */
@@ -13170,7 +13179,7 @@ public void maintenanceTable(){
             pst.setString(11, rep);
             pst.setString(12, repPhone);
             
-           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"' WHERE bookId = '"+bookId+"'";
+           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"' WHERE bklib_id = '"+bookId+"'";
            PreparedStatement pstCON = con.prepareStatement(querycondi);
            pstCON.execute();
   
@@ -13231,6 +13240,39 @@ public void loadCombos(){
     loadcomboStock();
     loadcombocompany();
 }
+
+public void retrievecatDetails() {
+    
+            String catIdSe = (String) comboCompany.getSelectedItem();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT compName,contacts,rep_name,rep_cont FROM company_table WHERE (compName='"+ catIdSe +"')");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                String namecomp = rs.getString("compName");
+                
+                txtCompname.setText(namecomp);
+                String contactComp = rs.getString("contacts");
+                txtCompCon.setText(contactComp);
+                String repcompnAME = rs.getString("rep_name");
+                txtRepName.setText(repcompnAME);
+                String contactRep = rs.getString("rep_cont");
+                txtRepPhone.setText(contactRep);
+                
+            }
+            if (emptyRs) {
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
