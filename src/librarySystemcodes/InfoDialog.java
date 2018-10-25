@@ -71,7 +71,7 @@ public class InfoDialog extends javax.swing.JDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("                Welcome to information dialog on Schedules and Notes\n             Schedules\n             This helps you create your own personal or library related\n             schedules based on time and date.\n             Scedules can only be seen by you and no any other user\n             of the system.\n\n              Notes\n              These are notes or points you wish to reach to the entire\n              system users. they may be book suggestions, meetings\n              or any other relevant points to other users that may be\n              deemed as from not important or very urgent.");
+        jTextArea1.setText("             Welcome to information dialog on Schedules and Notes\n            ........................................................................................................\n             Schedules\n             This helps you create your own personal or library related\n             schedules based on time and date.\n             Scedules can only be seen by you and no any other user\n             of the system.\n\n              Notes\n              These are notes or points you wish to reach to the entire\n              system users. they may be book suggestions, meetings\n              or any other relevant points to other users that may be\n              deemed as \"not important\" to \"very urgent.\"");
         jScrollPane1.setViewportView(jTextArea1);
 
         btnExit.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -100,9 +100,9 @@ public class InfoDialog extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

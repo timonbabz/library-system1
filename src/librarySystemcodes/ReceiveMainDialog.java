@@ -239,8 +239,12 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboNameItemStateChanged
+        String textItem = (String) comboName.getSelectedItem();
+        if(textItem.equalsIgnoreCase("default")){
+        refreshListOnT();}
+        else{
         refreshListOnTitle();
-        numberOfcompName();
+        numberOfcompName();}
     }//GEN-LAST:event_comboNameItemStateChanged
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -511,7 +515,7 @@ public void deleteBook(){
                 String sql2 = "UPDATE books_db SET borrowed='" + borrowedStatus + "' WHERE bklib_id='"+systemBkId+"'";
                     
                 statement.execute(sql2);
-                JOptionPane.showMessageDialog(null, "Books Received");
+                JOptionPane.showMessageDialog(null, "Book Received");
                 
     }
     catch (SQLException | HeadlessException e) {

@@ -78,6 +78,8 @@ public final class DialogSetComp extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(129, 186, 243));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
         jLabel1.setText("Add Companies to whom books will be issued for maintenance");
@@ -380,7 +382,18 @@ public final class DialogSetComp extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        CheckCompExistsUpdate();
+       int identered = Integer.parseInt(txtCompId.getText().trim());
+        if(!txtCompname.isEnabled()){
+           JOptionPane.showMessageDialog(null, "Enter a Company ID and click find to proceed");
+        }else if(identered == 1){
+        JOptionPane.showMessageDialog(null, "Default cannot be edited");
+        txtCompId.setText("");
+        txtCompname.setText("");
+        txtContacts.setText("");
+        txtRepName.setText("");
+        txtRepNo.setText("");}
+       else{
+        CheckCompExistsUpdate();}
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtContactsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactsKeyTyped
@@ -633,86 +646,62 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         }
     }
-    
-    public boolean CheckCompExists(){
-     
-    boolean usernameExists = false;
-    String username = txtCompId.getText().trim();
-    try
-    {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
-        Connection conn;
-        conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
 
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM company_table ORDER BY comp_id DESC");
-        ResultSet r1=st.executeQuery();
-        String usernameCounter;
-         if(r1.next()) 
-         {
-           usernameCounter =  r1.getString("comp_id");
-           if(!usernameCounter.equalsIgnoreCase(username))
-           {
-              getToolkit().beep();
-              JOptionPane.showMessageDialog(null, "Entered company ID does not exist in the system records");
-              txtCompId.requestFocus();
-              //System.out.println("Username already exists");
-              usernameExists = true;
-           }else{
-           retrievecatDetails();}
+public void CheckCompExists(){
+ 
+        String enteredUser = txtCompId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM company_table WHERE comp_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               retrievecatDetails();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered company ID does not exist");
+                 txtCompId.requestFocus();}
          }
-     }
 
-     catch (SQLException e) 
-     {
-        System.out.println("SQL Exception: "+ e.toString());
-     } 
-     catch (ClassNotFoundException cE) 
-     {
-        System.out.println("Class Not Found Exception: "+ cE.toString());
-     }
- return usernameExists;
-}
-    
-    public boolean CheckCompExistsUpdate(){
-     
-    boolean usernameExists = false;
-    String username = txtCompId.getText().trim();
-    try
-    {
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
-        Connection conn;
-        conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
-
-        PreparedStatement st = conn.prepareStatement("SELECT * FROM company_table ORDER BY comp_id DESC");
-        ResultSet r1=st.executeQuery();
-        String usernameCounter;
-         if(r1.next()) 
+         catch (SQLException | ClassNotFoundException e) 
          {
-           usernameCounter =  r1.getString("comp_id");
-           if(!usernameCounter.equalsIgnoreCase(username))
-           {
-              getToolkit().beep();
-              JOptionPane.showMessageDialog(null, "Entered company ID does not exist in the system records");
-              txtCompId.requestFocus();
-              //System.out.println("Username already exists");
-              usernameExists = true;
-           }else{
-           updateCategory();}
+            JOptionPane.showMessageDialog(null, e.getMessage());
          }
-     }
 
-     catch (SQLException e) 
-     {
-        System.out.println("SQL Exception: "+ e.toString());
-     } 
-     catch (ClassNotFoundException cE) 
-     {
-        System.out.println("Class Not Found Exception: "+ cE.toString());
-     }
- return usernameExists;
-}
+ }
+    
+public void CheckCompExistsUpdate(){
+ 
+        String enteredUser = txtCompId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM company_table WHERE comp_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               updateCategory();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered company ID does not exist");
+             txtCompId.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;

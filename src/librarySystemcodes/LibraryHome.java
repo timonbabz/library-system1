@@ -577,6 +577,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         sysBookIdentity = new javax.swing.JTextField();
         jLabel100 = new javax.swing.JLabel();
         jLabel114 = new javax.swing.JLabel();
+        btnRefreshLostTable = new javax.swing.JButton();
         panelStudents = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
@@ -694,6 +695,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnDamageToExcel = new javax.swing.JButton();
         btnRefreshDamage = new javax.swing.JButton();
+        btnUdateCondition = new javax.swing.JButton();
         txtSearchtitle = new javax.swing.JTextField();
         btnSearchDam = new javax.swing.JButton();
         jLabel103 = new javax.swing.JLabel();
@@ -711,8 +713,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtRepName = new javax.swing.JTextField();
         jLabel108 = new javax.swing.JLabel();
         txtRepPhone = new javax.swing.JTextField();
-        jLabel109 = new javax.swing.JLabel();
-        txtDateComp = new com.toedter.calendar.JDateChooser();
         btnMaintIssue = new javax.swing.JButton();
         btnCancelComp = new javax.swing.JButton();
         comboCompany = new javax.swing.JComboBox();
@@ -721,7 +721,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnSearchMainID = new javax.swing.JButton();
         txtMainId = new javax.swing.JTextField();
         jPanel49 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
+        btnRecieveMain = new javax.swing.JButton();
         txtMainTableSearch = new javax.swing.JTextField();
         btnSearchTitleMain = new javax.swing.JButton();
         jPanel44 = new javax.swing.JPanel();
@@ -729,6 +729,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         conditionCheck = new javax.swing.JComboBox();
         btnSearchMainTable = new javax.swing.JButton();
         jLabel115 = new javax.swing.JLabel();
+        btnRefreshMaint = new javax.swing.JButton();
         panelStudentList = new javax.swing.JPanel();
         labelMagzBorrowed4 = new javax.swing.JLabel();
         panelStdDetailsCarrier = new javax.swing.JPanel();
@@ -964,7 +965,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(lblNoOfBorrowers)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE))
+                    .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -1021,7 +1022,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(btnProfMore, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel31Layout.setVerticalGroup(
@@ -1075,7 +1076,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jLabel64)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                         .addComponent(btnIssueCut))
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jLabel63)
@@ -1234,7 +1235,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 2.0.3 created by TOO studios © 2018 ");
+        jLabel79.setText("System version 2.0.9 © 2018 ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1738,6 +1739,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     btnSearchStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
     btnSearchStd.setContentAreaFilled(false);
+    btnSearchStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnSearchStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
     btnSearchStd.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4078,6 +4080,19 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel114.setText("Title :");
 
+    btnRefreshLostTable.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRefreshLostTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
+    btnRefreshLostTable.setText("Refresh table");
+    btnRefreshLostTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnRefreshLostTable.setContentAreaFilled(false);
+    btnRefreshLostTable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshLostTable.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refreshwhite_16.png"))); // NOI18N
+    btnRefreshLostTable.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRefreshLostTableActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelLostBooksLayout = new javax.swing.GroupLayout(panelLostBooks);
     panelLostBooks.setLayout(panelLostBooksLayout);
     panelLostBooksLayout.setHorizontalGroup(
@@ -4114,8 +4129,10 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
             .addGroup(panelLostBooksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelLostBooksLayout.createSequentialGroup()
-                    .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRefreshLostTable, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(jLabel114)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(txtSearchLost, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4137,7 +4154,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addComponent(comboFilterLost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sysBookIdentity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel100)
-                        .addComponent(jLabel114)))
+                        .addComponent(jLabel114)
+                        .addComponent(btnRefreshLostTable, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLostBooksLayout.createSequentialGroup()
                     .addGap(10, 10, 10)
                     .addComponent(searchLost, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -5380,6 +5398,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             "Title 1", "Title 2", "Title 3", "Title 4"
         }
     ));
+    tableDamagedBooks.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            tableDamagedBooksMouseClicked(evt);
+        }
+    });
     jScrollPane7.setViewportView(tableDamagedBooks);
 
     jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -5388,7 +5411,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnDamageToExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnDamageToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
     btnDamageToExcel.setText("Export to Excel");
-    btnDamageToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    btnDamageToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnDamageToExcel.setContentAreaFilled(false);
     btnDamageToExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnDamageToExcel.addActionListener(new java.awt.event.ActionListener() {
@@ -5400,12 +5423,24 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnRefreshDamage.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnRefreshDamage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
     btnRefreshDamage.setText("Refresh");
-    btnRefreshDamage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255), 2));
+    btnRefreshDamage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnRefreshDamage.setContentAreaFilled(false);
     btnRefreshDamage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnRefreshDamage.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnRefreshDamageActionPerformed(evt);
+        }
+    });
+
+    btnUdateCondition.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnUdateCondition.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
+    btnUdateCondition.setText("Update Condition");
+    btnUdateCondition.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
+    btnUdateCondition.setContentAreaFilled(false);
+    btnUdateCondition.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnUdateCondition.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnUdateConditionActionPerformed(evt);
         }
     });
 
@@ -5416,6 +5451,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(btnDamageToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnUdateCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRefreshDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -5425,8 +5462,12 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnDamageToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnRefreshDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnDamageToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRefreshDamage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(btnUdateCondition, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -5533,28 +5574,36 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel105.setText("Company name :");
 
     txtCompname.setEditable(false);
+    txtCompname.setBackground(new java.awt.Color(204, 255, 255));
 
     jLabel106.setText("Company Contacts (Phone) :");
 
     txtCompCon.setEditable(false);
+    txtCompCon.setBackground(new java.awt.Color(204, 255, 255));
 
     jLabel107.setText("Representative's names :");
 
     txtRepName.setEditable(false);
+    txtRepName.setBackground(new java.awt.Color(204, 255, 255));
 
     jLabel108.setText("Representative's phone :");
 
     txtRepPhone.setEditable(false);
-
-    jLabel109.setText("Date issued :");
-
-    txtDateComp.setBackground(new java.awt.Color(129, 186, 243));
+    txtRepPhone.setBackground(new java.awt.Color(204, 255, 255));
 
     btnMaintIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnMaintIssue.setText("Issue displayed books for maintenance");
     btnMaintIssue.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
     btnMaintIssue.setContentAreaFilled(false);
     btnMaintIssue.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnMaintIssue.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnMaintIssueMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnMaintIssueMouseExited(evt);
+        }
+    });
     btnMaintIssue.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnMaintIssueActionPerformed(evt);
@@ -5566,6 +5615,14 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnCancelComp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
     btnCancelComp.setContentAreaFilled(false);
     btnCancelComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnCancelComp.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnCancelCompMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnCancelCompMouseExited(evt);
+        }
+    });
     btnCancelComp.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnCancelCompActionPerformed(evt);
@@ -5588,7 +5645,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel43Layout.createSequentialGroup()
             .addContainerGap()
             .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnMaintIssue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMaintIssue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
                 .addGroup(jPanel43Layout.createSequentialGroup()
                     .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -5600,8 +5657,6 @@ public final class LibraryHome extends javax.swing.JFrame {
                             .addComponent(jLabel106)
                             .addComponent(jLabel107)
                             .addComponent(jLabel108)
-                            .addComponent(jLabel109)
-                            .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel43Layout.createSequentialGroup()
                                 .addGap(70, 70, 70)
                                 .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -5633,15 +5688,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jLabel108)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtRepPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jLabel109)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(txtDateComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
+            .addGap(39, 39, 39)
             .addComponent(btnMaintIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(btnCancelComp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(15, 15, 15))
+            .addGap(50, 50, 50))
     );
 
     jPanel48.setBackground(new java.awt.Color(129, 186, 243));
@@ -5699,14 +5750,22 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap())
     );
 
-    jButton8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jButton8.setText("Receive books back");
-    jButton8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-    jButton8.setContentAreaFilled(false);
-    jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton8.addActionListener(new java.awt.event.ActionListener() {
+    btnRecieveMain.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRecieveMain.setText("Receive books back");
+    btnRecieveMain.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnRecieveMain.setContentAreaFilled(false);
+    btnRecieveMain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRecieveMain.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnRecieveMainMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnRecieveMainMouseExited(evt);
+        }
+    });
+    btnRecieveMain.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton8ActionPerformed(evt);
+            btnRecieveMainActionPerformed(evt);
         }
     });
 
@@ -5716,14 +5775,14 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel49Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnRecieveMain, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
     jPanel49Layout.setVerticalGroup(
         jPanel49Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel49Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnRecieveMain, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
 
@@ -5832,6 +5891,17 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel115.setForeground(new java.awt.Color(255, 255, 255));
     jLabel115.setText("Enter title :");
 
+    btnRefreshMaint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refreshwhite_16.png"))); // NOI18N
+    btnRefreshMaint.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnRefreshMaint.setContentAreaFilled(false);
+    btnRefreshMaint.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshMaint.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh2_16.png"))); // NOI18N
+    btnRefreshMaint.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRefreshMaintActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelMaintenanceLayout = new javax.swing.GroupLayout(panelMaintenance);
     panelMaintenance.setLayout(panelMaintenanceLayout);
     panelMaintenanceLayout.setHorizontalGroup(
@@ -5841,7 +5911,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(labelMagzBorrowed3)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnRefreshMaint, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
             .addComponent(jLabel115)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtMainTableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -5854,13 +5926,14 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelMaintenanceLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(labelMagzBorrowed3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnSearchTitleMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMaintenanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMainTableSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel115)))
+                    .addComponent(jLabel115))
+                .addComponent(btnRefreshMaint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -7341,24 +7414,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelShortActionPerformed
 
     private void comboSearchShortItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSearchShortItemStateChanged
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(shortModel); 
-        tableShortLoanBook.setRowSorter(sorter);
-    
         String text = (String) comboSearchShort.getSelectedItem();
-        if (text.equalsIgnoreCase("Select category to display")) {
-          sorter.setRowFilter(null);
+        if (text.equalsIgnoreCase("default")) {
+          refreshShort();
         } else {
           refreshShortTable();
         }
     }//GEN-LAST:event_comboSearchShortItemStateChanged
 
     private void comboSearchIssueItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSearchIssueItemStateChanged
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(issueModel); 
-        tableIssueToStudents.setRowSorter(sorter);
-    
         String text = (String) comboSearchIssue.getSelectedItem();
-        if (text.equals("Select category to display")) {
-          sorter.setRowFilter(null);
+        if (text.equals("default")) {
+          refreshStdList();
         } else {
           refreshOnItemIssueStd();
         }
@@ -7534,7 +7601,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableBookStock.setRowSorter(sorter);
     
         String text = (String) comboFilterStock.getSelectedItem();
-        if (text.equals("Filter by :")) {
+        if (text.equals("default")) {
           sorter.setRowFilter(null);
         } else {
             refreshStockModel();
@@ -7594,16 +7661,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_searchLostActionPerformed
 
     private void comboFilterLostItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboFilterLostItemStateChanged
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(lostModel); 
-        tableBookLost.setRowSorter(sorter);
-        int col = 6;
-    
-        String text = (String) comboFilterLost.getSelectedItem();
-        if (text.equals("Filter by :")) {
-          sorter.setRowFilter(null);
-        } else {
-          sorter.setRowFilter(RowFilter.regexFilter(text,col));
-        }
+        String catName = (String) comboFilterLost.getSelectedItem();
+        if(catName.equalsIgnoreCase("default")){
+        refreshBooksLost();}
+        else{
+        refreshBooksLostCat();}
     }//GEN-LAST:event_comboFilterLostItemStateChanged
 
     private void menuItemLostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLostActionPerformed
@@ -7762,12 +7824,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelIssueActionPerformed
 
     private void comboSearchInStaffIssueItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboSearchInStaffIssueItemStateChanged
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(issueSModel); 
-        tableBooksForStaff.setRowSorter(sorter);
-    
         String text = (String) comboSearchInStaffIssue.getSelectedItem();
-        if (text.equals("select category to display")) {
-          sorter.setRowFilter(null);
+        if (text.equals("default")) {
+          refreshAfterIssueStaff();
         } else{
         refreshOnItemIssueStaff();}
     }//GEN-LAST:event_comboSearchInStaffIssueItemStateChanged
@@ -8305,19 +8364,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         refreshMaintenanceTable();
     }//GEN-LAST:event_itemMaintainActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnRecieveMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecieveMainActionPerformed
         ReceiveMainDialog editList = new ReceiveMainDialog(this, true);
         editList.setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnRecieveMainActionPerformed
 
     private void comboMaintenanceItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboMaintenanceItemStateChanged
-        TableRowSorter<TableModel> sorter = new TableRowSorter<>(listModel); 
-        tableMaintenance.setRowSorter(sorter);
-    
         String text = (String) comboMaintenance.getSelectedItem();
         
-        if (text.equals("select category to display")) {
-          sorter.setRowFilter(null);
+        if (text.equals("default")) {
+          refreshMaintenanceTable();
         } else {
           refreshOnItemTableMaintenance();
         }
@@ -8614,7 +8670,60 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtRepName.setText("");
         txtRepPhone.setText("");
     }//GEN-LAST:event_btnCancelCompActionPerformed
-/**
+
+    private void btnMaintIssueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaintIssueMouseEntered
+        btnMaintIssue.setForeground(Color.red);
+    }//GEN-LAST:event_btnMaintIssueMouseEntered
+
+    private void btnMaintIssueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMaintIssueMouseExited
+        btnMaintIssue.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnMaintIssueMouseExited
+
+    private void btnCancelCompMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelCompMouseEntered
+        btnCancelComp.setForeground(Color.red);
+    }//GEN-LAST:event_btnCancelCompMouseEntered
+
+    private void btnCancelCompMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelCompMouseExited
+        btnCancelComp.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnCancelCompMouseExited
+
+    private void btnRecieveMainMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecieveMainMouseEntered
+        btnRecieveMain.setForeground(Color.red);
+    }//GEN-LAST:event_btnRecieveMainMouseEntered
+
+    private void btnRecieveMainMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecieveMainMouseExited
+        btnRecieveMain.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnRecieveMainMouseExited
+
+    private void btnRefreshMaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshMaintActionPerformed
+        refreshMaintenanceTable();
+    }//GEN-LAST:event_btnRefreshMaintActionPerformed
+
+    private void btnRefreshLostTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshLostTableActionPerformed
+        refreshBooksLost();
+    }//GEN-LAST:event_btnRefreshLostTableActionPerformed
+
+    private void tableDamagedBooksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDamagedBooksMouseClicked
+        int row = tableDamagedBooks.getSelectedRow();
+        bookID1 = (String) tableDamagedBooks.getModel().getValueAt(row, 0);
+        authorNameList1 = (String) tableDamagedBooks.getModel().getValueAt(row, 2);
+        titleNameList1 = (String) tableDamagedBooks.getModel().getValueAt(row, 3);
+        categoryList1 = (String) tableDamagedBooks.getModel().getValueAt(row, 7);
+    }//GEN-LAST:event_tableDamagedBooksMouseClicked
+
+    private void btnUdateConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUdateConditionActionPerformed
+        select = bookID1;
+        int rows=tableDamagedBooks.getRowCount();
+        if(rows == 0){
+     JOptionPane.showMessageDialog(null, "Table has no data");
+        }
+        else if (select == null) {
+            JOptionPane.showMessageDialog(null, "Select book from the table first");
+        }else{
+        DialogUpdateCon editList = new DialogUpdateCon(this, true);
+        editList.setVisible(true);}
+    }//GEN-LAST:event_btnUdateConditionActionPerformed
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -8710,6 +8819,12 @@ public void refreshBooksLost(){
           }
         displayLostTable();
 }
+
+public void refreshBooksLostCat(){
+    while (lostModel.getRowCount() != 0) {
+         lostModel.removeRow(0);
+          }
+displayLostTableFilter();}
 
 public void refreshList(){
     while (listModel.getRowCount() != 0) {
@@ -12093,6 +12208,51 @@ private void writeStaffTbToExcel()
 
 }
 
+public void displayLostTableFilter() {
+    
+        String catBook = (String) comboFilterLost.getSelectedItem();
+        String boorrowedCondtion = "YES";
+
+        lostModel.setColumnIdentifiers(lostColumnNames);
+
+        tableBookLost.setModel(lostModel);
+
+        tableBookLost.setFillsViewportHeight(true);
+        
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  book_id,bklib_id,book_isbn,author,title,publisher_name,edition,subject_category FROM books_db WHERE subject_category='"+ catBook +"' AND borrowed='"+ boorrowedCondtion +"'");
+            ResultSet staffRs = st.executeQuery();
+            
+            int i = 0;
+            while (staffRs.next()) {
+                lostbookID = staffRs.getString("bklib_id");
+                lostbookISBNList = staffRs.getString("book_isbn");
+                lostauthorNameList = staffRs.getString("author");
+                losttitleNameList = staffRs.getString("title");
+                lostpublisherList = staffRs.getString("publisher_name");
+                losteditionList = staffRs.getString("edition");
+                lostcategoryList = staffRs.getString("subject_category");
+                lostsystemIdList = staffRs.getString("book_id");
+
+                lostModel.addRow(new Object[]{lostbookID, lostbookISBNList, lostauthorNameList, losttitleNameList, lostpublisherList,losteditionList,lostcategoryList,lostsystemIdList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No books in the table to be marked as lost", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
 public void displayLostTable() {
     
         String loanType = "LONG";
@@ -13384,11 +13544,14 @@ public void countStock(){
     private javax.swing.JButton btnProfMore;
     private javax.swing.JButton btnRecieveBooks;
     private javax.swing.JButton btnRecieveMagz;
+    private javax.swing.JButton btnRecieveMain;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRefreshBoro;
     private javax.swing.JButton btnRefreshDamage;
+    private javax.swing.JButton btnRefreshLostTable;
     private javax.swing.JButton btnRefreshMagz;
     private javax.swing.JButton btnRefreshMagzBoro;
+    private javax.swing.JButton btnRefreshMaint;
     private javax.swing.JButton btnRefreshShortBks;
     private javax.swing.JButton btnRefreshStaffList;
     private javax.swing.JButton btnRefreshStdDetails;
@@ -13416,6 +13579,7 @@ public void countStock(){
     private javax.swing.JButton btnSearchStdStaff;
     private javax.swing.JButton btnSearchTitleMain;
     private javax.swing.JButton btnSearchUser;
+    private javax.swing.JButton btnUdateCondition;
     private javax.swing.JButton btnUsersSessions;
     private javax.swing.JButton btnViewSch;
     private javax.swing.JButton btnWriteStdToExcel;
@@ -13467,7 +13631,6 @@ public void countStock(){
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -13479,7 +13642,6 @@ public void countStock(){
     private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
-    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
@@ -13784,7 +13946,6 @@ public void countStock(){
     private javax.swing.JTextField txtCount;
     private javax.swing.JTextField txtCountStock;
     private javax.swing.JTextField txtCountstudent;
-    private com.toedter.calendar.JDateChooser txtDateComp;
     private javax.swing.JTextField txtDateDue;
     private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;

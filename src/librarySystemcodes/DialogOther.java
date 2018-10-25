@@ -71,6 +71,8 @@ public final class DialogOther extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(129, 186, 243));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
         jLabel1.setText("Set book category names");
@@ -286,8 +288,13 @@ public final class DialogOther extends javax.swing.JDialog {
     }//GEN-LAST:event_tableCatMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int identered = Integer.parseInt(txtCatId.getText().trim());
         if(txtCatId.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Please enter the category ID");}
+        else if(identered == 1){
+        JOptionPane.showMessageDialog(null, "Default cannot be edited");
+        txtCatId.setText("");
+        txtUpCatName.setText("");}
         else{
         CheckCompExistsUpdate();}
         
@@ -498,7 +505,7 @@ public final class DialogOther extends javax.swing.JDialog {
         txtCatId.setText("");
             
             } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null, "Duplicate entry");
             }
         }
     }
