@@ -38,6 +38,7 @@ public final class DialogOther extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         displayCategories();
+        txtUpCatName.setEnabled(false);
     }
 
     /**
@@ -173,6 +174,18 @@ public final class DialogOther extends javax.swing.JDialog {
             }
         });
 
+        txtUpCatName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUpCatNameFocusGained(evt);
+            }
+        });
+
+        txtCatId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCatIdKeyTyped(evt);
+            }
+        });
+
         jLabel7.setText("Enter category ID to edit :");
 
         btnFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
@@ -226,15 +239,17 @@ public final class DialogOther extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtCatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -271,7 +286,11 @@ public final class DialogOther extends javax.swing.JDialog {
     }//GEN-LAST:event_tableCatMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        updateCategory();
+        if(txtCatId.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Please enter the category ID");}
+        else{
+        CheckCompExistsUpdate();}
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
@@ -284,6 +303,21 @@ public final class DialogOther extends javax.swing.JDialog {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void txtCatIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCatIdKeyTyped
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();
+        }else{txtUpCatName.setEnabled(true);}
+    }//GEN-LAST:event_txtCatIdKeyTyped
+
+    private void txtUpCatNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUpCatNameFocusGained
+        if(txtCatId.getText().isEmpty()){
+            txtCatId.requestFocus();
+            JOptionPane.showMessageDialog(null, "Enter the category id, see from table");
+        }
+    }//GEN-LAST:event_txtUpCatNameFocusGained
 
     /**
      * @param args the command line arguments
@@ -468,6 +502,34 @@ public final class DialogOther extends javax.swing.JDialog {
             }
         }
     }
+    
+     public void CheckCompExistsUpdate(){
+ 
+        String enteredUser = txtCatId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM bookcat_table WHERE cat_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               updateCategory();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered category ID does not exist");
+             txtCatId.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;

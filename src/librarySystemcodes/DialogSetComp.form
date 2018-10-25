@@ -212,6 +212,9 @@
         <Component class="javax.swing.JTextField" name="txtCompname">
         </Component>
         <Component class="javax.swing.JTextField" name="txtContacts">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtContactsKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -226,6 +229,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRepNo">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRepNoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>

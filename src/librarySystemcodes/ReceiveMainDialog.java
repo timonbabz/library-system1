@@ -5,27 +5,40 @@
  */
 package librarySystemcodes;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author TimonBabz
  */
 public final class ReceiveMainDialog extends javax.swing.JDialog {
 
+    Connection con = null;
+    Statement statement = null;
+    
+    public static String bookId1 = "", bookIsbn1 = "",author1 = "",title1 = "",publisher1 = "", shelf1 = "", edition1 = "", category1 = "", compname1= "";
+    String[] columnNames = {"Book ID", "Book ISBN", "Author", "Title", "Publisher", "Shelf", "Edition", "Category", "Company"};
+    DefaultTableModel compModel = new DefaultTableModel();
     /**
      * Creates new form ReceiveMainDialog
      * @param parent
      * @param modal
      */
+    
     public ReceiveMainDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         loadcombo();
+        refreshListOnT();
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +51,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableReceiveDam = new javax.swing.JTable();
-        jComboBox = new javax.swing.JComboBox();
+        comboName = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -64,7 +77,13 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tableReceiveDam);
 
-        jComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        comboName.setBackground(new java.awt.Color(255, 255, 255));
+        comboName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        comboName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboNameItemStateChanged(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Ok_16.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -105,7 +124,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 278, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -121,7 +140,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -129,9 +148,9 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -149,6 +168,10 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboNameItemStateChanged
+        refreshListOnTitle();
+    }//GEN-LAST:event_comboNameItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -190,6 +213,18 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         });
     }
     
+    public void refreshListOnTitle(){
+    while(compModel.getRowCount() != 0){
+        compModel.removeRow(0);}
+    displayOnFilter();
+    }
+    
+     public void refreshListOnT(){
+    while(compModel.getRowCount() != 0){
+        compModel.removeRow(0);}
+    displaybooks();
+    }
+    
     public void loadcombo() {
     try
         {
@@ -198,8 +233,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
             PreparedStatement st = con.prepareStatement("SELECT compName FROM company_table");
             ResultSet rs = st.executeQuery();
             while(rs.next()){           
-                jComboBox.removeAllItems();
-                jComboBox.addItem(rs.getString("compName"));
+                comboName.removeAllItems();
+                comboName.addItem(rs.getString("compName"));
                 }
             con.close();
             }
@@ -208,11 +243,102 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
             System.out.println("Error"+e);
         }    
 }
+    
+    
+    
+        public void displaybooks() {
+
+        compModel.setColumnIdentifiers(columnNames);
+
+        tableReceiveDam.setModel(compModel);
+
+        tableReceiveDam.setFillsViewportHeight(true);
+        
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT bookId,bkIsbn,author,title,publisher,shelf,edition,category,compName FROM table_main");
+            ResultSet rsIssue = st.executeQuery();
+            
+            int i = 0;
+            while (rsIssue.next()) {
+                bookId1 = rsIssue.getString("bookId");
+                bookIsbn1 = rsIssue.getString("bkIsbn");
+                author1 = rsIssue.getString("author");
+                title1 = rsIssue.getString("title");
+                publisher1 = rsIssue.getString("publisher");
+                shelf1 = rsIssue.getString("shelf");
+                edition1 = rsIssue.getString("edition");
+                category1 = rsIssue.getString("category");
+                compname1 = rsIssue.getString("compName");
+
+                compModel.addRow(new Object[]{bookId1, bookIsbn1,author1,title1,publisher1,shelf1,edition1,category1,compname1});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+        
+        public void displayOnFilter() {
+
+            
+        String companyName = (String) comboName.getSelectedItem();
+        compModel.setColumnIdentifiers(columnNames);
+
+        tableReceiveDam.setModel(compModel);
+
+        tableReceiveDam.setFillsViewportHeight(true);
+        
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT bookId,bkIsbn,author,title,publisher,shelf,edition,category,compName FROM table_main WHERE compName = '"+companyName+"'");
+            ResultSet rsIssue = st.executeQuery();
+            
+            int i = 0;
+            while (rsIssue.next()) {
+                bookId1 = rsIssue.getString("bookId");
+                bookIsbn1 = rsIssue.getString("bkIsbn");
+                author1 = rsIssue.getString("author");
+                title1 = rsIssue.getString("title");
+                publisher1 = rsIssue.getString("publisher");
+                shelf1 = rsIssue.getString("shelf");
+                edition1 = rsIssue.getString("edition");
+                category1 = rsIssue.getString("category");
+                compname1 = rsIssue.getString("compName");
+
+                compModel.addRow(new Object[]{bookId1, bookIsbn1,author1,title1,publisher1,shelf1,edition1,category1,compname1});
+                i++;
+
+            }
+
+            if (i < 1) {
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

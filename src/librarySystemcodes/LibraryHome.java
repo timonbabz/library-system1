@@ -13319,6 +13319,19 @@ public void loadCombos(){
     loadcombocompany();
 }
 
+public void updateAfterMain(){
+    Object [] taskAsArray;
+    taskAsArray = new Object[tableMaintenance.getColumnCount()];
+    int [] selectedRows = tableMaintenance.getSelectedRows();
+    for(int i = 0;i < selectedRows.length;i++){
+        for(int j = 0;j < tableMaintenance.getColumnCount();j++)
+        {
+        taskAsArray[j] = (tableMaintenance.getValueAt(tableMaintenance.convertRowIndexToModel(selectedRows[i]),tableMaintenance.convertColumnIndexToModel(j)));
+        }
+        
+    }
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
     private com.toedter.calendar.JDateChooser DateBorrowed;

@@ -116,9 +116,21 @@ public final class DialogSetComp extends javax.swing.JDialog {
 
         jLabel3.setText("Company name :");
 
+        txtContacts.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactsKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Contacts :");
 
         jLabel5.setText("Representative name :");
+
+        txtRepNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRepNoKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("Representative contacts :");
 
@@ -320,14 +332,22 @@ public final class DialogSetComp extends javax.swing.JDialog {
         if(groupNew.isSelected()){
             btnSearch.setEnabled(false);
             btnUpdate.setEnabled(false);
-            btnSave.setEnabled(true);}
+            btnSave.setEnabled(true);
+            txtCompname.setEnabled(true);
+            txtContacts.setEnabled(true);
+            txtRepName.setEnabled(true);
+            txtRepNo.setEnabled(true);}
     }//GEN-LAST:event_groupNewActionPerformed
 
     private void groupUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupUpdateActionPerformed
         if(groupUpdate.isSelected()){
             btnSearch.setEnabled(true);
             btnUpdate.setEnabled(true);
-            btnSave.setEnabled(false);}
+            btnSave.setEnabled(false);
+            txtCompname.setEnabled(false);
+            txtContacts.setEnabled(false);
+            txtRepName.setEnabled(false);
+            txtRepNo.setEnabled(false);}
     }//GEN-LAST:event_groupUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -352,15 +372,32 @@ public final class DialogSetComp extends javax.swing.JDialog {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         if(txtCompId.getText().isEmpty()){
+            
+            
             JOptionPane.showMessageDialog(null, "Enter company id");
             txtCompId.requestFocus();}
-        else{retrievecatDetails();}
+        else{CheckCompExists();}
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        updateCategory();
+        CheckCompExistsUpdate();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void txtContactsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactsKeyTyped
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtContactsKeyTyped
+
+    private void txtRepNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepNoKeyTyped
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtRepNoKeyTyped
     /**
      * @param args the command line arguments
      */
@@ -389,17 +426,15 @@ public final class DialogSetComp extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogSetComp dialog = new DialogSetComp(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            DialogSetComp dialog = new DialogSetComp(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
     public void isSelectedGroup(){
@@ -518,6 +553,7 @@ public final class DialogSetComp extends javax.swing.JDialog {
             if (rs.next()) {
                 emptyRs = false;
                 String namecomp = rs.getString("compName");
+                
                 txtCompname.setText(namecomp);
                 String contactComp = rs.getString("contacts");
                 txtContacts.setText(contactComp);
@@ -529,11 +565,15 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
             if (emptyRs) {
                 JOptionPane.showMessageDialog(null, "No Record");
-                txtCompname.setText("");
-                txtContacts.setText("");
-                txtRepName.setText("");
-                txtRepNo.setText("");
-            }
+                txtCompname.setEnabled(false);
+                txtContacts.setEnabled(false);
+                txtRepName.setEnabled(false);
+                txtRepNo.setEnabled(false);
+            }else{
+            txtCompname.setEnabled(true);
+            txtContacts.setEnabled(true);
+            txtRepName.setEnabled(true);
+            txtRepNo.setEnabled(true);}
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
@@ -593,6 +633,86 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         }
     }
+    
+    public boolean CheckCompExists(){
+     
+    boolean usernameExists = false;
+    String username = txtCompId.getText().trim();
+    try
+    {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+        Connection conn;
+        conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM company_table ORDER BY comp_id DESC");
+        ResultSet r1=st.executeQuery();
+        String usernameCounter;
+         if(r1.next()) 
+         {
+           usernameCounter =  r1.getString("comp_id");
+           if(!usernameCounter.equalsIgnoreCase(username))
+           {
+              getToolkit().beep();
+              JOptionPane.showMessageDialog(null, "Entered company ID does not exist in the system records");
+              txtCompId.requestFocus();
+              //System.out.println("Username already exists");
+              usernameExists = true;
+           }else{
+           retrievecatDetails();}
+         }
+     }
+
+     catch (SQLException e) 
+     {
+        System.out.println("SQL Exception: "+ e.toString());
+     } 
+     catch (ClassNotFoundException cE) 
+     {
+        System.out.println("Class Not Found Exception: "+ cE.toString());
+     }
+ return usernameExists;
+}
+    
+    public boolean CheckCompExistsUpdate(){
+     
+    boolean usernameExists = false;
+    String username = txtCompId.getText().trim();
+    try
+    {
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+        Connection conn;
+        conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+
+        PreparedStatement st = conn.prepareStatement("SELECT * FROM company_table ORDER BY comp_id DESC");
+        ResultSet r1=st.executeQuery();
+        String usernameCounter;
+         if(r1.next()) 
+         {
+           usernameCounter =  r1.getString("comp_id");
+           if(!usernameCounter.equalsIgnoreCase(username))
+           {
+              getToolkit().beep();
+              JOptionPane.showMessageDialog(null, "Entered company ID does not exist in the system records");
+              txtCompId.requestFocus();
+              //System.out.println("Username already exists");
+              usernameExists = true;
+           }else{
+           updateCategory();}
+         }
+     }
+
+     catch (SQLException e) 
+     {
+        System.out.println("SQL Exception: "+ e.toString());
+     } 
+     catch (ClassNotFoundException cE) 
+     {
+        System.out.println("Class Not Found Exception: "+ cE.toString());
+     }
+ return usernameExists;
+}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
