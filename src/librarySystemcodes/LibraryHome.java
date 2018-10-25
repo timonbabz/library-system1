@@ -7589,7 +7589,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.repaint();
         holderPanel.revalidate();
         refreshBooksLost();
-        loadcomboLost();
     }//GEN-LAST:event_menuItemLostActionPerformed
 
     private void btnLostConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLostConfActionPerformed
@@ -13133,7 +13132,7 @@ private void writeDamagedListExcel()
 }
 
 public void maintenanceTable(){
-
+    String condi = "YES";
     try{
 
         int rows=tableMaintenance.getRowCount();
@@ -13171,7 +13170,11 @@ public void maintenanceTable(){
             pst.setString(11, rep);
             pst.setString(12, repPhone);
             
-            pst.addBatch();
+           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"' WHERE bookId = '"+bookId+"'";
+           PreparedStatement pstCON = con.prepareStatement(querycondi);
+           pstCON.execute();
+  
+           pst.addBatch();
         }
         pst.executeBatch();
         con.commit();
@@ -13192,96 +13195,11 @@ public void maintenanceTable(){
             ResultSet rs = st.executeQuery();
             while(rs.next()){   
                 comboFilterStock.addItem(rs.getString("cat_name"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }    
-}
-   
-public void loadcomboStudents() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboSearchIssue.addItem(rs.getString("cat_name"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }    
-}
-
-public void loadcomboStaff() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboSearchInStaffIssue.addItem(rs.getString("cat_name"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }    
-}
-
-public void loadcomboShort() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboSearchShort.addItem(rs.getString("cat_name"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }    
-}
-
-public void loadcomboLost() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboFilterLost.addItem(rs.getString("cat_name"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }    
-}
-
-public void loadcomboMain() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboMaintenance.addItem(rs.getString("cat_name"));
+                comboSearchIssue.addItem(rs.getString("cat_name"));//STUDENTS
+                comboSearchInStaffIssue.addItem(rs.getString("cat_name"));//STAFF
+                comboSearchShort.addItem(rs.getString("cat_name"));//SHORT
+                comboFilterLost.addItem(rs.getString("cat_name"));//LOST
+                comboMaintenance.addItem(rs.getString("cat_name"));//MAINTENANCE
                 }
             con.close();
             }
@@ -13310,26 +13228,8 @@ public void loadcombocompany() {
 }
 
 public void loadCombos(){
-    loadcomboMain();
-    loadcomboLost();
-    loadcomboShort();
-    loadcomboStaff();
-    loadcomboStudents();
     loadcomboStock();
     loadcombocompany();
-}
-
-public void updateAfterMain(){
-    Object [] taskAsArray;
-    taskAsArray = new Object[tableMaintenance.getColumnCount()];
-    int [] selectedRows = tableMaintenance.getSelectedRows();
-    for(int i = 0;i < selectedRows.length;i++){
-        for(int j = 0;j < tableMaintenance.getColumnCount();j++)
-        {
-        taskAsArray[j] = (tableMaintenance.getValueAt(tableMaintenance.convertRowIndexToModel(selectedRows[i]),tableMaintenance.convertColumnIndexToModel(j)));
-        }
-        
-    }
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
