@@ -335,6 +335,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         comboFilterStock = new javax.swing.JComboBox<String>();
         btnExportStock = new javax.swing.JButton();
         btnRefreshStockDetails = new javax.swing.JButton();
+        txtCountStock = new javax.swing.JTextField();
+        jLabel117 = new javax.swing.JLabel();
         panelIssueStudent = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -1540,6 +1542,13 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtCountStock.setEditable(false);
+    txtCountStock.setBackground(new java.awt.Color(153, 153, 153));
+    txtCountStock.setForeground(new java.awt.Color(255, 255, 255));
+    txtCountStock.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+    jLabel117.setText("Records found");
+
     javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
     jPanel11.setLayout(jPanel11Layout);
     jPanel11Layout.setHorizontalGroup(
@@ -1554,7 +1563,11 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnExportStock, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnRefreshStockDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtCountStock, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel117)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                     .addComponent(comboFilterStock, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1571,7 +1584,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboFilterStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(comboFilterStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCountStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel117)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(searchStock, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -5551,6 +5566,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnCancelComp.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
     btnCancelComp.setContentAreaFilled(false);
     btnCancelComp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnCancelComp.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnCancelCompActionPerformed(evt);
+        }
+    });
 
     comboCompany.setBackground(new java.awt.Color(255, 255, 255));
     comboCompany.addItemListener(new java.awt.event.ItemListener() {
@@ -6469,7 +6489,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     menuSettings.setText("Settings");
 
     itemStudentList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Students_16.png"))); // NOI18N
-    itemStudentList.setText("Student List Mgt");
+    itemStudentList.setText("Student Register");
     itemStudentList.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             itemStudentListActionPerformed(evt);
@@ -6478,7 +6498,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     menuSettings.add(itemStudentList);
 
     jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Teacher_Hiring_16.png"))); // NOI18N
-    jMenuItem6.setText("Staff List Mgt");
+    jMenuItem6.setText("Staff Register");
     jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             jMenuItem6ActionPerformed(evt);
@@ -6596,6 +6616,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.repaint();
         holderPanel.revalidate();
        refreshBooksStock();
+       countStock();
     }//GEN-LAST:event_itemStockActionPerformed
 
     private void itemStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStudentActionPerformed
@@ -8498,7 +8519,10 @@ public final class LibraryHome extends javax.swing.JFrame {
      int rows=tableMaintenance.getRowCount();
      if(rows == 0){
      JOptionPane.showMessageDialog(null, "Table has no data");
-     }else{
+     }
+     else if(txtCompname.getText().isEmpty()){
+     JOptionPane.showMessageDialog(null, "Select company to issue to from dropdown");}
+     else{
         maintenanceTable();
         refreshMaintenanceTable();}
     }//GEN-LAST:event_btnMaintIssueActionPerformed
@@ -8583,6 +8607,13 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void comboCompanyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCompanyItemStateChanged
         retrievecatDetails();
     }//GEN-LAST:event_comboCompanyItemStateChanged
+
+    private void btnCancelCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelCompActionPerformed
+        txtCompname.setText("");
+        txtCompCon.setText("");
+        txtRepName.setText("");
+        txtRepPhone.setText("");
+    }//GEN-LAST:event_btnCancelCompActionPerformed
 /**
      * @param args the command line arguments
      */
@@ -12908,8 +12939,7 @@ public void numberOfStudentsForm(){
     try{
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-        PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no"
-                + ") AS stdcount FROM student_list WHERE form='"+ studentForm +"'");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no) AS stdcount FROM student_list WHERE form='"+ studentForm +"'");
         ResultSet rsCs = os.executeQuery();
         
         int i = 0;
@@ -13273,6 +13303,28 @@ public void retrievecatDetails() {
         }
         
     }
+public void countStock(){
+    String borrowedNo = "NO";
+    try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT COUNT(bklib_id) AS compcount FROM books_db WHERE borrowed='"+ borrowedNo +"'");
+            ResultSet rsIssue = st.executeQuery();
+            
+            int i = 0;
+            if(rsIssue.next()){    
+                String repoCount = rsIssue.getString("compcount");
+                txtCountStock.setText(repoCount);}
+            
+            else{}//DO NOT delete this line
+    }   catch (ClassNotFoundException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
@@ -13436,6 +13488,7 @@ public void retrievecatDetails() {
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -13729,6 +13782,7 @@ public void retrievecatDetails() {
     private javax.swing.JTextField txtCompname;
     private javax.swing.JPasswordField txtConfPass;
     private javax.swing.JTextField txtCount;
+    private javax.swing.JTextField txtCountStock;
     private javax.swing.JTextField txtCountstudent;
     private com.toedter.calendar.JDateChooser txtDateComp;
     private javax.swing.JTextField txtDateDue;

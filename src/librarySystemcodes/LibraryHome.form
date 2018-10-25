@@ -312,7 +312,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/Students_16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Student List Mgt"/>
+                <Property name="text" type="java.lang.String" value="Student Register"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemStudentListActionPerformed"/>
@@ -323,7 +323,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/Teacher_Hiring_16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Staff List Mgt"/>
+                <Property name="text" type="java.lang.String" value="Staff Register"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
@@ -1629,7 +1629,11 @@
                                   <Component id="btnExportStock" min="-2" pref="123" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnRefreshStockDetails" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <EmptySpace pref="310" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtCountStock" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="120" max="32767" attributes="0"/>
                                   <Component id="comboFilterStock" min="-2" pref="232" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="txtSearchText" min="-2" pref="271" max="-2" attributes="0"/>
@@ -1651,6 +1655,8 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="txtSearchText" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="comboFilterStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCountStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel117" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -1782,6 +1788,23 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshStockDetailsActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCountStock">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel117">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Records found"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -8733,6 +8756,9 @@
                           <Color id="Hand Cursor"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelCompActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboCompany">
                       <Properties>

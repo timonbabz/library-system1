@@ -70,7 +70,6 @@ public class DialogEditStudentList extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
-        setAlwaysOnTop(true);
 
         panelListUpdate.setBackground(new java.awt.Color(129, 186, 243));
 
