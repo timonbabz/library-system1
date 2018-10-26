@@ -1235,7 +1235,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 2.0.9 © 2018 ");
+        jLabel79.setText("System version 2.1.1 © 2018 ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -13336,6 +13336,7 @@ private void writeDamagedListExcel()
 
 public void maintenanceTable(){
     String condi = "YES";
+    String staffstd = "Maintenance";
     try{
 
         int rows=tableMaintenance.getRowCount();
@@ -13373,7 +13374,7 @@ public void maintenanceTable(){
             pst.setString(11, rep);
             pst.setString(12, repPhone);
             
-           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"' WHERE bklib_id = '"+bookId+"'";
+           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"', borrowed_by_id = '"+contacts+"',name1_of_borrower = '"+compName+"',name2_of_borrower = '"+rep+"',staff_std = '"+staffstd+"' WHERE bklib_id = '"+bookId+"'";
            PreparedStatement pstCON = con.prepareStatement(querycondi);
            pstCON.execute();
   
