@@ -9023,6 +9023,7 @@ public void permissionCheck(){
 
     if( null != LibrarySignIn.permissionLabel)switch (LibrarySignIn.permissionLabel) {
             case "General user":
+                menuSettings.setEnabled(false);
                 menuItemView.setEnabled(false);
                 itemRecieve.setEnabled(false);
                 menuItemEdit.setEnabled(false);
@@ -9040,6 +9041,8 @@ public void permissionCheck(){
                 btnImport.setEnabled(false);
                 break;
             case "User":
+                menuItemEdit.setEnabled(false);
+                menuSettings.setEnabled(false);
                 itemList.setEnabled(false);
                 itemsSystems.setEnabled(false);
                 itemManageUsers.setEnabled(false);
@@ -9049,6 +9052,7 @@ public void permissionCheck(){
                 btnPassReset.setEnabled(false);
                 break;
             case "Block user":
+                menuSettings.setEnabled(false);
                 menuItemMagz.setEnabled(false);
                 btnMagzShortcut.setEnabled(false);
                 btnSchedulesShortCut.setEnabled(false);
