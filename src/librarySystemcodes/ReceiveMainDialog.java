@@ -276,9 +276,11 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       refreshListOnDelete();
+       if(txtBookSelect.getText().isEmpty()){
+       JOptionPane.showMessageDialog(null, "Select a book from the table");}else{
+        refreshListOnDelete();}
     }//GEN-LAST:event_jButton4ActionPerformed
-/**
+    /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
