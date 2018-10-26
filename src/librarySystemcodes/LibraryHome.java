@@ -8578,9 +8578,31 @@ public final class LibraryHome extends javax.swing.JFrame {
      }
      else if(txtCompname.getText().isEmpty()){
      JOptionPane.showMessageDialog(null, "Select company to issue to from dropdown");}
+     else if(txtCompname.getText().equalsIgnoreCase("default")){
+     int response = JOptionPane.showConfirmDialog(null, "You are about to issue books displayed in table for local maintenance." + System.lineSeparator()
+                + "                            Confirm?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+            maintenanceTable();
+            refreshMaintenanceTable();}}
      else{
-        maintenanceTable();
-        refreshMaintenanceTable();}
+         int response = JOptionPane.showConfirmDialog(null, "You are about to issue books displayed in table for maintenance." + System.lineSeparator()
+                + "                            Confirm?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+            maintenanceTable();
+            refreshMaintenanceTable();}
+     }
     }//GEN-LAST:event_btnMaintIssueActionPerformed
 
     private void btnSearchMainTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchMainTableActionPerformed

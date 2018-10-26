@@ -515,7 +515,7 @@ public void deleteBook(){
                 pst.execute();
                 
                 statement = con.createStatement();
-                String sql2 = "UPDATE books_db SET borrowed='" + borrowedStatus + "',borrowed_by_id = '"+nulText+"',name1_of_borrower = '"+nulText+"',name2_of_borrower = '"+nulText+"',staff_std = '"+nulText+"' WHERE bklib_id='"+systemBkId+"'";
+                String sql2 = "UPDATE books_db SET borrowed='" + borrowedStatus + "',borrowed_by_id =NULL,name1_of_borrower = '"+nulText+"',name2_of_borrower = '"+nulText+"',staff_std = '"+nulText+"' WHERE bklib_id='"+systemBkId+"'";
                     
                 statement.execute(sql2);
                 JOptionPane.showMessageDialog(null, "Book Received");
