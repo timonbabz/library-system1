@@ -349,8 +349,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT compName FROM company_table");
             ResultSet rs = st.executeQuery();
-            while(rs.next()){           
-                comboName.removeAllItems();
+            while(rs.next()){
+               
                 comboName.addItem(rs.getString("compName"));
                 }
             con.close();
