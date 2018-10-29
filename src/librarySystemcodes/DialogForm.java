@@ -312,15 +312,15 @@ public final class DialogForm extends javax.swing.JDialog {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         String number1 = txtFormId.getText();
+        String formNumber = txtFormEdit.getText().trim();
+        String formEditNew = txtStreamEdit.getText();
+        int numForm = Integer.parseInt(formNumber);
         int number2 = Integer.parseInt(number1);
-        if(number2 == 1){
-       JOptionPane.showMessageDialog(null, "Default cannot be edited");
+        
+        if(number2 == 1){JOptionPane.showMessageDialog(null, "Default cannot be edited");
        txtFormId.setText("");
        txtFormId.requestFocus();}
        else{
-            String formNumber = txtFormEdit.getText().trim();
-            String formEditNew = txtStreamEdit.getText();
-            int numForm = Integer.parseInt(formNumber);
             if(numForm < 1 || numForm > 4){
             JOptionPane.showMessageDialog(null, "Enter a valid form number");}
             else if(formEditNew.isEmpty() || formNumber.isEmpty()){
@@ -521,9 +521,6 @@ public final class DialogForm extends javax.swing.JDialog {
         String newEditStream = newCatname +" "+newCatStream;
         String catIdS = txtFormId.getText().trim();
         
-        if(txtFormId.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter the form id, see from table");}
-        else{
                 try {
             String url = "jdbc:mysql://localhost/libdb?useSSL = false";
             Connection conn;
@@ -547,13 +544,16 @@ public final class DialogForm extends javax.swing.JDialog {
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "Duplicate entry");
             }
-        }
+        
     }
     
     public void CheckCompExistsUpdate(){
  
         String enteredUser = txtFormId.getText().trim();
 
+        if(txtFormId.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enter the form id, see from table");}
+        else{
         try
         {
 
@@ -575,7 +575,7 @@ public final class DialogForm extends javax.swing.JDialog {
          {
             JOptionPane.showMessageDialog(null, e.getMessage());
          }
-
+        }
  }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

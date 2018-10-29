@@ -8609,7 +8609,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_comboFilterFormItemStateChanged
 
     private void btnSearchByIdstdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByIdstdActionPerformed
-        if(txtStdId.equals("")){
+        if(txtStdId.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Enter Student ID To Search");}
         else{refreshstdIdModelFilter();
         numberOfStudentsId();}
