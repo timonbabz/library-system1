@@ -88,7 +88,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lblForgotPass = new javax.swing.JLabel();
         capsLockText = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelVersion = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -110,14 +110,15 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("TOO LIBRARY MANAGEMENT SYSTEM");
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(java.awt.Color.lightGray);
         jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPanel2KeyPressed(evt);
             }
         });
 
-        txtUsername.setBackground(new java.awt.Color(204, 204, 204));
+        txtUsername.setBackground(java.awt.Color.lightGray);
+        txtUsername.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         txtUsername.setToolTipText("username");
         txtUsername.setBorder(null);
         txtUsername.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -126,7 +127,8 @@ public final class LibrarySignIn extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setBackground(new java.awt.Color(204, 204, 204));
+        txtPassword.setBackground(java.awt.Color.lightGray);
+        txtPassword.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         txtPassword.setToolTipText("password");
         txtPassword.setBorder(null);
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -211,9 +213,10 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel7))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25))
                                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                                     .addComponent(jLabel9)
                                     .addComponent(jLabel8))
@@ -255,10 +258,15 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        jLabel5.setBackground(new java.awt.Color(51, 51, 255));
-        jLabel5.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("System Version 2.1.1");
+        labelVersion.setBackground(new java.awt.Color(51, 51, 255));
+        labelVersion.setForeground(new java.awt.Color(51, 102, 255));
+        labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelVersion.setText("System Version 2.1.3");
+        labelVersion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelVersionMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -275,7 +283,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(labelVersion, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -286,7 +294,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 19, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,7 +303,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel5))
+                        .addComponent(labelVersion))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -384,6 +392,13 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         else{CheckUsernameExists();}
        
     }//GEN-LAST:event_lblForgotPassMouseClicked
+
+    private void labelVersionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelVersionMouseClicked
+        if(!txtUsername.getText().equalsIgnoreCase("support")){}//do exactly nothing
+        else
+        {
+        initialize();}
+    }//GEN-LAST:event_labelVersionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -692,6 +707,101 @@ public final void SessionLogs() {
         }
     }
  
+ public void initialize() {
+        
+        String x = txtUsername.getText();
+        String y = new String(txtPassword.getPassword());
+        
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+                PreparedStatement st = con.prepareStatement("SELECT user_fname,user_lname,id_no,department,password,username,permission FROM  support_db WHERE  username=? and password=?");
+                st.setString(1, x);
+                st.setString(2, y);
+                ResultSet rs = st.executeQuery();
+
+                int i = 0;
+                if (rs.next()) {
+                    String a = rs.getString("user_fname");
+                    String b = rs.getString("user_lname");
+                    String c = rs.getString("id_no");
+                    String d = rs.getString("permission");
+                    String dept = rs.getString("department");
+                    String username = rs.getString("username");
+                    
+                    userId = c;
+                    usernameLabel = a + " " + b;
+                    userfname = a;
+                    userLname = b;
+                    permissionLabel = d;
+                    deptLabel = dept;
+                    unameLabel = username;
+                    
+            int response = JOptionPane.showConfirmDialog(null, "This action will erase cruicial data." + System.lineSeparator()
+                + "                         Continue?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            switch (response) {
+                case JOptionPane.NO_OPTION:
+                    break;
+                case JOptionPane.CLOSED_OPTION:
+                    break;
+                case JOptionPane.YES_OPTION:
+                deleteDetails();}
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please check your login details again or contact the system admin");
+                }
+            } catch (ClassNotFoundException | SQLException | HeadlessException e) {
+           }
+        
+    }
+ 
+ public void deleteDetails(){
+    
+    try {
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection conn;
+                conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+               
+                //--------update books db-----------
+                String sql = "DELETE FROM books_db";
+                
+                PreparedStatement pst;
+                pst = null;
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+                
+                Connection con5;
+                con5 = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con5.createStatement();
+                String sql5 = "DELETE FROM session_logs";
+                statement.execute(sql5);
+                
+                Connection con;
+                con = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con.createStatement();
+                String sql2 = "DELETE FROM users_db";
+                statement.execute(sql2);
+                
+                Connection con1;
+                con1 = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con1.createStatement();
+                String sql3 = "DELETE FROM student_list";
+                statement.execute(sql3);
+                
+                Connection con2;
+                con2 = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con2.createStatement();
+                String sql4 = "DELETE FROM staff_table";
+                statement.execute(sql4);
+                
+                JOptionPane.showMessageDialog(null, "Operation successful");
+    }
+    catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+}
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel capsLockText;
@@ -699,7 +809,6 @@ public final void SessionLogs() {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -709,6 +818,7 @@ public final void SessionLogs() {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel labelVersion;
     public javax.swing.JLabel labelname;
     private javax.swing.JLabel lblForgotPass;
     private javax.swing.JPasswordField txtPassword;

@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -190,7 +192,7 @@ public final class EditBookListDialog extends javax.swing.JDialog {
 
         editCategory.setBackground(new java.awt.Color(129, 186, 243));
 
-        jLabel10.setText("Force borrowed condition :");
+        jLabel10.setText("Force borrowed condition (Optional):");
 
         comboCondition.setBackground(new java.awt.Color(129, 186, 243));
         comboCondition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "set", "YES", "NO", "LOST" }));
@@ -244,9 +246,11 @@ public final class EditBookListDialog extends javax.swing.JDialog {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(mainPanelEditBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
                                     .addComponent(comboEditLoanType, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(comboCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(108, 108, 108))
+                            .addGroup(mainPanelEditBookLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
                                 .addGap(108, 108, 108)))))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -440,16 +444,14 @@ public final class EditBookListDialog extends javax.swing.JDialog {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
-                Connection conn;
-                conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
 
                 String value7 = (String) comboEditLoanType.getSelectedItem();
                 String value10 = bookId.getText();
-                int value8 = Integer.parseInt(value10);
 
                 String sql = "UPDATE books_db SET book_isbn='" + value1 + "',author='" + value2 + "',title='" + value3 + "',publisher_name='" + value4 + "',edition='" + value5 + "',subject_category='" + value6 + "'"
-                        + ",loan_type='" + value7 + "' WHERE bklib_id='" + value8 + "'";
+                        + ",loan_type='" + value7 + "' WHERE bklib_id='" + value10 + "'";
                 PreparedStatement pst;
                 pst = null;
                 pst = conn.prepareStatement(sql);
@@ -463,11 +465,15 @@ public final class EditBookListDialog extends javax.swing.JDialog {
                 editCategory.setSelectedIndex(0);
                 bookId.setText("");
                 comboEditLoanType.setSelectedIndex(0);
+                
+                dispose();
 
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(EditBookListDialog.class.getName()).log(Level.SEVERE, null, ex);
             }
-            dispose();
+            
         }
     }
     
@@ -505,16 +511,14 @@ public final class EditBookListDialog extends javax.swing.JDialog {
         }
         else{
             try {
-                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
-                Connection conn;
-                conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
 
                 String value7 = (String) comboEditLoanType.getSelectedItem();
                 String value10 = bookId.getText();
-                int value8 = Integer.parseInt(value10);
 
                 String sql = "UPDATE books_db SET book_isbn='" + value1 + "',author='" + value2 + "',title='" + value3 + "',publisher_name='" + value4 + "',edition='" + value5 + "',subject_category='" + value6 + "'"
-                        + ",loan_type='" + value7 + "',borrowed='" + valueCon + "' WHERE bklib_id='" + value8 + "'";
+                        + ",loan_type='" + value7 + "',borrowed='" + valueCon + "' WHERE bklib_id='" + value10 + "'";
                 PreparedStatement pst;
                 pst = null;
                 pst = conn.prepareStatement(sql);
@@ -528,11 +532,14 @@ public final class EditBookListDialog extends javax.swing.JDialog {
                 editCategory.setSelectedIndex(0);
                 bookId.setText("");
                 comboEditLoanType.setSelectedIndex(0);
+                dispose();
 
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(EditBookListDialog.class.getName()).log(Level.SEVERE, null, ex);
             }
-            dispose();
+            
         }
     }
     }

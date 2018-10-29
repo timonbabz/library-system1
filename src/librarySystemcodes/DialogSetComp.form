@@ -153,7 +153,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="473" max="32767" attributes="0"/>
+                      <EmptySpace pref="474" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -176,7 +176,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/images/Bookscolor.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add Companies to whom books will be issued for maintenance"/>
+                <Property name="text" type="java.lang.String" value="Add Companies to which books will be issued for maintenance"/>
               </Properties>
             </Component>
           </SubComponents>
