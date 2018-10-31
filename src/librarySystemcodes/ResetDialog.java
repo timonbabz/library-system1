@@ -208,7 +208,10 @@ public class ResetDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtIDKeyTyped
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
-        resetMethod();
+        if(labelUser.getText().equalsIgnoreCase("support")){
+        JOptionPane.showMessageDialog(null, "Not allowed for user 'support'");}
+        else{
+        resetMethod();}
     }//GEN-LAST:event_btnRequestActionPerformed
 
     private void btnRequestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRequestMouseEntered

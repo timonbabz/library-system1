@@ -110,6 +110,11 @@ public class ProfieDialog extends javax.swing.JDialog {
         jLabel7.setText("ID number :");
 
         txtID.setEditable(false);
+        txtID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtIDMouseClicked(evt);
+            }
+        });
 
         jLabel8.setText("Department :");
 
@@ -290,10 +295,15 @@ public class ProfieDialog extends javax.swing.JDialog {
         String firstname = txtFname.getText();
         String lastname = txtLname.getText();
         String department = txtDept.getText();
+        String userNameE = txtUsername.getText();
         String pass = new String (profilePassword.getPassword());
         
         if(userIdnumber.isEmpty()){
             JOptionPane.showMessageDialog(null, "ID cannot be empty");}
+        else if(userIdnumber.equals("12302018")){
+        JOptionPane.showMessageDialog(null, "Operation not allowed for username 'support'");}
+        else if(userNameE.equalsIgnoreCase("support")){
+        JOptionPane.showMessageDialog(null, "Username 'support' is not allowed");}
         else if(firstname.isEmpty()){
             JOptionPane.showMessageDialog(null, "enter first name");}
         else if(lastname.isEmpty()){
@@ -315,6 +325,10 @@ public class ProfieDialog extends javax.swing.JDialog {
     private void btnCancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseExited
         btnCancel.setForeground(Color.black);
     }//GEN-LAST:event_btnCancelMouseExited
+
+    private void txtIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIDMouseClicked
+        JOptionPane.showMessageDialog(null, "Editing not allowed for ID number");
+    }//GEN-LAST:event_txtIDMouseClicked
 
     /**
      * @param args the command line arguments

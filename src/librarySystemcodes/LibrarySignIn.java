@@ -58,6 +58,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         InputStream imgstream = LibrarySignIn.class.getResourceAsStream(imagepath);
         BufferedImage myImg = ImageIO.read(imgstream);
         this.setIconImage(myImg);
+        
     }
 
     /**
@@ -363,7 +364,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
 
     private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
          if(evt.getKeyCode() == KeyEvent.VK_CAPS_LOCK){
-        capsLockText.setText("Caps Lock is on!");
+        capsLockText.setText("Caps Lock has been pressed!");
         getToolkit().beep();
         }else{capsLockText.setText("");}
     }//GEN-LAST:event_jPanel2KeyPressed
@@ -375,7 +376,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
                 SessionLogs();
                 break;
             case KeyEvent.VK_CAPS_LOCK:
-                capsLockText.setText("Caps Lock is on!");
+                capsLockText.setText("Caps Lock has been pressed!");
                 getToolkit().beep();
                 break;
             default:
@@ -801,7 +802,7 @@ public final void SessionLogs() {
                 JOptionPane.showMessageDialog(null, e);
             }
 }
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel capsLockText;

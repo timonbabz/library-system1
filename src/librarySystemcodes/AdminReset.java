@@ -286,6 +286,9 @@ public class AdminReset extends javax.swing.JDialog {
         else if(userName.isEmpty()){
             JOptionPane.showMessageDialog(null, "Username required");
         txtUser.requestFocus();}
+        else if(userName.equalsIgnoreCase("support")){
+            JOptionPane.showMessageDialog(null, "Editing not allowed for username 'support'");
+        txtUser.requestFocus();}
         else if(firstname.isEmpty()){
             JOptionPane.showMessageDialog(null, "enter first name");
         txtFname.requestFocus();}

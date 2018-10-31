@@ -3719,6 +3719,17 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            txtUserFocusGained(evt);
+        }
+    });
+
+    txtPass.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusGained(java.awt.event.FocusEvent evt) {
+            txtPassFocusGained(evt);
+        }
+    });
     txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyTyped(java.awt.event.KeyEvent evt) {
             txtPassKeyTyped(evt);
@@ -7072,7 +7083,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddNewUsersActionPerformed
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        addUserMethod();
+        if(txtUser.getText().equalsIgnoreCase("support")){
+        JOptionPane.showMessageDialog(null, "The username entered is not allowed");}
+        else{addUserMethod();}
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void btnSearchBookDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookDetailsActionPerformed
@@ -8858,6 +8871,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         else{
         refreshStdOnForm();}
     }//GEN-LAST:event_comboFormItemStateChanged
+
+    private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
+        if(txtUser.getText().equalsIgnoreCase("support")){
+        txtUser.setForeground(Color.red);}
+        else{txtUser.setForeground(Color.BLACK);}
+    }//GEN-LAST:event_txtPassFocusGained
+
+    private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+        txtUser.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtUserFocusGained
     /**
      * @param args the command line arguments
      */

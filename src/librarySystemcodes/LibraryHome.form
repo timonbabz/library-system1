@@ -5459,9 +5459,13 @@
                         <Component class="javax.swing.JTextField" name="txtDept">
                         </Component>
                         <Component class="javax.swing.JTextField" name="txtUser">
+                          <Events>
+                            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtUserFocusGained"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JPasswordField" name="txtPass">
                           <Events>
+                            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPassFocusGained"/>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPassKeyTyped"/>
                           </Events>
                         </Component>
