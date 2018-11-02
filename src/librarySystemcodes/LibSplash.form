@@ -136,7 +136,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="System Version 2.1.5  &#xa9; 2018 Created by TOO studios &#xa9;2018"/>
+            <Property name="text" type="java.lang.String" value="System Version 2.1.6  &#xa9; 2018 Created by TOO studios &#xa9;2018"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLoad">

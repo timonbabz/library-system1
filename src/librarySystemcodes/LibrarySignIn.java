@@ -12,6 +12,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.Socket;
+import java.net.URL;
+import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -51,6 +55,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
     
     public LibrarySignIn() throws IOException {
         initComponents();
+        hostAvailabilityCheck();
         showNameOnLabel();
         showSchoolName();
         
@@ -60,7 +65,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         this.setIconImage(myImg);
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -262,7 +267,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         labelVersion.setBackground(new java.awt.Color(51, 51, 255));
         labelVersion.setForeground(new java.awt.Color(51, 102, 255));
         labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelVersion.setText("System Version 2.1.5");
+        labelVersion.setText("System Version 2.1.6");
         labelVersion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelVersionMouseClicked(evt);
@@ -801,6 +806,19 @@ public final void SessionLogs() {
     catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
+}
+ 
+ public void hostAvailabilityCheck() throws IOException { 
+    
+     try {
+         String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+         Connection con = DriverManager.getConnection(url, "root", "libsystem@dmin");
+    
+    }
+     catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No server connection");
+            System.exit(0);
+        }
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
