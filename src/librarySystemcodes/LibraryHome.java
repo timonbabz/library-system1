@@ -14317,3 +14317,4 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JTextField txtschtitle;
     // End of variables declaration//GEN-END:variables
 }
+//all work and no pray makes work worthless: I thank God.
