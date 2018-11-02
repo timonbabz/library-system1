@@ -9,6 +9,11 @@ import java.awt.HeadlessException;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.BindException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.SocketException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,6 +22,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +38,7 @@ public final class LibSplash extends javax.swing.JFrame {
     
     public LibSplash() throws IOException {
         initComponents();
+        checkIfRunning();
         showNameOnLabel();
         
         String imagepath = "/images/iconforlib_32.png";
@@ -202,7 +209,24 @@ public final class LibSplash extends javax.swing.JFrame {
             //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+private static void checkIfRunning() {
+    final int PORT = 9999;
+    ServerSocket socket;    
 
+    try {
+        //Bind to localhost adapter with a zero connection queue
+        socket = new ServerSocket(PORT,0,InetAddress.getByAddress(new byte[] {127,0,0,1}));
+        } 
+    catch (BindException e) {
+        JOptionPane.showMessageDialog(null,"Application already running. Please check the taskbar");
+        System.exit(1);
+      }
+    catch (IOException ex) {
+            Logger.getLogger(LibSplash.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

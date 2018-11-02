@@ -10047,10 +10047,11 @@ public void numberOfBooks(){
                 String repoCount = rsCs.getString("bookcount_no");
                 labelBookNo.setText(repoCount);}
             
-            else{}
+            else{}//do nothing
                 
     }catch(ClassNotFoundException | SQLException | HeadlessException es){
-    JOptionPane.showMessageDialog(null, es.getMessage());}
+    //JOptionPane.showMessageDialog(null, es.getMessage());
+        }
     }
 
 public void numberOfBooksBorrowed(){
@@ -10067,10 +10068,11 @@ public void numberOfBooksBorrowed(){
                 String repoCount = rsCs.getString("bookcount_no");
                 labelBooksBorrowed.setText(repoCount);}
             
-            else{}
+            else{}//do nothing. Note: do not delete this line
                 
     }catch(ClassNotFoundException | SQLException | HeadlessException es){
-    JOptionPane.showMessageDialog(null, es.getMessage());}
+    //JOptionPane.showMessageDialog(null, es.getMessage());
+        }
     }
 
 public void numberOfBorrowers(){
@@ -10086,10 +10088,11 @@ public void numberOfBorrowers(){
                 String repoCount = rsCs.getString("borrowercount_no");
                 lblNoOfBorrowers.setText(repoCount);}
             
-            else{}
+            else{}//do nothing. Note: do not delete this line
                 
     }catch(ClassNotFoundException | SQLException | HeadlessException es){
-    JOptionPane.showMessageDialog(null, es.getMessage());}
+    //JOptionPane.showMessageDialog(null, es.getMessage());
+        }
     }
 
 public void limitBorrowersStudents(){
@@ -13757,7 +13760,6 @@ public void DisplayBooksComboCount(){
     }   catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
         }
-
 }
 
 public void DisplayBooksComboCount1(){
