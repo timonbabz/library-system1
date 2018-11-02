@@ -1300,7 +1300,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel79">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="System version 2.1.6 &#xa9; 2018 "/>
+                    <Property name="text" type="java.lang.String" value="System version 2.1.7 &#xa9; 2018 "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
