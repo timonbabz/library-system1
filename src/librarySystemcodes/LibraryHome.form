@@ -1300,7 +1300,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel79">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="System version 2.1.8 &#xa9; 2018 "/>
+                    <Property name="text" type="java.lang.String" value="System version 2.2.0 &#xa9; 2018 "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -9741,7 +9741,6 @@
                           <Color id="Hand Cursor"/>
                         </Property>
                         <Property name="horizontalTextPosition" type="int" value="0"/>
-                        <Property name="label" type="java.lang.String" value=""/>
                         <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/Searchred_16.png"/>
                         </Property>

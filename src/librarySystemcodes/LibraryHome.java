@@ -1255,7 +1255,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 2.1.8 © 2018 ");
+        jLabel79.setText("System version 2.2.0 © 2018 ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -6224,7 +6224,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnSearchListStd.setContentAreaFilled(false);
     btnSearchListStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnSearchListStd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-    btnSearchListStd.setLabel("");
     btnSearchListStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
     btnSearchListStd.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
