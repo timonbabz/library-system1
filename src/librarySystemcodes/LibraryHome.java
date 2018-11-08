@@ -181,6 +181,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         BufferedImage myImg = ImageIO.read(imgstream);
         this.setIconImage(myImg);
         
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        labelYear.setText(String.valueOf(year));
+        
         btnPromo.setEnabled(false);
         lblUserId.setText(LibrarySignIn.usernameLabel);
         lblID.setText(LibrarySignIn.userId);
@@ -322,6 +325,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         maxStd = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
         maxNumberStd = new javax.swing.JLabel();
+        labelYear = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
         labelTime = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
@@ -1255,7 +1259,8 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 2.2.0 © 2018 ");
+        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel79.setText("System version 2.2.0 © ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1370,6 +1375,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        labelYear.setText("year");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1392,7 +1399,10 @@ public final class LibraryHome extends javax.swing.JFrame {
                                 .addComponent(jLabel42)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelPermission, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel79, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel79)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelYear))
                             .addComponent(jSeparator1)
                             .addComponent(jPanel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(16, 16, 16))
@@ -1418,7 +1428,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel79)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel79)
+                            .addComponent(labelYear))
                         .addGap(3, 3, 3))
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
@@ -14483,6 +14495,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JLabel labelTabTwo;
     private javax.swing.JLabel labelTime;
     private javax.swing.JLabel labelUser;
+    private javax.swing.JLabel labelYear;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblNoOfBorrowers;
     private javax.swing.JLabel lblUserId;

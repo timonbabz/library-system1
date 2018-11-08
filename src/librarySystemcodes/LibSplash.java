@@ -19,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -40,6 +41,9 @@ public final class LibSplash extends javax.swing.JFrame {
         initComponents();
         checkIfRunning();
         showNameOnLabel();
+        
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        labelyear.setText(String.valueOf(year));
         
         String imagepath = "/images/iconforlib_32.png";
         InputStream imgstream = LibSplash.class.getResourceAsStream(imagepath);
@@ -63,6 +67,7 @@ public final class LibSplash extends javax.swing.JFrame {
         lblLoad = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         progressBar = new javax.swing.JProgressBar();
+        labelyear = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -74,8 +79,8 @@ public final class LibSplash extends javax.swing.JFrame {
         lblSchoolName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSchoolName.setText("SECONDARY/PRIMARY SCHOOL  NAME HERE");
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("System Version 2.2.0  © 2018 Created by TOO studios ©2018");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("System Version 2.2.0  © 2018 Created by TOO studios ©");
 
         lblLoad.setBackground(new java.awt.Color(255, 255, 255));
         lblLoad.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
@@ -85,6 +90,8 @@ public final class LibSplash extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newsysLogo.png"))); // NOI18N
 
+        labelyear.setText("year");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,10 +100,14 @@ public final class LibSplash extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblSchoolName, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblLoad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblLoad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelyear)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,7 +120,9 @@ public final class LibSplash extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(lblLoad)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(labelyear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -202,6 +215,7 @@ private static void checkIfRunning() {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelyear;
     public javax.swing.JLabel lblLoad;
     public javax.swing.JLabel lblSchoolName;
     public javax.swing.JProgressBar progressBar;
