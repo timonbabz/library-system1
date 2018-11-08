@@ -84,7 +84,7 @@ public final class LibSplash extends javax.swing.JFrame {
         lblSchoolName.setText("SECONDARY/PRIMARY SCHOOL  NAME HERE");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("System Version 2.1.7  © 2018 Created by TOO studios ©2018");
+        jLabel3.setText("System Version 2.1.8  © 2018 Created by TOO studios ©2018");
 
         lblLoad.setBackground(new java.awt.Color(255, 255, 255));
         lblLoad.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N

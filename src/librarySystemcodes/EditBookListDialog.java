@@ -78,6 +78,7 @@ public final class EditBookListDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         panelEditBookTitle.setBackground(new java.awt.Color(51, 102, 255));
 

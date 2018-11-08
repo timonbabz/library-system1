@@ -54,7 +54,7 @@ public class AboutLib extends javax.swing.JDialog {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("This is a system developed to help manage book transactions in the library\nits features include\n1.adding books to the database\n2.issuing books\n3.recieving books issued\n4.adding magazines and journals to the database\n5.issuing magazines and journals\n6.creating schedules (personal)\n7.creating notes that are visible to other users\n8.managing users\n    a) password reset\n    b) blocking\n    c) adding users");
+        jTextArea1.setText("This is a system developed to help manage book transactions in the library\nits features include\n1.adding books to the database\n2.issuing books\n3.receiving books issued\n4.adding magazines and journals to the database\n5.issuing magazines and journals\n6.creating schedules (personal)\n7.creating notes that are visible to other users\n8.managing users\n    a) password reset\n    b) blocking\n    c) adding users");
         jScrollPane1.setViewportView(jTextArea1);
 
         btnNet.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N

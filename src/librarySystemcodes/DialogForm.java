@@ -73,6 +73,7 @@ public final class DialogForm extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -112,6 +113,7 @@ public final class DialogForm extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tableForm);
 
+        txtForm.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtForm.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFormKeyTyped(evt);
@@ -196,18 +198,13 @@ public final class DialogForm extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtStream, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
@@ -216,28 +213,29 @@ public final class DialogForm extends javax.swing.JDialog {
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtFormEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFormEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
+                        .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,10 +254,11 @@ public final class DialogForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -409,8 +408,7 @@ public final class DialogForm extends javax.swing.JDialog {
     public void addCategory(){
     
         String fomText = txtForm.getText().trim();
-        String streamText = txtStream.getText().trim();
-        String fromText = fomText+" "+streamText;
+        String streamText = txtStream.getText().toUpperCase().trim();
         
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
@@ -419,12 +417,13 @@ public final class DialogForm extends javax.swing.JDialog {
                     statement = con.createStatement();
 
                     // SQL Insert
-                    String sql = "INSERT INTO form " + "(form)"
-                            + "VALUES ('" + fromText+ "') ";
+                    String sql = "INSERT INTO form " + "(form,stream)"
+                            + "VALUES ('" + fomText + "','"
+                            + streamText + "') ";
                     
                     statement.execute(sql);
 
-                    JOptionPane.showMessageDialog(null, "Stream | "+fromText+" |, added successfully");
+                    JOptionPane.showMessageDialog(null, "Stream | "+fomText+" "+streamText+" |, added successfully");
 
                     refreshListOnTitle();
                     // Reset Text Fields
@@ -462,13 +461,15 @@ public final class DialogForm extends javax.swing.JDialog {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  form_id,form FROM form");
+            PreparedStatement st = con.prepareStatement("SELECT  form_id,form,stream FROM form");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
                 fomNo = rsIssue.getString("form_id");
-                fomname = rsIssue.getString("form");
+                String form = rsIssue.getString("form");
+                String stream = rsIssue.getString("stream");
+                fomname = form+" "+stream;
 
                 fomModel.addRow(new Object[]{fomNo, fomname});
                 i++;
@@ -493,13 +494,14 @@ public final class DialogForm extends javax.swing.JDialog {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT form FROM form WHERE (form_id='"+ catIdSe +"')");
+            PreparedStatement st = con.prepareStatement("SELECT form,stream FROM form WHERE (form_id='"+ catIdSe +"')");
             ResultSet rs = st.executeQuery();
             boolean emptyRs = true;
             if (rs.next()) {
                 emptyRs = false;
-                String bookretSysid = rs.getString("form");
-                txtFormName.setText(bookretSysid);
+                String formName = rs.getString("form");
+                String stream = rs.getString("stream");
+                txtFormName.setText(formName+" "+stream);
                 
             }
             if (emptyRs) {
@@ -517,8 +519,7 @@ public final class DialogForm extends javax.swing.JDialog {
     public void updateCategory(){
         
         String newCatname = txtFormEdit.getText();
-        String newCatStream = txtStreamEdit.getText();
-        String newEditStream = newCatname +" "+newCatStream;
+        String newCatStream = txtStreamEdit.getText().toUpperCase().trim();
         String catIdS = txtFormId.getText().trim();
         
                 try {
@@ -527,7 +528,7 @@ public final class DialogForm extends javax.swing.JDialog {
             conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
             
             //--------update users db-----------
-            String sql = "UPDATE form SET form='" + newEditStream + "' WHERE form_id=" + catIdS;
+            String sql = "UPDATE form SET form ='" + newCatname + "',stream ='" + newCatStream + "' WHERE form_id=" + catIdS;
             
             PreparedStatement pst;
             pst = null;

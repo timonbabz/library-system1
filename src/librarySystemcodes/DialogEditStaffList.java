@@ -73,6 +73,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         panelStaffEdit.setBackground(new java.awt.Color(129, 186, 243));
 

@@ -101,7 +101,7 @@
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="This is a system developed to help manage book transactions in the library&#xa;its features include&#xa;1.adding books to the database&#xa;2.issuing books&#xa;3.recieving books issued&#xa;4.adding magazines and journals to the database&#xa;5.issuing magazines and journals&#xa;6.creating schedules (personal)&#xa;7.creating notes that are visible to other users&#xa;8.managing users&#xa;    a) password reset&#xa;    b) blocking&#xa;    c) adding users"/>
+                <Property name="text" type="java.lang.String" value="This is a system developed to help manage book transactions in the library&#xa;its features include&#xa;1.adding books to the database&#xa;2.issuing books&#xa;3.receiving books issued&#xa;4.adding magazines and journals to the database&#xa;5.issuing magazines and journals&#xa;6.creating schedules (personal)&#xa;7.creating notes that are visible to other users&#xa;8.managing users&#xa;    a) password reset&#xa;    b) blocking&#xa;    c) adding users"/>
               </Properties>
             </Component>
           </SubComponents>

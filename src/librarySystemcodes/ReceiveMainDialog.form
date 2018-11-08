@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Library Management System"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -65,6 +66,8 @@
                           <Component id="txtCount" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnExport" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -91,8 +94,8 @@
                       <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="447" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="453" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -101,6 +104,7 @@
                               <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
                               <Component id="txtCount" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnExport" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="txtBookSelect" min="-2" max="-2" attributes="0"/>
@@ -332,6 +336,37 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Records found"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnExport">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="sansserif" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Microsoft_Excel_16.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Export List to Excel"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="2">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+            <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/Microsoftwhitel_16.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

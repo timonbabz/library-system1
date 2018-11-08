@@ -6,14 +6,29 @@
 package librarySystemcodes;
 
 import java.awt.HeadlessException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import static librarySystemcodes.LibraryHome.fileDictName;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  *
  * @author TimonBabz
@@ -66,9 +81,11 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jButton4 = new javax.swing.JButton();
         txtCount = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btnExport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -163,6 +180,20 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Records found");
 
+        btnExport.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnExport.setForeground(new java.awt.Color(255, 255, 255));
+        btnExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+        btnExport.setText("Export List to Excel");
+        btnExport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnExport.setContentAreaFilled(false);
+        btnExport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExport.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
+        btnExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -187,6 +218,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                         .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -208,8 +241,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                     .addComponent(txtBookId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -217,7 +250,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
+                            .addComponent(jLabel2)
+                            .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtBookSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -278,8 +312,15 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        if(txtBookSelect.getText().isEmpty()){
        JOptionPane.showMessageDialog(null, "Select a book from the table");}else{
-        refreshListOnDelete();}
+        refreshListOnDelete();
+        numberOf();}
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
+        if(tableReceiveDam.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "No data to export to excel");}
+        else{ writeToExcel();}
+    }//GEN-LAST:event_btnExportActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -565,7 +606,71 @@ public void numberOf(){
     JOptionPane.showMessageDialog(null, es.getMessage());}
     }
 
+private String getCellValuetableStaffRecords(int x, int y)
+{
+    return compModel.getValueAt(x, y).toString();
+}
+
+private void writeToExcel()
+    {
+        JFileChooser fileChooser = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("Files", ".xlsx");
+        fileChooser.addChoosableFileFilter(filter);
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.setDialogTitle("Select file location"); 
+        fileChooser.setSelectedFile(new File(fileDictName));
+        int userSelection = fileChooser.showSaveDialog(fileChooser);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            fileDictName = fileChooser.getSelectedFile()+".xlsx";
+        }
+
+    File file = new File(fileDictName);
+    if(file.exists() == false){
+    
+        XSSFWorkbook xWb = new XSSFWorkbook();
+        XSSFSheet xSt = xWb.createSheet();
+        TreeMap<String, Object[]> data = new TreeMap<>();
+        data.put("-1", new Object[]{compModel.getColumnName(0),compModel.getColumnName(1),
+            compModel.getColumnName(2),compModel.getColumnName(3),compModel.getColumnName(4),
+            compModel.getColumnName(5),compModel.getColumnName(6),
+            compModel.getColumnName(7),compModel.getColumnName(8),compModel.getColumnName(9)});
+        for (int i = 0; i < compModel.getRowCount(); i++) 
+        {
+                data.put(Integer.toString(i), new Object[]{getCellValuetableStaffRecords(i, 0),getCellValuetableStaffRecords(i, 1),
+                    getCellValuetableStaffRecords(i, 2),getCellValuetableStaffRecords(i, 3),
+                    getCellValuetableStaffRecords(i, 4),getCellValuetableStaffRecords(i, 5),
+                    getCellValuetableStaffRecords(i, 6),getCellValuetableStaffRecords(i, 7),
+                    getCellValuetableStaffRecords(i, 8),getCellValuetableStaffRecords(i, 9)});
+        }
+        Set<String> ids = data.keySet();
+        XSSFRow row;
+        int rowId = 0;
+        for(String key: ids)
+        {
+            row = xSt.createRow(rowId++);
+            Object[] values = data.get(key);
+            int cellId = 0;
+            for(Object o: values)
+            {
+                Cell cell = row.createCell(cellId++);
+                cell.setCellValue(o.toString());
+            }
+        }
+
+        try (
+            FileOutputStream fos = new FileOutputStream(file)) 
+            {
+            xWb.write(fos);
+            JOptionPane.showMessageDialog(null, "Excel sheet saved");
+        } catch (IOException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExport;
     private javax.swing.JComboBox comboName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;

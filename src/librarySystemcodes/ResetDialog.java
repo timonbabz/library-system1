@@ -50,6 +50,7 @@ public class ResetDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         headingPanel.setBackground(new java.awt.Color(51, 102, 255));
 

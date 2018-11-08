@@ -5,6 +5,19 @@
  */
 package librarySystemcodes;
 
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
+
 /**
  *
  * @author TimonBabz
@@ -13,6 +26,8 @@ public class DialogExcelSetup extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogExcelSetup
+     * @param parent
+     * @param modal
      */
     public DialogExcelSetup(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -47,6 +62,7 @@ public class DialogExcelSetup extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnTemplate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -87,6 +103,7 @@ public class DialogExcelSetup extends javax.swing.JDialog {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Column headers", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         jTextField9.setEditable(false);
+        jTextField9.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField9.setText("BOOK ID");
         jTextField9.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -96,34 +113,42 @@ public class DialogExcelSetup extends javax.swing.JDialog {
         });
 
         jTextField6.setEditable(false);
+        jTextField6.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField6.setText("CATEGORY ");
         jTextField6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField3.setEditable(false);
+        jTextField3.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField3.setText("TITLE");
         jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField1.setText("BOOK ISBN");
         jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField2.setEditable(false);
+        jTextField2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField2.setText("AUTHOR");
         jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField5.setEditable(false);
+        jTextField5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField5.setText("EDITION");
         jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField7.setEditable(false);
+        jTextField7.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField7.setText("LOAN TYPE");
         jTextField7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField8.setEditable(false);
+        jTextField8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField8.setText("SHELF NUMBER ");
         jTextField8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField4.setEditable(false);
+        jTextField4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField4.setText("PUBLISHER");
         jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
@@ -194,7 +219,7 @@ public class DialogExcelSetup extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -206,6 +231,27 @@ public class DialogExcelSetup extends javax.swing.JDialog {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnTemplate.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnTemplate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+        btnTemplate.setText("Get Excel template");
+        btnTemplate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnTemplate.setContentAreaFilled(false);
+        btnTemplate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTemplate.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
+        btnTemplate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnTemplateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnTemplateMouseExited(evt);
+            }
+        });
+        btnTemplate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTemplateActionPerformed(evt);
             }
         });
 
@@ -223,7 +269,11 @@ public class DialogExcelSetup extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20))))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel1))
                 .addContainerGap())
@@ -237,14 +287,13 @@ public class DialogExcelSetup extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnTemplate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
@@ -271,6 +320,23 @@ public class DialogExcelSetup extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemplateActionPerformed
+        JOptionPane.showMessageDialog(null, "Ensure you add (.xls) extension to the name of your file");
+        try {
+            createSheet();
+        } catch (IOException ex) {
+            Logger.getLogger(DialogExcelSetup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnTemplateActionPerformed
+
+    private void btnTemplateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemplateMouseEntered
+        btnTemplate.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnTemplateMouseEntered
+
+    private void btnTemplateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTemplateMouseExited
+        btnTemplate.setForeground(Color.BLACK);
+    }//GEN-LAST:event_btnTemplateMouseExited
 
     /**
      * @param args the command line arguments
@@ -300,21 +366,47 @@ public class DialogExcelSetup extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogExcelSetup dialog = new DialogExcelSetup(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            DialogExcelSetup dialog = new DialogExcelSetup(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
+    }
+    
+    public void createSheet() throws FileNotFoundException, IOException{
+        JFileChooser jchooser = new JFileChooser();
+        jchooser.setDialogTitle("Select location to save template");
+        int selctionUser = jchooser.showSaveDialog(DialogExcelSetup.this);
+        try (HSSFWorkbook workbook = new HSSFWorkbook()) {
+            HSSFSheet sheet = workbook.createSheet("Book Details for Import");
+            Row header = sheet.createRow(0);
+            header.createCell(0).setCellValue("BOOK ID");
+            header.createCell(1).setCellValue("BOOK ISBN");
+            header.createCell(2).setCellValue("AUTHOR");
+            header.createCell(3).setCellValue("TITLE");
+            header.createCell(4).setCellValue("PUBLISHER");
+            header.createCell(5).setCellValue("EDITION");
+            header.createCell(6).setCellValue("CATEGORY");
+            header.createCell(7).setCellValue("LOAN TYPE");
+            header.createCell(8).setCellValue("SHELF NUMBER");
+            
+            if(selctionUser == JFileChooser.APPROVE_OPTION){
+                File newFile = jchooser.getSelectedFile();
+                workbook.write(newFile);
+            JOptionPane.showMessageDialog(null, "Template created in selected location");
+            }else if(selctionUser == JFileChooser.CANCEL_OPTION){
+            JOptionPane.showMessageDialog(null, "Cancelled");}
+            
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnTemplate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

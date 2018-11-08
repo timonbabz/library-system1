@@ -181,6 +181,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         BufferedImage myImg = ImageIO.read(imgstream);
         this.setIconImage(myImg);
         
+        btnPromo.setEnabled(false);
         lblUserId.setText(LibrarySignIn.usernameLabel);
         lblID.setText(LibrarySignIn.userId);
         labelPermission.setText(LibrarySignIn.permissionLabel);
@@ -367,6 +368,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnIssueToStudents = new javax.swing.JButton();
         systemBookId = new javax.swing.JTextField();
         jLabel97 = new javax.swing.JLabel();
+        txtStreamLong = new javax.swing.JTextField();
+        jLabel119 = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         comboSearchIssue = new javax.swing.JComboBox<String>();
         txtSearchIssueStd = new javax.swing.JTextField();
@@ -507,6 +510,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel59 = new javax.swing.JLabel();
         systemIDtxt = new javax.swing.JTextField();
         jLabel98 = new javax.swing.JLabel();
+        txtStreamShort = new javax.swing.JTextField();
+        jLabel118 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
         comboSearchShort = new javax.swing.JComboBox<String>();
         btnRefreshShortBks = new javax.swing.JButton();
@@ -549,6 +554,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnAddNewUsers = new javax.swing.JButton();
         btnPassReset = new javax.swing.JButton();
         btnPermissions = new javax.swing.JButton();
+        jPanel50 = new javax.swing.JPanel();
+        jLabel121 = new javax.swing.JLabel();
+        btnActivate = new javax.swing.JButton();
+        jLabel122 = new javax.swing.JLabel();
         panelReportLost = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
         panelLostBooks = new javax.swing.JPanel();
@@ -589,8 +598,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnSearchStdID = new javax.swing.JButton();
         jLabel60 = new javax.swing.JLabel();
         comboFilterStudents = new javax.swing.JComboBox<String>();
-        comboForm = new javax.swing.JComboBox();
         jLabel109 = new javax.swing.JLabel();
+        txtFormBoro = new javax.swing.JTextField();
+        btnSearchFormView = new javax.swing.JButton();
         panelTeachers = new javax.swing.JPanel();
         labelStaffList = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
@@ -635,6 +645,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnMagzIssue = new javax.swing.JButton();
         btnMagzCancel = new javax.swing.JButton();
         btnAddMagToIssue = new javax.swing.JButton();
+        txtStreamMags = new javax.swing.JTextField();
+        jLabel120 = new javax.swing.JLabel();
         btnAddMag = new javax.swing.JButton();
         btnMagzDetails = new javax.swing.JButton();
         chooserMagz = new com.toedter.calendar.JDateChooser();
@@ -746,10 +758,14 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnExcelImportStd = new javax.swing.JButton();
         jLabel104 = new javax.swing.JLabel();
         btnSearchByIdstd = new javax.swing.JButton();
-        comboFilterForm = new javax.swing.JComboBox();
+        txtStreamEntered = new javax.swing.JTextField();
+        btnSearchListStd = new javax.swing.JButton();
+        jLabel123 = new javax.swing.JLabel();
+        txtFormEntered = new javax.swing.JTextField();
         jLabel111 = new javax.swing.JLabel();
         txtCountstudent = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
+        btnPromo = new javax.swing.JButton();
         panelStaffList = new javax.swing.JPanel();
         labelMagzBorrowed5 = new javax.swing.JLabel();
         jPanel46 = new javax.swing.JPanel();
@@ -1239,7 +1255,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
         jLabel42.setText("Logged in as :");
 
-        jLabel79.setText("System version 2.1.7 © 2018 ");
+        jLabel79.setText("System version 2.1.8 © 2018 ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1788,6 +1804,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
     jLabel97.setText("System ID :");
 
+    txtStreamLong.setEditable(false);
+
+    jLabel119.setText("Stream :");
+
     javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
     jPanel34.setLayout(jPanel34Layout);
     jPanel34Layout.setHorizontalGroup(
@@ -1811,9 +1831,14 @@ public final class LibraryHome extends javax.swing.JFrame {
                             .addComponent(btnSearchStd, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addComponent(txtSdntFname, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtStdntLname, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtStdntClass, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(DateBorrowed, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dateChooserDue, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(dateChooserDue, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel34Layout.createSequentialGroup()
+                            .addComponent(txtStdntClass, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel119)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtStreamLong))))
                 .addGroup(jPanel34Layout.createSequentialGroup()
                     .addGap(3, 3, 3)
                     .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1860,7 +1885,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel25)
-                .addComponent(txtStdntClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtStdntClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtStreamLong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel119))
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel34Layout.createSequentialGroup()
                     .addGap(18, 18, 18)
@@ -3293,6 +3320,10 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jLabel98.setText("System ID :");
 
+    txtStreamShort.setEditable(false);
+
+    jLabel118.setText("Stream :");
+
     javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
     jPanel33.setLayout(jPanel33Layout);
     jPanel33Layout.setHorizontalGroup(
@@ -3305,20 +3336,38 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGap(235, 235, 235))
                 .addGroup(jPanel33Layout.createSequentialGroup()
                     .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(204, 204, 204)
-                                .addComponent(btnSearchStdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addGap(204, 204, 204)
+                            .addComponent(btnSearchStdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel35))
+                                .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtStaffstdId, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtShortLname)
+                                    .addComponent(txtShortFname, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(comboStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel33Layout.createSequentialGroup()
+                            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel33Layout.createSequentialGroup()
                                     .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel54)
                                         .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtStaffNo)
-                                        .addComponent(txtShortClass, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtStaffNo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel33Layout.createSequentialGroup()
+                                            .addComponent(txtShortClass, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel118)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtStreamShort))))
                                 .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
                                         .addComponent(jLabel57)
@@ -3350,23 +3399,11 @@ public final class LibraryHome extends javax.swing.JFrame {
                                                 .addGroup(jPanel33Layout.createSequentialGroup()
                                                     .addComponent(SpinfieldTimeLoan, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(jLabel59)))))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createSequentialGroup()
-                                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel36)
-                                        .addComponent(jLabel35))
-                                    .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtStaffstdId, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtShortLname)
-                                        .addComponent(txtShortFname, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(comboStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(jPanel33Layout.createSequentialGroup()
-                            .addGap(77, 77, 77)
-                            .addComponent(systemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(jLabel59))))))
+                                .addGroup(jPanel33Layout.createSequentialGroup()
+                                    .addGap(77, 77, 77)
+                                    .addComponent(systemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE)))
                     .addContainerGap())))
     );
     jPanel33Layout.setVerticalGroup(
@@ -3392,7 +3429,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtShortClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel61))
+                .addComponent(jLabel61)
+                .addComponent(txtStreamShort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel118))
             .addGap(18, 18, 18)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtStaffNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3623,7 +3662,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelUsersView.setLayout(panelUsersViewLayout);
     panelUsersViewLayout.setHorizontalGroup(
         panelUsersViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelUsersViewLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRefreshUserTable)
@@ -3642,7 +3681,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(btnSearchUser)
                 .addComponent(btnRefreshUserTable))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelUsersView, "card2");
@@ -3693,7 +3732,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelSessionLogs.setLayout(panelSessionLogsLayout);
     panelSessionLogsLayout.setHorizontalGroup(
         panelSessionLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
+        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSessionLogsLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrintSession, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3702,7 +3741,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelSessionLogsLayout.setVerticalGroup(
         panelSessionLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelSessionLogsLayout.createSequentialGroup()
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnPrintSession, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
@@ -3778,7 +3817,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     panelAddUsersLayout.setHorizontalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(247, Short.MAX_VALUE)
+            .addContainerGap(231, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                 .addComponent(jLabel10)
                 .addComponent(jLabel13)
@@ -3802,12 +3841,12 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(txtConfPass))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(246, Short.MAX_VALUE))
+            .addContainerGap(230, Short.MAX_VALUE))
     );
     panelAddUsersLayout.setVerticalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(131, Short.MAX_VALUE)
+            .addContainerGap(138, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel10))
@@ -3840,7 +3879,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(111, Short.MAX_VALUE))
+            .addContainerGap(118, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelAddUsers, "card2");
@@ -3900,18 +3939,60 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    jPanel50.setBackground(new java.awt.Color(129, 186, 243));
+    jPanel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+    jLabel121.setText("Activate promotion");
+
+    btnActivate.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnActivate.setText("Activate");
+    btnActivate.setContentAreaFilled(false);
+    btnActivate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnActivate.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnActivateActionPerformed(evt);
+        }
+    });
+
+    jLabel122.setText("button :");
+
+    javax.swing.GroupLayout jPanel50Layout = new javax.swing.GroupLayout(jPanel50);
+    jPanel50.setLayout(jPanel50Layout);
+    jPanel50Layout.setHorizontalGroup(
+        jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel50Layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(btnActivate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel122))
+            .addContainerGap())
+    );
+    jPanel50Layout.setVerticalGroup(
+        jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel50Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(jLabel121)
+            .addGap(5, 5, 5)
+            .addComponent(jLabel122)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnActivate)
+            .addContainerGap())
+    );
+
     javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
     jPanel21.setLayout(jPanel21Layout);
     jPanel21Layout.setHorizontalGroup(
         jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel21Layout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addComponent(btnUsersSessions, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addComponent(btnusersInfo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddNewUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPassReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPermissions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(btnUsersSessions, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnusersInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddNewUsers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPermissions, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPassReset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel50, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(panelHolderManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -3929,6 +4010,8 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnPermissions, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(btnPassReset, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(363, 363, 363)
+            .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -4338,15 +4421,25 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    comboForm.setBackground(new java.awt.Color(255, 255, 255));
-    comboForm.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            comboFormItemStateChanged(evt);
+    jLabel109.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel109.setText("Filter by Form :");
+
+    txtFormBoro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+    txtFormBoro.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtFormBoroKeyTyped(evt);
         }
     });
 
-    jLabel109.setForeground(new java.awt.Color(255, 255, 255));
-    jLabel109.setText("Filter by Form :");
+    btnSearchFormView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
+    btnSearchFormView.setContentAreaFilled(false);
+    btnSearchFormView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchFormView.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
+    btnSearchFormView.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSearchFormViewActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout panelStudentsLayout = new javax.swing.GroupLayout(panelStudents);
     panelStudents.setLayout(panelStudentsLayout);
@@ -4355,11 +4448,13 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelStudentsLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel75)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 270, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
             .addComponent(jLabel109)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(comboForm, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnSearchFormView, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
             .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel60)
@@ -4380,8 +4475,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(btnSearchStdID)
                 .addComponent(jLabel60)
                 .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(comboForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel109))
+                .addComponent(jLabel109)
+                .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSearchFormView))
             .addGap(4, 4, 4)
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -4645,6 +4741,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtStreamMags.setEditable(false);
+
+    jLabel120.setText("Stream :");
+
     javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
     jPanel25.setLayout(jPanel25Layout);
     jPanel25Layout.setHorizontalGroup(
@@ -4678,14 +4778,6 @@ public final class LibraryHome extends javax.swing.JFrame {
                                                 .addComponent(btnSearchForMagIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(txtMagzName1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel25Layout.createSequentialGroup()
-                                        .addComponent(labelId3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtMagzClass, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel25Layout.createSequentialGroup()
-                                        .addComponent(labelId4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtMagzPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel25Layout.createSequentialGroup()
                                         .addComponent(labelId5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtMagzDept, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4694,7 +4786,20 @@ public final class LibraryHome extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtMagzIssueNo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAddMagToIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(btnAddMagToIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel25Layout.createSequentialGroup()
+                                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelId4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(labelId3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel25Layout.createSequentialGroup()
+                                                .addComponent(txtMagzClass, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel120)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtStreamMags, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtMagzPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGroup(jPanel25Layout.createSequentialGroup()
                             .addComponent(labelId7)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4742,7 +4847,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(labelId3)
-                .addComponent(txtMagzClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtMagzClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtStreamMags, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel120))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(labelId4)
@@ -6032,7 +6139,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnExportStudentToExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnExportStudentToExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
     btnExportStudentToExcel.setText("Export to Excel");
-    btnExportStudentToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnExportStudentToExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
     btnExportStudentToExcel.setContentAreaFilled(false);
     btnExportStudentToExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnExportStudentToExcel.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
@@ -6047,7 +6154,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnRefreshStdDetails.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnRefreshStdDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
     btnRefreshStdDetails.setText("Refresh");
-    btnRefreshStdDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnRefreshStdDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnRefreshStdDetails.setContentAreaFilled(false);
     btnRefreshStdDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnRefreshStdDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -6059,7 +6166,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnEditStdDetails.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnEditStdDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editred_16.png"))); // NOI18N
     btnEditStdDetails.setText("Edit Details");
-    btnEditStdDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnEditStdDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnEditStdDetails.setContentAreaFilled(false);
     btnEditStdDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnEditStdDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -6080,7 +6187,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnExcelImportStd.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnExcelImportStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
     btnExcelImportStd.setText("Excel Student List Import");
-    btnExcelImportStd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnExcelImportStd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnExcelImportStd.setContentAreaFilled(false);
     btnExcelImportStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnExcelImportStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
@@ -6094,7 +6201,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel104.setText("Enter Student ID :");
 
     btnSearchByIdstd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
-    btnSearchByIdstd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnSearchByIdstd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnSearchByIdstd.setContentAreaFilled(false);
     btnSearchByIdstd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnSearchByIdstd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
@@ -6104,10 +6211,36 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    comboFilterForm.setBackground(new java.awt.Color(255, 255, 255));
-    comboFilterForm.addItemListener(new java.awt.event.ItemListener() {
-        public void itemStateChanged(java.awt.event.ItemEvent evt) {
-            comboFilterFormItemStateChanged(evt);
+    txtStreamEntered.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtStreamEnteredKeyTyped(evt);
+        }
+    });
+
+    btnSearchListStd.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnSearchListStd.setForeground(new java.awt.Color(255, 255, 255));
+    btnSearchListStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
+    btnSearchListStd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
+    btnSearchListStd.setContentAreaFilled(false);
+    btnSearchListStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnSearchListStd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+    btnSearchListStd.setLabel("");
+    btnSearchListStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
+    btnSearchListStd.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnSearchListStdActionPerformed(evt);
+        }
+    });
+
+    jLabel123.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel123.setText("Stream :");
+
+    txtFormEntered.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            txtFormEnteredKeyPressed(evt);
+        }
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtFormEnteredKeyTyped(evt);
         }
     });
 
@@ -6125,11 +6258,17 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnEditStdDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnRefreshStdDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel111)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(comboFilterForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtFormEntered, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabel123)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtStreamEntered, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnSearchListStd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(26, 26, 26)
             .addComponent(jLabel104)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtStdId, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6139,20 +6278,21 @@ public final class LibraryHome extends javax.swing.JFrame {
     );
     jPanel47Layout.setVerticalGroup(
         jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel47Layout.createSequentialGroup()
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel47Layout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnSearchByIdstd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel47Layout.createSequentialGroup()
-                    .addGap(1, 1, 1)
-                    .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(comboFilterForm)
-                        .addComponent(jLabel111)
-                        .addComponent(jLabel104)))
-                .addComponent(btnExcelImportStd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEditStdDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRefreshStdDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtStdId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+            .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(btnSearchListStd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSearchByIdstd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExcelImportStd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEditStdDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStdId, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabel104)
+                    .addComponent(txtStreamEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel123)
+                    .addComponent(txtFormEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel111))
+                .addComponent(btnRefreshStdDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -6179,7 +6319,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(txtCountstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap())
-        .addComponent(jScrollPane21, javax.swing.GroupLayout.Alignment.TRAILING)
+        .addComponent(jScrollPane21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1039, Short.MAX_VALUE)
     );
     panelStdDetailsCarrierLayout.setVerticalGroup(
         panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -6187,7 +6327,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+            .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(btnExportStudentToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6197,6 +6337,19 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap())
     );
 
+    btnPromo.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnPromo.setForeground(new java.awt.Color(255, 255, 255));
+    btnPromo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
+    btnPromo.setText("Student Promotion");
+    btnPromo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnPromo.setContentAreaFilled(false);
+    btnPromo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnPromo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnPromoActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelStudentListLayout = new javax.swing.GroupLayout(panelStudentList);
     panelStudentList.setLayout(panelStudentListLayout);
     panelStudentListLayout.setHorizontalGroup(
@@ -6204,15 +6357,19 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelStudentListLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(labelMagzBorrowed4)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPromo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
         .addComponent(panelStdDetailsCarrier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     panelStudentListLayout.setVerticalGroup(
         panelStudentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelStudentListLayout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(labelMagzBorrowed4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(7, 7, 7)
+            .addGroup(panelStudentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(labelMagzBorrowed4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPromo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(panelStdDetailsCarrier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -6248,7 +6405,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     btnExportListExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnExportListExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
     btnExportListExcel.setText("Export to Excel");
-    btnExportListExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnExportListExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
     btnExportListExcel.setContentAreaFilled(false);
     btnExportListExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnExportListExcel.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
@@ -6260,9 +6417,10 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jPanel45.setBackground(new java.awt.Color(255, 255, 255));
 
+    btnEditStaffDetails.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnEditStaffDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editred_16.png"))); // NOI18N
     btnEditStaffDetails.setText("Edit details");
-    btnEditStaffDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnEditStaffDetails.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnEditStaffDetails.setContentAreaFilled(false);
     btnEditStaffDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnEditStaffDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -6284,7 +6442,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel110.setText("Enter Staff ID");
 
     btnFilterStaffId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
-    btnFilterStaffId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnFilterStaffId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnFilterStaffId.setContentAreaFilled(false);
     btnFilterStaffId.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnFilterStaffId.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchred_16.png"))); // NOI18N
@@ -6294,9 +6452,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnRefreshStaffList.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnRefreshStaffList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
     btnRefreshStaffList.setText("Refresh");
-    btnRefreshStaffList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnRefreshStaffList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnRefreshStaffList.setContentAreaFilled(false);
     btnRefreshStaffList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnRefreshStaffList.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh2_16.png"))); // NOI18N
@@ -6306,9 +6465,10 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnExcelStaffImport.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnExcelStaffImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
     btnExcelStaffImport.setText("Excel Record Import");
-    btnExcelStaffImport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+    btnExcelStaffImport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243), 2));
     btnExcelStaffImport.setContentAreaFilled(false);
     btnExcelStaffImport.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnExcelStaffImport.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MicrosoftExcelred_16.png"))); // NOI18N
@@ -6834,8 +6994,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.add(panelManageUsers);
         holderPanel.repaint();
         holderPanel.revalidate();
-        DisplaySessions();
-        DisplayUsers();
+        refreshSessions();
+        refreshUsers();
     }//GEN-LAST:event_itemManageUsersActionPerformed
 
     private void menuItemProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemProfileActionPerformed
@@ -7433,41 +7593,48 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintSessionMouseExited
 
     private void btnPrintSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintSessionActionPerformed
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date today = Calendar.getInstance().getTime();
-        String reportDate = df.format(today);
-        MessageFormat footer = new MessageFormat(reportDate);
-        
-        MessageFormat header = new MessageFormat("School Library System Session Logs");
-        try {
-            boolean complete = tableSessionLogs.print(JTable.PrintMode.NORMAL, header, footer);
-        if (complete) {
-        JOptionPane.showMessageDialog(null, "Session logs printed successfully");
-        } else {
-        JOptionPane.showMessageDialog(null, "Printing cancelled");
+        if(tableSessionLogs.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to print");}
+        else{
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+            String reportDate = df.format(today);
+            MessageFormat footer = new MessageFormat(reportDate);
+
+            MessageFormat header = new MessageFormat("School Library System Session Logs");
+            try {
+                boolean complete = tableSessionLogs.print(JTable.PrintMode.NORMAL, header, footer);
+            if (complete) {
+            JOptionPane.showMessageDialog(null, "Session logs printed successfully");
+            } else {
+            JOptionPane.showMessageDialog(null, "Printing cancelled");
+            }
+        } catch (PrinterException pe) {
+        JOptionPane.showMessageDialog(null,  pe.getMessage());
+            }
         }
-    } catch (PrinterException pe) {
-    JOptionPane.showMessageDialog(null,  pe.getMessage());
-}
     }//GEN-LAST:event_btnPrintSessionActionPerformed
 
     private void btnPrintIssuedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintIssuedActionPerformed
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date today = Calendar.getInstance().getTime();
-        String reportDate = df.format(today);
-        MessageFormat footer = new MessageFormat(reportDate);
-        
-        MessageFormat header = new MessageFormat("School Library System: Books Issued List");
-        try {
-            boolean complete = tableBooksIssued.print(JTable.PrintMode.NORMAL, header, footer);
-        if (complete) {
-        JOptionPane.showMessageDialog(null, "Session logs printed successfully");
-        } else {
-        JOptionPane.showMessageDialog(null, "Printing cancelled");
+        if(tableBooksIssued.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to print");}
+        else{DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                Date today = Calendar.getInstance().getTime();
+                String reportDate = df.format(today);
+                MessageFormat footer = new MessageFormat(reportDate);
+
+                MessageFormat header = new MessageFormat("School Library System: Books Issued List");
+                try {
+                    boolean complete = tableBooksIssued.print(JTable.PrintMode.NORMAL, header, footer);
+                if (complete) {
+                JOptionPane.showMessageDialog(null, "Session logs printed successfully");
+                } else {
+                JOptionPane.showMessageDialog(null, "Printing cancelled");
+                }
+            } catch (PrinterException pe) {
+            JOptionPane.showMessageDialog(null,  pe.getMessage());
         }
-    } catch (PrinterException pe) {
-    JOptionPane.showMessageDialog(null,  pe.getMessage());
-}
+        }
     }//GEN-LAST:event_btnPrintIssuedActionPerformed
 
     private void btnPrintIssuedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPrintIssuedMouseEntered
@@ -7607,22 +7774,26 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchBorrowersActionPerformed
 
     private void btnPrintBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintBorrowersActionPerformed
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-        Date today = Calendar.getInstance().getTime();
-        String reportDate = df.format(today);
-        MessageFormat footer = new MessageFormat(reportDate);
-        
-        MessageFormat header = new MessageFormat("School Library System: Borrowers' List");
-        try {
-            boolean complete = tableBorrowers.print(JTable.PrintMode.NORMAL, header, footer);
-        if (complete) {
-        JOptionPane.showMessageDialog(null, "Borrowers table printed successfuly");
-        } else {
-        JOptionPane.showMessageDialog(null, "Printing cancelled");
+        if(tableBorrowers.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to print");}
+        else{
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+                Date today = Calendar.getInstance().getTime();
+                String reportDate = df.format(today);
+                MessageFormat footer = new MessageFormat(reportDate);
+
+                MessageFormat header = new MessageFormat("School Library System: Borrowers' List");
+                try {
+                    boolean complete = tableBorrowers.print(JTable.PrintMode.NORMAL, header, footer);
+                if (complete) {
+                JOptionPane.showMessageDialog(null, "Borrowers table printed successfuly");
+                } else {
+                JOptionPane.showMessageDialog(null, "Printing cancelled");
+                }
+            } catch (PrinterException pe) {
+            JOptionPane.showMessageDialog(null,  pe.getMessage());
+            }
         }
-    } catch (PrinterException pe) {
-    JOptionPane.showMessageDialog(null,  pe.getMessage());
-    }
     }//GEN-LAST:event_btnPrintBorrowersActionPerformed
 
     private void btnProfMoreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProfMoreMouseEntered
@@ -7683,7 +7854,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchStaffActionPerformed
 
     private void btnExcelListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelListActionPerformed
-        writeToExcel();
+        if(tableListBooks.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeToExcel();}
     }//GEN-LAST:event_btnExcelListActionPerformed
 
     private void btnExcelListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcelListMouseEntered
@@ -7695,7 +7869,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcelListMouseExited
 
     private void btnExcelBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelBorrowersActionPerformed
-        writeBorrowersToExcel();
+        if(tableBorrowers.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeBorrowersToExcel();}
     }//GEN-LAST:event_btnExcelBorrowersActionPerformed
 
     private void comboFilterStockItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboFilterStockItemStateChanged
@@ -7723,7 +7900,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_searchStockActionPerformed
 
     private void btnExportStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportStockActionPerformed
-        writeStockToExcel();
+        if(tableBookStock.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeStockToExcel();}
     }//GEN-LAST:event_btnExportStockActionPerformed
 
     private void btnExportStockMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportStockMouseEntered
@@ -7837,7 +8017,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         } else{
             refreshListOnBorod();
             DisplayBooksComboCount();
-            
         }
     }//GEN-LAST:event_comboBoxListItemStateChanged
 
@@ -8181,7 +8360,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMagzToExcelMouseExited
 
     private void btnMagzToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMagzToExcelActionPerformed
-        writeMagzToExcel();
+        if(tableMagzBoro.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeMagzToExcel();}
     }//GEN-LAST:event_btnMagzToExcelActionPerformed
 
     private void comboMagzFilterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboMagzFilterItemStateChanged
@@ -8331,7 +8513,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_comboFilterStudentsItemStateChanged
 
     private void btnWriteStdToExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteStdToExcelActionPerformed
-        writeStdToExcel();
+        if(tableStudents.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeStdToExcel();}
     }//GEN-LAST:event_btnWriteStdToExcelActionPerformed
 
     private void comboFiletStaffItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboFiletStaffItemStateChanged
@@ -8353,7 +8538,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchStaffIdActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        writeStaffTbToExcel();
+        if(tableStaff.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to export to excel");}
+        else{
+        writeStaffTbToExcel();}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void menuItemGuideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGuideActionPerformed
@@ -8426,11 +8614,14 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_textFieldBookIdKeyPressed
 
     private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
-        try {
+       
+        DialogBooksImport bookDialogEx = new DialogBooksImport(null, true);
+        bookDialogEx.setVisible(true);
+        /* try {
             BookExcelImport.main(null);
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
             Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_btnImportActionPerformed
 
     private void txtPassKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyTyped
@@ -8524,11 +8715,8 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void btnExcelImportStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelImportStdActionPerformed
-        try {
-            StudentExcelImport.main(null);
-        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DialogStudentImport importstd = new DialogStudentImport(null, true);
+        importstd.setVisible(true);
     }//GEN-LAST:event_btnExcelImportStdActionPerformed
 
     private void itemStudentListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStudentListActionPerformed
@@ -8574,11 +8762,8 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_tableStudentListMouseClicked
 
     private void btnExcelStaffImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelStaffImportActionPerformed
-        try {
-            StaffExcelImport.main(null);
-        } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException | IOException ex) {
-            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        DialogImportStaff newStaff = new DialogImportStaff(this, true);
+        newStaff.setVisible(true);
     }//GEN-LAST:event_btnExcelStaffImportActionPerformed
 
     private void btnRefreshStaffListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStaffListActionPerformed
@@ -8611,15 +8796,6 @@ public final class LibraryHome extends javax.swing.JFrame {
             editList.setVisible(true);
         }
     }//GEN-LAST:event_btnEditStaffDetailsActionPerformed
-
-    private void comboFilterFormItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboFilterFormItemStateChanged
-        String selectedText = (String) comboFilterForm.getSelectedItem();
-        if(selectedText.equalsIgnoreCase("default")){
-            refreshstdListModeltitle();
-            numberOfStudents();}
-       else{refreshstdListModelFilter();
-            numberOfStudentsForm();}
-    }//GEN-LAST:event_comboFilterFormItemStateChanged
 
     private void btnSearchByIdstdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByIdstdActionPerformed
         if(txtStdId.getText().isEmpty()){
@@ -8864,14 +9040,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         formDialog.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void comboFormItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboFormItemStateChanged
-        String itemForm = (String) comboForm.getSelectedItem();
-        if(itemForm.equalsIgnoreCase("default")){
-        refreshStdTable();}
-        else{
-        refreshStdOnForm();}
-    }//GEN-LAST:event_comboFormItemStateChanged
-
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
         if(txtUser.getText().equalsIgnoreCase("support")){
         txtUser.setForeground(Color.red);}
@@ -8881,6 +9049,71 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
         txtUser.setForeground(Color.BLACK);
     }//GEN-LAST:event_txtUserFocusGained
+
+    private void btnPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromoActionPerformed
+        PromotionDialog promDialog = new PromotionDialog(this, true);
+        promDialog.setVisible(true);
+    }//GEN-LAST:event_btnPromoActionPerformed
+
+    private void btnActivateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateActionPerformed
+        btnPromo.setEnabled(true);
+        JOptionPane.showMessageDialog(null, "(Student Promotion) button activated");
+    }//GEN-LAST:event_btnActivateActionPerformed
+
+    private void txtFormEnteredKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormEnteredKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if(txtFormEntered.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please enter form to search");}
+            else{refreshstdListModelFilter();
+            numberOfStudentsForm();
+            }
+        }
+    }//GEN-LAST:event_txtFormEnteredKeyPressed
+
+    private void btnSearchListStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchListStdActionPerformed
+        int formNumber = Integer.parseInt(txtFormEntered.getText());
+        if(txtFormEntered.getText().isEmpty() || formNumber > 4 || formNumber < 1){
+        JOptionPane.showMessageDialog(null, "Enter a valid form");
+        txtFormEntered.requestFocus();}
+        else if(txtStreamEntered.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Enter Stream");
+        txtStreamEntered.requestFocus();}
+        else{
+        refreshstdModelFilterForm();
+        numberOfStudentsForStr();}
+    }//GEN-LAST:event_btnSearchListStdActionPerformed
+
+    private void txtFormEnteredKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormEnteredKeyTyped
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFormEnteredKeyTyped
+
+    private void txtStreamEnteredKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStreamEnteredKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        getToolkit().beep();
+        evt.consume();}
+    }//GEN-LAST:event_txtStreamEnteredKeyTyped
+
+    private void btnSearchFormViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchFormViewActionPerformed
+        int formno = Integer.parseInt(txtFormBoro.getText().trim());
+        if(txtFormBoro.getText().isEmpty() || formno < 1 || formno > 4){
+        JOptionPane.showMessageDialog(null, "Enter a valid form");
+        txtFormBoro.requestFocus();}
+        else{
+        refreshStdOnForm();}
+    }//GEN-LAST:event_btnSearchFormViewActionPerformed
+
+    private void txtFormBoroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormBoroKeyTyped
+        char c = evt.getKeyChar();
+        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtFormBoroKeyTyped
     /**
      * @param args the command line arguments
      */
@@ -9076,6 +9309,20 @@ while(stdListModel.getRowCount() != 0){
     fillStudnetList();
 }
 
+public void refreshUsers(){
+    while (userModel.getRowCount() != 0) {
+         userModel.removeRow(0);
+          }
+        DisplayUsers();
+}
+
+public void refreshSessions(){
+    while(logModel.getRowCount() != 0){
+    logModel.removeRow(0);
+    }
+    DisplaySessions();
+}
+
 public void refreshstdListModelFilter(){
 while(stdListModel.getRowCount() != 0){
         stdListModel.removeRow(0);}
@@ -9086,6 +9333,12 @@ public void refreshstdIdModelFilter(){
 while(stdListModel.getRowCount() != 0){
         stdListModel.removeRow(0);}
     fillterStudentId();
+}
+
+public void refreshstdModelFilterForm(){
+while(stdListModel.getRowCount() != 0){
+        stdListModel.removeRow(0);}
+    fillterStudentStream();
 }
 
 public void refreshListOnBorod(){
@@ -10793,6 +11046,7 @@ public void issueToStudents() {
         String stdntFname = txtSdntFname.getText().toUpperCase().trim();
         String stdntLname = txtStdntLname.getText().toUpperCase().trim();
         String StdntClass = txtStdntClass.getText().toUpperCase().trim();
+        String streamNAme = txtStreamLong.getText().trim();
         Date dateBorrowed = DateBorrowed.getDate();
         Date dateDue = dateChooserDue.getDate();
         String bookdIssue = txtBookIdIssue.getText();
@@ -10841,12 +11095,13 @@ public void issueToStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, "
+                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form,stream,"
                         + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
                             + stdntLname + "','"
                             + StdntClass + "','"
+                            + streamNAme+ "','"
                             + dateBorrowed + "','"
                             + dateDue + "','"
                             + systemBkId + "','"
@@ -10896,6 +11151,7 @@ public void issueShortToStudents() {
         String stdntFname = txtShortFname.getText().toUpperCase().trim();
         String stdntLname = txtShortLname.getText().toUpperCase().trim();
         String StdntClass = txtShortClass.getText();
+        String streamName = txtStreamShort.getText().trim();
         Date dateBorrowed = DateBorrowed.getDate();
         Date dateDue = DateBorrowed.getDate();
         String bookSysID = systemIDtxt.getText();
@@ -10927,12 +11183,13 @@ public void issueShortToStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, "
+                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, stream "
                         + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
                             + stdntLname + "','"
                             + StdntClass + "','"
+                            + streamName + "','"
                             + dateBorrowed + "','"
                             + dateDue + "','"
                             + bookdIssue + "','"
@@ -11472,7 +11729,7 @@ public void retrieveStudentDetails() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_list WHERE adm_no='"+ txtStdntAmNo.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtStdntAmNo.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -11484,7 +11741,9 @@ public void retrieveStudentDetails() {
                 txtStdntLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
+                String class_stream = rsRetStd.getString("stream");
                 txtStdntClass.setText(class_std);
+                txtStreamLong.setText(class_stream);
 
             }
             if (emptyRs) {
@@ -11493,6 +11752,7 @@ public void retrieveStudentDetails() {
                 txtSdntFname.setText("");
                 txtStdntLname.setText("");
                 txtStdntClass.setText("");
+                txtStreamLong.setText("");
             }
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11508,7 +11768,7 @@ public void retrieveStudentDetailsShort() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_list WHERE adm_no='"+ txtStaffstdId.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtStaffstdId.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -11520,7 +11780,9 @@ public void retrieveStudentDetailsShort() {
                 txtShortLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
+                String class_stream = rsRetStd.getString("stream");
                 txtShortClass.setText(class_std);
+                txtStreamShort.setText(class_stream);
 
             }
             if (emptyRs) {
@@ -11536,6 +11798,7 @@ public void retrieveStudentDetailsShort() {
                 txtShortBkIsbn.setText("");
                 txtShortBkTitle.setText("");
                 SpinfieldTimeLoan.setValue(1);
+                txtStreamShort.setText("");
             }
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11552,7 +11815,7 @@ public void retrieveStudentDetailsMagz() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form FROM student_list WHERE adm_no='"+ txtMagzNameID.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtMagzNameID.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -11564,7 +11827,9 @@ public void retrieveStudentDetailsMagz() {
                 txtMagzName2.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
+                String class_stream = rsRetStd.getString("stream");
                 txtMagzClass.setText(class_std);
+                txtStreamMags.setText(class_stream);
 
             }
             if (emptyRs) {
@@ -11576,6 +11841,7 @@ public void retrieveStudentDetailsMagz() {
                 txtMagzClass.setText("");
                 txtMagzPhone.setText("");
                 txtMagzDept.setText("");
+                txtStreamMags.setText("");
             }
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12639,7 +12905,7 @@ public void studentTable() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -12648,7 +12914,9 @@ public void studentTable() {
                 stdFname = staffRs.getString("std_fname");
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
-                stdForm = staffRs.getString("form");
+                String formNo = staffRs.getString("form");
+                String formStream = staffRs.getString("stream");
+                stdForm = formNo+" "+formStream;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
@@ -12686,7 +12954,7 @@ public void filterStudentTable() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -12695,7 +12963,9 @@ public void filterStudentTable() {
                 stdFname = staffRs.getString("std_fname");
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
-                stdForm = staffRs.getString("form");
+                String formNo = staffRs.getString("form");
+                String formStr = staffRs.getString("stream");
+                stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
@@ -12727,13 +12997,13 @@ public void filterStudentForm() {
 
         tableStudents.setFillsViewportHeight(true);
         
-        String itemSelect = (String) comboForm.getSelectedItem();
+        String itemSelect = txtFormBoro.getText().trim();
         
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE form='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE form='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -12742,7 +13012,9 @@ public void filterStudentForm() {
                 stdFname = staffRs.getString("std_fname");
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
-                stdForm = staffRs.getString("form");
+                String formNo = staffRs.getString("form");
+                String formStr = staffRs.getString("stream");
+                stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
@@ -12756,7 +13028,7 @@ public void filterStudentForm() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "Not in student records", "Error", JOptionPane.ERROR_MESSAGE);
+               // JOptionPane.showMessageDialog(null, "Not in student records", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12780,7 +13052,7 @@ public void filterStudentTableID() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -12789,7 +13061,9 @@ public void filterStudentTableID() {
                 stdFname = staffRs.getString("std_fname");
                 stdLname = staffRs.getString("std_lname");
                 String namelist = stdFname+" "+stdLname;
-                stdForm = staffRs.getString("form");
+                String formNo = staffRs.getString("form");
+                String formStr = staffRs.getString("stream");
+                stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
                 stdBorrrowedDate = staffRs.getString("date_borrowed");
@@ -13092,7 +13366,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, status FROM student_list");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream, status FROM student_list");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -13100,7 +13374,9 @@ public void filterStaffTableID(){
                 admissionNo = listRs.getString("adm_no");
                 stdFnameList = listRs.getString("std_fname");
                 stdLnameList = listRs.getString("std_lname");
-                stdFormList = listRs.getString("form");
+                String formNo = listRs.getString("form");
+                String streamName = listRs.getString("stream");
+                stdFormList = formNo+" "+streamName;
                 stdStatus = listRs.getString("status");
 
                 stdListModel.addRow(new Object[]{admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus});
@@ -13118,7 +13394,7 @@ public void filterStaffTableID(){
 }
  
  public void fillterStudnetList() {
-        String formSelected = (String)comboFilterForm.getSelectedItem();
+        String formSelected = txtFormEntered.getText().trim();
      
         stdListModel.setColumnIdentifiers(stdListColumnNames);
 
@@ -13130,7 +13406,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, status FROM student_list WHERE form ='"+ formSelected +"'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE form ='"+ formSelected +"'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -13138,7 +13414,9 @@ public void filterStaffTableID(){
                 admissionNo = listRs.getString("adm_no");
                 stdFnameList = listRs.getString("std_fname");
                 stdLnameList = listRs.getString("std_lname");
-                stdFormList = listRs.getString("form");
+                String formNo = listRs.getString("form");
+                String formStr = listRs.getString("stream");
+                stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
                 stdListModel.addRow(new Object[]{admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus});
@@ -13169,7 +13447,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, status FROM student_list WHERE adm_no ='"+ idSelected +"'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE adm_no ='"+ idSelected +"'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -13177,7 +13455,50 @@ public void filterStaffTableID(){
                 admissionNo = listRs.getString("adm_no");
                 stdFnameList = listRs.getString("std_fname");
                 stdLnameList = listRs.getString("std_lname");
-                stdFormList = listRs.getString("form");
+                String formNo = listRs.getString("form");
+                String formStr = listRs.getString("stream");
+                stdFormList = formNo+" "+formStr;
+                stdStatus = listRs.getString("status");
+
+                stdListModel.addRow(new Object[]{admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus});
+                i++;
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Student Record(s) Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+ 
+ public void fillterStudentStream() {
+        String streamSelected = txtStreamEntered.getText().trim();
+        String formEntered = txtFormEntered.getText().trim();
+        stdListModel.setColumnIdentifiers(stdListColumnNames);
+
+        tableStudentList.setModel(stdListModel);
+
+        tableStudentList.setFillsViewportHeight(true);
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE form = '"+ formEntered +"' AND stream ='"+ streamSelected +"'");
+            ResultSet listRs = st.executeQuery();
+
+            int i = 0;
+            while (listRs.next()) {
+                admissionNo = listRs.getString("adm_no");
+                stdFnameList = listRs.getString("std_fname");
+                stdLnameList = listRs.getString("std_lname");
+                String formNo = listRs.getString("form");
+                String formStr = listRs.getString("stream");
+                stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
                 stdListModel.addRow(new Object[]{admissionNo,stdFnameList, stdLnameList, stdFormList,stdStatus});
@@ -13312,11 +13633,31 @@ public void numberOfStudentsId(){
     }
 
 public void numberOfStudentsForm(){
-    String studentForm = (String) comboFilterForm.getSelectedItem();
+    String studentForm = txtFormEntered.getText().trim();
     try{
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
         PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no) AS stdcount FROM student_list WHERE form='"+ studentForm +"'");
+        ResultSet rsCs = os.executeQuery();
+        
+        int i = 0;
+            if(rsCs.next()){    
+                String repoCount = rsCs.getString("stdcount");
+                txtCountstudent.setText(repoCount);}
+            
+            else{}//DO NOT delete this line
+                
+    }catch(ClassNotFoundException | SQLException | HeadlessException es){
+    JOptionPane.showMessageDialog(null, es.getMessage());}
+    }
+
+public void numberOfStudentsForStr(){
+    String studentForm = txtFormEntered.getText().trim();
+    String studentStream = txtStreamEntered.getText().trim();
+    try{
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no) AS stdcount FROM student_list WHERE stream ='"+ studentStream +"' AND form='"+ studentForm +"'");
         ResultSet rsCs = os.executeQuery();
         
         int i = 0;
@@ -13644,29 +13985,9 @@ public void loadcombocompany() {
         }    
 }
 
-public void loadcomboForm() {
-    try
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT form FROM form");
-            ResultSet rs = st.executeQuery();
-            while(rs.next()){                            
-                comboForm.addItem(rs.getString("form"));
-                comboFilterForm.addItem(rs.getString("form"));
-                }
-            con.close();
-            }
-        catch(Exception e)
-        {
-            //System.out.println("Error"+e);
-        }
-}
-
 public void loadCombos(){
     loadcomboStock();
     loadcombocompany();
-    loadcomboForm();
 }
 
 public void retrievecatDetails() {
@@ -13787,6 +14108,7 @@ public void DisplayBooksComboCount1(){
     private com.toedter.calendar.JDateChooser ChooserNotes;
     private com.toedter.calendar.JDateChooser DateBorrowed;
     private com.toedter.components.JSpinField SpinfieldTimeLoan;
+    private javax.swing.JButton btnActivate;
     private javax.swing.JButton btnAddBkLost;
     private javax.swing.JButton btnAddBookList;
     private javax.swing.JButton btnAddBookStaff;
@@ -13839,6 +14161,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnPrintIssued;
     private javax.swing.JButton btnPrintSession;
     private javax.swing.JButton btnProfMore;
+    private javax.swing.JButton btnPromo;
     private javax.swing.JButton btnRecieveBooks;
     private javax.swing.JButton btnRecieveMagz;
     private javax.swing.JButton btnRecieveMain;
@@ -13861,9 +14184,11 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnSearchByIdstd;
     private javax.swing.JButton btnSearchDam;
     private javax.swing.JButton btnSearchForMagIssue;
+    private javax.swing.JButton btnSearchFormView;
     private javax.swing.JButton btnSearchIssueStd;
     private javax.swing.JButton btnSearchIssued;
     private javax.swing.JButton btnSearchList;
+    private javax.swing.JButton btnSearchListStd;
     private javax.swing.JButton btnSearchMagz;
     private javax.swing.JButton btnSearchMainID;
     private javax.swing.JButton btnSearchMainTable;
@@ -13891,11 +14216,9 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JComboBox comboCompany;
     private javax.swing.JComboBox<String> comboFiletStaff;
     private javax.swing.JComboBox<String> comboFilter;
-    private javax.swing.JComboBox comboFilterForm;
     private javax.swing.JComboBox<String> comboFilterLost;
     private javax.swing.JComboBox<String> comboFilterStock;
     private javax.swing.JComboBox<String> comboFilterStudents;
-    private javax.swing.JComboBox comboForm;
     private javax.swing.JComboBox<String> comboMagz;
     private javax.swing.JComboBox<String> comboMagzFilter;
     private javax.swing.JComboBox comboMaintenance;
@@ -13950,7 +14273,13 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -14098,6 +14427,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel50;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -14251,6 +14581,8 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtFnameLost;
+    private javax.swing.JTextField txtFormBoro;
+    private javax.swing.JTextField txtFormEntered;
     private javax.swing.JTextField txtIDLost;
     private javax.swing.JTextField txtIdNo;
     private javax.swing.JTextField txtIsbnLost;
@@ -14313,6 +14645,10 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JTextField txtStdntAmNo;
     private javax.swing.JTextField txtStdntClass;
     private javax.swing.JTextField txtStdntLname;
+    private javax.swing.JTextField txtStreamEntered;
+    private javax.swing.JTextField txtStreamLong;
+    private javax.swing.JTextField txtStreamMags;
+    private javax.swing.JTextField txtStreamShort;
     private javax.swing.JTextField txtUser;
     private javax.swing.JTextField txtschtitle;
     // End of variables declaration//GEN-END:variables

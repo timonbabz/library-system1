@@ -267,7 +267,7 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         labelVersion.setBackground(new java.awt.Color(51, 51, 255));
         labelVersion.setForeground(new java.awt.Color(51, 102, 255));
         labelVersion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelVersion.setText("System Version 2.1.7");
+        labelVersion.setText("System Version 2.1.8");
         labelVersion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelVersionMouseClicked(evt);

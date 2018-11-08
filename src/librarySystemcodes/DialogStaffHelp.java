@@ -5,6 +5,18 @@
  */
 package librarySystemcodes;
 
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
+
 /**
  *
  * @author TimonBabz
@@ -40,15 +52,17 @@ public class DialogStaffHelp extends javax.swing.JDialog {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(129, 186, 243));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
         jLabel2.setText("Excel headers for staff records import");
@@ -60,7 +74,7 @@ public class DialogStaffHelp extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,13 +107,35 @@ public class DialogStaffHelp extends javax.swing.JDialog {
         jTextField5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextField5.setText("PHONE NUMBER");
 
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButton1.setText("OK, Got it");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+        jButton2.setText("Get Excel Template");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -117,7 +153,7 @@ public class DialogStaffHelp extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addGap(62, 62, 62)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField1)
                                     .addComponent(jTextField2)
@@ -125,10 +161,14 @@ public class DialogStaffHelp extends javax.swing.JDialog {
                                     .addComponent(jTextField4)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(93, 93, 93)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,9 +187,11 @@ public class DialogStaffHelp extends javax.swing.JDialog {
                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,11 +206,29 @@ public class DialogStaffHelp extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(null, "Ensure you add (.xls) extension to the name of your file");
+        try {
+            createSheet();
+        } catch (IOException ex) {
+            Logger.getLogger(DialogExcelSetup.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        jButton2.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+         jButton2.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jButton2MouseExited
 
     /**
      * @param args the command line arguments
@@ -198,22 +258,43 @@ public class DialogStaffHelp extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogStaffHelp dialog = new DialogStaffHelp(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            DialogStaffHelp dialog = new DialogStaffHelp(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
+    }
+    
+        public void createSheet() throws FileNotFoundException, IOException{
+        JFileChooser jchooser = new JFileChooser();
+        jchooser.setDialogTitle("Select location to save excel template");
+        int selctionUser = jchooser.showSaveDialog(DialogStaffHelp.this);
+        try (HSSFWorkbook workbook = new HSSFWorkbook()) {
+            HSSFSheet sheet = workbook.createSheet("Staff Details for Import");
+            Row header = sheet.createRow(0);
+            header.createCell(0).setCellValue("ID NUMBER");
+            header.createCell(1).setCellValue("FIRST NAME");
+            header.createCell(2).setCellValue("LAST NAME");
+            header.createCell(3).setCellValue("DEPARTMENT");
+            header.createCell(4).setCellValue("PHONE NUMBER");
+            
+            if(selctionUser == JFileChooser.APPROVE_OPTION){
+                File newFile = jchooser.getSelectedFile();
+                workbook.write(newFile);
+            JOptionPane.showMessageDialog(null, "Template created in selected location");
+            }else if(selctionUser == JFileChooser.CANCEL_OPTION){
+            JOptionPane.showMessageDialog(null, "Cancelled");}
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

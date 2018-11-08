@@ -68,6 +68,7 @@ public class SettingsDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         panelSet.setBackground(new java.awt.Color(129, 186, 243));
 

@@ -70,6 +70,7 @@ public class DialogEditStudentList extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
+        setResizable(false);
 
         panelListUpdate.setBackground(new java.awt.Color(129, 186, 243));
 
@@ -106,6 +107,7 @@ public class DialogEditStudentList extends javax.swing.JDialog {
 
         labelCombobox.setText("Update Student status:");
 
+        comboUpdate.setBackground(new java.awt.Color(255, 255, 255));
         comboUpdate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Active", "Closed" }));
         comboUpdate.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
