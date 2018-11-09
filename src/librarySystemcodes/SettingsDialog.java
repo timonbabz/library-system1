@@ -30,6 +30,10 @@ public class SettingsDialog extends javax.swing.JDialog {
     public SettingsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        if(!LibrarySignIn.usernameLabel.equalsIgnoreCase("Support Team")){
+            txtSetName.setEditable(false);
+        }else{
+        txtSetName.setEditable(true);}
         
     }
 
@@ -393,7 +397,13 @@ public class SettingsDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetActionPerformed
-        settingsMethod();
+        if(!LibrarySignIn.usernameLabel.equalsIgnoreCase("Support Team")){
+           JOptionPane.showMessageDialog(null, "Operation not allowed for current user, contact support team");
+        }
+        else if(txtSetName.getText().contains("\'") || txtSetName.getText().contains("\"")){
+        JOptionPane.showMessageDialog(null, "Please don't use double or single quotes");}
+        else{
+            settingsMethod();}
     }//GEN-LAST:event_btnSetActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -515,7 +525,7 @@ public class SettingsDialog extends javax.swing.JDialog {
     //-----------------method to set name of school to the labels---------------
     public void settingsMethod(){
         
-            String strSchoolId = txtSetName.getText();
+            String strSchoolId = txtSetName.getText().toUpperCase().trim();
             
             if(strSchoolId.isEmpty()){
                 JOptionPane.showMessageDialog(null, "Enter School name to set");
