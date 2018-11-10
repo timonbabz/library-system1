@@ -127,6 +127,9 @@ public final class LibrarySignIn extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsernameKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsernameKeyTyped(evt);
+            }
         });
 
         txtPassword.setBackground(java.awt.Color.lightGray);
@@ -401,6 +404,15 @@ public final class LibrarySignIn extends javax.swing.JFrame {
         {
         initialize();}
     }//GEN-LAST:event_labelVersionMouseClicked
+
+    private void txtUsernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsernameKeyTyped
+        if(evt.getKeyCode() == KeyEvent.VK_TAB){
+            if(txtUsername.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please enter the username first");
+            txtUsername.requestFocus();}
+            else{txtPassword.requestFocus();}
+        }
+    }//GEN-LAST:event_txtUsernameKeyTyped
 
     /**
      * @param args the command line arguments

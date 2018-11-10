@@ -789,7 +789,7 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/images/booksBorrowed_32.png"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Borrowed Books"/>
+                        <Property name="text" type="java.lang.String" value="Issued Books"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="labelBooksBorrowed">
@@ -1654,9 +1654,11 @@
                                   <Component id="txtCountStock" min="-2" pref="97" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="120" max="32767" attributes="0"/>
+                                  <EmptySpace pref="125" max="32767" attributes="0"/>
                                   <Component id="comboFilterStock" min="-2" pref="232" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jLabel124" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                   <Component id="txtSearchText" min="-2" pref="271" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="searchStock" min="-2" pref="27" max="-2" attributes="0"/>
@@ -1675,9 +1677,10 @@
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="txtSearchText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="comboFilterStock" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtCountStock" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel117" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel124" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="comboFilterStock" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -1692,7 +1695,7 @@
                               <Component id="btnExportStock" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" pref="603" max="32767" attributes="0"/>
+                          <Component id="jScrollPane5" pref="617" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1719,6 +1722,9 @@
                   <Properties>
                     <Property name="toolTipText" type="java.lang.String" value="enter book title to search"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchTextKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="searchStock">
                   <Properties>
@@ -1825,6 +1831,11 @@
                 <Component class="javax.swing.JLabel" name="jLabel117">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Records found"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel124">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Title :"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2422,6 +2433,9 @@
                         <Property name="text" type="java.lang.String" value="Enter the book title"/>
                         <Property name="toolTipText" type="java.lang.String" value="Enter the book title"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchIssueStdKeyPressed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSearchIssueStd">
                       <Properties>
@@ -2956,8 +2970,10 @@
                               <Component id="txtSearchStaffBook" min="-2" pref="283" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSearchStaffBk" min="-2" pref="28" max="-2" attributes="0"/>
-                              <EmptySpace pref="137" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="comboSearchInStaffIssue" min="-2" pref="202" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnRefreshIssueSatff" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -2967,14 +2983,20 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Component id="btnSearchStaffBk" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="txtSearchStaffBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnAddBookStaff" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="btnSearchStaffBk" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                                  <Component id="txtSearchStaffBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnAddBookStaff" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="comboSearchInStaffIssue" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="comboSearchInStaffIssue" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshIssueSatff" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -3050,7 +3072,37 @@
                         <Property name="toolTipText" type="java.lang.String" value="enter book title to search"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchStaffBookKeyPressed"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchStaffBookKeyTyped"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnRefreshIssueSatff">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="sansserif" size="12" style="1"/>
+                        </Property>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Refresh_16.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Refresh"/>
+                        <Property name="toolTipText" type="java.lang.String" value="reload table"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                            <LineBorder thickness="2">
+                              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                            </LineBorder>
+                          </Border>
+                        </Property>
+                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Hand Cursor"/>
+                        </Property>
+                        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/images/Refreshwhite_16.png"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshIssueSatffActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -3122,13 +3174,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel16" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnIndicator" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jLabel126" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jPanel14" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -3145,6 +3200,8 @@
                                   <Component id="btnIndicator" min="-2" pref="23" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                                   <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel126" min="-2" pref="52" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -3584,6 +3641,13 @@
                     </Property>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLabel126">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/newsysLogo.png"/>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -3820,6 +3884,12 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtListBooks">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Enter boomk title"/>
+              </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtListBooksKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSearchList">
               <Properties>
@@ -4328,6 +4398,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSearchIssued">
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchIssuedKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSearchIssued">
               <Properties>
@@ -5052,6 +5125,7 @@
                         <Property name="toolTipText" type="java.lang.String" value="enter the book title"/>
                       </Properties>
                       <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchShortKeyPressed"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchShortKeyTyped"/>
                       </Events>
                     </Component>
@@ -6004,6 +6078,7 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="txtSearchLost">
                   <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchLostKeyPressed"/>
                     <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchLostKeyTyped"/>
                   </Events>
                 </Component>
@@ -7650,6 +7725,9 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="enter  borrower id"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchMagzBorrowedKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSearchBoroMagz">
               <Properties>
@@ -8486,7 +8564,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel103" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtSearchtitle" min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="txtSearchtitle" min="-2" pref="255" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSearchDam" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -8743,7 +8821,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Enter book ID :"/>
+                <Property name="text" type="java.lang.String" value="Enter book title :"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -9413,6 +9491,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelMagzBorrowed4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel125" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtStdName1" min="-2" pref="224" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnPromo" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -9425,7 +9507,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="labelMagzBorrowed4" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="btnPromo" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnPromo" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="txtStdName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel125" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panelStdDetailsCarrier" max="32767" attributes="0"/>
@@ -9464,6 +9550,8 @@
                               <Component id="jPanel47" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="btnExportStudentToExcel" min="-2" pref="124" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnAll" min="-2" pref="176" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -9489,6 +9577,7 @@
                                   <Component id="txtCountstudent" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="jLabel112" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="btnAll" alignment="1" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -9526,7 +9615,7 @@
                       <Font name="sansserif" size="12" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/images/Microsoft_Excel_16.png"/>
+                      <Image iconType="3" name="/images/Microsoftwhitel_16.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Export to Excel"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -9806,6 +9895,34 @@
                     <Property name="text" type="java.lang.String" value="Total Records :"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JButton" name="btnAll">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="sansserif" size="12" style="1"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/More_Details_16.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Display including closed"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder thickness="2">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/More_Detailsred_16.png"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="btnPromo">
@@ -9835,6 +9952,23 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPromoActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtStdName1">
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStdName1KeyPressed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStdName1KeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel125">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="sansserif" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enter student&apos;s first name :"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -10005,6 +10139,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRefreshStaffList" min="-2" pref="86" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel127" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtStaffNAmeS" min="-2" pref="199" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel110" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtStaffId" min="-2" pref="162" max="-2" attributes="0"/>
@@ -10026,6 +10164,8 @@
                                               <Component id="btnFilterStaffId" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                               <Component id="txtStaffId" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel110" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtStaffNAmeS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel127" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="btnEditStaffDetails" max="32767" attributes="0"/>
                                           <Component id="btnExcelStaffImport" alignment="0" max="32767" attributes="0"/>
@@ -10157,6 +10297,20 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcelStaffImportActionPerformed"/>
                       </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtStaffNAmeS">
+                      <Events>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStaffNAmeSKeyPressed"/>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStaffNAmeSKeyTyped"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel127">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="sansserif" size="12" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Enter first name :"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>

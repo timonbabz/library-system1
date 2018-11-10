@@ -114,6 +114,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
 
         labelStatus.setText("Status :");
 
+        comboUpdate.setBackground(new java.awt.Color(255, 255, 255));
         comboUpdate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Active", "Closed" }));
         comboUpdate.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
