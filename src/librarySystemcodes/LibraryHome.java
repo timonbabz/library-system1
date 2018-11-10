@@ -9379,8 +9379,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void txtStdName1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStdName1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
         if(txtStdName1.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Enter Student's first name to Search");}
-        else{fillterStudentName1();
+        JOptionPane.showMessageDialog(null, "Enter Student's first name to search");}
+        else{
+        refreshstdIdModelFilterName();
         numberOfStudentNameCount();}
         }
     }//GEN-LAST:event_txtStdName1KeyPressed
@@ -9647,6 +9648,12 @@ public void refreshstdIdModelFilter(){
 while(stdListModel.getRowCount() != 0){
         stdListModel.removeRow(0);}
     fillterStudentId();
+}
+
+public void refreshstdIdModelFilterName(){
+while(stdListModel.getRowCount() != 0){
+        stdListModel.removeRow(0);}
+fillterStudentName1();
 }
 
 public void refreshstdModelFilterForm(){
@@ -13841,7 +13848,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE std_fname LIKE '"+ idSelected +"%'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream, status FROM student_list WHERE std_fname LIKE '"+ idSelected +"%'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
