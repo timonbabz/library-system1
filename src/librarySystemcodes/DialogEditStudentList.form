@@ -45,35 +45,61 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelAdm" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelFname" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAdmnNo" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
-                      <Component id="txtFname" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
-                      <Component id="labelLname" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLname" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
-                      <Component id="labelForm" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelCombobox" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="btnUpdateList" min="-2" pref="136" max="-2" attributes="0"/>
-                              <Component id="txtStatus" alignment="1" min="-2" pref="136" max="-2" attributes="0"/>
-                              <Component id="txtForm" alignment="1" min="-2" pref="136" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="btnCancelUpdate" min="-2" pref="136" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="comboUpdate" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelHeader" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="txtFormSelect" min="-2" pref="65" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblForm" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="labelAdm" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelFname" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAdmnNo" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
+                          <Component id="txtFname" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
+                          <Component id="labelLname" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLname" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelForm" min="-2" max="-2" attributes="0"/>
+                                  <Component id="boxForm" min="-2" pref="73" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="boxStream" min="-2" pref="132" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="txtStreamSelect" min="-2" pref="95" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelCombobox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtStatus" alignment="0" min="-2" pref="136" max="-2" attributes="0"/>
+                                  <Component id="comboUpdate" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnUpdateList" min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="btnCancelUpdate" min="-2" pref="136" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,7 +108,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelHeader" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelAdm" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtAdmnNo" min="-2" max="-2" attributes="0"/>
@@ -94,11 +120,27 @@
                   <Component id="labelLname" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtLname" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="labelForm" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblForm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelForm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtForm" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="boxForm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxStream" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtFormSelect" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtStreamSelect" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelStatus" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Component id="txtStatus" min="-2" max="-2" attributes="0"/>
@@ -106,12 +148,12 @@
                   <Component id="labelCombobox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="comboUpdate" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnCancelUpdate" pref="29" max="32767" attributes="0"/>
-                      <Component id="btnUpdateList" max="32767" attributes="0"/>
+                      <Component id="btnCancelUpdate" max="32767" attributes="0"/>
+                      <Component id="btnUpdateList" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,6 +201,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAdmnNo">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelFname">
           <Properties>
@@ -178,8 +223,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Form:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtForm">
         </Component>
         <Component class="javax.swing.JTextField" name="txtStatus">
           <Properties>
@@ -267,6 +310,51 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelUpdateActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Stream :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Current form and stream :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblForm">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="form"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="boxForm">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="boxFormItemStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="boxStream">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="boxStreamItemStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFormSelect">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtStreamSelect">
         </Component>
       </SubComponents>
     </Container>

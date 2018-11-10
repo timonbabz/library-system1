@@ -10,6 +10,7 @@ import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author TimonBabz
  */
-public class DialogEditStudentList extends javax.swing.JDialog {
+public final class DialogEditStudentList extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogEditStudentList
@@ -27,11 +28,13 @@ public class DialogEditStudentList extends javax.swing.JDialog {
     public DialogEditStudentList(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadcomboStream();
+        loadcomboForm();
         
         txtAdmnNo.setText(LibraryHome.admissionNo1);
         txtFname.setText(LibraryHome.stdFnameList1);
         txtLname.setText(LibraryHome.stdLnameList1);
-        txtForm.setText(LibraryHome.stdFormList1);
+        lblForm.setText(LibraryHome.stdFormList1);
         txtStatus.setText(LibraryHome.stdStatus1);
         
         if(txtStatus.getText().equals("Active")){
@@ -60,13 +63,19 @@ public class DialogEditStudentList extends javax.swing.JDialog {
         labelLname = new javax.swing.JLabel();
         txtLname = new javax.swing.JTextField();
         labelForm = new javax.swing.JLabel();
-        txtForm = new javax.swing.JTextField();
         txtStatus = new javax.swing.JTextField();
         labelCombobox = new javax.swing.JLabel();
         comboUpdate = new javax.swing.JComboBox();
         labelStatus = new javax.swing.JLabel();
         btnUpdateList = new javax.swing.JButton();
         btnCancelUpdate = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblForm = new javax.swing.JLabel();
+        boxForm = new javax.swing.JComboBox();
+        boxStream = new javax.swing.JComboBox();
+        txtFormSelect = new javax.swing.JTextField();
+        txtStreamSelect = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -96,6 +105,8 @@ public class DialogEditStudentList extends javax.swing.JDialog {
         );
 
         labelAdm.setText("Admission number:");
+
+        txtAdmnNo.setEditable(false);
 
         labelFname.setText("First name:");
 
@@ -143,42 +154,80 @@ public class DialogEditStudentList extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setText("Stream :");
+
+        jLabel3.setText("Current form and stream :");
+
+        lblForm.setText("form");
+
+        boxForm.setBackground(new java.awt.Color(255, 255, 255));
+        boxForm.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                boxFormItemStateChanged(evt);
+            }
+        });
+
+        boxStream.setBackground(new java.awt.Color(255, 255, 255));
+        boxStream.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                boxStreamItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelListUpdateLayout = new javax.swing.GroupLayout(panelListUpdate);
         panelListUpdate.setLayout(panelListUpdateLayout);
         panelListUpdateLayout.setHorizontalGroup(
             panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListUpdateLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelAdm)
-                    .addComponent(labelFname)
-                    .addComponent(txtAdmnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelLname)
-                    .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelForm)
-                    .addComponent(labelStatus)
-                    .addComponent(labelCombobox)
-                    .addGroup(panelListUpdateLayout.createSequentialGroup()
-                        .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnUpdateList, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addComponent(btnCancelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(panelListUpdateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(panelListUpdateLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelListUpdateLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(txtFormSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelListUpdateLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labelAdm)
+                        .addComponent(labelFname)
+                        .addComponent(txtAdmnNo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelLname)
+                        .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelListUpdateLayout.createSequentialGroup()
+                            .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelForm)
+                                .addComponent(boxForm, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(boxStream, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelListUpdateLayout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(txtStreamSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panelListUpdateLayout.createSequentialGroup()
+                        .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelCombobox)
+                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelStatus))
+                            .addComponent(btnUpdateList, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(btnCancelUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panelListUpdateLayout.setVerticalGroup(
             panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListUpdateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelAdm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAdmnNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,11 +239,23 @@ public class DialogEditStudentList extends javax.swing.JDialog {
                 .addComponent(labelLname)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblForm))
+                .addGap(9, 9, 9)
+                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelForm)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boxForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxStream, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFormSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStreamSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelStatus)
                 .addGap(3, 3, 3)
                 .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,11 +263,11 @@ public class DialogEditStudentList extends javax.swing.JDialog {
                 .addComponent(labelCombobox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelListUpdateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                    .addComponent(btnUpdateList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(btnCancelUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUpdateList, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,9 +295,10 @@ public class DialogEditStudentList extends javax.swing.JDialog {
         else if(txtLname.getText().equals(""))
         {JOptionPane.showMessageDialog(null, "please enter last name");
         txtLname.requestFocus();}
-        else if(txtForm.getText().equals(""))
-        {JOptionPane.showMessageDialog(null, "please enter form");
-        txtForm.requestFocus();}
+        else if(txtFormSelect.getText().equals("") || txtFormSelect.getText().equalsIgnoreCase("default"))
+        {JOptionPane.showMessageDialog(null, "please select form");}
+        else if(txtStreamSelect.getText().equals("") || txtStreamSelect.getText().equalsIgnoreCase("default"))
+        {JOptionPane.showMessageDialog(null, "please select stream");}
         else{updatestudentDetails();}
     }//GEN-LAST:event_btnUpdateListActionPerformed
 
@@ -255,6 +317,16 @@ public class DialogEditStudentList extends javax.swing.JDialog {
     private void btnCancelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelUpdateActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelUpdateActionPerformed
+
+    private void boxFormItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxFormItemStateChanged
+        String formNo = (String) boxForm.getSelectedItem();
+        txtFormSelect.setText(formNo);
+    }//GEN-LAST:event_boxFormItemStateChanged
+
+    private void boxStreamItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_boxStreamItemStateChanged
+        String streamNo = (String) boxStream.getSelectedItem();
+        txtStreamSelect.setText(streamNo);
+    }//GEN-LAST:event_boxStreamItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -306,7 +378,8 @@ public class DialogEditStudentList extends javax.swing.JDialog {
                
                 //--------update student db-----------
                 String sql = "UPDATE student_list SET adm_no='" + txtAdmnNo.getText() + "',"
-                        + "std_fname='" + txtFname.getText().toUpperCase() + "' ,std_lname='" + txtLname.getText().toUpperCase() + "', form='"+ txtForm.getText().toUpperCase() +"', status='"+ studentStatus +"' WHERE (adm_no='"+ txtAdmnNo.getText() +"')";
+                        + "std_fname='" + txtFname.getText().toUpperCase() + "' ,std_lname='" + txtLname.getText().toUpperCase() + "',"
+                        + " form='"+ txtFormSelect.getText().toUpperCase() +"', stream='"+ txtStreamSelect.getText().toUpperCase() +"',status='"+ studentStatus +"' WHERE (adm_no='"+ txtAdmnNo.getText() +"')";
                 
                 PreparedStatement pst;
                 pst = null;
@@ -319,32 +392,74 @@ public class DialogEditStudentList extends javax.swing.JDialog {
                 txtAdmnNo.setText("");
                 txtFname.setText("");
                 txtLname.setText("");
-                txtForm.setText("");
+                txtFormSelect.setText("");
+                txtStreamSelect.setText("");
                 dispose();
 
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-        
     }
+    
+    public void loadcomboForm() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT form FROM form");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                boxForm.addItem(rs.getString("form"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
+    
+    public void loadcomboStream() {
+    try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT stream FROM stream");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                boxStream.addItem(rs.getString("stream"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        }    
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox boxForm;
+    private javax.swing.JComboBox boxStream;
     private javax.swing.JButton btnCancelUpdate;
     private javax.swing.JButton btnUpdateList;
     private javax.swing.JComboBox comboUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelAdm;
     private javax.swing.JLabel labelCombobox;
     private javax.swing.JLabel labelFname;
     private javax.swing.JLabel labelForm;
     private javax.swing.JLabel labelLname;
     private javax.swing.JLabel labelStatus;
+    private javax.swing.JLabel lblForm;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelListUpdate;
     private javax.swing.JTextField txtAdmnNo;
     private javax.swing.JTextField txtFname;
-    private javax.swing.JTextField txtForm;
+    private javax.swing.JTextField txtFormSelect;
     private javax.swing.JTextField txtLname;
     private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtStreamSelect;
     // End of variables declaration//GEN-END:variables
 }

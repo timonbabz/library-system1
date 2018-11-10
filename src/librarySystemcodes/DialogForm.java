@@ -32,13 +32,18 @@ public final class DialogForm extends javax.swing.JDialog {
     public static String fomNo1, fomname1;
     
     public static String fomNo = "", fomname = "";
-    String[] columnNames = {"Form ID", "Form name"};
+    String[] columnNames = {"Form ID", "Form"};
     DefaultTableModel fomModel = new DefaultTableModel();
+    
+    public static String streamNo = "", streamname = "";
+    String[] StreamColumnNames = {"Stream ID", "Stream name"};
+    DefaultTableModel streamModel = new DefaultTableModel();
     
     public DialogForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         displayCategories();
+        displayStream();
     }
 
     /**
@@ -53,23 +58,32 @@ public final class DialogForm extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        txtStream = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtStreamId = new javax.swing.JTextField();
+        btnFind = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        txtStreamEdit = new javax.swing.JTextField();
+        txtFormName = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableStream = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        btnSave1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtForm = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableForm = new javax.swing.JTable();
-        txtForm = new javax.swing.JTextField();
-        btnSave = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtFormId = new javax.swing.JTextField();
-        btnFind = new javax.swing.JButton();
-        txtFormName = new javax.swing.JTextField();
-        btnUpdate = new javax.swing.JButton();
-        txtStream = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtStreamEdit = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        txtFormEdit = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        txtStreamIdD = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        btnDeleteStream = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        txtFormId = new javax.swing.JTextField();
+        btnDelewteForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -100,25 +114,8 @@ public final class DialogForm extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(129, 186, 243));
 
-        tableForm.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tableForm);
-
-        txtForm.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtForm.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFormKeyTyped(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(129, 186, 243));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Set School Streams", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         btnSave.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_16.png"))); // NOI18N
@@ -133,7 +130,13 @@ public final class DialogForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("Enter form and its stream below (eg, 4 North):");
+        txtStream.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStreamKeyTyped(evt);
+            }
+        });
+
+        jLabel6.setText("Stream :");
 
         jLabel3.setText("Enter stream ID to edit :");
 
@@ -150,9 +153,6 @@ public final class DialogForm extends javax.swing.JDialog {
             }
         });
 
-        txtFormName.setEditable(false);
-        txtFormName.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-
         btnUpdate.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_16.png"))); // NOI18N
         btnUpdate.setText("Update");
@@ -166,109 +166,253 @@ public final class DialogForm extends javax.swing.JDialog {
             }
         });
 
-        txtStream.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtStreamKeyTyped(evt);
-            }
-        });
-
-        jLabel5.setText("Form :");
-
-        jLabel6.setText("Stream :");
-
+        txtStreamEdit.setToolTipText("new stream name");
         txtStreamEdit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtStreamEditKeyTyped(evt);
             }
         });
 
+        txtFormName.setEditable(false);
+        txtFormName.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+
         jLabel7.setText("Stream :");
 
-        txtFormEdit.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtFormEditKeyTyped(evt);
+        tableStream.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableStream);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtStream, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtFormName, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(txtStreamId))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStream, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStreamId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel4.setBackground(new java.awt.Color(129, 186, 243));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Set school Forms", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+
+        btnSave1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnSave1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_16.png"))); // NOI18N
+        btnSave1.setText("Save");
+        btnSave1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        btnSave1.setContentAreaFilled(false);
+        btnSave1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSave1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Savewhite_16.png"))); // NOI18N
+        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSave1ActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Form :");
+        jLabel5.setText("Form :");
+
+        txtForm.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFormKeyTyped(evt);
+            }
+        });
+
+        tableForm.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tableForm);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(txtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(129, 186, 243));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Delete operations", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
+
+        jLabel4.setText("Enter stream ID to delete :");
+
+        btnDeleteStream.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnDeleteStream.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+        btnDeleteStream.setText("Delete stream");
+        btnDeleteStream.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnDeleteStream.setContentAreaFilled(false);
+        btnDeleteStream.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDeleteStream.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+        btnDeleteStream.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteStreamActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Enter form ID to delete :");
+
+        btnDelewteForm.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnDelewteForm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+        btnDelewteForm.setText("Delete form");
+        btnDelewteForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnDelewteForm.setContentAreaFilled(false);
+        btnDelewteForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDelewteForm.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+        btnDelewteForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelewteFormActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel4))
+                        .addGap(95, 95, 95))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(txtStreamIdD, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteStream, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelewteForm, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtFormId)
+                    .addComponent(btnDelewteForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteStream, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStreamIdD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtStream, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(txtForm))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFormEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStream, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFind, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(txtFormId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtFormName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStreamEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtFormEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -295,14 +439,10 @@ public final class DialogForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       String formNumber = txtForm.getText().trim();
-       int numForm = Integer.parseInt(formNumber);
-       if(numForm < 1 || numForm > 4){
-       JOptionPane.showMessageDialog(null, "Enter a valid form number");}
-       else if(txtForm.getText().isEmpty() || txtStream.getText().isEmpty()){
-       JOptionPane.showMessageDialog(null, "Please enter all details");}
+       if(txtStream.getText().isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please enter stream");}
        else{
-        addCategory();}
+        addStream();}
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
@@ -310,23 +450,13 @@ public final class DialogForm extends javax.swing.JDialog {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        String number1 = txtFormId.getText();
-        String formNumber = txtFormEdit.getText().trim();
-        String formEditNew = txtStreamEdit.getText();
-        int numForm = Integer.parseInt(formNumber);
+        String number1 = txtStreamId.getText();
         int number2 = Integer.parseInt(number1);
         
         if(number2 == 1){JOptionPane.showMessageDialog(null, "Default cannot be edited");
-       txtFormId.setText("");
-       txtFormId.requestFocus();}
-       else{
-            if(numForm < 1 || numForm > 4){
-            JOptionPane.showMessageDialog(null, "Enter a valid form number");}
-            else if(formEditNew.isEmpty() || formNumber.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter all details");}
+       txtStreamId.setText("");}
             else{
              CheckCompExistsUpdate();}
-       }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormKeyTyped
@@ -344,20 +474,34 @@ public final class DialogForm extends javax.swing.JDialog {
         evt.consume();}
     }//GEN-LAST:event_txtStreamKeyTyped
 
-    private void txtFormEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormEditKeyTyped
-        char c = evt.getKeyChar();
-        if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
-            getToolkit().beep();
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtFormEditKeyTyped
-
     private void txtStreamEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStreamEditKeyTyped
         char c = evt.getKeyChar();
         if(!(Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
         getToolkit().beep();
         evt.consume();}
     }//GEN-LAST:event_txtStreamEditKeyTyped
+
+    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
+       int numForm = Integer.parseInt(txtForm.getText().trim());
+       if(numForm < 1 || numForm > 4){
+       JOptionPane.showMessageDialog(null, "Enter a valid form number");
+       txtForm.setText("");
+       txtForm.requestFocus();}
+       else{
+        addForm();}
+    }//GEN-LAST:event_btnSave1ActionPerformed
+
+    private void btnDelewteFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelewteFormActionPerformed
+       if(txtFormId.getText().isEmpty()){
+       JOptionPane.showMessageDialog(null, "Enter form id, see from table");}
+       else{deleteForm();}
+    }//GEN-LAST:event_btnDelewteFormActionPerformed
+
+    private void btnDeleteStreamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStreamActionPerformed
+        if(txtStreamIdD.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Enter stream id, see from table");}
+        else{deleteStream();}
+    }//GEN-LAST:event_btnDeleteStreamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,14 +544,60 @@ public final class DialogForm extends javax.swing.JDialog {
     }
     
         public void refreshListOnTitle(){
-    while(fomModel.getRowCount() != 0){
-        fomModel.removeRow(0);}
-    displayCategories();
+        while(fomModel.getRowCount() != 0){
+            fomModel.removeRow(0);}
+        displayCategories();
         }
+        
+        public void refreshListOnStream(){
+        while(streamModel.getRowCount() != 0){
+            streamModel.removeRow(0);}
+        displayStream();
+}
     
-    public void addCategory(){
+    public void addForm(){
     
         String fomText = txtForm.getText().trim();
+        
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+                    statement = con.createStatement();
+
+                    // SQL Insert
+                    String sql = "INSERT INTO form " + "(form)"
+                            + "VALUES ('" + fomText + "')";
+                    
+                    statement.execute(sql);
+
+                    JOptionPane.showMessageDialog(null, "Form | "+fomText+" |, added successfully");
+
+                    refreshListOnTitle();
+                    // Reset Text Fields
+                    txtForm.setText("");
+                    //status  = true;
+
+                } catch (ClassNotFoundException | SQLException | HeadlessException es) {
+                    // TODO Auto-generated catch block
+                    JOptionPane.showMessageDialog(null, "Unable to add");
+                    JOptionPane.showMessageDialog(null, es.getMessage());
+                }
+
+                try {
+                    if (statement != null) {
+                        statement.close();
+                        con.close();
+                    }
+                } catch (SQLException es) {
+                   
+                    JOptionPane.showMessageDialog(null, es.getMessage());
+                }
+        //end of if statement that validate the form
+}
+    
+    public void addStream(){
+    
         String streamText = txtStream.getText().toUpperCase().trim();
         
                 try {
@@ -417,18 +607,16 @@ public final class DialogForm extends javax.swing.JDialog {
                     statement = con.createStatement();
 
                     // SQL Insert
-                    String sql = "INSERT INTO form " + "(form,stream)"
-                            + "VALUES ('" + fomText + "','"
-                            + streamText + "') ";
+                    String sql = "INSERT INTO stream " + "(stream)"
+                            + "VALUES ('" + streamText + "')";
                     
                     statement.execute(sql);
 
-                    JOptionPane.showMessageDialog(null, "Stream | "+fomText+" "+streamText+" |, added successfully");
+                    JOptionPane.showMessageDialog(null, "Stream | "+streamText+" |, added successfully");
 
-                    refreshListOnTitle();
+                    refreshListOnStream();
                     // Reset Text Fields
                     txtForm.setText("");
-                    txtStream.setText("");
                     //status  = true;
 
                 } catch (ClassNotFoundException | SQLException | HeadlessException es) {
@@ -461,15 +649,13 @@ public final class DialogForm extends javax.swing.JDialog {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  form_id,form,stream FROM form");
+            PreparedStatement st = con.prepareStatement("SELECT  form_id,form FROM form");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
                 fomNo = rsIssue.getString("form_id");
-                String form = rsIssue.getString("form");
-                String stream = rsIssue.getString("stream");
-                fomname = form+" "+stream;
+                fomname = rsIssue.getString("form");
 
                 fomModel.addRow(new Object[]{fomNo, fomname});
                 i++;
@@ -487,26 +673,115 @@ public final class DialogForm extends javax.swing.JDialog {
 
 }
     
+    public void deleteForm() {
+
+        String formID = txtFormId.getText().trim();
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection conn;
+                conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+               
+                //--------update books db-----------
+                String sql = "DELETE FROM form WHERE form_id ='"+formID+"'";
+                
+                PreparedStatement pst;
+                pst = null;
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+                //refresh table after deleting
+                refreshListOnTitle();
+                
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+    
+    public void deleteStream() {
+
+        String streamIdDelete = txtStreamIdD.getText().trim();
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection conn;
+                conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+               
+                //--------delete-----------
+                String sql = "DELETE FROM stream WHERE stream_id ='"+streamIdDelete+"'";
+                
+                PreparedStatement pst;
+                pst = null;
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+                //refresh table after deleting
+                refreshListOnStream();
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+    
+    public void displayStream() {
+
+        streamModel.setColumnIdentifiers(StreamColumnNames);
+
+        tableStream.setModel(streamModel);
+
+        tableStream.setFillsViewportHeight(true);
+        
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  stream_id,stream FROM stream");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                streamNo = rsIssue.getString("stream_id");
+                streamname = rsIssue.getString("stream");
+
+                streamModel.addRow(new Object[]{streamNo, streamname});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+    
     public void retrievecatDetails() {
     
-            String catIdSe = txtFormId.getText().trim();
+            String catIdSe = txtStreamId.getText().trim();
             try {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT form,stream FROM form WHERE (form_id='"+ catIdSe +"')");
+            PreparedStatement st = con.prepareStatement("SELECT stream FROM stream WHERE (stream_id='"+ catIdSe +"')");
             ResultSet rs = st.executeQuery();
             boolean emptyRs = true;
             if (rs.next()) {
                 emptyRs = false;
-                String formName = rs.getString("form");
                 String stream = rs.getString("stream");
-                txtFormName.setText(formName+" "+stream);
+                txtFormName.setText(stream);
                 
             }
             if (emptyRs) {
                 JOptionPane.showMessageDialog(null, "No Record");
-                txtFormId.setText("");
+                txtStreamId.setText("");
             }
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -518,9 +793,8 @@ public final class DialogForm extends javax.swing.JDialog {
     
     public void updateCategory(){
         
-        String newCatname = txtFormEdit.getText();
         String newCatStream = txtStreamEdit.getText().toUpperCase().trim();
-        String catIdS = txtFormId.getText().trim();
+        String catIdS = txtStreamId.getText().trim();
         
                 try {
             String url = "jdbc:mysql://localhost/libdb?useSSL = false";
@@ -528,19 +802,17 @@ public final class DialogForm extends javax.swing.JDialog {
             conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
             
             //--------update users db-----------
-            String sql = "UPDATE form SET form ='" + newCatname + "',stream ='" + newCatStream + "' WHERE form_id=" + catIdS;
+            String sql = "UPDATE stream SET stream ='" + newCatStream + "' WHERE stream_id=" + catIdS;
             
             PreparedStatement pst;
             pst = null;
             pst = conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Updated successfully");
-            refreshListOnTitle();
+            refreshListOnStream();
             
-        txtFormName.setText("");
-        txtFormId.setText("");
-        txtFormEdit.setText("");
-        txtStreamEdit.setText("");
+            txtStreamId.setText("");
+            txtStreamEdit.setText("");
             
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "Duplicate entry");
@@ -550,10 +822,10 @@ public final class DialogForm extends javax.swing.JDialog {
     
     public void CheckCompExistsUpdate(){
  
-        String enteredUser = txtFormId.getText().trim();
+        String enteredUser = txtStreamId.getText().trim();
 
-        if(txtFormId.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Enter the form id, see from table");}
+        if(txtStreamId.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Enter the stream id, see from table");}
         else{
         try
         {
@@ -561,15 +833,15 @@ public final class DialogForm extends javax.swing.JDialog {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
 
-            PreparedStatement st = connection.prepareStatement("SELECT* FROM form WHERE form_id='" + enteredUser + "'");
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM stream WHERE stream_id='" + enteredUser + "'");
             ResultSet r1=st.executeQuery();
 
              if(r1.next()) 
              {
                updateCategory();
              }else{
-                 JOptionPane.showMessageDialog(null, "Entered form ID does not exist");
-             txtFormId.requestFocus();}
+                 JOptionPane.showMessageDialog(null, "Entered stream ID does not exist");
+             txtStreamId.requestFocus();}
          }
 
          catch (SQLException | ClassNotFoundException e) 
@@ -580,25 +852,34 @@ public final class DialogForm extends javax.swing.JDialog {
  }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeleteStream;
+    private javax.swing.JButton btnDelewteForm;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSave1;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableForm;
+    private javax.swing.JTable tableStream;
     private javax.swing.JTextField txtForm;
-    private javax.swing.JTextField txtFormEdit;
     private javax.swing.JTextField txtFormId;
     private javax.swing.JTextField txtFormName;
     private javax.swing.JTextField txtStream;
     private javax.swing.JTextField txtStreamEdit;
+    private javax.swing.JTextField txtStreamId;
+    private javax.swing.JTextField txtStreamIdD;
     // End of variables declaration//GEN-END:variables
 }

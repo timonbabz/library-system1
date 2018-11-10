@@ -773,6 +773,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtCountstudent = new javax.swing.JTextField();
         jLabel112 = new javax.swing.JLabel();
         btnAll = new javax.swing.JButton();
+        btnAddStudentRec = new javax.swing.JButton();
         btnPromo = new javax.swing.JButton();
         txtStdName1 = new javax.swing.JTextField();
         jLabel125 = new javax.swing.JLabel();
@@ -793,6 +794,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel127 = new javax.swing.JLabel();
         txtCount = new javax.swing.JTextField();
         jLabel113 = new javax.swing.JLabel();
+        btnAllStaff = new javax.swing.JButton();
+        btnAddStaff = new javax.swing.JButton();
         mainMenuBar = new javax.swing.JMenuBar();
         mainMenuNav = new javax.swing.JMenu();
         itemHome = new javax.swing.JMenuItem();
@@ -6404,6 +6407,19 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnAddStudentRec.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnAddStudentRec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
+    btnAddStudentRec.setText("Add student");
+    btnAddStudentRec.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnAddStudentRec.setContentAreaFilled(false);
+    btnAddStudentRec.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnAddStudentRec.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addred_16.png"))); // NOI18N
+    btnAddStudentRec.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnAddStudentRecActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelStdDetailsCarrierLayout = new javax.swing.GroupLayout(panelStdDetailsCarrier);
     panelStdDetailsCarrier.setLayout(panelStdDetailsCarrierLayout);
     panelStdDetailsCarrierLayout.setHorizontalGroup(
@@ -6416,6 +6432,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnExportStudentToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(btnAll, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnAddStudentRec, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel112)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -6436,7 +6454,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addGroup(panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCountstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel112))
-                .addComponent(btnAll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelStdDetailsCarrierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAll, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddStudentRec, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap())
     );
 
@@ -6526,7 +6546,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jScrollPane22.setViewportView(tableStaffRecords);
 
     btnExportListExcel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnExportListExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoft_Excel_16.png"))); // NOI18N
+    btnExportListExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
     btnExportListExcel.setText("Export to Excel");
     btnExportListExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
     btnExportListExcel.setContentAreaFilled(false);
@@ -6664,6 +6684,32 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel113.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     jLabel113.setText("Total Records :");
 
+    btnAllStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnAllStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/More_Details_16.png"))); // NOI18N
+    btnAllStaff.setText("Display including closed");
+    btnAllStaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnAllStaff.setContentAreaFilled(false);
+    btnAllStaff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnAllStaff.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/More_Detailsred_16.png"))); // NOI18N
+    btnAllStaff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnAllStaffActionPerformed(evt);
+        }
+    });
+
+    btnAddStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnAddStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
+    btnAddStaff.setText("Add a staff");
+    btnAddStaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnAddStaff.setContentAreaFilled(false);
+    btnAddStaff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnAddStaff.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addred_16.png"))); // NOI18N
+    btnAddStaff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnAddStaffActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
     jPanel46.setLayout(jPanel46Layout);
     jPanel46Layout.setHorizontalGroup(
@@ -6675,6 +6721,10 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jPanel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel46Layout.createSequentialGroup()
                     .addComponent(btnExportListExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnAllStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btnAddStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel113)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -6689,11 +6739,13 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane22, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(btnExportListExcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(btnExportListExcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addGroup(jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel113)))
+                    .addComponent(jLabel113))
+                .addComponent(btnAllStaff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddStaff, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -9204,8 +9256,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActivateActionPerformed
 
     private void txtFormEnteredKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormEnteredKeyPressed
+        int formNumber = Integer.parseInt(txtFormEntered.getText());
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            if(txtFormEntered.getText().isEmpty()){
+            if(txtFormEntered.getText().isEmpty() || formNumber > 4 || formNumber < 1){
             JOptionPane.showMessageDialog(null, "Please enter form to search");}
             else{refreshstdListModelFilter();
             numberOfStudentsForm();
@@ -9412,11 +9465,26 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void txtStaffNAmeSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStaffNAmeSKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
         if(txtStaffNAmeS.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Enter Staff's first name to Search");}
+        JOptionPane.showMessageDialog(null, "Enter Staff's first name to search");}
         else{refreshStaffListName();
         numberOfStaffName();}
         }
     }//GEN-LAST:event_txtStaffNAmeSKeyPressed
+
+    private void btnAllStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllStaffActionPerformed
+        refreshStaffListAll();
+        numberOfStaffAll();
+    }//GEN-LAST:event_btnAllStaffActionPerformed
+
+    private void btnAddStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStaffActionPerformed
+        AddStaffDialog staffDialog = new AddStaffDialog(this, true);
+        staffDialog.setVisible(true);
+    }//GEN-LAST:event_btnAddStaffActionPerformed
+
+    private void btnAddStudentRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStudentRecActionPerformed
+        AddStudentDialog addStudent = new AddStudentDialog(this, true);
+        addStudent.setVisible(true);
+    }//GEN-LAST:event_btnAddStudentRecActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -9544,6 +9612,12 @@ public void refreshStaffList(){
 while(staffListModel.getRowCount() != 0){
         staffListModel.removeRow(0);}
     fillStaffList();
+}
+
+public void refreshStaffListAll(){
+while(staffListModel.getRowCount() != 0){
+        staffListModel.removeRow(0);}
+fillStaffListAll();
 }
 
 public void refreshStaffListId(){
@@ -13929,6 +14003,45 @@ public void fillStaffList() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT id_number, staff_fname, staff_lname, dept, phone_no, status FROM staff_table WHERE status ='Active'");
+            ResultSet listRs = st.executeQuery();
+
+            int i = 0;
+            while (listRs.next()) {
+                idnumberRec = listRs.getString("id_number");
+                staffrecfname = listRs.getString("staff_fname");
+                staffReclname = listRs.getString("staff_lname");
+                staffDept = listRs.getString("dept");
+                staffPhone = listRs.getString("phone_no");
+                staffStatus = listRs.getString("status");
+
+                staffListModel.addRow(new Object[]{idnumberRec,staffrecfname, staffReclname, staffDept,staffPhone,staffStatus});
+                i++;
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Staff Record(s) Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void fillStaffListAll() {
+      
+        staffListModel.setColumnIdentifiers(staffListColumnNames);
+
+        tableStaffRecords.setModel(staffListModel);
+
+        tableStaffRecords.setFillsViewportHeight(true);
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT id_number, staff_fname, staff_lname, dept, phone_no, status FROM staff_table");
             ResultSet listRs = st.executeQuery();
 
@@ -14150,6 +14263,25 @@ public void numberOfStudentsForStr(){
     }
 
 public void numberOfStaff(){
+    
+    try{
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(id_number) AS staffcount FROM staff_table WHERE status = 'Active'");
+        ResultSet rsCs = os.executeQuery();
+        
+        int i = 0;
+            if(rsCs.next()){    
+                String repoCount = rsCs.getString("staffcount");
+                txtCount.setText(repoCount);}
+            
+            else{}//DO NOT delete this line
+                
+    }catch(ClassNotFoundException | SQLException | HeadlessException es){
+    JOptionPane.showMessageDialog(null, es.getMessage());}
+    }
+
+public void numberOfStaffAll(){
     
     try{
         Class.forName("com.mysql.jdbc.Driver");
@@ -14614,8 +14746,11 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnAddMagToIssue;
     private javax.swing.JButton btnAddNewUsers;
     private javax.swing.JButton btnAddShortLoan;
+    private javax.swing.JButton btnAddStaff;
+    private javax.swing.JButton btnAddStudentRec;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnAll;
+    private javax.swing.JButton btnAllStaff;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCancelComp;
     private javax.swing.JButton btnCancelIssue;
