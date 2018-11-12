@@ -3,8 +3,8 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\TimonBabz\Documents\NetBeansProjects\library-system1\dist\LibraryManagementSystem.jar</jar>
-  <outfile>C:\Users\TimonBabz\Documents\NetBeansProjects\library-system1\dist\Too Library system.exe</outfile>
-  <errTitle>Too Library System:Java not installed in your machine!</errTitle>
+  <outfile>C:\Users\TimonBabz\Documents\NetBeansProjects\library-system1\dist\Too Library System.exe</outfile>
+  <errTitle>Too Library System : Please install Java</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
@@ -34,9 +34,9 @@
     <copyright>NIL</copyright>
     <productVersion>2.2.0.0</productVersion>
     <txtProductVersion>2.2.0.0</txtProductVersion>
-    <productName>Too Library System</productName>
+    <productName>TooLibrarySystem</productName>
     <companyName>TOO Studios</companyName>
-    <internalName>Too Library System</internalName>
+    <internalName>TooLibrarySystem</internalName>
     <originalFilename>Too Library System.exe</originalFilename>
     <trademarks></trademarks>
     <language>ENGLISH_US</language>

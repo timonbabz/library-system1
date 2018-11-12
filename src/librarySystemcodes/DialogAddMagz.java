@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -32,6 +33,7 @@ public class DialogAddMagz extends javax.swing.JDialog {
         
         Date date = new Date();
         chooserMagDate.setMaxSelectableDate(date);
+        
     }
 
     /**
@@ -257,10 +259,11 @@ public class DialogAddMagz extends javax.swing.JDialog {
     
     public void addMagazine(){
         
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+                String pubDate =  sdf.format(chooserMagDate.getDate());
                 String issueNo = txtMagNo.getText().trim();
                 String magName = txtMagName.getText().toUpperCase().trim();
                 String pubName = txtPublisher.getText().toUpperCase().trim();
-                Date pubDate = chooserMagDate.getDate();
                     try {
                     Class.forName("com.mysql.jdbc.Driver");
 
