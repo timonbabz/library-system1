@@ -1602,7 +1602,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jComboBox3" min="-2" pref="141" max="-2" attributes="0"/>
+                      <Component id="comboStockType" min="-2" pref="141" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel129" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1620,7 +1620,7 @@
                           <Component id="jLabel2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="txtShelfStock" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel129" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboStockType" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel11" max="32767" attributes="0"/>
@@ -1864,7 +1864,7 @@
                 <Property name="text" type="java.lang.String" value="Shelf :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox3">
+            <Component class="javax.swing.JComboBox" name="comboStockType">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1877,6 +1877,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboStockTypeItemStateChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -4441,8 +4444,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSearchIssued" min="-2" pref="24" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="COMBOlOANtYPE" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnPrintIssued" min="-2" pref="77" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -4455,10 +4456,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                  <Component id="btnPrintIssued" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="COMBOlOANtYPE" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnPrintIssued" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="txtSearchIssued" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -4578,20 +4576,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchIssuedActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="COMBOlOANtYPE">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Filter by loan type:"/>
-                    <StringItem index="1" value="SHORT"/>
-                    <StringItem index="2" value="LONG"/>
-                  </StringArray>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -6621,9 +6605,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="97" max="32767" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" pref="136" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="239" max="32767" attributes="0"/>
                       <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtFormBoro" min="-2" pref="65" max="-2" attributes="0"/>
@@ -6655,7 +6637,6 @@
                           <Component id="jLabel109" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtFormBoro" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnSearchFormView" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Component id="jPanel23" max="32767" attributes="0"/>
@@ -6851,20 +6832,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchFormViewActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Filter by loan type:"/>
-                    <StringItem index="1" value="SHORT"/>
-                    <StringItem index="2" value="LONG"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panelTeachers">
@@ -6888,9 +6855,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelStaffList" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="282" max="32767" attributes="0"/>
-                      <Component id="jComboBox2" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="440" max="32767" attributes="0"/>
                       <Component id="comboFiletStaff" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel92" min="-2" max="-2" attributes="0"/>
@@ -6913,7 +6878,6 @@
                               <Component id="btnSearchStaffId" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel92" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="comboFiletStaff" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="labelStaffList" max="32767" attributes="0"/>
                       </Group>
@@ -7068,20 +7032,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Filter by loan type:"/>
-                    <StringItem index="1" value="SHORT"/>
-                    <StringItem index="2" value="LONG"/>
-                  </StringArray>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -345,7 +345,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel124 = new javax.swing.JLabel();
         txtShelfStock = new javax.swing.JTextField();
         jLabel129 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        comboStockType = new javax.swing.JComboBox();
         panelIssueStudent = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -491,7 +491,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnPrintIssued = new javax.swing.JButton();
         txtSearchIssued = new javax.swing.JTextField();
         btnSearchIssued = new javax.swing.JButton();
-        COMBOlOANtYPE = new javax.swing.JComboBox();
         panelShortLoanBooks = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
@@ -620,7 +619,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel109 = new javax.swing.JLabel();
         txtFormBoro = new javax.swing.JTextField();
         btnSearchFormView = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
         panelTeachers = new javax.swing.JPanel();
         labelStaffList = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
@@ -631,7 +629,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnSearchStaffId = new javax.swing.JButton();
         jLabel92 = new javax.swing.JLabel();
         comboFiletStaff = new javax.swing.JComboBox<String>();
-        jComboBox2 = new javax.swing.JComboBox();
         panelMags = new javax.swing.JPanel();
         labelMagz = new javax.swing.JLabel();
         panelMagsIn = new javax.swing.JPanel();
@@ -1679,8 +1676,13 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel129.setForeground(new java.awt.Color(255, 255, 255));
     jLabel129.setText("Shelf :");
 
-    jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
-    jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by loan type:", "SHORT", "LONG" }));
+    comboStockType.setBackground(new java.awt.Color(255, 255, 255));
+    comboStockType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by loan type:", "SHORT", "LONG" }));
+    comboStockType.addItemListener(new java.awt.event.ItemListener() {
+        public void itemStateChanged(java.awt.event.ItemEvent evt) {
+            comboStockTypeItemStateChanged(evt);
+        }
+    });
 
     javax.swing.GroupLayout panelstockLayout = new javax.swing.GroupLayout(panelstock);
     panelstock.setLayout(panelstockLayout);
@@ -1690,7 +1692,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(comboStockType, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel129)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1706,7 +1708,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(txtShelfStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel129)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(comboStockType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -3316,9 +3318,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    COMBOlOANtYPE.setBackground(new java.awt.Color(255, 255, 255));
-    COMBOlOANtYPE.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by loan type:", "SHORT", "LONG" }));
-
     javax.swing.GroupLayout panelBooksIssuedLayout = new javax.swing.GroupLayout(panelBooksIssued);
     panelBooksIssued.setLayout(panelBooksIssuedLayout);
     panelBooksIssuedLayout.setHorizontalGroup(
@@ -3331,8 +3330,6 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchIssued, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(COMBOlOANtYPE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(btnPrintIssued, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
         .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3343,9 +3340,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(panelBooksIssuedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelBooksIssuedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBooksIssuedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnPrintIssued, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(COMBOlOANtYPE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPrintIssued, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBooksIssuedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtSearchIssued, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -4677,9 +4672,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by loan type:", "SHORT", "LONG" }));
-
     javax.swing.GroupLayout panelStudentsLayout = new javax.swing.GroupLayout(panelStudents);
     panelStudents.setLayout(panelStudentsLayout);
     panelStudentsLayout.setHorizontalGroup(
@@ -4687,9 +4679,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelStudentsLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel75)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
             .addComponent(jLabel109)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4718,8 +4708,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel109)
                 .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSearchFormView)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSearchFormView))
             .addGap(4, 4, 4)
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -4808,9 +4797,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filter by loan type:", "SHORT", "LONG" }));
-
     javax.swing.GroupLayout panelTeachersLayout = new javax.swing.GroupLayout(panelTeachers);
     panelTeachers.setLayout(panelTeachersLayout);
     panelTeachersLayout.setHorizontalGroup(
@@ -4818,9 +4804,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelTeachersLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(labelStaffList)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
-            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
             .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel92)
@@ -4840,8 +4824,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(txtStaffIdList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchStaffId)
                     .addComponent(jLabel92)
-                    .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(labelStaffList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(8, 8, 8)
             .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -9766,6 +9749,15 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtPass.setText("");
         txtConfPass.setText("");
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void comboStockTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboStockTypeItemStateChanged
+        String itemSelect = (String) comboStockType.getSelectedItem();
+        if(itemSelect.equalsIgnoreCase("Filter by loan type:")){
+        refreshBooksStock();
+        countStock();}
+        else{refreshStockModelLoan();
+        countStockType();}
+    }//GEN-LAST:event_comboStockTypeItemStateChanged
     /**
      * @param args the command line arguments
      */
@@ -9990,6 +9982,12 @@ public void refreshStockModeltitle(){
 while(stockModel.getRowCount() != 0){
         stockModel.removeRow(0);}
     filterBooksStocktitle();
+}
+
+public void refreshStockModelLoan(){
+while(stockModel.getRowCount() != 0){
+        stockModel.removeRow(0);}
+    filterBooksStockLoan();
 }
 
 public void refreshstdListModeltitle(){
@@ -10964,6 +10962,52 @@ public void filterBooksStocktitle() {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
             PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND title LIKE '"+ itemCat +"%'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                stockbookID = rsIssue.getString("bklib_id");
+                stockbookISBNList = rsIssue.getString("book_isbn");
+                stockauthorNameList = rsIssue.getString("author");
+                stocktitleNameList = rsIssue.getString("title");
+                stockpublisherList = rsIssue.getString("publisher_name");
+                stockeditionList = rsIssue.getString("edition");
+                stockcategoryList = rsIssue.getString("subject_category");
+                stockloanList = rsIssue.getString("loan_type");
+
+                stockModel.addRow(new Object[]{stockbookID, stockbookISBNList, stockauthorNameList, stocktitleNameList, stockpublisherList,stockeditionList,stockcategoryList,stockloanList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
+public void filterBooksStockLoan() {
+
+        stockModel.setColumnIdentifiers(stockColumnNames);
+
+        tableBookStock.setModel(stockModel);
+
+        tableBookStock.setFillsViewportHeight(true);
+        
+        String itemLoan = (String) comboStockType.getSelectedItem();
+        
+        String borrowedNo = "NO";
+
+        try {
+            //SELECT title FROM books_db WHERE title LIKE 'B%'
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,edition,subject_category,loan_type FROM books_db WHERE borrowed='"+ borrowedNo +"' AND loan_type ='"+ itemLoan +"'");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
@@ -15166,6 +15210,27 @@ public void countStockShelf(){
         }
     }
 
+public void countStockType(){
+    String borrowedNo = "NO";
+    String typeSelect = (String) comboStockType.getSelectedItem();
+    try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT COUNT(bklib_id) AS compcount FROM books_db WHERE borrowed='"+ borrowedNo +"' AND loan_type = '"+typeSelect+"'");
+            ResultSet rsIssue = st.executeQuery();
+            
+            int i = 0;
+            if(rsIssue.next()){    
+                String repoCount = rsIssue.getString("compcount");
+                txtCountStock.setText(repoCount);}
+            
+            else{}//DO NOT delete this line
+    }   catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 public void countStockShelfCat(){
     String borrowedNo = "NO";
     String cat = (String) comboFilterStock.getSelectedItem();
@@ -15271,7 +15336,6 @@ public void DisplayBooksComboCount1(){
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox COMBOlOANtYPE;
     private com.toedter.calendar.JDateChooser ChooserNotes;
     private com.toedter.calendar.JDateChooser DateBorrowed;
     private com.toedter.components.JSpinField SpinfieldTimeLoan;
@@ -15399,6 +15463,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JComboBox<String> comboSearchIssue;
     private javax.swing.JComboBox<String> comboSearchShort;
     private javax.swing.JComboBox<String> comboStaffStudent;
+    private javax.swing.JComboBox comboStockType;
     private javax.swing.JComboBox conditionCheck;
     private com.toedter.calendar.JDateChooser dateChooserDue;
     private com.toedter.calendar.JDateChooser dateReturnedChooser;
@@ -15424,9 +15489,6 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
