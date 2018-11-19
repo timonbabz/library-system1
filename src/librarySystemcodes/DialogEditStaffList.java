@@ -328,7 +328,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                
                 //--------update student db-----------
                 String sql = "UPDATE staff_table SET id_number='" + txtId.getText() + "',"
-                        + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ txtDept.getText().toUpperCase() +"', phone_no='"+ txtDept.getText().toUpperCase() +"', status='"+ staffStatus +"' WHERE (id_number='"+ txtId.getText() +"')";
+                        + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ txtDept.getText().toUpperCase() +"', phone_no='"+ txtPhoneNo.getText().toUpperCase() +"', status='"+ staffStatus +"' WHERE (id_number='"+ txtId.getText() +"')";
                 
                 PreparedStatement pst;
                 pst = null;
