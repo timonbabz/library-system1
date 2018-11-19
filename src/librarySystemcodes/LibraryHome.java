@@ -8,6 +8,7 @@ package librarySystemcodes;
 import com.sun.glass.events.KeyEvent;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -162,7 +163,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     DefaultTableModel boroModel = new DefaultTableModel();
     //----------------declaration of staff table--------------------------
     String staffIDno = "", fnameStaff = "", lnameStaff = "", phoneStaffNo = "", staffDepartment = "", staffBookid = "", staffBookTitle= "", staffBorrrowedDate= "", staffIssued= "",staffRecieved="", staffReturned="" ;
-    String[] staffColumnNames = {"Staff ID", "Staff Name", "Phone number","Department", "Book ID", "Book Title", "Date borrowed", "Returend", "Issued by"};
+    String[] staffColumnNames = {"Staff ID", "Staff Name", "Phone number","Department", "Book ID", "Book Title", "Date borrowed", "Returned", "Issued by"};
     DefaultTableModel staffModel = new DefaultTableModel();
     //----------------declaration of student table--------------------------
     String stdAdm = "", stdFname = "", stdLname = "", stdForm = "", stdBookId = "", stdBookTitle = "", stdReturned= "", stdIssuedby= "", stdRecievedby= "",stdBorrrowedDate="";
@@ -388,6 +389,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnIssueRefresh = new javax.swing.JButton();
         txtBkIdStudent = new javax.swing.JTextField();
         jLabel130 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panelIssueStaff = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -427,39 +429,43 @@ public final class LibraryHome extends javax.swing.JFrame {
         btnRefreshIssueSatff = new javax.swing.JButton();
         txtBookIdStaff = new javax.swing.JTextField();
         jLabel131 = new javax.swing.JLabel();
+        btnMulitStaff = new javax.swing.JButton();
         panelRecieve = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         btnRecieveBooks = new javax.swing.JButton();
         btnCancelRecieve = new javax.swing.JButton();
+        txtShelf = new javax.swing.JTextField();
+        jLabel128 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        panelOne = new javax.swing.JPanel();
+        txtBookIsbnRet = new javax.swing.JTextField();
         txtAdmNo = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txtDateDue = new javax.swing.JTextField();
+        dateReturnedChooser = new com.toedter.calendar.JDateChooser();
+        jLabel50 = new javax.swing.JLabel();
         txtBookTitle = new javax.swing.JTextField();
-        txtPenalties = new javax.swing.JTextField();
-        jLabel49 = new javax.swing.JLabel();
-        txtReceievedFrom = new javax.swing.JTextField();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         btnSearchBookDetails = new javax.swing.JButton();
         textFieldBookId = new javax.swing.JTextField();
         textFieldSysId = new javax.swing.JTextField();
         jLabel101 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        txtDateDue = new javax.swing.JTextField();
-        dateReturnedChooser = new com.toedter.calendar.JDateChooser();
-        txtStaffStudent = new javax.swing.JTextField();
-        txtBookIsbnRet = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        txtReceievedFrom = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
         txtAreaCondition = new javax.swing.JComboBox();
-        jLabel102 = new javax.swing.JLabel();
+        txtPenalties = new javax.swing.JTextField();
+        txtStaffStudent = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
         btnIndicator = new javax.swing.JButton();
         jLabel126 = new javax.swing.JLabel();
-        txtShelf = new javax.swing.JTextField();
-        jLabel128 = new javax.swing.JLabel();
+        jPanel51 = new javax.swing.JPanel();
+        btnReceiveMultiple = new javax.swing.JButton();
         panelList = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
@@ -467,13 +473,17 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableListBooks = new javax.swing.JTable();
         btnEditBookDetails = new javax.swing.JButton();
         btnImport = new javax.swing.JButton();
+        txtCountBooks = new javax.swing.JTextField();
+        jLabel134 = new javax.swing.JLabel();
         btnAddBookList = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         txtListBooks = new javax.swing.JTextField();
         btnSearchList = new javax.swing.JButton();
         btnExcelList = new javax.swing.JButton();
         comboBoxList = new javax.swing.JComboBox<String>();
-        txtCountBooks = new javax.swing.JTextField();
+        txtListId = new javax.swing.JTextField();
+        jLabel133 = new javax.swing.JLabel();
+        btnPrintList = new javax.swing.JButton();
         panelBorrowers = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
@@ -617,6 +627,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableStudents = new javax.swing.JTable();
         btnWriteStdToExcel = new javax.swing.JButton();
         btnPrintStd = new javax.swing.JButton();
+        btnDeleteFromStd = new javax.swing.JButton();
         txtStdIdSearch = new javax.swing.JTextField();
         btnSearchStdID = new javax.swing.JButton();
         jLabel60 = new javax.swing.JLabel();
@@ -624,6 +635,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel109 = new javax.swing.JLabel();
         txtFormBoro = new javax.swing.JTextField();
         btnSearchFormView = new javax.swing.JButton();
+        btnRefreshStdTablr = new javax.swing.JButton();
         panelTeachers = new javax.swing.JPanel();
         labelStaffList = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
@@ -631,10 +643,12 @@ public final class LibraryHome extends javax.swing.JFrame {
         tableStaff = new javax.swing.JTable();
         btnExportTtoExcel = new javax.swing.JButton();
         btnPrintStaff = new javax.swing.JButton();
+        btnDeleteStaff = new javax.swing.JButton();
         txtStaffIdList = new javax.swing.JTextField();
         btnSearchStaffId = new javax.swing.JButton();
         jLabel92 = new javax.swing.JLabel();
         comboFiletStaff = new javax.swing.JComboBox<String>();
+        btnRefreshStaff = new javax.swing.JButton();
         panelMags = new javax.swing.JPanel();
         labelMagz = new javax.swing.JLabel();
         panelMagsIn = new javax.swing.JPanel();
@@ -1292,7 +1306,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel42.setText("Logged in as :");
 
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel79.setText("System version 2.2.0 © ");
+        jLabel79.setText("System version 2.2.5  © ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1434,7 +1448,7 @@ public final class LibraryHome extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel79)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelYear))
+                                .addComponent(labelYear, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator1)
                             .addComponent(jPanel39, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(16, 16, 16))
@@ -1784,8 +1798,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel27.setText("Book ID :");
 
     txtStdntClass.setEditable(false);
+    txtStdntClass.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     txtBookIdIssue.setEditable(false);
+    txtBookIdIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
     jLabel22.setText("First name :");
@@ -1806,8 +1822,10 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     txtBookIssueTitle1.setEditable(false);
+    txtBookIssueTitle1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     txtStdntLname.setEditable(false);
+    txtStdntLname.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     btnCancelIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnCancelIssue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
@@ -1835,6 +1853,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
     jLabel26.setText("Date due :");
 
+    txtStdntAmNo.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     txtStdntAmNo.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
             txtStdntAmNoKeyPressed(evt);
@@ -1845,6 +1864,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     txtBookIsbnIssue.setEditable(false);
+    txtBookIsbnIssue.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     dateChooserDue.setBackground(new java.awt.Color(129, 186, 243));
     dateChooserDue.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1854,6 +1874,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     txtSdntFname.setEditable(false);
+    txtSdntFname.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
     jLabel24.setText("Date borrowed :");
@@ -1865,6 +1886,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel25.setText("Class/Form :");
 
     btnSearchStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
+    btnSearchStd.setToolTipText("search");
     btnSearchStd.setContentAreaFilled(false);
     btnSearchStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnSearchStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
@@ -1912,6 +1934,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel97.setText("System ID :");
 
     txtStreamLong.setEditable(false);
+    txtStreamLong.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
     jLabel119.setText("Stream :");
 
@@ -1963,13 +1986,12 @@ public final class LibraryHome extends javax.swing.JFrame {
                                     .addComponent(txtBookIdIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnAddIssueStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(systemBookId, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel34Layout.createSequentialGroup()
-                            .addComponent(btnIssueToStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCancelIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)))))
+                                .addComponent(systemBookId, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel34Layout.createSequentialGroup()
+                                    .addComponent(btnIssueToStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnCancelIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE)))))
             .addContainerGap())
     );
     jPanel34Layout.setVerticalGroup(
@@ -2023,11 +2045,11 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel97)
                 .addComponent(systemBookId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 47, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
             .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnIssueToStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnCancelIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(54, Short.MAX_VALUE))
+            .addGap(71, 71, 71))
     );
 
     jPanel35.setBackground(new java.awt.Color(129, 186, 243));
@@ -2063,7 +2085,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     btnIssueRefresh.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     btnIssueRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh_16.png"))); // NOI18N
-    btnIssueRefresh.setText("Refresh");
+    btnIssueRefresh.setToolTipText("Refresh table");
     btnIssueRefresh.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
     btnIssueRefresh.setContentAreaFilled(false);
     btnIssueRefresh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2075,6 +2097,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     txtBkIdStudent.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    txtBkIdStudent.setToolTipText("Book id");
     txtBkIdStudent.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
             txtBkIdStudentKeyPressed(evt);
@@ -2087,38 +2110,53 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel130.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     jLabel130.setText("Book ID :");
 
+    jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/List_16.png"))); // NOI18N
+    jButton1.setText("Issue multiple books");
+    jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    jButton1.setContentAreaFilled(false);
+    jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
     jPanel35.setLayout(jPanel35Layout);
     jPanel35Layout.setHorizontalGroup(
         jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel35Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(btnIssueRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnIssueRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtSearchIssueStd, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchIssueStd, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel130)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtBkIdStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(comboSearchIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(comboSearchIssue, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
     );
     jPanel35Layout.setVerticalGroup(
         jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel35Layout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchIssueStd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIssueRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(btnIssueRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchIssueStd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboSearchIssue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBkIdStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel130))
-                .addComponent(btnSearchIssueStd))
+                .addComponent(btnSearchIssueStd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -2130,12 +2168,12 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap())
-                .addGroup(jPanel4Layout.createSequentialGroup()
                     .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap())))
     );
     jPanel4Layout.setVerticalGroup(
         jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2466,7 +2504,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(jPanel37Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(btnAddBookStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(txtSearchStaffBook, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnSearchStaffBk, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2536,6 +2574,20 @@ public final class LibraryHome extends javax.swing.JFrame {
     jLabel131.setForeground(new java.awt.Color(255, 255, 255));
     jLabel131.setText("Book ID :");
 
+    btnMulitStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnMulitStaff.setForeground(new java.awt.Color(255, 255, 255));
+    btnMulitStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/List_16.png"))); // NOI18N
+    btnMulitStaff.setText("Issue multiple books");
+    btnMulitStaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnMulitStaff.setContentAreaFilled(false);
+    btnMulitStaff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnMulitStaff.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
+    btnMulitStaff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnMulitStaffActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelIssueStaffLayout = new javax.swing.GroupLayout(panelIssueStaff);
     panelIssueStaff.setLayout(panelIssueStaffLayout);
     panelIssueStaffLayout.setHorizontalGroup(
@@ -2543,6 +2595,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelIssueStaffLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel4)
+            .addGap(18, 18, 18)
+            .addComponent(btnMulitStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel131)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2554,11 +2608,12 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelIssueStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelIssueStaffLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(panelIssueStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelIssueStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addGroup(panelIssueStaffLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBookIdStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel131)))
+                    .addComponent(jLabel131))
+                .addComponent(btnMulitStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -2620,16 +2675,32 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtShelf.setEditable(false);
+    txtShelf.setBackground(new java.awt.Color(204, 255, 255));
+    txtShelf.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+
+    jLabel128.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel128.setText("Return to shelf :");
+
     javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
     jPanel14.setLayout(jPanel14Layout);
     jPanel14Layout.setHorizontalGroup(
         jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel14Layout.createSequentialGroup()
-            .addGap(52, 52, 52)
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(btnRecieveBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                .addComponent(btnCancelRecieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(52, 52, 52)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnRecieveBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addComponent(btnCancelRecieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(14, 14, 14)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addComponent(jLabel128))
+                        .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addContainerGap(14, Short.MAX_VALUE))
     );
     jPanel14Layout.setVerticalGroup(
         jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2638,27 +2709,38 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnRecieveBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(btnCancelRecieve, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(27, Short.MAX_VALUE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+            .addComponent(jLabel128)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(14, 14, 14))
     );
 
     jPanel16.setBackground(new java.awt.Color(129, 186, 243));
-    jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+    jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-    jLabel52.setText("Returned on :");
+    panelOne.setBackground(new java.awt.Color(129, 186, 243));
+    panelOne.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(129, 186, 243)), "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
 
-    jLabel31.setText("Book title :");
+    txtBookIsbnRet.setEditable(false);
 
     txtAdmNo.setEditable(false);
 
+    jLabel52.setText("Returned on :");
+
+    jLabel19.setText("Book ISBN :");
+
+    txtDateDue.setEditable(false);
+
+    dateReturnedChooser.setBackground(new java.awt.Color(129, 186, 243));
+
+    jLabel50.setText("Recieved from :");
+
     txtBookTitle.setEditable(false);
 
-    jLabel49.setText("Date due :");
+    jLabel31.setText("Book title :");
 
-    txtReceievedFrom.setEditable(false);
-
-    jLabel53.setText("Penalties :");
-
-    jLabel51.setText("ID no/Adm no :");
+    jLabel102.setText("Book condition :");
 
     jPanel15.setBackground(new java.awt.Color(129, 186, 243));
     jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Enter book ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
@@ -2674,6 +2756,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    textFieldBookId.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     textFieldBookId.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
             textFieldBookIdKeyPressed(evt);
@@ -2724,35 +2807,31 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addContainerGap(9, Short.MAX_VALUE))
     );
 
-    jLabel50.setText("Recieved from :");
+    jLabel53.setText("Penalties :");
 
-    txtDateDue.setEditable(false);
+    txtReceievedFrom.setEditable(false);
 
-    dateReturnedChooser.setBackground(new java.awt.Color(129, 186, 243));
+    jLabel49.setText("Date due :");
+
+    txtAreaCondition.setBackground(new java.awt.Color(255, 255, 255));
+    txtAreaCondition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Update book condition", "New", "Fine", "Very Good", "Fair/Acceptable", "Poor (Needs repair)" }));
 
     txtStaffStudent.setEditable(false);
     txtStaffStudent.setBackground(new java.awt.Color(204, 204, 255));
     txtStaffStudent.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
     txtStaffStudent.setForeground(new java.awt.Color(0, 51, 51));
 
-    txtBookIsbnRet.setEditable(false);
+    jLabel51.setText("ID no/Adm no :");
 
-    jLabel19.setText("Book ISBN :");
-
-    txtAreaCondition.setBackground(new java.awt.Color(255, 255, 255));
-    txtAreaCondition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Update book condition", "New", "Fine", "Very Good", "Fair/Acceptable", "Poor (Needs repair)" }));
-
-    jLabel102.setText("Book condition :");
-
-    javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-    jPanel16.setLayout(jPanel16Layout);
-    jPanel16Layout.setHorizontalGroup(
-        jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-            .addContainerGap(177, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(jPanel16Layout.createSequentialGroup()
-                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+    javax.swing.GroupLayout panelOneLayout = new javax.swing.GroupLayout(panelOne);
+    panelOne.setLayout(panelOneLayout);
+    panelOneLayout.setHorizontalGroup(
+        panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(panelOneLayout.createSequentialGroup()
+            .addGap(19, 19, 19)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelOneLayout.createSequentialGroup()
+                    .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel31)
                         .addComponent(jLabel49)
                         .addComponent(jLabel50)
@@ -2762,9 +2841,9 @@ public final class LibraryHome extends javax.swing.JFrame {
                         .addComponent(jLabel19)
                         .addComponent(jLabel102))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel16Layout.createSequentialGroup()
-                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelOneLayout.createSequentialGroup()
+                            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtPenalties, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(dateReturnedChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtAdmNo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2773,65 +2852,105 @@ public final class LibraryHome extends javax.swing.JFrame {
                                 .addComponent(txtAreaCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(txtStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtBookIsbnRet, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtBookTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGroup(panelOneLayout.createSequentialGroup()
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(106, 106, 106)))
-            .addContainerGap(118, Short.MAX_VALUE))
+            .addContainerGap(26, Short.MAX_VALUE))
     );
-    jPanel16Layout.setVerticalGroup(
-        jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel16Layout.createSequentialGroup()
-            .addGap(50, 50, 50)
+    panelOneLayout.setVerticalGroup(
+        panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOneLayout.createSequentialGroup()
+            .addContainerGap(60, Short.MAX_VALUE)
             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtBookIsbnRet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel19))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtBookTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel31))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtDateDue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel49))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtReceievedFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel50))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtAdmNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel51)
                 .addComponent(txtStaffStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                 .addComponent(dateReturnedChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(20, 20, 20)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtPenalties, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel53))
             .addGap(18, 18, 18)
-            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+            .addGroup(panelOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtAreaCondition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel102))
-            .addGap(116, 116, 116))
+            .addGap(56, 56, 56))
+    );
+
+    javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+    jPanel16.setLayout(jPanel16Layout);
+    jPanel16Layout.setHorizontalGroup(
+        jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+            .addContainerGap(128, Short.MAX_VALUE)
+            .addComponent(panelOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(118, Short.MAX_VALUE))
+    );
+    jPanel16Layout.setVerticalGroup(
+        jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+            .addContainerGap(49, Short.MAX_VALUE)
+            .addComponent(panelOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
     );
 
     btnIndicator.setBackground(new java.awt.Color(129, 186, 243));
 
     jLabel126.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newsysLogo.png"))); // NOI18N
 
-    txtShelf.setEditable(false);
-    txtShelf.setBackground(new java.awt.Color(204, 255, 255));
-    txtShelf.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jPanel51.setBackground(new java.awt.Color(129, 186, 243));
+    jPanel51.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)), "Receive Multiple", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-    jLabel128.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jLabel128.setText("Return to shelf :");
+    btnReceiveMultiple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/multipleWhiten.png"))); // NOI18N
+    btnReceiveMultiple.setContentAreaFilled(false);
+    btnReceiveMultiple.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnReceiveMultiple.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/multiplecolor.png"))); // NOI18N
+    btnReceiveMultiple.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnReceiveMultipleActionPerformed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout jPanel51Layout = new javax.swing.GroupLayout(jPanel51);
+    jPanel51.setLayout(jPanel51Layout);
+    jPanel51Layout.setHorizontalGroup(
+        jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel51Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(btnReceiveMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addContainerGap())
+    );
+    jPanel51Layout.setVerticalGroup(
+        jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel51Layout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(btnReceiveMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
 
     javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
     jPanel13.setLayout(jPanel13Layout);
@@ -2846,13 +2965,12 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap())
                 .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtShelf)
-                        .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(48, 48, 48))
                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
-                    .addComponent(jLabel128)
+                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel51, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addContainerGap())))
     );
     jPanel13Layout.setVerticalGroup(
@@ -2865,13 +2983,11 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addGap(7, 7, 7))
                 .addGroup(jPanel13Layout.createSequentialGroup()
                     .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(200, 200, 200)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(43, 43, 43)
-                    .addComponent(jLabel128)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(44, 44, 44)
+                    .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(61, 61, 61)
                     .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(20, 20, 20))))
     );
@@ -2926,7 +3042,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     jScrollPane9.setViewportView(tableListBooks);
 
     btnEditBookDetails.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnEditBookDetails.setForeground(new java.awt.Color(255, 255, 255));
     btnEditBookDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editwhite_16.png"))); // NOI18N
     btnEditBookDetails.setText("Edit details");
     btnEditBookDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
@@ -2948,7 +3063,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
 
     btnImport.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnImport.setForeground(new java.awt.Color(255, 255, 255));
     btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Microsoftwhitel_16.png"))); // NOI18N
     btnImport.setText("Import");
     btnImport.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -2968,6 +3082,15 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    txtCountBooks.setEditable(false);
+    txtCountBooks.setBackground(new java.awt.Color(51, 51, 51));
+    txtCountBooks.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    txtCountBooks.setForeground(new java.awt.Color(255, 255, 255));
+    txtCountBooks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+    jLabel134.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel134.setText("Number of books :");
+
     javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
     jPanel18.setLayout(jPanel18Layout);
     jPanel18Layout.setHorizontalGroup(
@@ -2977,8 +3100,12 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnEditBookDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addComponent(jScrollPane9)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel134)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtCountBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap())
+        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
     );
     jPanel18Layout.setVerticalGroup(
         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2987,7 +3114,9 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnEditBookDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEditBookDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCountBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel134))
             .addContainerGap())
     );
 
@@ -3035,7 +3164,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    txtListBooks.setToolTipText("Enter boomk title");
+    txtListBooks.setToolTipText("Enter book title");
     txtListBooks.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
             txtListBooksKeyPressed(evt);
@@ -3084,10 +3213,26 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    txtCountBooks.setEditable(false);
-    txtCountBooks.setBackground(new java.awt.Color(204, 204, 204));
-    txtCountBooks.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    txtCountBooks.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+    txtListId.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            txtListIdKeyTyped(evt);
+        }
+    });
+
+    jLabel133.setForeground(new java.awt.Color(255, 255, 255));
+    jLabel133.setText("Book ID ;");
+
+    btnPrintList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Printwhite_16.png"))); // NOI18N
+    btnPrintList.setToolTipText("Print");
+    btnPrintList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnPrintList.setContentAreaFilled(false);
+    btnPrintList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnPrintList.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Printred_16.png"))); // NOI18N
+    btnPrintList.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnPrintListActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout panelListLayout = new javax.swing.GroupLayout(panelList);
     panelList.setLayout(panelListLayout);
@@ -3103,13 +3248,17 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(comboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(txtCountBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+            .addComponent(jLabel133)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtListId, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnAddBookList, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnPrintList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
         .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
@@ -3121,7 +3270,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCountBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtListId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel133))
                 .addGroup(panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtListBooks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchList))
@@ -3129,7 +3279,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAddBookList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPrintList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -4131,10 +4282,11 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel16))
             .addGap(18, 18, 18)
-            .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel17)
-                .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)))
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtConfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4655,13 +4807,28 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnDeleteFromStd.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnDeleteFromStd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+    btnDeleteFromStd.setText("Delete records where returned is \"YES\"");
+    btnDeleteFromStd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnDeleteFromStd.setContentAreaFilled(false);
+    btnDeleteFromStd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnDeleteFromStd.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+    btnDeleteFromStd.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnDeleteFromStdActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
     jPanel23.setLayout(jPanel23Layout);
     jPanel23Layout.setHorizontalGroup(
         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addContainerGap()
+            .addComponent(btnDeleteFromStd, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrintStd, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4670,11 +4837,12 @@ public final class LibraryHome extends javax.swing.JFrame {
     jPanel23Layout.setVerticalGroup(
         jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel23Layout.createSequentialGroup()
-            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                .addComponent(btnPrintStd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnDeleteFromStd, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(btnPrintStd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnWriteStdToExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
 
@@ -4728,6 +4896,20 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnRefreshStdTablr.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRefreshStdTablr.setForeground(new java.awt.Color(255, 255, 255));
+    btnRefreshStdTablr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refreshwhite_16.png"))); // NOI18N
+    btnRefreshStdTablr.setText("Reload");
+    btnRefreshStdTablr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnRefreshStdTablr.setContentAreaFilled(false);
+    btnRefreshStdTablr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshStdTablr.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh2_16.png"))); // NOI18N
+    btnRefreshStdTablr.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRefreshStdTablrActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelStudentsLayout = new javax.swing.GroupLayout(panelStudents);
     panelStudents.setLayout(panelStudentsLayout);
     panelStudentsLayout.setHorizontalGroup(
@@ -4735,7 +4917,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelStudentsLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jLabel75)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(btnRefreshStdTablr, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel109)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4764,7 +4948,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel109)
                 .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSearchFormView))
+                .addComponent(btnSearchFormView)
+                .addComponent(btnRefreshStdTablr, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(4, 4, 4)
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -4819,13 +5004,28 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnDeleteStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnDeleteStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+    btnDeleteStaff.setText("Delete records where returned is \"YES\"");
+    btnDeleteStaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnDeleteStaff.setContentAreaFilled(false);
+    btnDeleteStaff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnDeleteStaff.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+    btnDeleteStaff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnDeleteStaffActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
     jPanel24.setLayout(jPanel24Layout);
     jPanel24Layout.setHorizontalGroup(
         jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 1038, Short.MAX_VALUE)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addContainerGap()
+            .addComponent(btnDeleteStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnPrintStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(btnExportTtoExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4837,7 +5037,8 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(btnExportTtoExcel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(btnExportTtoExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDeleteStaff, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addComponent(btnPrintStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
     );
@@ -4869,6 +5070,20 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
+    btnRefreshStaff.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRefreshStaff.setForeground(new java.awt.Color(255, 255, 255));
+    btnRefreshStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refreshwhite_16.png"))); // NOI18N
+    btnRefreshStaff.setText("Reload");
+    btnRefreshStaff.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnRefreshStaff.setContentAreaFilled(false);
+    btnRefreshStaff.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRefreshStaff.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Refresh2_16.png"))); // NOI18N
+    btnRefreshStaff.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRefreshStaffActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout panelTeachersLayout = new javax.swing.GroupLayout(panelTeachers);
     panelTeachers.setLayout(panelTeachersLayout);
     panelTeachersLayout.setHorizontalGroup(
@@ -4876,7 +5091,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(panelTeachersLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(labelStaffList)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(btnRefreshStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jLabel92)
@@ -4891,14 +5108,16 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelTeachersLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addGroup(panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtStaffIdList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchStaffId)
-                    .addComponent(jLabel92)
-                    .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(labelStaffList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGap(8, 8, 8)
+            .addGroup(panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelTeachersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtStaffIdList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchStaffId)
+                        .addComponent(jLabel92)
+                        .addComponent(comboFiletStaff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelStaffList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnRefreshStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(6, 6, 6)
             .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -8053,7 +8272,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditBookDetailsMouseEntered
 
     private void btnEditBookDetailsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditBookDetailsMouseExited
-        btnEditBookDetails.setForeground(Color.white);
+        btnEditBookDetails.setForeground(Color.BLACK);
     }//GEN-LAST:event_btnEditBookDetailsMouseExited
 
     private void btnRecieveBooksMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecieveBooksMouseEntered
@@ -8083,6 +8302,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
             MessageFormat header = new MessageFormat("School Library System Session Logs");
             try {
+                tableSessionLogs.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableSessionLogs.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Session logs printed successfully");
@@ -8096,15 +8316,17 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintSessionActionPerformed
 
     private void btnPrintIssuedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintIssuedActionPerformed
-        if(tableBooksIssued.getRowCount() == 0){
+        int rowCount = tableBooksIssued.getRowCount();
+        if(rowCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
                 Date today = Calendar.getInstance().getTime();
                 String reportDate = df.format(today);
-                MessageFormat footer = new MessageFormat(reportDate);
+                MessageFormat footer = new MessageFormat(reportDate+" Records found:"+rowCount);
 
                 MessageFormat header = new MessageFormat("School Library System: Books Issued List");
                 try {
+                    tableBooksIssued.setFont(new Font("Serif", Font.PLAIN, 14));
                     boolean complete = tableBooksIssued.print(JTable.PrintMode.FIT_WIDTH, header, footer);
                 if (complete) {
                 JOptionPane.showMessageDialog(null, "Books issued list printed successfully");
@@ -8252,16 +8474,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchBorrowersActionPerformed
 
     private void btnPrintBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintBorrowersActionPerformed
-        if(tableBorrowers.getRowCount() == 0){
+        int boroCount = tableBorrowers.getRowCount();
+        if(boroCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
                 Date today = Calendar.getInstance().getTime();
                 String reportDate = df.format(today);
-                MessageFormat footer = new MessageFormat(reportDate);
+                MessageFormat footer = new MessageFormat(reportDate+" Records found:"+boroCount);
 
                 MessageFormat header = new MessageFormat("School Library System: Borrowers' List");
                 try {
+                    tableBorrowers.setFont(new Font("Serif", Font.PLAIN, 14));
                     boolean complete = tableBorrowers.print(JTable.PrintMode.FIT_WIDTH, header, footer);
                 if (complete) {
                 JOptionPane.showMessageDialog(null, "Borrowers table printed successfuly");
@@ -9187,7 +9411,7 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImportMouseEntered
 
     private void btnImportMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnImportMouseExited
-       btnImport.setForeground(Color.WHITE);
+       btnImport.setForeground(Color.BLACK);
     }//GEN-LAST:event_btnImportMouseExited
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -9557,7 +9781,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         int formNumber = Integer.parseInt(txtFormEntered.getText());
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             if(txtFormEntered.getText().isEmpty() || formNumber > 4 || formNumber < 1){
-            JOptionPane.showMessageDialog(null, "Please enter form to search");}
+            JOptionPane.showMessageDialog(null, "Please enter a valid form number");}
             else{refreshstdListModelFilter();
             numberOfStudentsForm();
             }
@@ -9825,53 +10049,67 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     private void txtBookIdStaffKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookIdStaffKeyTyped
         char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
         refreshOnItemIssueStaffId();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtBookIdStaffKeyTyped
 
     private void txtBkIdStudentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBkIdStudentKeyTyped
         char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
             refreshOnIdEnteredIssueStd();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtBkIdStudentKeyTyped
 
     private void txtBookIDShortKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBookIDShortKeyTyped
         char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
             refreshShortTableId();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtBookIDShortKeyTyped
 
     private void txtSearchIssueStdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchIssueStdKeyTyped
         char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
             refreshOnIdIssueStd();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtSearchIssueStdKeyTyped
 
     private void txtShelfStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtShelfStockKeyTyped
         char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
             refreshBooksStockShelf();
             countStockShelf();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtShelfStockKeyTyped
 
     private void txtSearchTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchTextKeyTyped
          char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){
+        if(Character.isAlphabetic(c)){
         refreshStockModeltitle();
               countStockTitle();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtSearchTextKeyTyped
 
     private void txtListBooksKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtListBooksKeyTyped
          char c = evt.getKeyChar();
-        if((Character.isAlphabetic(c) || (c == KeyEvent.VK_BACKSPACE) || c == KeyEvent.VK_DELETE)){    
+        if(Character.isAlphabetic(c)){    
             refreshListOnTitle();
             DisplayBooksComboCount1();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
         }
     }//GEN-LAST:event_txtListBooksKeyTyped
 
@@ -9906,6 +10144,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
             MessageFormat header = new MessageFormat("School Library System: Books in the library");
             try {
+                tableBookStock.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableBookStock.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Books list printed successfully");
@@ -9919,16 +10158,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_printStockActionPerformed
 
     private void btnPrintStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintStdActionPerformed
-        if(tableStudents.getRowCount() == 0){
+        int stdCount = tableStudents.getRowCount();
+        if(stdCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
-            MessageFormat footer = new MessageFormat(reportDate);
+            MessageFormat footer = new MessageFormat(reportDate+" Number of records:"+stdCount);
 
             MessageFormat header = new MessageFormat("School Library System: Student list of borrowers");
             try {
+                tableStudents.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableStudents.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Student list of borrowers printed successfully");
@@ -9942,16 +10183,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintStdActionPerformed
 
     private void btnPrintStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintStaffActionPerformed
-        if(tableStaff.getRowCount() == 0){
+        int staffCount = tableStaff.getRowCount();        
+        if(staffCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
-            MessageFormat footer = new MessageFormat(reportDate);
+            MessageFormat footer = new MessageFormat(reportDate+" Records found:"+staffCount);
 
             MessageFormat header = new MessageFormat("School Library System: Staff list of borrowers");
             try {
+                tableStaff.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableStaff.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Staff list of borrowers printed successfully");
@@ -9965,16 +10208,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintStaffActionPerformed
 
     private void btnPrintMagzActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintMagzActionPerformed
-        if(tableMagzBoro.getRowCount() == 0){
+        int magzCount = tableMagzBoro.getRowCount();
+        if(magzCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
-            MessageFormat footer = new MessageFormat(reportDate);
+            MessageFormat footer = new MessageFormat(reportDate+" Records found:"+magzCount);
 
             MessageFormat header = new MessageFormat("School Library System: Magazine borrowers list");
             try {
+                tableMagzBoro.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableMagzBoro.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Magazine borrowers printed successfully");
@@ -9988,16 +10233,18 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrintMagzActionPerformed
 
     private void btnPrintDamagedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintDamagedActionPerformed
-        if(tableDamagedBooks.getRowCount() == 0){
+        int damagedCount = tableDamagedBooks.getRowCount();
+        if(damagedCount == 0){
         JOptionPane.showMessageDialog(null, "Table has no data to print");}
         else{
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
             Date today = Calendar.getInstance().getTime();
             String reportDate = df.format(today);
-            MessageFormat footer = new MessageFormat(reportDate);
+            MessageFormat footer = new MessageFormat(reportDate+" Records found:"+damagedCount);
 
             MessageFormat header = new MessageFormat("School Library System: Damaged books list");
             try {
+                tableDamagedBooks.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableDamagedBooks.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Damaged books list printed successfully");
@@ -10022,6 +10269,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
             MessageFormat header = new MessageFormat("School Library System: Student list");
             try {
+                tableStudentList.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableStudentList.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Student list printed successfully");
@@ -10046,6 +10294,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
             MessageFormat header = new MessageFormat("School Library System: Staff list");
             try {
+                tableStaffRecords.setFont(new Font("Serif", Font.PLAIN, 14));
                 boolean complete = tableStaffRecords.print(JTable.PrintMode.FIT_WIDTH, header, footer);
             if (complete) {
             JOptionPane.showMessageDialog(null, "Staff list printed successfully");
@@ -10057,6 +10306,90 @@ public final class LibraryHome extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnPrintListStaffActionPerformed
+
+    private void btnReceiveMultipleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveMultipleActionPerformed
+        DialogReceiveMultiple receiveMultiple = new DialogReceiveMultiple(this, true);
+        receiveMultiple.setVisible(true);
+    }//GEN-LAST:event_btnReceiveMultipleActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DialogMultipleStudents issueMultiple = new DialogMultipleStudents(this, true);
+        issueMultiple.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnMulitStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMulitStaffActionPerformed
+        DialogMultipleStaff issueMultipleStf = new DialogMultipleStaff(this, true);
+        issueMultipleStf.setVisible(true);
+    }//GEN-LAST:event_btnMulitStaffActionPerformed
+
+    private void txtListIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtListIdKeyTyped
+        char c = evt.getKeyChar();
+        if(Character.isAlphabetic(c)){    
+            refreshListOnId();
+            DisplayBooksComboCount2();
+        }else if(c == KeyEvent.VK_BACKSPACE || c == KeyEvent.VK_DELETE){
+        //do nothing
+        }
+    }//GEN-LAST:event_txtListIdKeyTyped
+
+    private void btnPrintListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintListActionPerformed
+        if(tableListBooks.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data to print");}
+        else{
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+            Date today = Calendar.getInstance().getTime();
+            String reportDate = df.format(today);
+            String numberRec = txtCountBooks.getText();
+            MessageFormat footer = new MessageFormat(reportDate+" Records number:"+numberRec);
+
+            MessageFormat header = new MessageFormat("School Library System: Books list");
+            try {
+                tableListBooks.setFont(new Font("Serif", Font.PLAIN, 14));
+                boolean complete = tableListBooks.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+            if (complete) {
+            JOptionPane.showMessageDialog(null, "Books list printed successfully");
+            } else {
+            JOptionPane.showMessageDialog(null, "Printing cancelled");
+            }
+        } catch (PrinterException pe) {
+        JOptionPane.showMessageDialog(null,  pe.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnPrintListActionPerformed
+
+    private void btnRefreshStdTablrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStdTablrActionPerformed
+        refreshStdTable();
+    }//GEN-LAST:event_btnRefreshStdTablrActionPerformed
+
+    private void btnDeleteFromStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteFromStdActionPerformed
+        int response = JOptionPane.showConfirmDialog(null, "Delete records where returned is YES?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+                deleteFromStudents();
+        }
+    }//GEN-LAST:event_btnDeleteFromStdActionPerformed
+
+    private void btnRefreshStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStaffActionPerformed
+        refreshStaffTable();
+    }//GEN-LAST:event_btnRefreshStaffActionPerformed
+
+    private void btnDeleteStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStaffActionPerformed
+        int response = JOptionPane.showConfirmDialog(null, "Delete records where returned is YES?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
+                deleteFromStaff();
+            }
+    }//GEN-LAST:event_btnDeleteStaffActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -10349,6 +10682,12 @@ public void refreshListOnTitle(){
     while(listModel.getRowCount() != 0){
         listModel.removeRow(0);}
     displayBooksListFilterTitle();
+}
+
+public void refreshListOnId(){
+    while(listModel.getRowCount() != 0){
+        listModel.removeRow(0);}
+    displayBooksListFilterId();
 }
 
 public void refreshMagz(){
@@ -11108,6 +11447,53 @@ public void displayBooksListFilterTitle() {
 
 }
 
+public void displayBooksListFilterId() {
+
+        listModel.setColumnIdentifiers(listColumnNames);
+
+        tableListBooks.setModel(listModel);
+
+        tableListBooks.setFillsViewportHeight(true);
+        
+        String itemSelect = txtListId.getText().trim();
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT  bklib_id,book_isbn,author,title,publisher_name,shelf,edition,subject_category,loan_type,borrowed,book_condition FROM books_db WHERE bklib_id LIKE '"+ itemSelect +"%'");
+            ResultSet rsIssue = st.executeQuery();
+
+            int i = 0;
+            while (rsIssue.next()) {
+                bookID = rsIssue.getString("bklib_id");
+                bookISBNList = rsIssue.getString("book_isbn");
+                authorNameList = rsIssue.getString("author");
+                titleNameList = rsIssue.getString("title");
+                publisherList = rsIssue.getString("publisher_name");
+                shelflist = rsIssue.getString("shelf");
+                editionList = rsIssue.getString("edition");
+                categoryList = rsIssue.getString("subject_category");
+                loanList = rsIssue.getString("loan_type");
+                borrowedList = rsIssue.getString("borrowed");
+                conditionList = rsIssue.getString("book_condition");
+
+                listModel.addRow(new Object[]{bookID, bookISBNList, authorNameList, titleNameList, publisherList,shelflist,editionList,categoryList,loanList,borrowedList,conditionList});
+                i++;
+
+            }
+
+            if (i < 1) {
+                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+         
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            JOptionPane.showMessageDialog(null, rt.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+}
+
 public void DisplayBooksStock() {
 
         stockModel.setColumnIdentifiers(stockColumnNames);
@@ -11714,7 +12100,7 @@ public void displayBooksIssueStudents() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+               // JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11887,7 +12273,7 @@ public void searchBooksIssueStudentsItem() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11933,7 +12319,7 @@ public void searchBooksIssueStudentsID() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12024,7 +12410,7 @@ public void searchBooksIssueStaffCategory() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12070,7 +12456,7 @@ public void searchBooksIssueStaffId() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12209,7 +12595,7 @@ public void displayBooksIssueStaff() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "all books for long loan have been issued", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12263,13 +12649,14 @@ public void displayBooksBorrowed(){
 
 public void issueToStudents() {                                        
         
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+        String dateDue =  sdf.format(dateChooserDue.getDate());
         String stdntID = txtStdntAmNo.getText().toUpperCase().trim();
         String stdntFname = txtSdntFname.getText().toUpperCase().trim();
         String stdntLname = txtStdntLname.getText().toUpperCase().trim();
         String StdntClass = txtStdntClass.getText().toUpperCase().trim();
         String streamNAme = txtStreamLong.getText().trim();
         Date dateBorrowed = DateBorrowed.getDate();
-        Date dateDue = dateChooserDue.getDate();
         String bookdIssue = txtBookIdIssue.getText();
         String systemBkId = systemBookId.getText();
         String titleIssue = txtBookIssueTitle1.getText();
@@ -12374,7 +12761,8 @@ public void issueShortToStudents() {
         String StdntClass = txtShortClass.getText();
         String streamName = txtStreamShort.getText().trim();
         Date dateBorrowed = DateBorrowed.getDate();
-        Date dateDue = DateBorrowed.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+        String dateDue =  sdf.format(DateBorrowed.getDate());
         String bookSysID = systemIDtxt.getText();
         String bookdIssue = txtShortBkId.getText();
         String titleIssue = txtShortBkTitle.getText();
@@ -12514,13 +12902,14 @@ public void issueMagzToStudents() {
 
 public void issueToStaff() {                                        
         
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+        String dateDueStaff =  sdf.format(dateStaffDue.getDate());
         String staffID = txtStaffID.getText().toUpperCase().trim();
         String staffFname = txtStaffName1.getText().toUpperCase().trim();
         String staffLname = txtStaffName2.getText().toUpperCase().trim();
         String StaffDept = txtStaffDept.getText().toUpperCase().trim();
         String phoneNo = txtStaffPhone.getText().trim();
         Date dateBorrowedStaff = staffDateBorrowed.getDate();
-        Date dateDueStaff = dateStaffDue.getDate();
         String bookdIssueStaff = txtStaffBookId.getText();
         String systemIdbook = systemIDStaff.getText();
         String titleIssueStaff = txtStaffBkTitle.getText();
@@ -12685,7 +13074,8 @@ public void issueShortToStaff() {
         Date dateBorrowed = DateBorrowed.getDate();
         String phoneToShort = txtStaffNo.getText().trim();
         String deptShortStaff = txtShortDept.getText().toUpperCase().trim();
-        Date dateDue = DateBorrowed.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM d, yyyy");
+        String dateDue =  sdf.format(DateBorrowed.getDate());
         String bookdIssue = txtShortBkId.getText();
         String systemIdshort = systemIDtxt.getText();
         String titleIssue = txtShortBkTitle.getText();
@@ -12797,8 +13187,8 @@ public void retrieveBookDetails() {
                 String boroID = rs.getString("borrowed_by_id");
                 txtAdmNo.setText(boroID);
                 
-                String name1 = rs.getString("name1_of_borrower");
-                String name2 = rs.getString("name2_of_borrower");
+                String name1 = rs.getString("name1_of_borrower").toUpperCase();
+                String name2 = rs.getString("name2_of_borrower").toUpperCase();
                 txtReceievedFrom.setText(name1+" "+name2);
                 
                 String stafstd = rs.getString("staff_std");
@@ -12886,6 +13276,48 @@ public void recieveFromStudents() {
         
     }
 
+public void deleteFromStudents() {                                        
+        
+        String returnString = "YES";
+        
+            try {
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection con;
+                con = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con.createStatement();
+                String sql2 = "DELETE FROM student_db WHERE returned='"+returnString+"'";
+                statement.execute(sql2);
+               
+                JOptionPane.showMessageDialog(null, "RECORDS DELETED");
+                refreshStdTable();
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        
+    }
+
+public void deleteFromStaff() {                                        
+        
+        String returnString = "YES";
+        
+            try {
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection con;
+                con = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con.createStatement();
+                String sql2 = "DELETE FROM staff_db WHERE returned='"+returnString+"'";
+                statement.execute(sql2);
+               
+                JOptionPane.showMessageDialog(null, "RECORDS DELETED");
+                refreshStaffTable();
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        
+    }
+
 public void recieveFromStaff() {                                        
         
         String bookdRecieve = textFieldBookId.getText();
@@ -12958,14 +13390,14 @@ public void retrieveStudentDetails() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_std = rsRetStd.getString("std_fname");
+                String fname_std = rsRetStd.getString("std_fname").toUpperCase();
                 txtSdntFname.setText(fname_std);
                 
-                String lname_std = rsRetStd.getString("std_lname");
+                String lname_std = rsRetStd.getString("std_lname").toUpperCase();
                 txtStdntLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream");
+                String class_stream = rsRetStd.getString("stream").toUpperCase();
                 txtStdntClass.setText(class_std);
                 txtStreamLong.setText(class_stream);
 
@@ -12997,14 +13429,14 @@ public void retrieveStudentDetailsShort() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_std = rsRetStd.getString("std_fname");
+                String fname_std = rsRetStd.getString("std_fname").toUpperCase();
                 txtShortFname.setText(fname_std);
                 
-                String lname_std = rsRetStd.getString("std_lname");
+                String lname_std = rsRetStd.getString("std_lname").toUpperCase();
                 txtShortLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream");
+                String class_stream = rsRetStd.getString("stream").toUpperCase();
                 txtShortClass.setText(class_std);
                 txtStreamShort.setText(class_stream);
 
@@ -13044,14 +13476,14 @@ public void retrieveStudentDetailsMagz() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_std = rsRetStd.getString("std_fname");
+                String fname_std = rsRetStd.getString("std_fname").toUpperCase();
                 txtMagzName1.setText(fname_std);
                 
-                String lname_std = rsRetStd.getString("std_lname");
+                String lname_std = rsRetStd.getString("std_lname").toUpperCase();
                 txtMagzName2.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream");
+                String class_stream = rsRetStd.getString("stream").toUpperCase();
                 txtMagzClass.setText(class_std);
                 txtStreamMags.setText(class_stream);
 
@@ -13087,13 +13519,13 @@ public void retrieveStaffDetails() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_stf = rsRetStd.getString("staff_fname");
+                String fname_stf = rsRetStd.getString("staff_fname").toUpperCase();
                 txtStaffName1.setText(fname_stf);
                 
-                String lname_stf = rsRetStd.getString("staff_lname");
+                String lname_stf = rsRetStd.getString("staff_lname").toUpperCase();
                 txtStaffName2.setText(lname_stf);
                 
-                String deptName = rsRetStd.getString("dept");
+                String deptName = rsRetStd.getString("dept").toUpperCase();
                 txtStaffDept.setText(deptName);
                 
                 String phoneNo = rsRetStd.getString("phone_no");
@@ -13128,13 +13560,13 @@ public void retrieveStaffDetailsMagz() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_stf = rsRetStd.getString("staff_fname");
+                String fname_stf = rsRetStd.getString("staff_fname").toUpperCase();
                 txtMagzName1.setText(fname_stf);
                 
-                String lname_stf = rsRetStd.getString("staff_lname");
+                String lname_stf = rsRetStd.getString("staff_lname").toUpperCase();
                 txtMagzName2.setText(lname_stf);
                 
-                String deptName = rsRetStd.getString("dept");
+                String deptName = rsRetStd.getString("dept").toUpperCase();
                 txtMagzDept.setText(deptName);
                 
                 String phoneNo = rsRetStd.getString("phone_no");
@@ -13171,13 +13603,13 @@ public void retrieveStaffDetailsShort() {
             boolean emptyRs = true;
             if (rsRetStd.next()) {
                 emptyRs = false;
-                String fname_stf = rsRetStd.getString("staff_fname");
+                String fname_stf = rsRetStd.getString("staff_fname").toUpperCase();
                 txtShortFname.setText(fname_stf);
                 
-                String lname_stf = rsRetStd.getString("staff_lname");
+                String lname_stf = rsRetStd.getString("staff_lname").toUpperCase();
                 txtShortLname.setText(lname_stf);
                 
-                String deptName = rsRetStd.getString("dept");
+                String deptName = rsRetStd.getString("dept").toUpperCase();
                 txtShortDept.setText(deptName);
                 
                 String phoneNo = rsRetStd.getString("phone_no");
@@ -14123,11 +14555,11 @@ public void studentTable() {
             int i = 0;
             while (staffRs.next()) {
                 stdAdm = staffRs.getString("adm_no");
-                stdFname = staffRs.getString("std_fname");
-                stdLname = staffRs.getString("std_lname");
+                stdFname = staffRs.getString("std_fname").toUpperCase();
+                stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStream = staffRs.getString("stream");
+                String formStream = staffRs.getString("stream").toUpperCase();
                 stdForm = formNo+" "+formStream;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14172,11 +14604,11 @@ public void filterStudentTable() {
             int i = 0;
             while (staffRs.next()) {
                 stdAdm = staffRs.getString("adm_no");
-                stdFname = staffRs.getString("std_fname");
-                stdLname = staffRs.getString("std_lname");
+                stdFname = staffRs.getString("std_fname").toUpperCase();
+                stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream");
+                String formStr = staffRs.getString("stream").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14221,11 +14653,11 @@ public void filterStudentForm() {
             int i = 0;
             while (staffRs.next()) {
                 stdAdm = staffRs.getString("adm_no");
-                stdFname = staffRs.getString("std_fname");
-                stdLname = staffRs.getString("std_lname");
+                stdFname = staffRs.getString("std_fname").toUpperCase();
+                stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream");
+                String formStr = staffRs.getString("stream").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14270,11 +14702,11 @@ public void filterStudentTableID() {
             int i = 0;
             while (staffRs.next()) {
                 stdAdm = staffRs.getString("adm_no");
-                stdFname = staffRs.getString("std_fname");
-                stdLname = staffRs.getString("std_lname");
+                stdFname = staffRs.getString("std_fname").toUpperCase();
+                stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream");
+                String formStr = staffRs.getString("stream").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14317,11 +14749,11 @@ public void staffTable(){
             int i = 0;
             while (staffRs.next()) {
                 staffIDno = staffRs.getString("id_number");
-                stdFname = staffRs.getString("staff_fname");
-                stdLname = staffRs.getString("staff_lname");
+                stdFname = staffRs.getString("staff_fname").toUpperCase();
+                stdLname = staffRs.getString("staff_lname").toUpperCase();
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
-                staffDepartment = staffRs.getString("dept");
+                staffDepartment = staffRs.getString("dept").toUpperCase();
                 staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
@@ -14365,11 +14797,11 @@ public void filterStaffTable(){
             int i = 0;
             while (staffRs.next()) {
                 staffIDno = staffRs.getString("id_number");
-                stdFname = staffRs.getString("staff_fname");
-                stdLname = staffRs.getString("staff_lname");
+                stdFname = staffRs.getString("staff_fname").toUpperCase();
+                stdLname = staffRs.getString("staff_lname").toUpperCase();
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
-                staffDepartment = staffRs.getString("dept");
+                staffDepartment = staffRs.getString("dept").toUpperCase();
                 staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
@@ -14413,11 +14845,11 @@ public void filterStaffTableID(){
             int i = 0;
             while (staffRs.next()) {
                 staffIDno = staffRs.getString("id_number");
-                stdFname = staffRs.getString("staff_fname");
-                stdLname = staffRs.getString("staff_lname");
+                stdFname = staffRs.getString("staff_fname").toUpperCase();
+                stdLname = staffRs.getString("staff_lname").toUpperCase();
                 String namelistStaff = stdFname+" "+stdLname;
                 phoneStaffNo = staffRs.getString("phone_no");
-                staffDepartment = staffRs.getString("dept");
+                staffDepartment = staffRs.getString("dept").toUpperCase();
                 staffBookid = staffRs.getString("bklib_id");
                 staffBookTitle = staffRs.getString("book_title");
                 staffReturned = staffRs.getString("returned");
@@ -14584,10 +15016,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String streamName = listRs.getString("stream");
+                String streamName = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+streamName;
                 stdStatus = listRs.getString("status");
 
@@ -14623,10 +15055,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String streamName = listRs.getString("stream");
+                String streamName = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+streamName;
                 stdStatus = listRs.getString("status");
 
@@ -14663,10 +15095,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream");
+                String formStr = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -14704,10 +15136,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream");
+                String formStr = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -14745,10 +15177,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream");
+                String formStr = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -14786,10 +15218,10 @@ public void filterStaffTableID(){
             int i = 0;
             while (listRs.next()) {
                 admissionNo = listRs.getString("adm_no");
-                stdFnameList = listRs.getString("std_fname");
-                stdLnameList = listRs.getString("std_lname");
+                stdFnameList = listRs.getString("std_fname").toUpperCase();
+                stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream");
+                String formStr = listRs.getString("stream").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -14826,9 +15258,9 @@ public void fillStaffList() {
             int i = 0;
             while (listRs.next()) {
                 idnumberRec = listRs.getString("id_number");
-                staffrecfname = listRs.getString("staff_fname");
-                staffReclname = listRs.getString("staff_lname");
-                staffDept = listRs.getString("dept");
+                staffrecfname = listRs.getString("staff_fname").toUpperCase();
+                staffReclname = listRs.getString("staff_lname").toUpperCase();
+                staffDept = listRs.getString("dept").toUpperCase();
                 staffPhone = listRs.getString("phone_no");
                 staffStatus = listRs.getString("status");
 
@@ -14865,9 +15297,9 @@ public void fillStaffListAll() {
             int i = 0;
             while (listRs.next()) {
                 idnumberRec = listRs.getString("id_number");
-                staffrecfname = listRs.getString("staff_fname");
-                staffReclname = listRs.getString("staff_lname");
-                staffDept = listRs.getString("dept");
+                staffrecfname = listRs.getString("staff_fname").toUpperCase();
+                staffReclname = listRs.getString("staff_lname").toUpperCase();
+                staffDept = listRs.getString("dept").toUpperCase();
                 staffPhone = listRs.getString("phone_no");
                 staffStatus = listRs.getString("status");
 
@@ -14905,9 +15337,9 @@ public void fillterStaffList() {
             int i = 0;
             while (listRs.next()) {
                 idnumberRec = listRs.getString("id_number");
-                staffrecfname = listRs.getString("staff_fname");
-                staffReclname = listRs.getString("staff_lname");
-                staffDept = listRs.getString("dept");
+                staffrecfname = listRs.getString("staff_fname").toUpperCase();
+                staffReclname = listRs.getString("staff_lname").toUpperCase();
+                staffDept = listRs.getString("dept").toUpperCase();
                 staffPhone = listRs.getString("phone_no");
                 staffStatus = listRs.getString("status");
 
@@ -15634,6 +16066,27 @@ public void DisplayBooksComboCount1(){
 
 }
 
+public void DisplayBooksComboCount2(){
+        String textFilter = txtListId.getText();
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT COUNT(bklib_id) AS compcount FROM books_db WHERE bklib_id LIKE '"+ textFilter +"%'");
+            ResultSet rsIssue = st.executeQuery();
+           
+            int i = 0;
+            if(rsIssue.next()){    
+                String repoCount = rsIssue.getString("compcount");
+                txtCountBooks.setText(repoCount);}
+            
+            else{}//DO NOT delete this line
+    }   catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(LibraryHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
     private com.toedter.calendar.JDateChooser DateBorrowed;
@@ -15663,6 +16116,8 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnCreateNotes;
     private javax.swing.JButton btnCreateSch;
     private javax.swing.JButton btnDamageToExcel;
+    private javax.swing.JButton btnDeleteFromStd;
+    private javax.swing.JButton btnDeleteStaff;
     private javax.swing.JButton btnEditBookDetails;
     private javax.swing.JButton btnEditStaffDetails;
     private javax.swing.JButton btnEditStdDetails;
@@ -15691,11 +16146,13 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnMagzShortcut;
     private javax.swing.JButton btnMagzToExcel;
     private javax.swing.JButton btnMaintIssue;
+    private javax.swing.JButton btnMulitStaff;
     private javax.swing.JButton btnPassReset;
     private javax.swing.JButton btnPermissions;
     private javax.swing.JButton btnPrintBorrowers;
     private javax.swing.JButton btnPrintDamaged;
     private javax.swing.JButton btnPrintIssued;
+    private javax.swing.JButton btnPrintList;
     private javax.swing.JButton btnPrintListStaff;
     private javax.swing.JButton btnPrintMagz;
     private javax.swing.JButton btnPrintSession;
@@ -15704,6 +16161,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnPrintStudents;
     private javax.swing.JButton btnProfMore;
     private javax.swing.JButton btnPromo;
+    private javax.swing.JButton btnReceiveMultiple;
     private javax.swing.JButton btnRecieveBooks;
     private javax.swing.JButton btnRecieveMagz;
     private javax.swing.JButton btnRecieveMain;
@@ -15716,8 +16174,10 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JButton btnRefreshMagzBoro;
     private javax.swing.JButton btnRefreshMaint;
     private javax.swing.JButton btnRefreshShortBks;
+    private javax.swing.JButton btnRefreshStaff;
     private javax.swing.JButton btnRefreshStaffList;
     private javax.swing.JButton btnRefreshStdDetails;
+    private javax.swing.JButton btnRefreshStdTablr;
     private javax.swing.JButton btnRefreshStockDetails;
     private javax.swing.JButton btnRefreshUserTable;
     private javax.swing.JButton btnSchedulesShortCut;
@@ -15793,6 +16253,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JMenuItem itemStudentList;
     private javax.swing.JMenuItem itemcomp;
     private javax.swing.JMenuItem itemsSystems;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -15833,6 +16294,8 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -15980,6 +16443,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JPanel jPanel49;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel50;
+    private javax.swing.JPanel jPanel51;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -16037,9 +16501,9 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JLabel labelTime;
     private javax.swing.JLabel labelUser;
     private javax.swing.JLabel labelYear;
-    private javax.swing.JLabel lblID;
+    public static javax.swing.JLabel lblID;
     private javax.swing.JLabel lblNoOfBorrowers;
-    private javax.swing.JLabel lblUserId;
+    public static javax.swing.JLabel lblUserId;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenu mainMenuNav;
     private javax.swing.JLabel maxNumberStaff;
@@ -16072,6 +16536,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JPanel panelMaintenance;
     private javax.swing.JPanel panelManageUsers;
     private javax.swing.JPanel panelNotesCreate;
+    private javax.swing.JPanel panelOne;
     private javax.swing.JPanel panelRecieve;
     private javax.swing.JPanel panelReportLost;
     private javax.swing.JPanel panelSchedules;
@@ -16144,6 +16609,7 @@ public void DisplayBooksComboCount1(){
     private javax.swing.JTextField txtIdNo;
     private javax.swing.JTextField txtIsbnLost;
     private javax.swing.JTextField txtListBooks;
+    private javax.swing.JTextField txtListId;
     private javax.swing.JTextField txtLname;
     private javax.swing.JTextField txtLnameLost;
     private javax.swing.JTextField txtMagzClass;

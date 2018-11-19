@@ -50,7 +50,7 @@ public class AboutLib extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setText("About the Library Management System (Version 2.2.0)");
+        jLabel1.setText("About the Library Management System (Version 2.2.5)");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);

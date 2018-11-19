@@ -600,7 +600,18 @@ public final class AddBookDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookActionPerformed
+        if (RegisterData() == true){
+        int response = JOptionPane.showConfirmDialog(null, "Add "+txtTitleAdd.getText()+" ("+txtBookID.getText()+") to books records?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
         addBookmethod();
+            }
+        }
     }//GEN-LAST:event_btnAddBookActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -766,46 +777,7 @@ public final class AddBookDialog extends javax.swing.JDialog {
             dialog.setVisible(true);
         });
     }
-    
-private boolean checkIsbnExists(){
-     
-    boolean bookExists = false;
-    String bookNumber = txtBookID.getText().trim();
-    try
-    {
-
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/libdb?useSSL = false";
-        Connection conn;
-        conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
-
-        PreparedStatement st = conn.prepareStatement("select * from books_db order by bklib_id desc");
-        ResultSet r1=st.executeQuery();
-        String booksCounter;
-         if(r1.next()) 
-         {
-           booksCounter =  r1.getString("bklib_id");
-           if(booksCounter.equals(bookNumber))
-           {
-              getToolkit().beep();
-              JOptionPane.showMessageDialog(null, "This book already exists");
-              txtIsbnAdd.requestFocus();
-              bookExists = false;
-           }
-         }
-     }
-
-     catch (SQLException e) 
-     {
-        System.out.println("SQL Exception: "+ e.toString());
-     } 
-     catch (ClassNotFoundException cE) 
-     {
-        System.out.println("Class Not Found Exception: "+ cE.toString());
-     }
- return bookExists;
-} 
-    
+ 
 private Boolean RegisterData() {
 
         //EmailValidator b=new EmailValidator ();
@@ -894,7 +866,7 @@ private Boolean RegisterData() {
     
 public void addBookmethod() {
 
-        if (RegisterData() == true && checkIsbnExists() == false) {
+        if (RegisterData() == true) {
             
         String bookNumber = txtBookID.getText();
         String bookisbn = txtIsbnAdd.getText();

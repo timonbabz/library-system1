@@ -70,7 +70,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableReceiveDam = new javax.swing.JTable();
         comboName = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        btnAddSelected = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -82,6 +82,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         txtCount = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btnExport = new javax.swing.JButton();
+        btnReceiveAll = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -115,14 +116,14 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddSelected.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
+        btnAddSelected.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnAddSelected.setContentAreaFilled(false);
+        btnAddSelected.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddSelected.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Add_16.png"))); // NOI18N
+        btnAddSelected.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddSelectedActionPerformed(evt);
             }
         });
 
@@ -138,6 +139,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Bookscolor.png"))); // NOI18N
         jLabel4.setText("View Books issued for maintenance");
+
+        txtBookId.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
@@ -156,6 +159,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
 
         txtBookSelect.setEditable(false);
         txtBookSelect.setBackground(new java.awt.Color(204, 204, 204));
+        txtBookSelect.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
 
         jButton4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,6 +177,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
 
         txtCount.setEditable(false);
         txtCount.setBackground(new java.awt.Color(102, 102, 102));
+        txtCount.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         txtCount.setForeground(new java.awt.Color(255, 255, 255));
         txtCount.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -191,6 +196,20 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         btnExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportActionPerformed(evt);
+            }
+        });
+
+        btnReceiveAll.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnReceiveAll.setForeground(new java.awt.Color(255, 255, 255));
+        btnReceiveAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/List_16.png"))); // NOI18N
+        btnReceiveAll.setText("Receive all");
+        btnReceiveAll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnReceiveAll.setContentAreaFilled(false);
+        btnReceiveAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReceiveAll.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoubleTick_16.png"))); // NOI18N
+        btnReceiveAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReceiveAllActionPerformed(evt);
             }
         });
 
@@ -215,15 +234,17 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReceiveAll, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddSelected, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBookSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -244,17 +265,18 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnReceiveAll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
                             .addComponent(txtCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtBookSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(jLabel2)))
+                    .addComponent(txtBookSelect)
+                    .addComponent(btnExport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddSelected, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -301,13 +323,17 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         date2  = (String) tableReceiveDam.getModel().getValueAt(row, 9);
     }//GEN-LAST:event_tableReceiveDamMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddSelectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSelectedActionPerformed
         select = bookId2;
+        if(tableReceiveDam.getRowCount() == 0){
+        JOptionPane.showMessageDialog(null, "No data in table");}
+        else{
         if (select == null) {
             JOptionPane.showMessageDialog(null, "Select a book from the table");
         } else {
                 txtBookSelect.setText(bookId2);}
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }
+    }//GEN-LAST:event_btnAddSelectedActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        if(txtBookSelect.getText().isEmpty()){
@@ -321,6 +347,26 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "No data to export to excel");}
         else{ writeToExcel();}
     }//GEN-LAST:event_btnExportActionPerformed
+
+    private void btnReceiveAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceiveAllActionPerformed
+        int rows=tableReceiveDam.getRowCount();
+        if(rows == 0){
+        JOptionPane.showMessageDialog(null, "Table has no data");
+        }
+        else{
+        int response = JOptionPane.showConfirmDialog(null, "This action will receive all books displayed in table" + System.lineSeparator()
+                   + "                            Confirm?",
+                   "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+           switch (response) {
+               case JOptionPane.NO_OPTION:
+                   break;
+               case JOptionPane.CLOSED_OPTION:
+                   break;
+               case JOptionPane.YES_OPTION:
+               maintenanceReceive();
+               refreshListOnT();
+               numberOf();}}
+    }//GEN-LAST:event_btnReceiveAllActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -404,9 +450,7 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         }    
 }
     
-    
-    
-        public void displaybooks() {
+public void displaybooks() {
 
         compModel.setColumnIdentifiers(columnNames);
 
@@ -669,10 +713,43 @@ private void writeToExcel()
 
 }
 
+public void maintenanceReceive(){
+    String condi = "NO";
+    String nuulSt = "NULL";
+    try{
+
+        int rows=tableReceiveDam.getRowCount();
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+        con.setAutoCommit(false);
+        
+        for(int row = 0; row<rows; row++)
+        {
+           String bookId = (String)tableReceiveDam.getValueAt(row, 0);
+            
+           String queryco = "DELETE FROM table_main WHERE bookId='"+bookId+"'";
+           PreparedStatement pst = con.prepareStatement(queryco);
+           pst.execute();
+            
+           String querycondi = "UPDATE books_db SET borrowed = '"+condi+"', borrowed_by_id =NULL ,name1_of_borrower = '"+nuulSt+"',name2_of_borrower = '"+nuulSt+"',staff_std = '"+nuulSt+"' WHERE bklib_id = '"+bookId+"'";
+           PreparedStatement pstCON = con.prepareStatement(querycondi);
+           pstCON.execute();
+  
+        }
+        con.commit();
+        JOptionPane.showMessageDialog(null, txtCount.getText()+" books in table have been received");
+        }
+        catch(ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(this,e.getMessage());
+       }
+
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddSelected;
     private javax.swing.JButton btnExport;
+    private javax.swing.JButton btnReceiveAll;
     private javax.swing.JComboBox comboName;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

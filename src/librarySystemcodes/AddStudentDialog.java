@@ -262,7 +262,16 @@ public final class AddStudentDialog extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Select stream");
         txtStream.requestFocus();}
         else{
+            int response = JOptionPane.showConfirmDialog(null, "Add "+txtFname.getText()+" ("+txtAdm.getText()+") to student records?",
+                "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        switch (response) {
+            case JOptionPane.NO_OPTION:
+                break;
+            case JOptionPane.CLOSED_OPTION:
+                break;
+            case JOptionPane.YES_OPTION:
         addStudent();}
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed

@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -69,9 +68,11 @@ public final class DialogSetComp extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         groupUpdate = new javax.swing.JRadioButton();
         groupNew = new javax.swing.JRadioButton();
+        groupDelete = new javax.swing.JRadioButton();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -137,6 +138,7 @@ public final class DialogSetComp extends javax.swing.JDialog {
 
         jLabel6.setText("Representative contacts :");
 
+        btnSave.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Save_16.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -174,6 +176,15 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         });
 
+        btnGroupOp.add(groupDelete);
+        groupDelete.setText("Delete existing record");
+        groupDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        groupDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -182,7 +193,8 @@ public final class DialogSetComp extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(groupNew, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(groupUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+                    .addComponent(groupUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                    .addComponent(groupDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -192,9 +204,12 @@ public final class DialogSetComp extends javax.swing.JDialog {
                 .addComponent(groupNew)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(groupUpdate)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(groupDelete)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnUpdate.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editwhite_16.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -206,6 +221,7 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         });
 
+        btnClear.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -217,6 +233,7 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         });
 
+        btnSearch.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
         btnSearch.setText("Find");
         btnSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -229,6 +246,19 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        btnDelete.setContentAreaFilled(false);
+        btnDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDelete.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -238,30 +268,36 @@ public final class DialogSetComp extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtRepName, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContacts, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCompname, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtCompId, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(4, 4, 4))
-                            .addComponent(txtRepNo)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(10, 10, 10)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtRepName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtContacts, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCompname, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(txtCompId, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(4, 4, 4))
+                                .addComponent(txtRepNo)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)))
                 .addContainerGap())
@@ -274,11 +310,11 @@ public final class DialogSetComp extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,7 +341,9 @@ public final class DialogSetComp extends javax.swing.JDialog {
                             .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -336,10 +374,12 @@ public final class DialogSetComp extends javax.swing.JDialog {
             btnSearch.setEnabled(false);
             btnUpdate.setEnabled(false);
             btnSave.setEnabled(true);
-            txtCompname.setEnabled(true);
-            txtContacts.setEnabled(true);
-            txtRepName.setEnabled(true);
-            txtRepNo.setEnabled(true);}
+            txtCompname.setEditable(true);
+            txtContacts.setEditable(true);
+            txtRepName.setEditable(true);
+            txtRepNo.setEditable(true);
+            btnClear.setEnabled(true);
+            btnDelete.setEnabled(false);}
     }//GEN-LAST:event_groupNewActionPerformed
 
     private void groupUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupUpdateActionPerformed
@@ -347,10 +387,12 @@ public final class DialogSetComp extends javax.swing.JDialog {
             btnSearch.setEnabled(true);
             btnUpdate.setEnabled(true);
             btnSave.setEnabled(false);
-            txtCompname.setEnabled(false);
-            txtContacts.setEnabled(false);
-            txtRepName.setEnabled(false);
-            txtRepNo.setEnabled(false);}
+            txtCompname.setEditable(false);
+            txtContacts.setEditable(false);
+            txtRepName.setEditable(false);
+            txtRepNo.setEditable(false);
+            btnClear.setEnabled(true);
+            btnDelete.setEnabled(false);}
     }//GEN-LAST:event_groupUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -375,8 +417,6 @@ public final class DialogSetComp extends javax.swing.JDialog {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         if(txtCompId.getText().isEmpty()){
-            
-            
             JOptionPane.showMessageDialog(null, "Enter company id");
             txtCompId.requestFocus();}
         else{CheckCompExists();}
@@ -412,6 +452,28 @@ public final class DialogSetComp extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_txtRepNoKeyTyped
+
+    private void groupDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupDeleteActionPerformed
+        if(groupDelete.isSelected()){
+        txtCompname.setEditable(false);
+        txtContacts.setEditable(false);
+        txtRepName.setEditable(false);
+        txtRepNo.setEditable(false);
+        btnSave.setEnabled(false);
+        btnSearch.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnClear.setEnabled(true);
+        btnDelete.setEnabled(true);}
+    }//GEN-LAST:event_groupDeleteActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+       if(txtCompId.getText().isEmpty()){
+       JOptionPane.showMessageDialog(null, "Please enter company ID and search");
+       }else if(txtCompname.getText().equalsIgnoreCase("default")){
+       JOptionPane.showMessageDialog(null, "Default cannot be deleted");}
+       else{
+        CheckCompExistsDelete();}
+    }//GEN-LAST:event_btnDeleteActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -455,7 +517,8 @@ public final class DialogSetComp extends javax.swing.JDialog {
         if(groupNew.isSelected()){
             btnSearch.setEnabled(false);
             btnUpdate.setEnabled(false);
-            btnSave.setEnabled(true);}
+            btnSave.setEnabled(true);
+            btnDelete.setEnabled(false);}
     }
     
     public void refreshListOnTitle(){
@@ -579,15 +642,15 @@ public final class DialogSetComp extends javax.swing.JDialog {
             }
             if (emptyRs) {
                 JOptionPane.showMessageDialog(null, "No Record");
-                txtCompname.setEnabled(false);
-                txtContacts.setEnabled(false);
-                txtRepName.setEnabled(false);
-                txtRepNo.setEnabled(false);
+                txtCompname.setEditable(false);
+                txtContacts.setEditable(false);
+                txtRepName.setEditable(false);
+                txtRepNo.setEditable(false);
             }else{
-            txtCompname.setEnabled(true);
-            txtContacts.setEnabled(true);
-            txtRepName.setEnabled(true);
-            txtRepNo.setEnabled(true);}
+            txtCompname.setEditable(true);
+            txtContacts.setEditable(true);
+            txtRepName.setEditable(true);
+            txtRepNo.setEditable(true);}
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
@@ -704,12 +767,87 @@ public void CheckCompExistsUpdate(){
 
  }
     
+public void deleteFromComp() {                                        
+        
+        String returnString = txtCompId.getText();
+        
+            try {
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection con2 = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con2.createStatement();
+                String sql2 = "DELETE FROM company_table WHERE comp_id='"+returnString+"'";
+                statement.execute(sql2);
+               
+                JOptionPane.showMessageDialog(null, "RECORD DELETED");
+                refreshListOnTitle();
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        
+    }
+
+public void checkBefore() {
+    
+            String textIc = txtCompname.getText().trim();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT bookId,bkIsbn,author,title,publisher,shelf,edition,category,compName,timeIn FROM table_main WHERE compName = '"+textIc+"'");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This record is in use and cannot be deleted");
+            }
+            if (emptyRs) {
+                deleteFromComp();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+
+public void CheckCompExistsDelete(){
+ 
+        String enteredUser = txtCompId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM company_table WHERE comp_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               checkBefore();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered company ID does not exist");
+             txtCompId.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnDelete;
     private javax.swing.ButtonGroup btnGroupOp;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JRadioButton groupDelete;
     private javax.swing.JRadioButton groupNew;
     private javax.swing.JRadioButton groupUpdate;
     private javax.swing.JLabel jLabel1;
