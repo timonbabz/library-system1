@@ -559,7 +559,7 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtId.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream_name FROM student_list WHERE adm_no='"+ txtId.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -570,7 +570,7 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
                 txtName.setText(fname_std+" "+lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream").toUpperCase();
+                String class_stream = rsRetStd.getString("stream_name").toUpperCase();
                 deptForm.setText(class_std+" "+class_stream);
 
             }

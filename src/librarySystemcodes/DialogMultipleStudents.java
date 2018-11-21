@@ -893,7 +893,7 @@ public final class DialogMultipleStudents extends javax.swing.JDialog {
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtAdm.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream_name FROM student_list WHERE adm_no='"+ txtAdm.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -905,7 +905,7 @@ public final class DialogMultipleStudents extends javax.swing.JDialog {
                 txtLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream").toUpperCase();
+                String class_stream = rsRetStd.getString("stream_name").toUpperCase();
                 txtForm.setText(class_std);
                 txtStream.setText(class_stream);
 
@@ -960,7 +960,7 @@ public final class DialogMultipleStudents extends javax.swing.JDialog {
            PreparedStatement pstCON = con.prepareStatement(querycondi);
            pstCON.execute();
            
-           String queryco =  "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form,stream,"
+           String queryco =  "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form,stream_name,"
                         + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
