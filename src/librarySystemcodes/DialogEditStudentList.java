@@ -158,6 +158,7 @@ public final class DialogEditStudentList extends javax.swing.JDialog {
 
         jLabel3.setText("Current form and stream :");
 
+        lblForm.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         lblForm.setText("form");
 
         boxForm.setBackground(new java.awt.Color(255, 255, 255));
@@ -372,6 +373,7 @@ public final class DialogEditStudentList extends javax.swing.JDialog {
     public void updatestudentDetails() { 
         
             String studentStatus = (String) comboUpdate.getSelectedItem();
+            String student = "STUDENT";
             try {
                 String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
@@ -380,13 +382,30 @@ public final class DialogEditStudentList extends javax.swing.JDialog {
                 //--------update student db-----------
                 String sql = "UPDATE student_list SET adm_no='" + txtAdmnNo.getText() + "',"
                         + "std_fname='" + txtFname.getText().toUpperCase() + "' ,std_lname='" + txtLname.getText().toUpperCase() + "',"
-                        + " form='"+ txtFormSelect.getText().toUpperCase() +"', stream='"+ txtStreamSelect.getText().toUpperCase() +"',status='"+ studentStatus +"' WHERE (adm_no='"+ txtAdmnNo.getText() +"')";
+                        + " form='"+ txtFormSelect.getText().toUpperCase() +"', stream_name='"+ txtStreamSelect.getText().toUpperCase() +"',status='"+ studentStatus +"' WHERE (adm_no='"+ txtAdmnNo.getText() +"')";
                 
-                PreparedStatement pst;
-                pst = null;
+                PreparedStatement pst = null;
                 pst = conn.prepareStatement(sql);
                 pst.execute();
                 
+                String sql2 = "UPDATE student_db SET std_fname='" + txtFname.getText().toUpperCase() + "' ,std_lname='" + txtLname.getText().toUpperCase() + "',"
+                        + " form='"+ txtFormSelect.getText().toUpperCase() +"', stream_name='"+ txtStreamSelect.getText().toUpperCase() +"'  WHERE (adm_no='"+ txtAdmnNo.getText() +"')";
+                
+                PreparedStatement pst2 = null;
+                pst2 = conn.prepareStatement(sql2);
+                pst2.execute();
+                
+                String sql3 = "UPDATE books_db SET name1_of_borrower='" + txtFname.getText().toUpperCase() + "' ,name2_of_borrower='" + txtLname.getText().toUpperCase() + "' WHERE (borrowed_by_id='"+ txtAdmnNo.getText() +"')";
+                
+                PreparedStatement pst3 = null;
+                pst3 = conn.prepareStatement(sql3);
+                pst3.execute();
+                
+                String sql4 = "UPDATE borrowers_db SET borrower_name1='" + txtFname.getText().toUpperCase() + "' ,borrower_name2='" + txtLname.getText().toUpperCase() + "' WHERE (borrower_id='"+ txtAdmnNo.getText() +"' AND student_staff='"+student+"')";
+                
+                PreparedStatement pst4 = null;
+                pst4 = conn.prepareStatement(sql4);
+                pst4.execute();
                 //-----clear text fields after above------------
                 
                 JOptionPane.showMessageDialog(null, "Student record updated");
@@ -428,7 +447,7 @@ public final class DialogEditStudentList extends javax.swing.JDialog {
             PreparedStatement st = con.prepareStatement("SELECT stream_n FROM stream");
             ResultSet rs = st.executeQuery();
             while(rs.next()){                            
-                boxStream.addItem(rs.getString("stream"));
+                boxStream.addItem(rs.getString("stream_n"));
                 }
             con.close();
             }

@@ -328,6 +328,7 @@ public final class DialogEditStaffList extends javax.swing.JDialog {
         
             String staffStatus = (String) comboUpdate.getSelectedItem();
             String deptSelect = (String) comboDept.getSelectedItem();
+            String staff = "STAFF";
             try {
                 String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
@@ -337,10 +338,29 @@ public final class DialogEditStaffList extends javax.swing.JDialog {
                 String sql = "UPDATE staff_table SET id_number='" + txtId.getText() + "',"
                         + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ deptSelect +"', phone_no='"+ txtPhoneNo.getText().toUpperCase() +"', status='"+ staffStatus +"' WHERE (id_number='"+ txtId.getText() +"')";
                 
-                PreparedStatement pst;
-                pst = null;
+                PreparedStatement pst = null;
                 pst = conn.prepareStatement(sql);
                 pst.execute();
+                
+                String sql2 = "UPDATE staff_db SET id_number='" + txtId.getText() + "',"
+                        + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ deptSelect +"' WHERE (id_number='"+ txtId.getText() +"')";
+                
+                PreparedStatement pst2 = null;
+                pst2 = conn.prepareStatement(sql2);
+                pst2.execute();
+                
+                String sql3 = "UPDATE books_db SET borrowed_by_id='" + txtId.getText() + "',"
+                        + "name1_of_borrower='" + txtFname.getText().toUpperCase() + "' ,name2_of_borrower='" + txtLname.getText().toUpperCase() + "' WHERE (borrowed_by_id='"+ txtId.getText() +"')";
+                
+                PreparedStatement pst3 = null;
+                pst3 = conn.prepareStatement(sql3);
+                pst3.execute();
+                
+                String sql4 = "UPDATE borrowers_db SET borrower_name1='" + txtFname.getText().toUpperCase() + "' ,borrower_name2='" + txtLname.getText().toUpperCase() + "' WHERE (borrower_id='"+ txtId.getText() +"' AND student_staff='"+staff+"')";
+                
+                PreparedStatement pst4 = null;
+                pst4 = conn.prepareStatement(sql4);
+                pst4.execute();
                 
                 //-----clear text fields after above------------
                 

@@ -163,11 +163,11 @@ public final class LibraryHome extends javax.swing.JFrame {
     DefaultTableModel boroModel = new DefaultTableModel();
     //----------------declaration of staff table--------------------------
     String staffIDno = "", fnameStaff = "", lnameStaff = "", phoneStaffNo = "", staffDepartment = "", staffBookid = "", staffBookTitle= "", staffBorrrowedDate= "", staffIssued= "",staffRecieved="", staffReturned="" ;
-    String[] staffColumnNames = {"Staff ID", "Staff Name", "Phone number","Department", "Book ID", "Book Title", "Date borrowed", "Returned", "Issued by"};
+    String[] staffColumnNames = {"Staff ID", "Staff Name", "Phone number","Department", "Book ID", "Book Title", "Date borrowed", "Returned", "Issued by", "Received by"};
     DefaultTableModel staffModel = new DefaultTableModel();
     //----------------declaration of student table--------------------------
     String stdAdm = "", stdFname = "", stdLname = "", stdForm = "", stdBookId = "", stdBookTitle = "", stdReturned= "", stdIssuedby= "", stdRecievedby= "",stdBorrrowedDate="";
-    String[] stdColumnNames = {"Student ID", "Student Name", "Form/Class","Book ID", "Book Title","Date Borrowed", "Returned", "Issued By"};
+    String[] stdColumnNames = {"Student ID", "Student Name", "Form/Class","Book ID", "Book Title","Date Borrowed", "Returned", "Issued By", "Received by"};
     DefaultTableModel stdModel = new DefaultTableModel();
     
     public LibraryHome() throws IOException {
@@ -14860,7 +14860,7 @@ public void staffTable(){
                 staffIssued = staffRs.getString("issued_by");
                 staffRecieved = staffRs.getString("received_by");
 
-                staffModel.addRow(new Object[]{staffIDno, namelistStaff,phoneStaffNo ,staffDepartment, staffBookid, staffBookTitle,staffBorrrowedDate,staffReturned,staffIssued});
+                staffModel.addRow(new Object[]{staffIDno, namelistStaff,phoneStaffNo ,staffDepartment, staffBookid, staffBookTitle,staffBorrrowedDate,staffReturned,staffIssued,staffRecieved});
                 i++;
 
             }
