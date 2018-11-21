@@ -270,7 +270,8 @@ public final class AddStudentDialog extends javax.swing.JDialog {
             case JOptionPane.CLOSED_OPTION:
                 break;
             case JOptionPane.YES_OPTION:
-        addStudent();}
+        addStudent();
+        updateSubIdStaff();}
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -363,7 +364,7 @@ public final class AddStudentDialog extends javax.swing.JDialog {
                     statement = con.createStatement();
 
                     // SQL Insert
-                    String sql = "INSERT INTO student_list " + "(adm_no, std_fname, std_lname, form, stream)"
+                    String sql = "INSERT INTO student_list " + "(adm_no, std_fname, std_lname, form, stream_name)"
                             + "VALUES ('" + idnumber + "','"
                             + fname + "','"
                             + lname + "','"
@@ -423,10 +424,10 @@ public final class AddStudentDialog extends javax.swing.JDialog {
         {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT stream FROM stream");
+            PreparedStatement st = con.prepareStatement("SELECT stream_n FROM stream");
             ResultSet rs = st.executeQuery();
             while(rs.next()){                            
-                boxStream.addItem(rs.getString("stream"));
+                boxStream.addItem(rs.getString("stream_n"));
                 }
             con.close();
             }
@@ -435,6 +436,31 @@ public final class AddStudentDialog extends javax.swing.JDialog {
             //System.out.println("Error"+e);
         }    
 }
+    
+        public void updateSubIdStaff(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql1 = "UPDATE student_list SET stream_id = (SELECT str_id FROM stream WHERE student_list.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst1 = null;
+            pst1 = conn.prepareStatement(sql1);
+            pst1.execute();
+            
+            String sql2 = "UPDATE student_db SET stream_id = (SELECT str_id FROM stream WHERE student_db.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxForm;

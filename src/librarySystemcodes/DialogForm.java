@@ -456,7 +456,8 @@ public final class DialogForm extends javax.swing.JDialog {
         if(number2 == 1){JOptionPane.showMessageDialog(null, "Default cannot be edited");
        txtStreamId.setText("");}
             else{
-             CheckCompExistsUpdate();}
+             CheckCompExistsUpdate();
+                updateSubIdStaff();}
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFormKeyTyped
@@ -494,13 +495,13 @@ public final class DialogForm extends javax.swing.JDialog {
     private void btnDelewteFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelewteFormActionPerformed
        if(txtFormId.getText().isEmpty()){
        JOptionPane.showMessageDialog(null, "Enter form id, see from table");}
-       else{deleteForm();}
+       else{CheckFormExistsDelete();}
     }//GEN-LAST:event_btnDelewteFormActionPerformed
 
     private void btnDeleteStreamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStreamActionPerformed
         if(txtStreamIdD.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Enter stream id, see from table");}
-        else{deleteStream();}
+        else{CheckCompExistsDelete();}
     }//GEN-LAST:event_btnDeleteStreamActionPerformed
 
     /**
@@ -607,7 +608,7 @@ public final class DialogForm extends javax.swing.JDialog {
                     statement = con.createStatement();
 
                     // SQL Insert
-                    String sql = "INSERT INTO stream " + "(stream)"
+                    String sql = "INSERT INTO stream " + "(stream_n)"
                             + "VALUES ('" + streamText + "')";
                     
                     statement.execute(sql);
@@ -684,7 +685,7 @@ public final class DialogForm extends javax.swing.JDialog {
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------update books db-----------
-                String sql = "DELETE FROM form WHERE form_id ='"+formID+"'";
+                String sql = "DELETE FROM form WHERE form ='"+formID+"'";
                 
                 PreparedStatement pst;
                 pst = null;
@@ -711,7 +712,7 @@ public final class DialogForm extends javax.swing.JDialog {
                 conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
                
                 //--------delete-----------
-                String sql = "DELETE FROM stream WHERE stream_id ='"+streamIdDelete+"'";
+                String sql = "DELETE FROM stream WHERE str_id ='"+streamIdDelete+"'";
                 
                 PreparedStatement pst;
                 pst = null;
@@ -739,13 +740,13 @@ public final class DialogForm extends javax.swing.JDialog {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  stream_id,stream FROM stream");
+            PreparedStatement st = con.prepareStatement("SELECT  str_id,stream_n FROM stream");
             ResultSet rsIssue = st.executeQuery();
 
             int i = 0;
             while (rsIssue.next()) {
-                streamNo = rsIssue.getString("stream_id");
-                streamname = rsIssue.getString("stream");
+                streamNo = rsIssue.getString("str_id");
+                streamname = rsIssue.getString("stream_n");
 
                 streamModel.addRow(new Object[]{streamNo, streamname});
                 i++;
@@ -770,12 +771,12 @@ public final class DialogForm extends javax.swing.JDialog {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT stream FROM stream WHERE (stream_id='"+ catIdSe +"')");
+            PreparedStatement st = con.prepareStatement("SELECT stream_n FROM stream WHERE (str_id='"+ catIdSe +"')");
             ResultSet rs = st.executeQuery();
             boolean emptyRs = true;
             if (rs.next()) {
                 emptyRs = false;
-                String stream = rs.getString("stream");
+                String stream = rs.getString("stream_n");
                 txtFormName.setText(stream);
                 
             }
@@ -802,12 +803,24 @@ public final class DialogForm extends javax.swing.JDialog {
             conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
             
             //--------update users db-----------
-            String sql = "UPDATE stream SET stream ='" + newCatStream + "' WHERE stream_id=" + catIdS;
+            String sql = "UPDATE stream SET stream_n ='" + newCatStream + "' WHERE str_id=" + catIdS;
             
-            PreparedStatement pst;
-            pst = null;
+            PreparedStatement pst = null;
             pst = conn.prepareStatement(sql);
             pst.execute();
+            
+            String sql3 = "UPDATE student_db INNER JOIN stream ON str_id = stream_id SET stream_name='" + newCatStream + "' WHERE stream_id='"+ catIdS +"'";
+                
+            PreparedStatement pst3 = null;
+            pst3 = conn.prepareStatement(sql3);
+            pst3.execute();
+            
+            String sql4 = "UPDATE student_list INNER JOIN stream ON str_id = stream_id SET stream_name='" + newCatStream + "' WHERE stream_id='"+ catIdS +"'";
+                
+            PreparedStatement pst4 = null;
+            pst4 = conn.prepareStatement(sql4);
+            pst4.execute();
+            
             JOptionPane.showMessageDialog(null, "Updated successfully");
             refreshListOnStream();
             
@@ -815,7 +828,7 @@ public final class DialogForm extends javax.swing.JDialog {
             txtStreamEdit.setText("");
             
             } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, "Duplicate entry");
+                JOptionPane.showMessageDialog(null, e.getMessage());
             }
         
     }
@@ -833,7 +846,7 @@ public final class DialogForm extends javax.swing.JDialog {
             Class.forName("com.mysql.jdbc.Driver");
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
 
-            PreparedStatement st = connection.prepareStatement("SELECT* FROM stream WHERE stream_id='" + enteredUser + "'");
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM stream WHERE str_id='" + enteredUser + "'");
             ResultSet r1=st.executeQuery();
 
              if(r1.next()) 
@@ -850,6 +863,137 @@ public final class DialogForm extends javax.swing.JDialog {
          }
         }
  }
+    
+     public void checkBefore() {
+    
+            String textIc = txtStreamIdD.getText().trim();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT* FROM student_list WHERE stream_id = '"+textIc+"'");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This record is in use and cannot be deleted");
+            }
+            if (emptyRs) {
+                deleteStream();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+     
+     public void CheckCompExistsDelete(){
+ 
+        String enteredUser = txtStreamIdD.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM stream WHERE str_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               checkBefore();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered stream ID does not exist");
+             txtStreamIdD.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
+     
+        public void checkFormBefore() {
+    
+            String textIc = txtStreamIdD.getText().trim();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT* FROM student_list WHERE form = '"+textIc+"'");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This record is in use and cannot be deleted");
+            }
+            if (emptyRs) {
+                deleteForm();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+     
+     public void CheckFormExistsDelete(){
+ 
+        String enteredUser = txtFormId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM form WHERE form='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               checkFormBefore();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered form does not exist");
+             txtFormId.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
+     
+        public void updateSubIdStaff(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql1 = "UPDATE student_list SET stream_id = (SELECT str_id FROM stream WHERE student_list.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst1 = null;
+            pst1 = conn.prepareStatement(sql1);
+            pst1.execute();
+            
+            String sql2 = "UPDATE student_db SET stream_id = (SELECT str_id FROM stream WHERE student_db.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteStream;

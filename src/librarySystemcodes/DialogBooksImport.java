@@ -5,10 +5,13 @@
  */
 package librarySystemcodes;
 
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -266,6 +269,7 @@ public class DialogBooksImport extends javax.swing.JDialog {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         insertDataFromTableIntoDatabase();
+        updateSubId();
     }//GEN-LAST:event_saveButtonActionPerformed
 
     /**
@@ -390,6 +394,27 @@ public class DialogBooksImport extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(this,e.getMessage());
     }}
  }
+    
+    //UPDATE books_db SET sub_id = (SELECT cat_id FROM bookcat_table WHERE books_db.subject_category = bookcat_table.cat_name)
+    
+    public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE books_db SET sub_id = (SELECT cat_id FROM bookcat_table WHERE books_db.subject_category = bookcat_table.cat_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;

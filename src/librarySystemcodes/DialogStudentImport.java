@@ -8,6 +8,7 @@ package librarySystemcodes;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -295,6 +296,7 @@ public class DialogStudentImport extends javax.swing.JDialog {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try {
             insertDataFromTableIntoDatabase();
+            updateSubIdStaff();
         } catch (SQLException ex) {
             Logger.getLogger(DialogStudentImport.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -392,7 +394,7 @@ public void insertDataFromTableIntoDatabase() throws SQLException{
         java.sql.Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
         conn.setAutoCommit(false);
 
-        String queryco = "INSERT INTO student_list(adm_no, std_fname, std_lname, form, stream) VALUES (?,?,?,?,?)";
+        String queryco = "INSERT INTO student_list(adm_no, std_fname, std_lname, form, stream_n) VALUES (?,?,?,?,?)";
         PreparedStatement pst = conn.prepareStatement(queryco);
         for(int row = 0; row<rows; row++)
         {
@@ -421,6 +423,31 @@ public void insertDataFromTableIntoDatabase() throws SQLException{
        JOptionPane.showMessageDialog(this,e.getMessage());
    }}
  }
+
+        public void updateSubIdStaff(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql1 = "UPDATE student_list SET stream_id = (SELECT str_id FROM stream WHERE student_list.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst1 = null;
+            pst1 = conn.prepareStatement(sql1);
+            pst1.execute();
+            
+            String sql2 = "UPDATE student_db SET stream_id = (SELECT str_id FROM stream WHERE student_db.stream_name = stream.stream_n)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

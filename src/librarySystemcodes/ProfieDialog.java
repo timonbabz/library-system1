@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-public class ProfieDialog extends javax.swing.JDialog {
+public final class ProfieDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form ProfieDialog
@@ -32,12 +32,13 @@ public class ProfieDialog extends javax.swing.JDialog {
         super(parent, modal);
         
         initComponents();
+        loadComboDept();
         
         txtFname.setText(LibrarySignIn.userfname);
         txtLname.setText(LibrarySignIn.userLname);
         txtUsername.setText(LibrarySignIn.unameLabel);
         txtID.setText(LibrarySignIn.userId);
-        txtDept.setText(LibrarySignIn.deptLabel);
+        comboDept.setSelectedItem(LibrarySignIn.deptLabel);
     }
 
     /**
@@ -63,12 +64,12 @@ public class ProfieDialog extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtDept = new javax.swing.JTextField();
         profilePassword = new javax.swing.JPasswordField();
         btnUpdate = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         btnSeePass = new javax.swing.JButton();
+        comboDept = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -179,35 +180,38 @@ public class ProfieDialog extends javax.swing.JDialog {
             }
         });
 
+        comboDept.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtFname)
-                    .addComponent(txtLname, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtUsername)
-                    .addComponent(txtID)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(txtDept)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(profilePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeePass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtFname)
+                        .addComponent(txtLname, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtUsername)
+                        .addComponent(txtID)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel8)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel2)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(95, 95, 95)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(profilePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnSeePass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +237,7 @@ public class ProfieDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,7 +299,7 @@ public class ProfieDialog extends javax.swing.JDialog {
         String userIdnumber = txtID.getText();
         String firstname = txtFname.getText();
         String lastname = txtLname.getText();
-        String department = txtDept.getText();
+        String department = (String) comboDept.getSelectedItem();
         String userNameE = txtUsername.getText();
         String pass = new String (profilePassword.getPassword());
         
@@ -309,8 +313,8 @@ public class ProfieDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "enter first name");}
         else if(lastname.isEmpty()){
             JOptionPane.showMessageDialog(null, "enter last name");}
-        else if(department.isEmpty()){
-            JOptionPane.showMessageDialog(null, "enter department");}
+        else if(department.equalsIgnoreCase("default")){
+            JOptionPane.showMessageDialog(null, "select department");}
         else if(pass.length() < 6){
         JOptionPane.showMessageDialog(null, "password cannot be less than six(6) characters");}
         else if(pass.equalsIgnoreCase("password")){
@@ -411,7 +415,7 @@ public void updateUserInfo(){
         String userIdnumber = txtID.getText();
         String firstname = txtFname.getText().toUpperCase().trim();
         String lastname = txtLname.getText().toUpperCase().trim();
-        String department = txtDept.getText().toUpperCase().trim();
+        String department = (String) comboDept.getSelectedItem();
         String userName = txtUsername.getText();
         
         if(CheckUsernameExists() == false){
@@ -419,22 +423,28 @@ public void updateUserInfo(){
             String url = "jdbc:mysql://localhost/libdb?useSSL = false";
             Connection conn;
             conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
-            
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
             //--------update users db-----------
             String sql = "UPDATE users_db SET user_fname='" + firstname + "',user_lname='" + lastname + "',username='" + userName + "',department='" + department + "'"
                     + ",password='" +  md5(profilePassword.getPassword()) +  "' WHERE id_no=" + userIdnumber;
             
-            PreparedStatement pst;
-            pst = null;
+            PreparedStatement pst = null;
             pst = conn.prepareStatement(sql);
             pst.execute();
+            
+            String sql2 = "UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
         JOptionPane.showMessageDialog(null, "Updated successfully");
             
         txtID.setText("");
         txtFname.setText("");
         txtLname.setText("");
         txtUsername.setText("");
-        txtDept.setText("");
+        comboDept.setSelectedItem("default");
         profilePassword.setText("");
             
             } catch (SQLException | HeadlessException e) {
@@ -456,10 +466,29 @@ private String md5(char [] c){
     }
 }
 
+    public void loadComboDept(){
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection conn1 = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin")) {
+                PreparedStatement st = conn1.prepareStatement("SELECT dept_name FROM depart");
+                ResultSet rs = st.executeQuery();
+                while(rs.next()){
+                    comboDept.addItem(rs.getString("dept_name"));
+                }
+            }
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        } 
+}
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSeePass;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox comboDept;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -472,7 +501,6 @@ private String md5(char [] c){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField profilePassword;
-    private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLname;

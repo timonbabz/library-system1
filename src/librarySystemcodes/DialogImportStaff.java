@@ -8,6 +8,7 @@ package librarySystemcodes;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -282,6 +283,8 @@ public class DialogImportStaff extends javax.swing.JDialog {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             insertDataFromTableIntoDatabase();
+            updateSubId();
+            updateSubIdStaff();
         } catch (SQLException ex) {
             Logger.getLogger(DialogImportStaff.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -411,6 +414,44 @@ void fillData(File file) {
   } catch (BiffException e) {
   }
  }
+
+  public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE staff_db SET dep_id = (SELECT dept_id FROM depart WHERE staff_db.dept = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
+  
+      public void updateSubIdStaff(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE staff_table SET dep_id = (SELECT dept_id FROM depart WHERE staff_table.dept = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

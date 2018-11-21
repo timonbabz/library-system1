@@ -10,6 +10,7 @@ import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author TimonBabz
  */
-public class DialogEditStaffList extends javax.swing.JDialog {
+public final class DialogEditStaffList extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogEditStaffList
@@ -27,11 +28,12 @@ public class DialogEditStaffList extends javax.swing.JDialog {
     public DialogEditStaffList(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadComboDept();
         
         txtId.setText(LibraryHome.idnumber1);
         txtFname.setText(LibraryHome.staffFnameList1);
         txtLname.setText(LibraryHome.staffLnameList1);
-        txtDept.setText(LibraryHome.staffDept1);
+        comboDept.setSelectedItem(LibraryHome.staffDept1);
         txtPhoneNo.setText(LibraryHome.staffPhone1);
         txtStatus.setText(LibraryHome.staffStatus1);
         
@@ -61,7 +63,6 @@ public class DialogEditStaffList extends javax.swing.JDialog {
         labelLname = new javax.swing.JLabel();
         txtLname = new javax.swing.JTextField();
         labelDept = new javax.swing.JLabel();
-        txtDept = new javax.swing.JTextField();
         labelPhone = new javax.swing.JLabel();
         txtPhoneNo = new javax.swing.JTextField();
         txtStatus = new javax.swing.JTextField();
@@ -70,6 +71,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
         labelUpdateStaus = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        comboDept = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -150,6 +152,8 @@ public class DialogEditStaffList extends javax.swing.JDialog {
             }
         });
 
+        comboDept.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout panelStaffEditLayout = new javax.swing.GroupLayout(panelStaffEdit);
         panelStaffEdit.setLayout(panelStaffEditLayout);
         panelStaffEditLayout.setHorizontalGroup(
@@ -160,30 +164,31 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(panelStaffEditLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelStaffEditLayout.createSequentialGroup()
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelStaffEditLayout.createSequentialGroup()
-                        .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelId)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelFname)
-                            .addComponent(labelDept)
-                            .addComponent(labelPhone)
-                            .addComponent(txtPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelStatus)
-                            .addComponent(txtFname)
-                            .addComponent(txtDept)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(labelUpdateStaus, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(comboUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelLname)
-                            .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelStaffEditLayout.createSequentialGroup()
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelStaffEditLayout.createSequentialGroup()
+                            .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelId)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelFname)
+                                .addComponent(labelDept)
+                                .addComponent(labelPhone)
+                                .addComponent(txtPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelStatus)
+                                .addComponent(txtFname)
+                                .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelUpdateStaus, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelLname)
+                                .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         panelStaffEditLayout.setVerticalGroup(
@@ -208,7 +213,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelDept)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelPhone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,7 +230,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                 .addGroup(panelStaffEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,13 +258,14 @@ public class DialogEditStaffList extends javax.swing.JDialog {
         else if(txtLname.getText().equals(""))
         {JOptionPane.showMessageDialog(null, "please enter last name");
         txtLname.requestFocus();}
-        else if(txtDept.getText().equals(""))
-        {JOptionPane.showMessageDialog(null, "please enter Department");
-        txtDept.requestFocus();}
+        else if(comboDept.getSelectedItem().equals("default"))
+        {JOptionPane.showMessageDialog(null, "please select Department");}
         else if(txtPhoneNo.getText().equals(""))
         {JOptionPane.showMessageDialog(null, "please enter Phone number");
         txtPhoneNo.requestFocus();}
-        else{updatestaffDetails();}
+        else{updatestaffDetails();
+        updateSubId();
+        updateSubIdStaff();}
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void comboUpdateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboUpdateItemStateChanged
@@ -321,6 +327,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
         public void updatestaffDetails() { 
         
             String staffStatus = (String) comboUpdate.getSelectedItem();
+            String deptSelect = (String) comboDept.getSelectedItem();
             try {
                 String url = "jdbc:mysql://localhost/libdb?useSSL = false";
                 Connection conn;
@@ -328,7 +335,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                
                 //--------update student db-----------
                 String sql = "UPDATE staff_table SET id_number='" + txtId.getText() + "',"
-                        + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ txtDept.getText().toUpperCase() +"', phone_no='"+ txtPhoneNo.getText().toUpperCase() +"', status='"+ staffStatus +"' WHERE (id_number='"+ txtId.getText() +"')";
+                        + "staff_fname='" + txtFname.getText().toUpperCase() + "' ,staff_lname='" + txtLname.getText().toUpperCase() + "', dept='"+ deptSelect +"', phone_no='"+ txtPhoneNo.getText().toUpperCase() +"', status='"+ staffStatus +"' WHERE (id_number='"+ txtId.getText() +"')";
                 
                 PreparedStatement pst;
                 pst = null;
@@ -341,7 +348,7 @@ public class DialogEditStaffList extends javax.swing.JDialog {
                 txtId.setText("");
                 txtFname.setText("");
                 txtLname.setText("");
-                txtDept.setText("");
+                comboDept.setSelectedItem("default");
                 txtPhoneNo.setText("");
                 dispose();
 
@@ -350,10 +357,69 @@ public class DialogEditStaffList extends javax.swing.JDialog {
             }
         
     }
+        
+    public void loadComboDept(){
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection conn1 = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin")) {
+                PreparedStatement st = conn1.prepareStatement("SELECT dept_name FROM depart");
+                ResultSet rs = st.executeQuery();
+                while(rs.next()){
+                    comboDept.addItem(rs.getString("dept_name"));
+                }
+            }
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        } 
+}
+    
+    //UPDATE staff_db SET dep_id = (SELECT dept_id FROM depart WHERE staff_db.dept = depart.dept_name)
+    
+  public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE staff_db SET dep_id = (SELECT dept_id FROM depart WHERE staff_db.dept = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
+  
+    public void updateSubIdStaff(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE staff_table SET dep_id = (SELECT dept_id FROM depart WHERE staff_table.dept = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox comboDept;
     private javax.swing.JComboBox comboUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelDept;
@@ -365,7 +431,6 @@ public class DialogEditStaffList extends javax.swing.JDialog {
     private javax.swing.JLabel labelUpdateStaus;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelStaffEdit;
-    private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLname;

@@ -5,6 +5,7 @@
  */
 package librarySystemcodes;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -46,6 +47,10 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
         chooserOn.setDate(date);
         chooserOn.setMaxSelectableDate(date);
         chooserOn.setMinSelectableDate(date);
+        JTextFieldDateEditor dateChooser2 = (JTextFieldDateEditor)chooserOn.getDateEditor();
+        dateChooser2.setEditable(false);
+        JTextFieldDateEditor dateChooser3 = (JTextFieldDateEditor)chooserDue.getDateEditor();
+        dateChooser3.setEditable(false);
     }
 
     /**
@@ -148,10 +153,12 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
         );
 
         btnAccept.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookblack_16.png"))); // NOI18N
         btnAccept.setText("Accept");
         btnAccept.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnAccept.setContentAreaFilled(false);
         btnAccept.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAccept.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookwhite_16.png"))); // NOI18N
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
@@ -159,10 +166,12 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
         });
 
         btnCancel.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnCancel.setContentAreaFilled(false);
         btnCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancel.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -220,6 +229,7 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
         btnSearchDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnSearchDate.setContentAreaFilled(false);
         btnSearchDate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSearchDate.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
         btnSearchDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchDateActionPerformed(evt);
@@ -264,10 +274,12 @@ public final class DialogReceiveMultiple extends javax.swing.JDialog {
         );
 
         btnClear.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viewdetails_16.png"))); // NOI18N
         btnClear.setText("Clear table");
         btnClear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnClear.setContentAreaFilled(false);
         btnClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClear.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/viewdetailswhite_16.png"))); // NOI18N
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);

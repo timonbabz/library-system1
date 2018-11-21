@@ -59,12 +59,12 @@ public final class DialogOther extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCat = new javax.swing.JTable();
         btnUpdate = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         txtUpCatName = new javax.swing.JTextField();
         txtCatId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         btnFind = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -104,6 +104,7 @@ public final class DialogOther extends javax.swing.JDialog {
         btnSave.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnSave.setContentAreaFilled(false);
         btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSave.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Savewhite_16.png"))); // NOI18N
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -155,25 +156,16 @@ public final class DialogOther extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
+        btnUpdate.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editwhite_16.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnUpdate.setContentAreaFilled(false);
         btnUpdate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUpdate.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editred_16.png"))); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
-        btnExit.setText("Exit");
-        btnExit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        btnExit.setContentAreaFilled(false);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
             }
         });
 
@@ -191,11 +183,13 @@ public final class DialogOther extends javax.swing.JDialog {
 
         jLabel7.setText("Enter category ID to edit :");
 
+        btnFind.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         btnFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Search_16.png"))); // NOI18N
         btnFind.setText("Find");
         btnFind.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         btnFind.setContentAreaFilled(false);
         btnFind.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFind.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Searchwhite_16.png"))); // NOI18N
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
@@ -203,6 +197,19 @@ public final class DialogOther extends javax.swing.JDialog {
         });
 
         jLabel2.setText("Edit :");
+
+        jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletenote_16.png"))); // NOI18N
+        jButton1.setText("Delete");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Deletered_16.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -218,20 +225,21 @@ public final class DialogOther extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCatId, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtCatId, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFind, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -248,13 +256,12 @@ public final class DialogOther extends javax.swing.JDialog {
                         .addComponent(txtCatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpCatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
 
@@ -278,14 +285,12 @@ public final class DialogOther extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Type in new category first");
         txtCatName.requestFocus();}
         else{
-        addCategory();
+        retrievecatExists();
         refreshListOnTitle();}
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void tableCatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCatMouseClicked
-        int row = tableCat.getSelectedRow();
-        catNo1 = (String) tableCat.getModel().getValueAt(row, 0);
-        catname1 = (String) tableCat.getModel().getValueAt(row, 1);
+        JOptionPane.showMessageDialog(null, "Editing not allowed in table");
     }//GEN-LAST:event_tableCatMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -308,10 +313,6 @@ public final class DialogOther extends javax.swing.JDialog {
         retrievecatDetails();}
     }//GEN-LAST:event_btnFindActionPerformed
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnExitActionPerformed
-
     private void txtCatIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCatIdKeyTyped
         char c = evt.getKeyChar();
         if ((c == java.awt.event.KeyEvent.VK_SPACE) || (c == 9 || c >= 58 && c <= 126 || c >= 33 && c <= 42 || c >= 44 && c <= 47)) {
@@ -326,6 +327,15 @@ public final class DialogOther extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Enter the category id, see from table");
         }
     }//GEN-LAST:event_txtUpCatNameFocusGained
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(txtCatId.getText().equals("1")){
+        JOptionPane.showMessageDialog(null, "default cannot be deleted");}
+        else if(txtUpCatName.getText().equalsIgnoreCase("default")){
+        JOptionPane.showMessageDialog(null, "default cannot be deleted");}
+        else{
+        CheckCompExistsDelete();}
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,7 +385,7 @@ public final class DialogOther extends javax.swing.JDialog {
 
     public void addCategory(){
     
-        String catText = txtCatName.getText().trim();
+        String catText = txtCatName.getText().toUpperCase().trim();
         
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
@@ -479,7 +489,7 @@ public final class DialogOther extends javax.swing.JDialog {
     
     public void updateCategory(){
         
-        String newCatname = txtUpCatName.getText();
+        String newCatname = txtUpCatName.getText().toUpperCase().trim();
         String catIdS = txtCatId.getText().trim();
         
         if(txtUpCatName.getText().isEmpty()){
@@ -495,18 +505,30 @@ public final class DialogOther extends javax.swing.JDialog {
             //--------update users db-----------
             String sql = "UPDATE bookcat_table SET cat_name='" + newCatname + "' WHERE cat_id=" + catIdS;
             
-            PreparedStatement pst;
-            pst = null;
+            PreparedStatement pst = null;
             pst = conn.prepareStatement(sql);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            
+            String sql2 = "UPDATE books_db INNER JOIN bookcat_table ON cat_id = sub_id SET subject_category='" + newCatname + "' WHERE sub_id='"+ catIdS +"'";
+                
+                PreparedStatement pst2 = null;
+                pst2 = conn.prepareStatement(sql2);
+                pst2.execute();
+                
+            String sql3 = "UPDATE table_main INNER JOIN bookcat_table ON cat_id = sub_id SET category='" + newCatname + "' WHERE sub_id='"+ catIdS +"'";
+                
+                PreparedStatement pst3 = null;
+                pst3 = conn.prepareStatement(sql3);
+                pst3.execute();
+            
+            JOptionPane.showMessageDialog(null, "Updated successfully, please log in again for changes to take effect in dropdown lists");
             refreshListOnTitle();
             
         txtUpCatName.setText("");
         txtCatId.setText("");
             
             } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, "Duplicate entry");
+                JOptionPane.showMessageDialog(null, e.getMessage());
             }
         }
     }
@@ -538,12 +560,113 @@ public final class DialogOther extends javax.swing.JDialog {
          }
 
  }
+     
+     public void retrievecatExists() {
+    
+            String catIdSe = txtCatName.getText().trim();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT cat_name FROM bookcat_table WHERE (cat_name='"+ catIdSe +"')");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                String bookretSysid = rs.getString("cat_name");
+                if(catIdSe.equalsIgnoreCase(bookretSysid)){
+                JOptionPane.showMessageDialog(null, "Category already exists");}
+            }
+            if (emptyRs) {
+                addCategory();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+     
+     public void checkBefore() {
+    
+            String textIc = txtCatId.getText().trim();
+            try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT* FROM books_db WHERE sub_id = '"+textIc+"'");
+            ResultSet rs = st.executeQuery();
+            boolean emptyRs = true;
+            if (rs.next()) {
+                emptyRs = false;
+                JOptionPane.showMessageDialog(null, "This record is in use and cannot be deleted");
+            }
+            if (emptyRs) {
+                deleteFromComp();
+            }
+            
+        } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
+            // System.out.println(rt);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+        }
+        
+    }
+     
+     public void CheckCompExistsDelete(){
+ 
+        String enteredUser = txtCatId.getText().trim();
+
+        try
+        {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
+
+            PreparedStatement st = connection.prepareStatement("SELECT* FROM bookcat_table WHERE cat_id='" + enteredUser + "'");
+            ResultSet r1=st.executeQuery();
+
+             if(r1.next()) 
+             {
+               checkBefore();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Entered category ID does not exist");
+             txtCatId.requestFocus();}
+         }
+
+         catch (SQLException | ClassNotFoundException e) 
+         {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+
+ }
+     
+     public void deleteFromComp() {                                        
+        
+        String returnString = txtCatId.getText();
+        
+            try {
+                String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+                Connection con2 = DriverManager.getConnection(url, "root", "libsystem@dmin");
+                statement = con2.createStatement();
+                String sql2 = "DELETE FROM bookcat_table WHERE cat_id='"+returnString+"'";
+                statement.execute(sql2);
+               
+                JOptionPane.showMessageDialog(null, "RECORD DELETED");
+                txtCatId.setText("");
+                txtUpCatName.setText("");
+                refreshListOnTitle();
+
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;

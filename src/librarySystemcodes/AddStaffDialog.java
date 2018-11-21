@@ -8,6 +8,8 @@ package librarySystemcodes;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -16,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author TimonBabz
  */
-public class AddStaffDialog extends javax.swing.JDialog {
+public final class AddStaffDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form AddStaffDialog
@@ -29,6 +31,7 @@ public class AddStaffDialog extends javax.swing.JDialog {
     public AddStaffDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        loadComboDept();
     }
 
     /**
@@ -50,11 +53,11 @@ public class AddStaffDialog extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txtLname = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtDept = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        comboDept = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Library Management System");
@@ -132,6 +135,8 @@ public class AddStaffDialog extends javax.swing.JDialog {
             }
         });
 
+        comboDept.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -149,10 +154,11 @@ public class AddStaffDialog extends javax.swing.JDialog {
                     .addComponent(jLabel4)
                     .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(txtDept, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(comboDept, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -173,8 +179,8 @@ public class AddStaffDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,8 +221,8 @@ public class AddStaffDialog extends javax.swing.JDialog {
         JOptionPane.showMessageDialog(null, "Please enter the staff First name");}
         if(txtLname.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Please enter the staff Last name");}
-        if(txtDept.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null, "Please enter Departemtn");}
+        if(comboDept.getSelectedItem().equals("default")){
+        JOptionPane.showMessageDialog(null, "Please select Department");}
         if(txtPhone.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Please enter the staff Phone number");}
         else{
@@ -228,7 +234,8 @@ public class AddStaffDialog extends javax.swing.JDialog {
             case JOptionPane.CLOSED_OPTION:
                 break;
             case JOptionPane.YES_OPTION:
-        addStaff();}
+        addStaff();
+        updateSubId();}
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -236,7 +243,7 @@ public class AddStaffDialog extends javax.swing.JDialog {
         txtId.setText("");
         txtFname.setText("");
         txtLname.setText("");
-        txtDept.setText("");
+        comboDept.setSelectedItem("default");
         txtPhone.setText("");
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -297,7 +304,7 @@ public class AddStaffDialog extends javax.swing.JDialog {
         String idnumber = txtId.getText();
         String fname = txtFname.getText().toUpperCase();
         String lname = txtLname.getText().toUpperCase();
-        String dept = txtDept.getText().toUpperCase();
+        String dept = (String) comboDept.getSelectedItem();
         String phoneNo = txtPhone.getText();
         
                 try {
@@ -322,7 +329,7 @@ public class AddStaffDialog extends javax.swing.JDialog {
                     txtId.setText("");
                     txtFname.setText("");
                     txtLname.setText("");
-                    txtDept.setText("");
+                    comboDept.setSelectedItem("default");
                     txtPhone.setText("");
                     //status  = true;
 
@@ -343,10 +350,47 @@ public class AddStaffDialog extends javax.swing.JDialog {
                 }
         //end of if statement that validate the form
 }
+ public void loadComboDept(){
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection conn1 = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin")) {
+                PreparedStatement st = conn1.prepareStatement("SELECT dept_name FROM depart");
+                ResultSet rs = st.executeQuery();
+                while(rs.next()){
+                    comboDept.addItem(rs.getString("dept_name"));
+                }
+            }
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        } 
+}
+ 
+    public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE staff_db SET dep_id = (SELECT dept_id FROM depart WHERE staff_db.dept = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox comboDept;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,7 +399,6 @@ public class AddStaffDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLname;

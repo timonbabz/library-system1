@@ -784,7 +784,6 @@ public void deleteFromComp() {
             } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-        
     }
 
 public void checkBefore() {

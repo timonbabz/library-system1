@@ -609,7 +609,8 @@ public final class AddBookDialog extends javax.swing.JDialog {
             case JOptionPane.CLOSED_OPTION:
                 break;
             case JOptionPane.YES_OPTION:
-        addBookmethod();
+                addBookmethod();
+                updateSubId();
             }
         }
     }//GEN-LAST:event_btnAddBookActionPerformed
@@ -946,6 +947,25 @@ public void addBookmethod() {
             System.out.println("Error"+e);
         }    
 }
+  
+      public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE books_db SET sub_id = (SELECT cat_id FROM bookcat_table WHERE books_db.subject_category = bookcat_table.cat_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddBook;

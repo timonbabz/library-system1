@@ -433,11 +433,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelRecieve = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        btnRecieveBooks = new javax.swing.JButton();
-        btnCancelRecieve = new javax.swing.JButton();
-        txtShelf = new javax.swing.JTextField();
-        jLabel128 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         panelOne = new javax.swing.JPanel();
         txtBookIsbnRet = new javax.swing.JTextField();
@@ -462,6 +457,11 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtPenalties = new javax.swing.JTextField();
         txtStaffStudent = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        btnRecieveBooks = new javax.swing.JButton();
+        btnCancelRecieve = new javax.swing.JButton();
+        txtShelf = new javax.swing.JTextField();
+        jLabel128 = new javax.swing.JLabel();
         btnIndicator = new javax.swing.JButton();
         jLabel126 = new javax.swing.JLabel();
         jPanel51 = new javax.swing.JPanel();
@@ -566,7 +566,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         txtIdNo = new javax.swing.JTextField();
         txtFname = new javax.swing.JTextField();
         txtLname = new javax.swing.JTextField();
-        txtDept = new javax.swing.JTextField();
         txtUser = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         txtConfPass = new javax.swing.JPasswordField();
@@ -578,9 +577,9 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         btnAddUser = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btnCancelUSer = new javax.swing.JButton();
         colorCodeButton = new javax.swing.JButton();
-        btnIndicate = new javax.swing.JButton();
+        comboDept = new javax.swing.JComboBox();
         btnusersInfo = new javax.swing.JButton();
         btnUsersSessions = new javax.swing.JButton();
         btnAddNewUsers = new javax.swing.JButton();
@@ -855,7 +854,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         itemList = new javax.swing.JMenuItem();
         itemMaintain = new javax.swing.JMenuItem();
         itemDamaged = new javax.swing.JMenuItem();
-        menuSettings = new javax.swing.JMenu();
+        menuRefreshDb = new javax.swing.JMenu();
         itemStudentList = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         itemManageUsers = new javax.swing.JMenuItem();
@@ -863,6 +862,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         menuOther = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         itemCategory = new javax.swing.JMenuItem();
+        itemDept = new javax.swing.JMenuItem();
         itemcomp = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuItemGuide = new javax.swing.JMenuItem();
@@ -1306,7 +1306,7 @@ public final class LibraryHome extends javax.swing.JFrame {
         jLabel42.setText("Logged in as :");
 
         jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel79.setText("System version 2.2.5  © ");
+        jLabel79.setText("System version 2.2.6  © ");
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -2630,92 +2630,6 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     jPanel13.setBackground(new java.awt.Color(129, 186, 243));
 
-    jPanel14.setBackground(new java.awt.Color(129, 186, 243));
-    jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)));
-
-    btnRecieveBooks.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnRecieveBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookblack_16.png"))); // NOI18N
-    btnRecieveBooks.setText("Accept");
-    btnRecieveBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-    btnRecieveBooks.setContentAreaFilled(false);
-    btnRecieveBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    btnRecieveBooks.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookwhite_16.png"))); // NOI18N
-    btnRecieveBooks.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseEntered(java.awt.event.MouseEvent evt) {
-            btnRecieveBooksMouseEntered(evt);
-        }
-        public void mouseExited(java.awt.event.MouseEvent evt) {
-            btnRecieveBooksMouseExited(evt);
-        }
-    });
-    btnRecieveBooks.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnRecieveBooksActionPerformed(evt);
-        }
-    });
-
-    btnCancelRecieve.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnCancelRecieve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
-    btnCancelRecieve.setText("Cancel");
-    btnCancelRecieve.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-    btnCancelRecieve.setContentAreaFilled(false);
-    btnCancelRecieve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    btnCancelRecieve.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
-    btnCancelRecieve.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseEntered(java.awt.event.MouseEvent evt) {
-            btnCancelRecieveMouseEntered(evt);
-        }
-        public void mouseExited(java.awt.event.MouseEvent evt) {
-            btnCancelRecieveMouseExited(evt);
-        }
-    });
-    btnCancelRecieve.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnCancelRecieveActionPerformed(evt);
-        }
-    });
-
-    txtShelf.setEditable(false);
-    txtShelf.setBackground(new java.awt.Color(204, 255, 255));
-    txtShelf.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-
-    jLabel128.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jLabel128.setText("Return to shelf :");
-
-    javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-    jPanel14.setLayout(jPanel14Layout);
-    jPanel14Layout.setHorizontalGroup(
-        jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel14Layout.createSequentialGroup()
-            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel14Layout.createSequentialGroup()
-                    .addGap(52, 52, 52)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnRecieveBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                        .addComponent(btnCancelRecieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel14Layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel14Layout.createSequentialGroup()
-                            .addGap(38, 38, 38)
-                            .addComponent(jLabel128))
-                        .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addContainerGap(14, Short.MAX_VALUE))
-    );
-    jPanel14Layout.setVerticalGroup(
-        jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel14Layout.createSequentialGroup()
-            .addGap(23, 23, 23)
-            .addComponent(btnRecieveBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(btnCancelRecieve, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-            .addComponent(jLabel128)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(14, 14, 14))
-    );
-
     jPanel16.setBackground(new java.awt.Color(129, 186, 243));
     jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
@@ -2901,24 +2815,125 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGap(56, 56, 56))
     );
 
+    jPanel14.setBackground(new java.awt.Color(129, 186, 243));
+    jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 255)));
+
+    btnRecieveBooks.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnRecieveBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookblack_16.png"))); // NOI18N
+    btnRecieveBooks.setText("Accept");
+    btnRecieveBooks.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnRecieveBooks.setContentAreaFilled(false);
+    btnRecieveBooks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnRecieveBooks.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/acceptbookwhite_16.png"))); // NOI18N
+    btnRecieveBooks.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnRecieveBooksMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnRecieveBooksMouseExited(evt);
+        }
+    });
+    btnRecieveBooks.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnRecieveBooksActionPerformed(evt);
+        }
+    });
+
+    btnCancelRecieve.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnCancelRecieve.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
+    btnCancelRecieve.setText("Cancel");
+    btnCancelRecieve.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+    btnCancelRecieve.setContentAreaFilled(false);
+    btnCancelRecieve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnCancelRecieve.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
+    btnCancelRecieve.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseEntered(java.awt.event.MouseEvent evt) {
+            btnCancelRecieveMouseEntered(evt);
+        }
+        public void mouseExited(java.awt.event.MouseEvent evt) {
+            btnCancelRecieveMouseExited(evt);
+        }
+    });
+    btnCancelRecieve.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnCancelRecieveActionPerformed(evt);
+        }
+    });
+
+    txtShelf.setEditable(false);
+    txtShelf.setBackground(new java.awt.Color(204, 255, 255));
+    txtShelf.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+
+    jLabel128.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    jLabel128.setText("Return to shelf :");
+
+    javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+    jPanel14.setLayout(jPanel14Layout);
+    jPanel14Layout.setHorizontalGroup(
+        jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel14Layout.createSequentialGroup()
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(52, 52, 52)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnRecieveBooks, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addComponent(btnCancelRecieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(14, 14, 14)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel14Layout.createSequentialGroup()
+                            .addGap(38, 38, 38)
+                            .addComponent(jLabel128))
+                        .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addContainerGap(14, Short.MAX_VALUE))
+    );
+    jPanel14Layout.setVerticalGroup(
+        jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(jPanel14Layout.createSequentialGroup()
+            .addGap(23, 23, 23)
+            .addComponent(btnRecieveBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(btnCancelRecieve, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+            .addComponent(jLabel128)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtShelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(14, 14, 14))
+    );
+
+    btnIndicator.setBackground(new java.awt.Color(129, 186, 243));
+
     javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
     jPanel16.setLayout(jPanel16Layout);
     jPanel16Layout.setHorizontalGroup(
         jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-            .addContainerGap(128, Short.MAX_VALUE)
+        .addGroup(jPanel16Layout.createSequentialGroup()
+            .addContainerGap(20, Short.MAX_VALUE)
             .addComponent(panelOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(118, Short.MAX_VALUE))
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())))
     );
     jPanel16Layout.setVerticalGroup(
         jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-            .addContainerGap(49, Short.MAX_VALUE)
-            .addComponent(panelOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap())
+        .addGroup(jPanel16Layout.createSequentialGroup()
+            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(panelOne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel16Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(60, 60, 60)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap(33, Short.MAX_VALUE))
     );
-
-    btnIndicator.setBackground(new java.awt.Color(129, 186, 243));
 
     jLabel126.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newsysLogo.png"))); // NOI18N
 
@@ -2941,8 +2956,8 @@ public final class LibraryHome extends javax.swing.JFrame {
         jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel51Layout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(btnReceiveMultiple, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addContainerGap())
+            .addComponent(btnReceiveMultiple, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     jPanel51Layout.setVerticalGroup(
         jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2959,37 +2974,24 @@ public final class LibraryHome extends javax.swing.JFrame {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(71, 71, 71)
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(48, 48, 48))
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
-                    .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel51, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addContainerGap())))
+            .addGap(54, 54, 54)
+            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(65, 65, 65))
     );
     jPanel13Layout.setVerticalGroup(
         jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel13Layout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(7, 7, 7))
-                .addGroup(jPanel13Layout.createSequentialGroup()
-                    .addComponent(btnIndicator, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(44, 44, 44)
-                    .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(61, 61, 61)
-                    .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(20, 20, 20))))
+            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(7, 7, 7))
+        .addGroup(jPanel13Layout.createSequentialGroup()
+            .addGap(111, 111, 111)
+            .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel126, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(62, 62, 62))
     );
 
     javax.swing.GroupLayout panelRecieveLayout = new javax.swing.GroupLayout(panelRecieve);
@@ -3277,10 +3279,10 @@ public final class LibraryHome extends javax.swing.JFrame {
                     .addComponent(btnSearchList))
                 .addGroup(panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPrintList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAddBookList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPrintList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnExcelList, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -4153,7 +4155,7 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     panelHolderManageUsers.add(panelSessionLogs, "card2");
 
-    panelAddUsers.setBackground(new java.awt.Color(153, 153, 255));
+    panelAddUsers.setBackground(new java.awt.Color(129, 186, 243));
     panelAddUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
     txtIdNo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -4206,24 +4208,23 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     });
 
-    jButton13.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
-    jButton13.setText("Cancel");
-    jButton13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
-    jButton13.setContentAreaFilled(false);
-    jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    jButton13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
-    jButton13.addActionListener(new java.awt.event.ActionListener() {
+    btnCancelUSer.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnCancelUSer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelblack_16.png"))); // NOI18N
+    btnCancelUSer.setText("Cancel");
+    btnCancelUSer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+    btnCancelUSer.setContentAreaFilled(false);
+    btnCancelUSer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    btnCancelUSer.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Cancelred_16.png"))); // NOI18N
+    btnCancelUSer.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton13ActionPerformed(evt);
+            btnCancelUSerActionPerformed(evt);
         }
     });
 
     colorCodeButton.setBackground(new java.awt.Color(204, 204, 204));
     colorCodeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DoubleTick_16.png"))); // NOI18N
 
-    btnIndicate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Attention_16.png"))); // NOI18N
-    btnIndicate.setContentAreaFilled(false);
+    comboDept.setBackground(new java.awt.Color(255, 255, 255));
 
     javax.swing.GroupLayout panelAddUsersLayout = new javax.swing.GroupLayout(panelAddUsers);
     panelAddUsers.setLayout(panelAddUsersLayout);
@@ -4240,28 +4241,28 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addComponent(jLabel18))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelAddUsersLayout.createSequentialGroup()
-                    .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                .addComponent(txtDept, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                .addComponent(txtLname, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                .addComponent(txtFname, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
-                .addComponent(txtIdNo)
-                .addComponent(txtPass)
-                .addComponent(txtConfPass))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(btnIndicate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelAddUsersLayout.createSequentialGroup()
+                            .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancelUSer, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                        .addComponent(txtLname, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                        .addComponent(txtFname, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                        .addComponent(txtIdNo)
+                        .addComponent(txtPass)
+                        .addComponent(txtConfPass))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(colorCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap(220, Short.MAX_VALUE))
     );
     panelAddUsersLayout.setVerticalGroup(
         panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelAddUsersLayout.createSequentialGroup()
-            .addContainerGap(136, Short.MAX_VALUE)
+            .addContainerGap(137, Short.MAX_VALUE)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtIdNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(jLabel10))
@@ -4275,8 +4276,8 @@ public final class LibraryHome extends javax.swing.JFrame {
                 .addComponent(jLabel14))
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(txtDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel15))
+                .addComponent(jLabel15)
+                .addComponent(comboDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4290,13 +4291,12 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(txtConfPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel18)
-                .addComponent(btnIndicate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel18))
             .addGap(68, 68, 68)
             .addGroup(panelAddUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(btnCancelUSer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(118, Short.MAX_VALUE))
     );
 
     panelHolderManageUsers.add(panelAddUsers, "card2");
@@ -4429,7 +4429,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             .addComponent(btnPassReset, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(363, 363, 363)
             .addComponent(jPanel50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap(15, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout panelManageUsersLayout = new javax.swing.GroupLayout(panelManageUsers);
@@ -4940,16 +4940,17 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(panelStudentsLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(txtStdIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSearchStdID)
-                .addComponent(jLabel60)
-                .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel109)
-                .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(btnSearchFormView)
-                .addComponent(btnRefreshStdTablr, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(btnRefreshStdTablr, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStdIdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchStdID)
+                    .addComponent(jLabel60)
+                    .addComponent(comboFilterStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel109)
+                    .addComponent(txtFormBoro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchFormView)))
             .addGap(4, 4, 4)
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
@@ -7480,8 +7481,8 @@ public final class LibraryHome extends javax.swing.JFrame {
 
     mainMenuBar.add(menuItemEdit);
 
-    menuSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Settings_16.png"))); // NOI18N
-    menuSettings.setText("Settings");
+    menuRefreshDb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Settings_16.png"))); // NOI18N
+    menuRefreshDb.setText("Settings");
 
     itemStudentList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Students_16.png"))); // NOI18N
     itemStudentList.setText("Student Register");
@@ -7490,7 +7491,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             itemStudentListActionPerformed(evt);
         }
     });
-    menuSettings.add(itemStudentList);
+    menuRefreshDb.add(itemStudentList);
 
     jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Teacher_Hiring_16.png"))); // NOI18N
     jMenuItem6.setText("Staff Register");
@@ -7499,7 +7500,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             jMenuItem6ActionPerformed(evt);
         }
     });
-    menuSettings.add(jMenuItem6);
+    menuRefreshDb.add(jMenuItem6);
 
     itemManageUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.SHIFT_MASK));
     itemManageUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/usersmanage_16.png"))); // NOI18N
@@ -7509,7 +7510,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             itemManageUsersActionPerformed(evt);
         }
     });
-    menuSettings.add(itemManageUsers);
+    menuRefreshDb.add(itemManageUsers);
 
     itemsSystems.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
     itemsSystems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/system_16.png"))); // NOI18N
@@ -7519,7 +7520,7 @@ public final class LibraryHome extends javax.swing.JFrame {
             itemsSystemsActionPerformed(evt);
         }
     });
-    menuSettings.add(itemsSystems);
+    menuRefreshDb.add(itemsSystems);
 
     menuOther.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Addblack_16.png"))); // NOI18N
     menuOther.setText("Other Settings");
@@ -7540,6 +7541,14 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
     menuOther.add(itemCategory);
 
+    itemDept.setText("Department names");
+    itemDept.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            itemDeptActionPerformed(evt);
+        }
+    });
+    menuOther.add(itemDept);
+
     itemcomp.setText("Company names");
     itemcomp.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -7548,9 +7557,9 @@ public final class LibraryHome extends javax.swing.JFrame {
     });
     menuOther.add(itemcomp);
 
-    menuSettings.add(menuOther);
+    menuRefreshDb.add(menuOther);
 
-    mainMenuBar.add(menuSettings);
+    mainMenuBar.add(menuRefreshDb);
 
     menuHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Help_16.png"))); // NOI18N
     menuHelp.setText("Help");
@@ -7680,23 +7689,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         holderPanel.revalidate();
         refreshBooksBorrwed();
     }//GEN-LAST:event_itemBooksIssuedActionPerformed
-
-    private void itemsSystemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsSystemsActionPerformed
-        SettingsDialog settingsDialog = new SettingsDialog(this, true);
-        settingsDialog.setVisible(true);
-    }//GEN-LAST:event_itemsSystemsActionPerformed
-
-    private void itemManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemManageUsersActionPerformed
-        holderPanel.removeAll();
-        holderPanel.repaint();
-        holderPanel.revalidate();
-
-        holderPanel.add(panelManageUsers);
-        holderPanel.repaint();
-        holderPanel.revalidate();
-        refreshSessions();
-        refreshUsers();
-    }//GEN-LAST:event_itemManageUsersActionPerformed
 
     private void menuItemProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemProfileActionPerformed
         ProfieDialog profileDialog = new ProfieDialog(this, true);
@@ -7940,12 +7932,14 @@ public final class LibraryHome extends javax.swing.JFrame {
         panelHolderManageUsers.add(panelAddUsers);
         panelHolderManageUsers.repaint();
         panelHolderManageUsers.revalidate();
+        loadComboDept();
     }//GEN-LAST:event_btnAddNewUsersActionPerformed
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         if(txtUser.getText().equalsIgnoreCase("support")){
         JOptionPane.showMessageDialog(null, "The username entered is not allowed");}
-        else{CheckUsernameExists();}
+        else{CheckUsernameExists();
+            updateUserdEPTiD();}
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void btnSearchBookDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookDetailsActionPerformed
@@ -7970,12 +7964,14 @@ public final class LibraryHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelRecieveActionPerformed
 
     private void btnRecieveBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecieveBooksActionPerformed
-        if(lblUserId.getText().equalsIgnoreCase("Support Team")){
-        JOptionPane.showMessageDialog(null, "'Support Team' cannot receive books, please log in with a different username");}
-        else{
         String studentORstaff = txtStaffStudent.getText();
         String penns = txtPenalties.getText();
         String condy = (String) txtAreaCondition.getSelectedItem();
+        if(lblUserId.getText().equalsIgnoreCase("Support Team")){
+        JOptionPane.showMessageDialog(null, "'Support Team' cannot receive books, please log in with a different username");}
+        else if(textFieldBookId.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null, "Please enter book ID of the book to be received back");}
+        else{
         if (penns.isEmpty())
         {JOptionPane.showMessageDialog(null, "Update penalties, if none, indicate 'NONE'");}
         else if(txtStaffStudent.getText().equalsIgnoreCase("Maintenance")){
@@ -9414,34 +9410,10 @@ public final class LibraryHome extends javax.swing.JFrame {
        btnImport.setForeground(Color.BLACK);
     }//GEN-LAST:event_btnImportMouseExited
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        holderPanel.removeAll();
-        holderPanel.repaint();
-        holderPanel.revalidate();
-
-        holderPanel.add(panelStaffList);
-        holderPanel.repaint();
-        holderPanel.revalidate();
-        refreshStaffList();
-        numberOfStaff();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void btnExcelImportStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelImportStdActionPerformed
         DialogStudentImport importstd = new DialogStudentImport(null, true);
         importstd.setVisible(true);
     }//GEN-LAST:event_btnExcelImportStdActionPerformed
-
-    private void itemStudentListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStudentListActionPerformed
-        holderPanel.removeAll();
-        holderPanel.repaint();
-        holderPanel.revalidate();
-
-        holderPanel.add(panelStudentList);
-        holderPanel.repaint();
-        holderPanel.revalidate();
-        refreshstdListModeltitle();
-        numberOfStudentsRef();
-    }//GEN-LAST:event_itemStudentListActionPerformed
 
     private void btnRefreshStdDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStdDetailsActionPerformed
         refreshstdListModeltitle();
@@ -9674,16 +9646,6 @@ public final class LibraryHome extends javax.swing.JFrame {
         writeDamagedListExcel();}
     }//GEN-LAST:event_btnDamageToExcelActionPerformed
 
-    private void itemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCategoryActionPerformed
-        DialogOther settingsDialog = new DialogOther(this, true);
-        settingsDialog.setVisible(true);
-    }//GEN-LAST:event_itemCategoryActionPerformed
-
-    private void itemcompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemcompActionPerformed
-        DialogSetComp settingsDialog = new DialogSetComp(this, true);
-        settingsDialog.setVisible(true);
-    }//GEN-LAST:event_itemcompActionPerformed
-
     private void comboCompanyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboCompanyItemStateChanged
         retrievecatDetails();
     }//GEN-LAST:event_comboCompanyItemStateChanged
@@ -9751,11 +9713,6 @@ public final class LibraryHome extends javax.swing.JFrame {
     private void textFieldSysIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textFieldSysIdMouseClicked
         JOptionPane.showMessageDialog(null, "This cannot be edited");
     }//GEN-LAST:event_textFieldSysIdMouseClicked
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        DialogForm formDialog = new DialogForm(this, true);
-        formDialog.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void txtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPassFocusGained
         if(txtUser.getText().equalsIgnoreCase("support")){
@@ -10113,15 +10070,15 @@ public final class LibraryHome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtListBooksKeyTyped
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void btnCancelUSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelUSerActionPerformed
         txtIdNo.setText("");
         txtFname.setText("");
         txtLname.setText("");
         txtUser.setText("");
-        txtDept.setText("");
+        comboDept.setSelectedItem("default");
         txtPass.setText("");
         txtConfPass.setText("");
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_btnCancelUSerActionPerformed
 
     private void comboStockTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboStockTypeItemStateChanged
         String itemSelect = (String) comboStockType.getSelectedItem();
@@ -10390,6 +10347,67 @@ public final class LibraryHome extends javax.swing.JFrame {
                 deleteFromStaff();
             }
     }//GEN-LAST:event_btnDeleteStaffActionPerformed
+
+    private void itemcompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemcompActionPerformed
+        DialogSetComp settingsDialog = new DialogSetComp(this, true);
+        settingsDialog.setVisible(true);
+    }//GEN-LAST:event_itemcompActionPerformed
+
+    private void itemDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeptActionPerformed
+        DialogDepart deptDialog = new DialogDepart(this, true);
+        deptDialog.setVisible(true);
+    }//GEN-LAST:event_itemDeptActionPerformed
+
+    private void itemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCategoryActionPerformed
+        DialogOther settingsDialog = new DialogOther(this, true);
+        settingsDialog.setVisible(true);
+    }//GEN-LAST:event_itemCategoryActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        DialogForm formDialog = new DialogForm(this, true);
+        formDialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void itemsSystemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemsSystemsActionPerformed
+        SettingsDialog settingsDialog = new SettingsDialog(this, true);
+        settingsDialog.setVisible(true);
+    }//GEN-LAST:event_itemsSystemsActionPerformed
+
+    private void itemManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemManageUsersActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelManageUsers);
+        holderPanel.repaint();
+        holderPanel.revalidate();
+        refreshSessions();
+        refreshUsers();
+    }//GEN-LAST:event_itemManageUsersActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelStaffList);
+        holderPanel.repaint();
+        holderPanel.revalidate();
+        refreshStaffList();
+        numberOfStaff();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void itemStudentListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStudentListActionPerformed
+        holderPanel.removeAll();
+        holderPanel.repaint();
+        holderPanel.revalidate();
+
+        holderPanel.add(panelStudentList);
+        holderPanel.repaint();
+        holderPanel.revalidate();
+        refreshstdListModeltitle();
+        numberOfStudentsRef();
+    }//GEN-LAST:event_itemStudentListActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -10776,7 +10794,7 @@ public void permissionCheck(){
 
     if( null != LibrarySignIn.permissionLabel)switch (LibrarySignIn.permissionLabel) {
             case "General user":
-                menuSettings.setEnabled(false);
+                menuRefreshDb.setEnabled(false);
                 menuItemView.setEnabled(false);
                 itemRecieve.setEnabled(false);
                 menuItemEdit.setEnabled(false);
@@ -10795,7 +10813,7 @@ public void permissionCheck(){
                 break;
             case "User":
                 menuItemEdit.setEnabled(false);
-                menuSettings.setEnabled(false);
+                menuRefreshDb.setEnabled(false);
                 itemList.setEnabled(false);
                 itemsSystems.setEnabled(false);
                 itemManageUsers.setEnabled(false);
@@ -10805,7 +10823,7 @@ public void permissionCheck(){
                 btnPassReset.setEnabled(false);
                 break;
             case "Block user":
-                menuSettings.setEnabled(false);
+                menuRefreshDb.setEnabled(false);
                 menuItemMagz.setEnabled(false);
                 btnMagzShortcut.setEnabled(false);
                 btnSchedulesShortCut.setEnabled(false);
@@ -11061,7 +11079,7 @@ public void DisplayBooksList() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11107,7 +11125,7 @@ public void DisplayListMaintain() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11155,7 +11173,7 @@ public void DisplayListMainFilter2() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+               // JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11202,7 +11220,7 @@ public void DisplayListMainFilter3() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11249,7 +11267,7 @@ public void DisplayListMainFilter4() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11295,7 +11313,7 @@ public void DisplayDamaged() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11343,7 +11361,7 @@ public void DisplayDamaged2() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11390,7 +11408,7 @@ public void displayBooksListFilter() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11437,7 +11455,7 @@ public void displayBooksListFilterTitle() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11484,7 +11502,7 @@ public void displayBooksListFilterId() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11528,7 +11546,7 @@ public void DisplayBooksStock() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11574,7 +11592,7 @@ public void DisplayBooksStockShelf() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11620,7 +11638,7 @@ public void filterBooksStockCat() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11666,7 +11684,7 @@ public void filterBooksStocktitle() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11712,7 +11730,7 @@ public void filterBooksStockLoan() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11752,7 +11770,7 @@ public void displayBorrowersList() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -11965,7 +11983,7 @@ public void searchBooksShortLoanItem() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "Books in selected category not found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Books in selected category not found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12011,7 +12029,7 @@ public void searchBooksShortLoanId(){
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "Books in selected category not found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Books in selected category not found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12504,7 +12522,7 @@ public void searchBooksRepairCategory() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12550,7 +12568,7 @@ public void searchBooksIssueStaffTitle() {
             }
 
             if (i < 1) {
-                JOptionPane.showMessageDialog(null, "No record found!", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No record found!", "Error", JOptionPane.ERROR_MESSAGE);
             }
          
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
@@ -12703,7 +12721,7 @@ public void issueToStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form,stream,"
+                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form,stream_name,"
                         + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
@@ -12792,7 +12810,7 @@ public void issueShortToStudents() {
                 statement = con.createStatement();
 
                 //---------SQL Insert into student db------------
-                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, stream "
+                String sql2 = "INSERT INTO student_db " + "(adm_no, std_fname, std_lname, form, stream_name "
                         + "date_borrowed, date_due,book_id,bklib_id,book_isbn,book_title,issued_by_id,issued_by_name)"
                             + "VALUES ('" + stdntID + "','"
                             + stdntFname + "','"
@@ -13202,7 +13220,7 @@ public void retrieveBookDetails() {
                 
             }
             if (emptyRs) {
-                JOptionPane.showMessageDialog(null, "No Record of entered book ID Found in borrowers' list");
+                //JOptionPane.showMessageDialog(null, "No Record of entered book ID Found in borrowers' list");
                 textFieldBookId.setText("");
                 btnIndicator.setBackground(Color.red);
             }
@@ -13385,7 +13403,7 @@ public void retrieveStudentDetails() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtStdntAmNo.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream_name FROM student_list WHERE adm_no='"+ txtStdntAmNo.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -13397,7 +13415,7 @@ public void retrieveStudentDetails() {
                 txtStdntLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream").toUpperCase();
+                String class_stream = rsRetStd.getString("stream_name").toUpperCase();
                 txtStdntClass.setText(class_std);
                 txtStreamLong.setText(class_stream);
 
@@ -13413,7 +13431,7 @@ public void retrieveStudentDetails() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13424,7 +13442,7 @@ public void retrieveStudentDetailsShort() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtStaffstdId.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream_name FROM student_list WHERE adm_no='"+ txtStaffstdId.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -13436,7 +13454,7 @@ public void retrieveStudentDetailsShort() {
                 txtShortLname.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream").toUpperCase();
+                String class_stream = rsRetStd.getString("stream_name").toUpperCase();
                 txtShortClass.setText(class_std);
                 txtStreamShort.setText(class_stream);
 
@@ -13459,7 +13477,7 @@ public void retrieveStudentDetailsShort() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13471,7 +13489,7 @@ public void retrieveStudentDetailsMagz() {
             
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream FROM student_list WHERE adm_no='"+ txtMagzNameID.getText()+"' AND status='"+ statusStd +"'");
+            PreparedStatement st = con.prepareStatement("SELECT std_fname, std_lname, form,stream_name FROM student_list WHERE adm_no='"+ txtMagzNameID.getText()+"' AND status='"+ statusStd +"'");
             ResultSet rsRetStd = st.executeQuery();
             boolean emptyRs = true;
             if (rsRetStd.next()) {
@@ -13483,7 +13501,7 @@ public void retrieveStudentDetailsMagz() {
                 txtMagzName2.setText(lname_std);
                 
                 String class_std = rsRetStd.getString("form");
-                String class_stream = rsRetStd.getString("stream").toUpperCase();
+                String class_stream = rsRetStd.getString("stream_name").toUpperCase();
                 txtMagzClass.setText(class_std);
                 txtStreamMags.setText(class_stream);
 
@@ -13502,7 +13520,7 @@ public void retrieveStudentDetailsMagz() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13543,7 +13561,7 @@ public void retrieveStaffDetails() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13586,7 +13604,7 @@ public void retrieveStaffDetailsMagz() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13633,7 +13651,7 @@ public void retrieveStaffDetailsShort() {
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE); 
         }
         
     }
@@ -13671,7 +13689,7 @@ public Boolean checkInfoInput(){
             String userFname = txtFname.getText().toUpperCase().trim();
             String userLname = txtLname.getText().toUpperCase().trim();
             String username = txtUser.getText().trim();
-            String deptName = txtDept.getText().toUpperCase().trim();
+            String deptName = (String) comboDept.getSelectedItem();
             String password = new String(txtPass.getPassword());
             String confPassword = new String(txtConfPass.getPassword());
             
@@ -13690,9 +13708,8 @@ public Boolean checkInfoInput(){
             txtLname.requestFocus();
             return false;}
             
-            else if(deptName.isEmpty()){
-            JOptionPane.showMessageDialog(null, "enter your department name");
-            txtDept.requestFocus();
+            else if(deptName.equalsIgnoreCase("default")){
+            JOptionPane.showMessageDialog(null, "select department name from dropdown");
             return false;}
             
             else if(username.isEmpty()){
@@ -13726,7 +13743,7 @@ public void addUserMethod(){
             String userFname = txtFname.getText().toUpperCase().trim();
             String userLname = txtLname.getText().toUpperCase().trim();
             String username = txtUser.getText().trim();
-            String deptName = txtDept.getText().toUpperCase().trim();
+            String deptName = (String) comboDept.getSelectedItem();
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -13753,7 +13770,7 @@ public void addUserMethod(){
                 txtFname.setText("");
                 txtLname.setText("");
                 txtUser.setText("");
-                txtDept.setText("");
+                comboDept.setSelectedItem("default");
                 txtPass.setText("");
                 txtConfPass.setText("");
                 }
@@ -13916,12 +13933,12 @@ public void searchUser() {
                 }
 
                 if (i < 1) {
-                    JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                   // JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
                 }else if(x.equals("")){JOptionPane.showMessageDialog(null, "Enter Employees ID to search");}
              
             } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
                 // System.out.println(rt);
-                JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -14419,7 +14436,7 @@ public void retrieveBookDetailsLost() {
                 
             }
             if (emptyRs) {
-                JOptionPane.showMessageDialog(null, "No Record of entered book ID Found in borrowers' list");
+                //JOptionPane.showMessageDialog(null, "No Record of entered book ID Found in borrowers' list");
                 textFieldBookId.setText("");
             }
             
@@ -14549,7 +14566,7 @@ public void studentTable() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream_name,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -14559,7 +14576,7 @@ public void studentTable() {
                 stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStream = staffRs.getString("stream").toUpperCase();
+                String formStream = staffRs.getString("stream_name").toUpperCase();
                 stdForm = formNo+" "+formStream;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14598,7 +14615,7 @@ public void filterStudentTable() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream_name,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE returned='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -14608,7 +14625,7 @@ public void filterStudentTable() {
                 stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream").toUpperCase();
+                String formStr = staffRs.getString("stream_name").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14647,7 +14664,7 @@ public void filterStudentForm() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE form='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream_name,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE form='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -14657,7 +14674,7 @@ public void filterStudentForm() {
                 stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream").toUpperCase();
+                String formStr = staffRs.getString("stream_name").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14696,7 +14713,7 @@ public void filterStudentTableID() {
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
+            PreparedStatement st = con.prepareStatement("SELECT  adm_no,std_fname,std_lname,form,stream_name,date_borrowed,bklib_id,book_title,returned,issued_by_name,received_by FROM student_db WHERE adm_no='"+ itemSelect +"'");
             ResultSet staffRs = st.executeQuery();
             
             int i = 0;
@@ -14706,7 +14723,7 @@ public void filterStudentTableID() {
                 stdLname = staffRs.getString("std_lname").toUpperCase();
                 String namelist = stdFname+" "+stdLname;
                 String formNo = staffRs.getString("form");
-                String formStr = staffRs.getString("stream").toUpperCase();
+                String formStr = staffRs.getString("stream_name").toUpperCase();
                 stdForm = formNo+" "+formStr;
                 stdBookId = staffRs.getString("bklib_id");
                 stdBookTitle = staffRs.getString("book_title");
@@ -14887,7 +14904,7 @@ public void filterStaffTableID(){
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
  
@@ -14906,7 +14923,7 @@ public void filterStaffTableID(){
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
  
@@ -14925,7 +14942,7 @@ public void filterStaffTableID(){
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
  
@@ -14944,7 +14961,7 @@ public void filterStaffTableID(){
             
         } catch (ClassNotFoundException | SQLException | HeadlessException rt) {
             // System.out.println(rt);
-            JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "No Record Found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
  
@@ -15010,7 +15027,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream, status FROM student_list WHERE status ='Active'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream_name, status FROM student_list WHERE status ='Active'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15019,7 +15036,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String streamName = listRs.getString("stream").toUpperCase();
+                String streamName = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+streamName;
                 stdStatus = listRs.getString("status");
 
@@ -15049,7 +15066,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream, status FROM student_list");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream_name, status FROM student_list");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15058,7 +15075,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String streamName = listRs.getString("stream").toUpperCase();
+                String streamName = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+streamName;
                 stdStatus = listRs.getString("status");
 
@@ -15089,7 +15106,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE form ='"+ formSelected +"'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream_name, status FROM student_list WHERE form ='"+ formSelected +"'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15098,7 +15115,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream").toUpperCase();
+                String formStr = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -15130,7 +15147,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE adm_no ='"+ idSelected +"'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream_name, status FROM student_list WHERE adm_no ='"+ idSelected +"'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15139,7 +15156,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream").toUpperCase();
+                String formStr = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -15171,7 +15188,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream, status FROM student_list WHERE std_fname LIKE '"+ idSelected +"%'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form, stream_name, status FROM student_list WHERE std_fname LIKE '"+ idSelected +"%'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15180,7 +15197,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream").toUpperCase();
+                String formStr = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -15212,7 +15229,7 @@ public void filterStaffTableID(){
 
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
-            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream, status FROM student_list WHERE form = '"+ formEntered +"' AND stream LIKE '"+ streamSelected +"%'");
+            PreparedStatement st = con.prepareStatement("SELECT adm_no, std_fname, std_lname, form,stream_name, status FROM student_list WHERE form = '"+ formEntered +"' AND stream_name LIKE '"+ streamSelected +"%'");
             ResultSet listRs = st.executeQuery();
 
             int i = 0;
@@ -15221,7 +15238,7 @@ public void filterStaffTableID(){
                 stdFnameList = listRs.getString("std_fname").toUpperCase();
                 stdLnameList = listRs.getString("std_lname").toUpperCase();
                 String formNo = listRs.getString("form");
-                String formStr = listRs.getString("stream").toUpperCase();
+                String formStr = listRs.getString("stream_name").toUpperCase();
                 stdFormList = formNo+" "+formStr;
                 stdStatus = listRs.getString("status");
 
@@ -15497,7 +15514,7 @@ public void numberOfStudentsForStr(){
     try{
         Class.forName("com.mysql.jdbc.Driver");
         con = DriverManager.getConnection("jdbc:mysql://localhost/libdb?useSSL = false", "root", "libsystem@dmin");
-        PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no) AS stdcount FROM student_list WHERE stream ='"+ studentStream +"' AND form='"+ studentForm +"'");
+        PreparedStatement os = con.prepareStatement("SELECT COUNT(adm_no) AS stdcount FROM student_list WHERE stream_name ='"+ studentStream +"' AND form='"+ studentForm +"'");
         ResultSet rsCs = os.executeQuery();
         
         int i = 0;
@@ -15844,7 +15861,7 @@ public void maintenanceTable(){
             //System.out.println("Error"+e);
         }    
 }
-
+  
 public void loadcombocompany() {
     try
         {
@@ -16087,6 +16104,43 @@ public void DisplayBooksComboCount2(){
 
 }
 
+public void loadComboDept(){
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/libdb", "root", "libsystem@dmin");
+            PreparedStatement st = con.prepareStatement("SELECT dept_name FROM depart");
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){                            
+                comboDept.addItem(rs.getString("dept_name"));
+                }
+            con.close();
+            }
+        catch(Exception e)
+        {
+            //System.out.println("Error"+e);
+        } 
+}
+
+public void updateUserdEPTiD(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser ChooserNotes;
     private com.toedter.calendar.JDateChooser DateBorrowed;
@@ -16113,6 +16167,7 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JButton btnCancelRecieve;
     private javax.swing.JButton btnCancelSch;
     private javax.swing.JButton btnCancelShort;
+    private javax.swing.JButton btnCancelUSer;
     private javax.swing.JButton btnCreateNotes;
     private javax.swing.JButton btnCreateSch;
     private javax.swing.JButton btnDamageToExcel;
@@ -16131,7 +16186,6 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JButton btnExportTtoExcel;
     private javax.swing.JButton btnFilterStaffId;
     private javax.swing.JButton btnImport;
-    private javax.swing.JButton btnIndicate;
     private javax.swing.JButton btnIndicator;
     private javax.swing.JButton btnInfoDialog;
     private javax.swing.JButton btnIsssueStaff;
@@ -16217,6 +16271,7 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JButton colorCodeButton;
     private javax.swing.JComboBox<String> comboBoxList;
     private javax.swing.JComboBox comboCompany;
+    private javax.swing.JComboBox comboDept;
     private javax.swing.JComboBox<String> comboFiletStaff;
     private javax.swing.JComboBox<String> comboFilter;
     private javax.swing.JComboBox<String> comboFilterLost;
@@ -16239,6 +16294,7 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JMenuItem itemBooksIssued;
     private javax.swing.JMenuItem itemCategory;
     private javax.swing.JMenuItem itemDamaged;
+    private javax.swing.JMenuItem itemDept;
     private javax.swing.JMenuItem itemHome;
     private javax.swing.JMenu itemIssue;
     private javax.swing.JMenuItem itemList;
@@ -16254,7 +16310,6 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JMenuItem itemcomp;
     private javax.swing.JMenuItem itemsSystems;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -16519,7 +16574,7 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JMenuItem menuItemProfile;
     private javax.swing.JMenu menuItemView;
     private javax.swing.JMenu menuOther;
-    private javax.swing.JMenu menuSettings;
+    private javax.swing.JMenu menuRefreshDb;
     private javax.swing.JPanel panelAddUsers;
     private javax.swing.JPanel panelBooksIssued;
     private javax.swing.JPanel panelBorrowers;
@@ -16600,7 +16655,6 @@ public void DisplayBooksComboCount2(){
     private javax.swing.JTextField txtCountStock;
     private javax.swing.JTextField txtCountstudent;
     private javax.swing.JTextField txtDateDue;
-    private javax.swing.JTextField txtDept;
     private javax.swing.JTextField txtFname;
     private javax.swing.JTextField txtFnameLost;
     private javax.swing.JTextField txtFormBoro;

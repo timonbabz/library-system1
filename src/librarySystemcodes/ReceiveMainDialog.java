@@ -109,7 +109,6 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tableReceiveDam);
 
         comboName.setBackground(new java.awt.Color(255, 255, 255));
-        comboName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
         comboName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 comboNameItemStateChanged(evt);
@@ -297,7 +296,8 @@ public final class ReceiveMainDialog extends javax.swing.JDialog {
     private void comboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboNameItemStateChanged
         String textItem = (String) comboName.getSelectedItem();
         if(textItem.equalsIgnoreCase("default")){
-        refreshListOnT();}
+        refreshListOnT();
+        numberOf();}
         else{
         refreshListOnTitle();
         numberOfcompName();}

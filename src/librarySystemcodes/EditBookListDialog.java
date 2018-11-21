@@ -34,12 +34,14 @@ public final class EditBookListDialog extends javax.swing.JDialog {
         initComponents();
         loadcombo();
         
-    bookId.setText(LibraryHome.bookID1);
-    editIsbn.setText(LibraryHome.bookISBNList1);
-    editAuthor.setText(LibraryHome.authorNameList1);
-    editTitle.setText(LibraryHome.titleNameList1);
-    editPublisher.setText(LibraryHome.publisherList1);
-    editEdition.setText(LibraryHome.editionList1);
+        bookId.setText(LibraryHome.bookID1);
+        editIsbn.setText(LibraryHome.bookISBNList1);
+        editAuthor.setText(LibraryHome.authorNameList1);
+        editCategory.setSelectedItem(LibraryHome.categoryList1);
+        comboEditLoanType.setSelectedItem(LibraryHome.loanList1);
+        editTitle.setText(LibraryHome.titleNameList1);
+        editPublisher.setText(LibraryHome.publisherList1);
+        editEdition.setText(LibraryHome.editionList1);
     }
 
     /**
@@ -333,8 +335,10 @@ public final class EditBookListDialog extends javax.swing.JDialog {
         String conditionText = (String) comboCondition.getSelectedItem();
         if (conditionText.equals("set")){
         updateBookDetails();
+        updateSubId();
         }else{
-        updateForceCondition();}
+        updateForceCondition();
+        updateSubId();}
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -562,6 +566,25 @@ public final class EditBookListDialog extends javax.swing.JDialog {
             //System.out.println("Error"+e);
         }    
 }
+   
+         public void updateSubId(){
+        
+            try {
+            String url = "jdbc:mysql://localhost/libdb?useSSL = false";
+            Connection conn;
+            conn = DriverManager.getConnection(url, "root", "libsystem@dmin");
+            //UPDATE users_db SET dep_id = (SELECT dept_id FROM depart WHERE users_db.department = depart.dept_name)
+            //--------update users db-----------
+            String sql2 = "UPDATE books_db SET sub_id = (SELECT cat_id FROM bookcat_table WHERE books_db.subject_category = bookcat_table.cat_name)";
+            
+            PreparedStatement pst2 = null;
+            pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookId;

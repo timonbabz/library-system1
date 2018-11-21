@@ -52,35 +52,37 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnUpdate" min="-2" pref="109" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnCancel" min="-2" pref="102" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="labelId" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtId" min="-2" pref="139" max="-2" attributes="0"/>
-                              <Component id="labelFname" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelDept" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPhoneNo" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                              <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtFname" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDept" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtStatus" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="labelUpdateStaus" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Component id="comboUpdate" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnUpdate" min="-2" pref="109" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnCancel" min="-2" pref="102" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="labelId" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtId" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="labelFname" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDept" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPhoneNo" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtFname" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtStatus" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="labelUpdateStaus" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="comboUpdate" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelLname" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtLname" min="-2" pref="142" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelLname" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtLname" min="-2" pref="142" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
+                      <Component id="comboDept" min="-2" pref="209" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
@@ -111,7 +113,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="labelDept" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtDept" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboDept" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelPhone" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -129,7 +131,7 @@
                       <Component id="btnCancel" pref="28" max="32767" attributes="0"/>
                       <Component id="btnUpdate" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -201,8 +203,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Department :"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtDept">
         </Component>
         <Component class="javax.swing.JLabel" name="labelPhone">
           <Properties>
@@ -297,6 +297,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboDept">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
